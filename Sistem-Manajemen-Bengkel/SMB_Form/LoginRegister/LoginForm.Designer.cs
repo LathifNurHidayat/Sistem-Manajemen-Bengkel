@@ -37,16 +37,15 @@
             label1 = new Label();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
             ButtonLogin = new Button();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            label2 = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -54,13 +53,13 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(LinkRegistrasi);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(ButtonLogin);
             panel1.Location = new Point(338, 34);
             panel1.Name = "panel1";
@@ -128,9 +127,9 @@
             // 
             pictureBox4.BackgroundImage = Properties.Resources.Gembok;
             pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(20, 199);
+            pictureBox4.Location = new Point(20, 203);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(34, 29);
+            pictureBox4.Size = new Size(25, 25);
             pictureBox4.TabIndex = 7;
             pictureBox4.TabStop = false;
             // 
@@ -138,21 +137,11 @@
             // 
             pictureBox3.BackgroundImage = Properties.Resources.User_Hitam;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(20, 107);
+            pictureBox3.Location = new Point(20, 111);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(34, 29);
+            pictureBox3.Size = new Size(25, 25);
             pictureBox3.TabIndex = 6;
             pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackgroundImage = Properties.Resources.Profile_Default;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(116, 14);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(62, 63);
-            pictureBox2.TabIndex = 4;
-            pictureBox2.TabStop = false;
             // 
             // ButtonLogin
             // 
@@ -189,6 +178,17 @@
             panel2.Size = new Size(655, 449);
             panel2.TabIndex = 2;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Corbel", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            label2.ForeColor = Color.FromArgb(82, 109, 130);
+            label2.Location = new Point(96, 38);
+            label2.Name = "label2";
+            label2.Size = new Size(97, 35);
+            label2.TabIndex = 9;
+            label2.Text = "LOGIN";
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -205,7 +205,6 @@
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
@@ -217,7 +216,6 @@
         private PictureBox pictureBox1;
         private Panel panel2;
         private Button ButtonLogin;
-        private PictureBox pictureBox2;
         private TextBox TextPassword;
         private TextBox TextUsername;
         private PictureBox pictureBox4;
@@ -226,5 +224,6 @@
         private LinkLabel LinkRegistrasi;
         private Panel panel4;
         private Panel panel3;
+        private Label label2;
     }
 }

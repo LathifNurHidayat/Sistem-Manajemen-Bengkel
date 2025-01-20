@@ -17,11 +17,10 @@
     <Folder Include="SMB_Backend\Model\" />
     <Folder Include="SMB_Backend\Dal\" />
     <Folder Include="SMB_Database\SQLScript\" />
-    <Folder Include="SMB_Form\Karyawan\" />
-    <Folder Include="SMB_Form\SuperAdmin\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
   </ItemGroup>
 
