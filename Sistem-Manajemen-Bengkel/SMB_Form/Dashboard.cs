@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Form.KaryawanForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form
 {
@@ -133,7 +134,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private void ButtonDashboard_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new MenuDashboardKaryawanForm());
+            ShowFormInPanel(new MenuDashboardAdminForm());
 
         }
     }

@@ -65,7 +65,5 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.KaryawanForm
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             }
         }
-
-
     }
 }
