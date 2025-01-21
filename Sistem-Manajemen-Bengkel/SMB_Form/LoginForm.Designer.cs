@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label2 = new Label();
             panel4 = new Panel();
             TextPassword = new TextBox();
             panel3 = new Panel();
@@ -40,7 +41,6 @@
             ButtonLogin = new Button();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
-            label2 = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -65,6 +65,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(286, 385);
             panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Corbel", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            label2.ForeColor = Color.FromArgb(82, 109, 130);
+            label2.Location = new Point(96, 38);
+            label2.Name = "label2";
+            label2.Size = new Size(97, 35);
+            label2.TabIndex = 9;
+            label2.Text = "LOGIN";
             // 
             // panel4
             // 
@@ -177,17 +188,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(655, 449);
             panel2.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Corbel", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label2.ForeColor = Color.FromArgb(82, 109, 130);
-            label2.Location = new Point(96, 38);
-            label2.Name = "label2";
-            label2.Size = new Size(97, 35);
-            label2.TabIndex = 9;
-            label2.Text = "LOGIN";
             // 
             // LoginForm
             // 

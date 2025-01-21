@@ -83,6 +83,16 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Booking {
+            get {
+                object obj = ResourceManager.GetObject("Booking", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Default_Profile {
             get {
                 object obj = ResourceManager.GetObject("Default Profile", resourceCulture);
@@ -146,6 +156,16 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         internal static System.Drawing.Bitmap Puas_Warna {
             get {
                 object obj = ResourceManager.GetObject("Puas_Warna", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Service {
+            get {
+                object obj = ResourceManager.GetObject("Service", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
