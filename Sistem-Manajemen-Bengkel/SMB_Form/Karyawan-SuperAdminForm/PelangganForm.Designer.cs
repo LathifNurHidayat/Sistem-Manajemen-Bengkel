@@ -45,6 +45,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(221, 230, 237);
             ClientSize = new Size(947, 527);
             Controls.Add(label7);
             Margin = new Padding(3, 2, 3, 2);

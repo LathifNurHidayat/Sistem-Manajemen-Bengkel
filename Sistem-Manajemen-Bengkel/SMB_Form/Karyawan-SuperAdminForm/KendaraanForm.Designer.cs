@@ -34,6 +34,7 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.BackColor = Color.FromArgb(221, 230, 237);
             label7.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label7.Location = new Point(10, 22);
             label7.Name = "label7";
@@ -45,6 +46,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(221, 230, 237);
             ClientSize = new Size(947, 527);
             Controls.Add(label7);
             Margin = new Padding(3, 2, 3, 2);
