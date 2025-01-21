@@ -28,17 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label7 = new Label();
             SuspendLayout();
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(10, 22);
+            label7.Name = "label7";
+            label7.Size = new Size(171, 33);
+            label7.TabIndex = 12;
+            label7.Text = "👥  Pelanggan";
             // 
             // PelangganForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1082, 703);
+            ClientSize = new Size(947, 527);
+            Controls.Add(label7);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PelangganForm";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label7;
     }
 }

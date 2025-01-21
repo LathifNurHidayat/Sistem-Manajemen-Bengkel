@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.KaryawanForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
 
@@ -87,48 +88,50 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private void ButtonLaporan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            ShowFormInPanel(new LaporanForm());
         }
 
         private void ButtonSparepart_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            ShowFormInPanel(new SparepartForm());
 
         }
 
         private void ButtonKaryawan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-
+            ShowFormInPanel(new SuperAdminForm.KaryawanForm());
         }
 
         private void ButtonKendaraan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-
+            ShowFormInPanel(new KendaraanForm());
         }
 
         private void ButtonPelanggan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-
+            ShowFormInPanel(new PelangganForm());
         }
 
         private void ButtonRiwayat_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-
+            ShowFormInPanel(new RiwayatForm());
         }
 
         private void ButtonServis_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-
+            ShowFormInPanel(new ServisForm());
         }
 
         private void ButtonBooking_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-
+            ShowFormInPanel(new BookingForm());
         }
 
         private void ButtonDashboard_Click(object? sender, EventArgs e)
