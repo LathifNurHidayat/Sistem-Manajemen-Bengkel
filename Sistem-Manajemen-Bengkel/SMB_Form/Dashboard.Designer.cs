@@ -269,9 +269,9 @@
             PanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelMain.BackColor = Color.Transparent;
             PanelMain.ForeColor = Color.Black;
-            PanelMain.Location = new Point(336, 20);
+            PanelMain.Location = new Point(329, 16);
             PanelMain.Name = "PanelMain";
-            PanelMain.Size = new Size(885, 853);
+            PanelMain.Size = new Size(900, 865);
             PanelMain.TabIndex = 4;
             // 
             // Dashboard

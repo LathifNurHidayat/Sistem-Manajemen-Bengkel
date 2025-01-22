@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Syncfusion.Windows.Forms;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 {
@@ -18,11 +19,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             InitializeComponent();
             RegisterControlEvent();
 
+             
         }
 
         private void RegisterControlEvent()
         {
             PanelBackground.Resize += PanelBackground_Resize;
+            PanelData.Resize += (s, e) => PanelData.Invalidate();
         }
 
         private void PanelBackground_Resize(object? sender, EventArgs e)
@@ -34,22 +37,25 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             PanelService.Width = childPanelWidth;
 
             PanelPelanggan.Location = new Point(15, PanelPelanggan.Location.Y);
-            CustomPanel(PanelPelanggan);
-            TextTotalPelanggan.Location = new Point((PanelPelanggan.Width - TextTotalPelanggan.Width) / 2, TextTotalPelanggan.Location.Y);
+            LabelTotalPelanggan.Location = new Point((PanelPelanggan.Width - LabelTotalPelanggan.Width) / 2, LabelTotalPelanggan.Location.Y);
 
             PanelAntrean.Location = new Point(childPanelWidth + 30, PanelAntrean.Location.Y);
-            CustomPanel(PanelAntrean);
-            TextTotalBooking.Location = new Point((PanelAntrean.Width - TextTotalBooking.Width) / 2, TextTotalBooking.Location.Y);
+            LabelTotalBooking.Location = new Point((PanelAntrean.Width - LabelTotalBooking.Width) / 2, LabelTotalBooking.Location.Y);
 
             PanelService.Location = new Point(childPanelWidth * 2 + 45, PanelService.Location.Y);
+            LabelTotalService.Location = new Point((PanelService.Width - LabelTotalService.Width) / 2, LabelTotalService.Location.Y);
+
+            CustomPanel(PanelPelanggan);
+            CustomPanel(PanelAntrean);
             CustomPanel(PanelService);
-            TextTotalService.Location = new Point((PanelService.Width - TextTotalService.Width) / 2, TextTotalService.Location.Y);
+            CustomPanel(PanelBackground);
+             
         }
 
 
         private void CustomPanel(Panel panel)
         {
-            int cornerRadius = 20;
+            int cornerRadius = 10;
             GraphicsPath path = new GraphicsPath();
 
             path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); // kiri atas
@@ -58,6 +64,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             path.AddArc(0, panel.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); // kiri bawah
             path.CloseAllFigures();
 
+            panel.Region?.Dispose();
             panel.Region = new Region(path);
 
             using (Graphics g = panel.CreateGraphics())

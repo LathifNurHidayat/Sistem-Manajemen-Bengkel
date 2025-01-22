@@ -22,6 +22,9 @@
   <ItemGroup>
     <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
+    <PackageReference Include="Syncfusion.Chart.Windows" Version="28.1.41" />
+    <PackageReference Include="Syncfusion.SfDataGrid.WinForms" Version="28.1.41" />
+    <PackageReference Include="Syncfusion.Tools.Windows" Version="28.1.41" />
   </ItemGroup>
 
   <ItemGroup>
