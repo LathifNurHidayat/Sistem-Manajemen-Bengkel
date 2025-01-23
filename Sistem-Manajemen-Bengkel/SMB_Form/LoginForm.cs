@@ -8,16 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form
 {
     public partial class LoginForm : Form
     {
+        private readonly UserDal _userDal;
         public LoginForm()
         {
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
+            _userDal = new UserDal();
 
             CustomPanel(panel1);
         }
@@ -36,5 +41,21 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             panel.Region = new Region(path);
         }
 
+        private void ButtonLogin_Click(object sender, EventArgs e)
+        {
+            var data = new UserModel
+            {
+                username = TextUsername.Text.Trim(),
+                password = TextPassword.Text.Trim(),
+            };
+            if (_userDal.CekUser(data) == true)
+            {
+                MessageBox.Show("Login Berhasil");
+            }
+            else
+            {
+                MessageBox.Show("Akun tidak ada");
+            }
+        }
     }
 }

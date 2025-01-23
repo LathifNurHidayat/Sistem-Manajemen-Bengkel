@@ -30,8 +30,8 @@
         {
             GridListBooking = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             PanelBooking = new SMB_CustomTolbox.LathifPanel();
-            lathifButton1 = new SMB_CustomTolbox.LathifButton();
             label7 = new Label();
+            lathifButton1 = new SMB_CustomTolbox.LathifButton();
             ((System.ComponentModel.ISupportInitialize)GridListBooking).BeginInit();
             PanelBooking.SuspendLayout();
             SuspendLayout();
@@ -68,6 +68,17 @@
             PanelBooking.Size = new Size(1059, 679);
             PanelBooking.TabIndex = 14;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(5, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(219, 42);
+            label7.TabIndex = 16;
+            label7.Text = "🏍  Kendaraan";
+            // 
             // lathifButton1
             // 
             lathifButton1.BackColor = Color.MediumSlateBlue;
@@ -79,7 +90,7 @@
             lathifButton1.FlatStyle = FlatStyle.Flat;
             lathifButton1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             lathifButton1.ForeColor = Color.White;
-            lathifButton1.Location = new Point(12, 119);
+            lathifButton1.Location = new Point(25, 120);
             lathifButton1.Name = "lathifButton1";
             lathifButton1.Size = new Size(135, 45);
             lathifButton1.TabIndex = 15;
@@ -87,18 +98,7 @@
             lathifButton1.TextColor = Color.White;
             lathifButton1.UseVisualStyleBackColor = false;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(5, 15);
-            label7.Name = "label7";
-            label7.Size = new Size(183, 42);
-            label7.TabIndex = 16;
-            label7.Text = "📆  Booking";
-            // 
-            // BookingForm
+            // KendaraanForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -106,7 +106,7 @@
             ClientSize = new Size(1082, 703);
             Controls.Add(PanelBooking);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            Name = "BookingForm";
+            Name = "KendaraanForm";
             ((System.ComponentModel.ISupportInitialize)GridListBooking).EndInit();
             PanelBooking.ResumeLayout(false);
             PanelBooking.PerformLayout();

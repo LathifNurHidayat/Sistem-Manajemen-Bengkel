@@ -28,35 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label7 = new Label();
+            gradientPanelExt1 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
+            ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).BeginInit();
             SuspendLayout();
             // 
-            // label7
+            // gradientPanelExt1
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.FromArgb(221, 230, 237);
-            label7.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(10, 22);
-            label7.Name = "label7";
-            label7.Size = new Size(174, 33);
-            label7.TabIndex = 12;
-            label7.Text = "🔩  Sparepart";
+            gradientPanelExt1.BackColor = Color.DimGray;
+            gradientPanelExt1.Border = new Padding(5);
+            gradientPanelExt1.BorderColor = Color.Transparent;
+            gradientPanelExt1.BorderGap = 5;
+            gradientPanelExt1.BorderStyle = BorderStyle.None;
+            gradientPanelExt1.CornerRadius = 10;
+            gradientPanelExt1.Location = new Point(125, 106);
+            gradientPanelExt1.Name = "gradientPanelExt1";
+            gradientPanelExt1.Size = new Size(760, 138);
+            gradientPanelExt1.TabIndex = 0;
             // 
             // SparepartForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(947, 527);
-            Controls.Add(label7);
-            Margin = new Padding(3, 2, 3, 2);
+            ClientSize = new Size(1082, 703);
+            Controls.Add(gradientPanelExt1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "SparepartForm";
+            Text = " ";
+            ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label7;
+        private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt1;
     }
 }

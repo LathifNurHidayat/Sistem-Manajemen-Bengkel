@@ -52,7 +52,7 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources._3D_LoginNew;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(44, 51);
+            pictureBox1.Location = new Point(29, 94);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(271, 357);
             pictureBox1.TabIndex = 3;
@@ -60,6 +60,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BackColor = Color.White;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(panel4);
@@ -71,7 +72,7 @@
             panel1.Controls.Add(ButtonLogin);
             panel1.Location = new Point(336, 25);
             panel1.Name = "panel1";
-            panel1.Size = new Size(293, 400);
+            panel1.Size = new Size(293, 491);
             panel1.TabIndex = 2;
             // 
             // label2
@@ -126,7 +127,7 @@
             // LinkLogin
             // 
             LinkLogin.AutoSize = true;
-            LinkLogin.Location = new Point(209, 361);
+            LinkLogin.Location = new Point(209, 454);
             LinkLogin.Name = "LinkLogin";
             LinkLogin.Size = new Size(46, 20);
             LinkLogin.TabIndex = 4;
@@ -136,7 +137,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(36, 361);
+            label1.Location = new Point(36, 454);
             label1.Name = "label1";
             label1.Size = new Size(175, 20);
             label1.TabIndex = 8;
@@ -169,7 +170,7 @@
             ButtonLogin.FlatStyle = FlatStyle.Flat;
             ButtonLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonLogin.ForeColor = Color.White;
-            ButtonLogin.Location = new Point(17, 310);
+            ButtonLogin.Location = new Point(17, 403);
             ButtonLogin.Name = "ButtonLogin";
             ButtonLogin.Size = new Size(259, 45);
             ButtonLogin.TabIndex = 3;
@@ -181,7 +182,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(655, 449);
+            ClientSize = new Size(655, 540);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Name = "RegisterForm";

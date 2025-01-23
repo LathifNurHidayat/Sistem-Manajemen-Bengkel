@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Database
 {
-    internal class ConnStringHelper
+    public class ConnStringHelper
     {
+        public static string GetConn()
+        {
+            return "Server=(local); Database=db_bengkel; Integrated Security=True; TrustServerCertificate=True;";
+        }
     }
 }

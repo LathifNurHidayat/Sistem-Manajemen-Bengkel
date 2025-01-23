@@ -28,29 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            GridListBooking = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             PanelBooking = new SMB_CustomTolbox.LathifPanel();
+            textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            GridListBooking = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             label7 = new Label();
             lathifButton1 = new SMB_CustomTolbox.LathifButton();
-            ((System.ComponentModel.ISupportInitialize)GridListBooking).BeginInit();
             PanelBooking.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)textBoxExt1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GridListBooking).BeginInit();
             SuspendLayout();
-            // 
-            // GridListBooking
-            // 
-            GridListBooking.AccessibleName = "Table";
-            GridListBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            GridListBooking.Location = new Point(12, 170);
-            GridListBooking.Name = "GridListBooking";
-            GridListBooking.PreviewRowHeight = 35;
-            GridListBooking.Size = new Size(1035, 496);
-            GridListBooking.Style.BorderColor = Color.FromArgb(100, 100, 100);
-            GridListBooking.Style.CheckBoxStyle.CheckedBackColor = Color.FromArgb(0, 120, 215);
-            GridListBooking.Style.CheckBoxStyle.CheckedBorderColor = Color.FromArgb(0, 120, 215);
-            GridListBooking.Style.CheckBoxStyle.IndeterminateBorderColor = Color.FromArgb(0, 120, 215);
-            GridListBooking.Style.HyperlinkStyle.DefaultLinkColor = Color.FromArgb(0, 120, 215);
-            GridListBooking.TabIndex = 13;
-            GridListBooking.Text = "sfDataGrid1";
             // 
             // PanelBooking
             // 
@@ -59,14 +46,55 @@
             PanelBooking.BorderColor = Color.PaleVioletRed;
             PanelBooking.BorderRadius = 15;
             PanelBooking.BorderSize = 0;
+            PanelBooking.Controls.Add(textBoxExt1);
+            PanelBooking.Controls.Add(GridListBooking);
             PanelBooking.Controls.Add(label7);
             PanelBooking.Controls.Add(lathifButton1);
-            PanelBooking.Controls.Add(GridListBooking);
             PanelBooking.ForeColor = Color.White;
             PanelBooking.Location = new Point(11, 12);
             PanelBooking.Name = "PanelBooking";
             PanelBooking.Size = new Size(1059, 679);
             PanelBooking.TabIndex = 14;
+            // 
+            // textBoxExt1
+            // 
+            textBoxExt1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxExt1.BeforeTouchSize = new Size(362, 34);
+            textBoxExt1.Border3DStyle = Border3DStyle.Bump;
+            textBoxExt1.BorderColor = Color.DimGray;
+            textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
+            textBoxExt1.FocusBorderColor = Color.Black;
+            textBoxExt1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxExt1.Location = new Point(676, 133);
+            textBoxExt1.Name = "textBoxExt1";
+            textBoxExt1.PlaceholderText = "🔍   Search";
+            textBoxExt1.Size = new Size(362, 34);
+            textBoxExt1.TabIndex = 18;
+            // 
+            // GridListBooking
+            // 
+            GridListBooking.AccessibleName = "Table";
+            GridListBooking.AllowEditing = false;
+            GridListBooking.AllowGrouping = false;
+            GridListBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GridListBooking.Location = new Point(17, 187);
+            GridListBooking.Name = "GridListBooking";
+            GridListBooking.PreviewRowHeight = 35;
+            GridListBooking.ShowToolTip = true;
+            GridListBooking.Size = new Size(1023, 439);
+            GridListBooking.Style.AddNewRowStyle.Borders = gridBordersInfo1;
+            GridListBooking.Style.AddNewRowStyle.VerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
+            GridListBooking.Style.Border3DStyle = Border3DStyle.Flat;
+            GridListBooking.Style.BorderColor = Color.Silver;
+            GridListBooking.Style.CheckBoxStyle.CheckedBackColor = Color.FromArgb(0, 120, 215);
+            GridListBooking.Style.CheckBoxStyle.CheckedBorderColor = Color.FromArgb(0, 120, 215);
+            GridListBooking.Style.CheckBoxStyle.IndeterminateBorderColor = Color.FromArgb(0, 120, 215);
+            GridListBooking.Style.CurrentCellStyle.BackColor = Color.White;
+            GridListBooking.Style.CurrentCellStyle.BorderColor = Color.White;
+            GridListBooking.Style.HeaderStyle.BackColor = Color.Gainsboro;
+            GridListBooking.Style.HyperlinkStyle.DefaultLinkColor = Color.FromArgb(0, 120, 215);
+            GridListBooking.TabIndex = 17;
+            GridListBooking.Text = "sfDataGrid1";
             // 
             // label7
             // 
@@ -90,14 +118,13 @@
             lathifButton1.FlatStyle = FlatStyle.Flat;
             lathifButton1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             lathifButton1.ForeColor = Color.White;
-            lathifButton1.Location = new Point(12, 119);
+            lathifButton1.Location = new Point(25, 120);
             lathifButton1.Name = "lathifButton1";
             lathifButton1.Size = new Size(135, 45);
             lathifButton1.TabIndex = 15;
             lathifButton1.Text = "➕ Tambah ";
             lathifButton1.TextColor = Color.White;
             lathifButton1.UseVisualStyleBackColor = false;
-            lathifButton1.Click += lathifButton1_Click;
             // 
             // BookingForm
             // 
@@ -108,17 +135,18 @@
             Controls.Add(PanelBooking);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "BookingForm";
-            Load += BookingForm_Load;
-            ((System.ComponentModel.ISupportInitialize)GridListBooking).EndInit();
             PanelBooking.ResumeLayout(false);
             PanelBooking.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)textBoxExt1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)GridListBooking).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private Syncfusion.WinForms.DataGrid.SfDataGrid GridListBooking;
         private SMB_CustomTolbox.LathifPanel PanelBooking;
         private SMB_CustomTolbox.LathifButton lathifButton1;
         private Label label7;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid GridListBooking;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
     }
 }

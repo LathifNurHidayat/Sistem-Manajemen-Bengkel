@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Sistem_Manajemen_Bengkel.SMB_CustomTolbox
 {
+
     public class LathifButton : Button
     {
         //Fields

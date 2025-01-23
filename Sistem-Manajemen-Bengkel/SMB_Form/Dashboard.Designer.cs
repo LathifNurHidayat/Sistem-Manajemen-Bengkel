@@ -94,7 +94,7 @@
             ButtonLaporan.FlatStyle = FlatStyle.Flat;
             ButtonLaporan.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonLaporan.ForeColor = Color.Gray;
-            ButtonLaporan.Location = new Point(0, 743);
+            ButtonLaporan.Location = new Point(0, 702);
             ButtonLaporan.Name = "ButtonLaporan";
             ButtonLaporan.Size = new Size(319, 53);
             ButtonLaporan.TabIndex = 15;
@@ -110,7 +110,7 @@
             ButtonSparepart.FlatStyle = FlatStyle.Flat;
             ButtonSparepart.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonSparepart.ForeColor = Color.Gray;
-            ButtonSparepart.Location = new Point(0, 684);
+            ButtonSparepart.Location = new Point(0, 643);
             ButtonSparepart.Name = "ButtonSparepart";
             ButtonSparepart.Size = new Size(319, 53);
             ButtonSparepart.TabIndex = 14;
@@ -126,7 +126,7 @@
             ButtonKaryawan.FlatStyle = FlatStyle.Flat;
             ButtonKaryawan.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonKaryawan.ForeColor = Color.Gray;
-            ButtonKaryawan.Location = new Point(0, 625);
+            ButtonKaryawan.Location = new Point(0, 584);
             ButtonKaryawan.Name = "ButtonKaryawan";
             ButtonKaryawan.Size = new Size(319, 53);
             ButtonKaryawan.TabIndex = 13;
@@ -142,7 +142,7 @@
             ButtonKendaraan.FlatStyle = FlatStyle.Flat;
             ButtonKendaraan.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonKendaraan.ForeColor = Color.Gray;
-            ButtonKendaraan.Location = new Point(0, 566);
+            ButtonKendaraan.Location = new Point(0, 525);
             ButtonKendaraan.Name = "ButtonKendaraan";
             ButtonKendaraan.Size = new Size(319, 53);
             ButtonKendaraan.TabIndex = 12;
@@ -158,7 +158,7 @@
             ButtonPelanggan.FlatStyle = FlatStyle.Flat;
             ButtonPelanggan.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonPelanggan.ForeColor = Color.Gray;
-            ButtonPelanggan.Location = new Point(0, 507);
+            ButtonPelanggan.Location = new Point(0, 466);
             ButtonPelanggan.Name = "ButtonPelanggan";
             ButtonPelanggan.Size = new Size(319, 53);
             ButtonPelanggan.TabIndex = 11;
@@ -174,7 +174,7 @@
             ButtonRiwayat.FlatStyle = FlatStyle.Flat;
             ButtonRiwayat.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonRiwayat.ForeColor = Color.Gray;
-            ButtonRiwayat.Location = new Point(0, 448);
+            ButtonRiwayat.Location = new Point(0, 407);
             ButtonRiwayat.Name = "ButtonRiwayat";
             ButtonRiwayat.Size = new Size(319, 53);
             ButtonRiwayat.TabIndex = 9;
@@ -190,11 +190,11 @@
             ButtonServis.FlatStyle = FlatStyle.Flat;
             ButtonServis.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonServis.ForeColor = Color.Gray;
-            ButtonServis.Location = new Point(0, 389);
+            ButtonServis.Location = new Point(0, 348);
             ButtonServis.Name = "ButtonServis";
             ButtonServis.Size = new Size(319, 53);
             ButtonServis.TabIndex = 8;
-            ButtonServis.Text = "          🛠️     Servis";
+            ButtonServis.Text = "          🛠️     Jasa Servis";
             ButtonServis.TextAlign = ContentAlignment.MiddleLeft;
             ButtonServis.UseVisualStyleBackColor = false;
             // 
@@ -206,7 +206,7 @@
             ButtonBooking.FlatStyle = FlatStyle.Flat;
             ButtonBooking.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonBooking.ForeColor = Color.Gray;
-            ButtonBooking.Location = new Point(0, 330);
+            ButtonBooking.Location = new Point(0, 289);
             ButtonBooking.Name = "ButtonBooking";
             ButtonBooking.Size = new Size(319, 53);
             ButtonBooking.TabIndex = 7;
@@ -222,7 +222,7 @@
             ButtonDashboard.FlatStyle = FlatStyle.Flat;
             ButtonDashboard.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonDashboard.ForeColor = Color.Gray;
-            ButtonDashboard.Location = new Point(0, 271);
+            ButtonDashboard.Location = new Point(0, 230);
             ButtonDashboard.Name = "ButtonDashboard";
             ButtonDashboard.Size = new Size(319, 53);
             ButtonDashboard.TabIndex = 6;
@@ -235,11 +235,12 @@
             LabelUsername.Anchor = AnchorStyles.Top;
             LabelUsername.AutoSize = true;
             LabelUsername.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelUsername.Location = new Point(77, 165);
+            LabelUsername.Location = new Point(77, 151);
             LabelUsername.Name = "LabelUsername";
             LabelUsername.Size = new Size(165, 24);
             LabelUsername.TabIndex = 5;
             LabelUsername.Text = "Lathif Nur Hidayat";
+            LabelUsername.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // LabelRole
             // 
@@ -247,18 +248,19 @@
             LabelRole.AutoSize = true;
             LabelRole.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelRole.ForeColor = Color.Gray;
-            LabelRole.Location = new Point(105, 189);
+            LabelRole.Location = new Point(105, 175);
             LabelRole.Name = "LabelRole";
             LabelRole.Size = new Size(97, 20);
             LabelRole.TabIndex = 4;
             LabelRole.Text = "Super Admin";
+            LabelRole.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // PictureProfile
             // 
             PictureProfile.Anchor = AnchorStyles.Top;
-            PictureProfile.BackgroundImage = Properties.Resources.Profile_Default;
+            PictureProfile.BackgroundImage = Properties.Resources.user;
             PictureProfile.BackgroundImageLayout = ImageLayout.Zoom;
-            PictureProfile.Location = new Point(107, 62);
+            PictureProfile.Location = new Point(107, 48);
             PictureProfile.Name = "PictureProfile";
             PictureProfile.Size = new Size(100, 100);
             PictureProfile.TabIndex = 0;

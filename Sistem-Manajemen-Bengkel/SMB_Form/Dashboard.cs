@@ -125,7 +125,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private void ButtonServis_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new ServisForm());
+            ShowFormInPanel(new JasaServisForm());
         }
 
         private void ButtonBooking_Click(object? sender, EventArgs e)
