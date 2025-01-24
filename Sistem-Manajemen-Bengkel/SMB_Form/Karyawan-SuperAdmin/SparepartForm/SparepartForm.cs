@@ -17,6 +17,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             InitializeComponent();
         }
 
+        private void SparepartForm_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

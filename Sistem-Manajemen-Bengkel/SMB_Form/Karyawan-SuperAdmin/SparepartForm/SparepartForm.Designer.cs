@@ -28,22 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            gradientPanelExt1 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).BeginInit();
             SuspendLayout();
-            // 
-            // gradientPanelExt1
-            // 
-            gradientPanelExt1.BackColor = Color.DimGray;
-            gradientPanelExt1.Border = new Padding(5);
-            gradientPanelExt1.BorderColor = Color.Transparent;
-            gradientPanelExt1.BorderGap = 5;
-            gradientPanelExt1.BorderStyle = BorderStyle.None;
-            gradientPanelExt1.CornerRadius = 10;
-            gradientPanelExt1.Location = new Point(125, 106);
-            gradientPanelExt1.Name = "gradientPanelExt1";
-            gradientPanelExt1.Size = new Size(760, 138);
-            gradientPanelExt1.TabIndex = 0;
             // 
             // SparepartForm
             // 
@@ -51,16 +36,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
             ClientSize = new Size(1082, 703);
-            Controls.Add(gradientPanelExt1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "SparepartForm";
             Text = " ";
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).EndInit();
+            Load += SparepartForm_Load;
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt1;
     }
 }
