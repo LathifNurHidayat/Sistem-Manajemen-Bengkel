@@ -52,6 +52,7 @@
             GridListBooking.Style.CheckBoxStyle.IndeterminateBorderColor = Color.FromArgb(0, 120, 215);
             GridListBooking.Style.CurrentCellStyle.BackColor = Color.FromArgb(166, 216, 255);
             GridListBooking.Style.CurrentCellStyle.BorderColor = Color.LightGray;
+            GridListBooking.Style.HeaderStyle.BackColor = Color.Silver;
             GridListBooking.Style.HyperlinkStyle.DefaultLinkColor = Color.FromArgb(0, 120, 215);
             GridListBooking.TabIndex = 13;
             GridListBooking.Text = "sfDataGrid1";
@@ -76,7 +77,7 @@
             // textBoxExt1
             // 
             textBoxExt1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBoxExt1.BeforeTouchSize = new Size(362, 34);
+            textBoxExt1.BeforeTouchSize = new Size(125, 27);
             textBoxExt1.Border3DStyle = Border3DStyle.Bump;
             textBoxExt1.BorderColor = Color.DimGray;
             textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
