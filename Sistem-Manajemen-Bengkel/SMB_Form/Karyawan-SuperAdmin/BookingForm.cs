@@ -32,13 +32,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             GridListBooking.Columns["Username"].AutoSizeColumnsMode = AutoSizeColumnsMode.Fill;
             GridListBooking.Columns["Password"].Width = 150;
             GridListBooking.Columns["Role"].Width = 150;
-
-
-            List<string> d = new List<string>()
-            {
-                "sdfsd", "sfsfd", "sefsdfs"
-            };
-
         }
     }
 }

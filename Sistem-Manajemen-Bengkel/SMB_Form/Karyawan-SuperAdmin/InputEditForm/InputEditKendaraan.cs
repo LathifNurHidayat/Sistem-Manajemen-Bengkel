@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
 {
-    public partial class InputKendaraan : Form
+    public partial class InputEditKendaraan : Form
     {
-        public InputKendaraan()
+        public InputEditKendaraan()
         {
             InitializeComponent();
         }

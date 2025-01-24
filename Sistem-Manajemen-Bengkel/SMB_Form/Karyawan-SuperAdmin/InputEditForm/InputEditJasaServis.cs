@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.JasaServisForm
 {
-    public partial class InputBooking : Form
+    public partial class InputEditJasaServis : Form
     {
-        public InputBooking()
+        public InputEditJasaServis()
         {
             InitializeComponent();
         }

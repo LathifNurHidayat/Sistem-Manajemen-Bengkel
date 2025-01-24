@@ -30,9 +30,9 @@
         {
             GridListBooking = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             PanelBooking = new SMB_CustomTolbox.LathifPanel();
+            textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label7 = new Label();
             lathifButton1 = new SMB_CustomTolbox.LathifButton();
-            textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             ((System.ComponentModel.ISupportInitialize)GridListBooking).BeginInit();
             PanelBooking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textBoxExt1).BeginInit();
@@ -71,6 +71,21 @@
             PanelBooking.Size = new Size(1059, 679);
             PanelBooking.TabIndex = 14;
             // 
+            // textBoxExt1
+            // 
+            textBoxExt1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxExt1.BeforeTouchSize = new Size(362, 34);
+            textBoxExt1.Border3DStyle = Border3DStyle.Bump;
+            textBoxExt1.BorderColor = Color.DimGray;
+            textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
+            textBoxExt1.FocusBorderColor = Color.Black;
+            textBoxExt1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxExt1.Location = new Point(677, 131);
+            textBoxExt1.Name = "textBoxExt1";
+            textBoxExt1.PlaceholderText = "🔍   Search";
+            textBoxExt1.Size = new Size(362, 34);
+            textBoxExt1.TabIndex = 21;
+            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -80,7 +95,7 @@
             label7.Name = "label7";
             label7.Size = new Size(183, 42);
             label7.TabIndex = 16;
-            label7.Text = "📊  Booking";
+            label7.Text = "📆  Booking";
             // 
             // lathifButton1
             // 
@@ -100,21 +115,6 @@
             lathifButton1.Text = "➕ Tambah ";
             lathifButton1.TextColor = Color.White;
             lathifButton1.UseVisualStyleBackColor = false;
-            // 
-            // textBoxExt1
-            // 
-            textBoxExt1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBoxExt1.BeforeTouchSize = new Size(362, 34);
-            textBoxExt1.Border3DStyle = Border3DStyle.Bump;
-            textBoxExt1.BorderColor = Color.DimGray;
-            textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
-            textBoxExt1.FocusBorderColor = Color.Black;
-            textBoxExt1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxExt1.Location = new Point(677, 131);
-            textBoxExt1.Name = "textBoxExt1";
-            textBoxExt1.PlaceholderText = "🔍   Search";
-            textBoxExt1.Size = new Size(362, 34);
-            textBoxExt1.TabIndex = 21;
             // 
             // BookingForm
             // 

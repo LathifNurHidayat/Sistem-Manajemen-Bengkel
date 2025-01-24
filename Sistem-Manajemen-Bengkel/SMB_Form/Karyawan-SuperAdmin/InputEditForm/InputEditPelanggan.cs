@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PelangganForm
 {
-    public partial class InputPelanggan : Form
+    public partial class InputEditPelanggan : Form
     {
-        public InputPelanggan()
+        public InputEditPelanggan()
         {
             InitializeComponent();
         }
