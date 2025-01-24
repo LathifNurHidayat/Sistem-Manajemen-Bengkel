@@ -50,6 +50,8 @@
             GridListBooking.Style.CheckBoxStyle.CheckedBackColor = Color.FromArgb(0, 120, 215);
             GridListBooking.Style.CheckBoxStyle.CheckedBorderColor = Color.FromArgb(0, 120, 215);
             GridListBooking.Style.CheckBoxStyle.IndeterminateBorderColor = Color.FromArgb(0, 120, 215);
+            GridListBooking.Style.CurrentCellStyle.BackColor = Color.FromArgb(166, 216, 255);
+            GridListBooking.Style.CurrentCellStyle.BorderColor = Color.LightGray;
             GridListBooking.Style.HyperlinkStyle.DefaultLinkColor = Color.FromArgb(0, 120, 215);
             GridListBooking.TabIndex = 13;
             GridListBooking.Text = "sfDataGrid1";
