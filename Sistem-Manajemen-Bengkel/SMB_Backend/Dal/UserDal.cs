@@ -26,6 +26,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             return Conn.QueryFirstOrDefault<bool>(sql, Dp);
         }
 
+
         public IEnumerable<UserModel> ListUser ()
         {
             const string sql = "SELECT * FROM tb_user";
