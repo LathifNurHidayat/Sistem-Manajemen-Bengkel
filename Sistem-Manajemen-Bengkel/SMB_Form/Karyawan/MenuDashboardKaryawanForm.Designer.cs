@@ -35,6 +35,7 @@
             label6 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
+            label7 = new Label();
             PanelAntrean = new Panel();
             LabelTotalBooking = new Label();
             label5 = new Label();
@@ -45,7 +46,6 @@
             label1 = new Label();
             LabelTotalPelanggan = new Label();
             pictureBox3 = new PictureBox();
-            label7 = new Label();
             PanelData = new SMB_CustomTolbox.LathifPanel();
             PanelBackground.SuspendLayout();
             PanelService.SuspendLayout();
@@ -137,6 +137,17 @@
             pictureBox1.Size = new Size(101, 75);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.White;
+            label7.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(5, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(226, 42);
+            label7.TabIndex = 11;
+            label7.Text = "🖥  Dashboard";
             // 
             // PanelAntrean
             // 
@@ -255,17 +266,6 @@
             pictureBox3.Size = new Size(101, 75);
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.White;
-            label7.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(5, 15);
-            label7.Name = "label7";
-            label7.Size = new Size(226, 42);
-            label7.TabIndex = 11;
-            label7.Text = "🖥  Dashboard";
             // 
             // PanelData
             // 

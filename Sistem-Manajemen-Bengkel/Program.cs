@@ -1,4 +1,5 @@
 using Sistem_Manajemen_Bengkel.SMB_Form;
+using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister;
 
 namespace Sistem_Manajemen_Bengkel
 {
@@ -14,7 +15,7 @@ namespace Sistem_Manajemen_Bengkel
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Dashboard());
+            Application.Run(new RegisterForm());
         }
     }
 }
