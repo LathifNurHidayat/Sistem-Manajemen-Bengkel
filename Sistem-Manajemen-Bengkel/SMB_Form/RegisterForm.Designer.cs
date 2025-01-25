@@ -128,7 +128,7 @@
             textBox2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             textBox2.Location = new Point(6, 7);
             textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Password";
+            textBox2.PlaceholderText = "NIK";
             textBox2.Size = new Size(184, 24);
             textBox2.TabIndex = 2;
             // 
@@ -147,7 +147,7 @@
             textBox6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             textBox6.Location = new Point(6, 7);
             textBox6.Name = "textBox6";
-            textBox6.PlaceholderText = "Password";
+            textBox6.PlaceholderText = "No Handphone";
             textBox6.Size = new Size(184, 24);
             textBox6.TabIndex = 2;
             // 
@@ -205,7 +205,7 @@
             textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.Location = new Point(6, 7);
             textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Password";
+            textBox1.PlaceholderText = "Username";
             textBox1.Size = new Size(403, 24);
             textBox1.TabIndex = 2;
             // 
@@ -245,7 +245,7 @@
             TextPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextPassword.Location = new Point(6, 7);
             TextPassword.Name = "TextPassword";
-            TextPassword.PlaceholderText = "Password";
+            TextPassword.PlaceholderText = "Alamat";
             TextPassword.Size = new Size(403, 24);
             TextPassword.TabIndex = 2;
             // 
@@ -264,7 +264,7 @@
             TextUsername.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextUsername.Location = new Point(6, 8);
             TextUsername.Name = "TextUsername";
-            TextUsername.PlaceholderText = "Username";
+            TextUsername.PlaceholderText = "Nama Lengkap";
             TextUsername.Size = new Size(403, 24);
             TextUsername.TabIndex = 0;
             // 
