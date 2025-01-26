@@ -20,6 +20,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
             this.MinimizeBox = false;
 
             CustomPanel(panel1);
+
+            RegisterControlEvent();
         }
 
         private void CustomPanel(Panel panel)
@@ -34,6 +36,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
             path.CloseAllFigures();
 
             panel.Region = new Region(path);
+        }
+
+
+        private void RegisterControlEvent()
+        {
+            LinkLogin.Click += LinkLogin_Click;
+        }
+
+        private void LinkLogin_Click(object? sender, EventArgs e)
+        {
+            new LoginForm().Show();
+            this.Close();
         }
     }
 }

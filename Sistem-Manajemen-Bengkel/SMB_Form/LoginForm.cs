@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
+using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form
 {
@@ -25,6 +26,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             _userDal = new UserDal();
 
             CustomPanel(panel1);
+
+            RegisterControlEvent();
         }
 
         private void CustomPanel(Panel panel)
@@ -39,6 +42,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             path.CloseAllFigures();
 
             panel.Region = new Region(path);
+        }
+
+        private void RegisterControlEvent()
+        {
+            LinkRegistrasi.Click += LinkRegistrasi_Click;
+        }
+
+        private void LinkRegistrasi_Click(object? sender, EventArgs e)
+        {
+            RegisterForm form = new RegisterForm();
+            form.Show();
+            this.Hide();
         }
 
         private void ButtonLogin_Click(object sender, EventArgs e)

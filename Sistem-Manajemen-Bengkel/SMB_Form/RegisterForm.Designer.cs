@@ -147,7 +147,7 @@
             textBox6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             textBox6.Location = new Point(6, 7);
             textBox6.Name = "textBox6";
-            textBox6.PlaceholderText = "No Handphone";
+            textBox6.PlaceholderText = "No. Handphone";
             textBox6.Size = new Size(184, 24);
             textBox6.TabIndex = 2;
             // 
@@ -271,7 +271,7 @@
             // LinkLogin
             // 
             LinkLogin.AutoSize = true;
-            LinkLogin.Location = new Point(292, 557);
+            LinkLogin.Location = new Point(292, 548);
             LinkLogin.Name = "LinkLogin";
             LinkLogin.Size = new Size(46, 20);
             LinkLogin.TabIndex = 4;
@@ -281,7 +281,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(119, 557);
+            label1.Location = new Point(119, 548);
             label1.Name = "label1";
             label1.Size = new Size(175, 20);
             label1.TabIndex = 8;
@@ -314,7 +314,7 @@
             ButtonLogin.FlatStyle = FlatStyle.Flat;
             ButtonLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonLogin.ForeColor = Color.White;
-            ButtonLogin.Location = new Point(20, 509);
+            ButtonLogin.Location = new Point(20, 500);
             ButtonLogin.Name = "ButtonLogin";
             ButtonLogin.Size = new Size(414, 45);
             ButtonLogin.TabIndex = 3;
