@@ -39,15 +39,15 @@
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             ButtonLogin = new Button();
-            pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -61,9 +61,9 @@
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(ButtonLogin);
-            panel1.Location = new Point(338, 34);
+            panel1.Location = new Point(341, 91);
             panel1.Name = "panel1";
-            panel1.Size = new Size(286, 385);
+            panel1.Size = new Size(438, 462);
             panel1.TabIndex = 0;
             // 
             // label2
@@ -71,7 +71,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Corbel", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(82, 109, 130);
-            label2.Location = new Point(96, 38);
+            label2.Location = new Point(170, 33);
             label2.Name = "label2";
             label2.Size = new Size(97, 35);
             label2.TabIndex = 9;
@@ -81,9 +81,9 @@
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(TextPassword);
-            panel4.Location = new Point(20, 234);
+            panel4.Location = new Point(20, 256);
             panel4.Name = "panel4";
-            panel4.Size = new Size(247, 41);
+            panel4.Size = new Size(399, 41);
             panel4.TabIndex = 1;
             // 
             // TextPassword
@@ -93,16 +93,16 @@
             TextPassword.Location = new Point(8, 7);
             TextPassword.Name = "TextPassword";
             TextPassword.PlaceholderText = "Password";
-            TextPassword.Size = new Size(230, 24);
+            TextPassword.Size = new Size(386, 24);
             TextPassword.TabIndex = 2;
             // 
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(TextUsername);
-            panel3.Location = new Point(20, 142);
+            panel3.Location = new Point(20, 157);
             panel3.Name = "panel3";
-            panel3.Size = new Size(247, 41);
+            panel3.Size = new Size(399, 41);
             panel3.TabIndex = 0;
             // 
             // TextUsername
@@ -112,13 +112,13 @@
             TextUsername.Location = new Point(8, 8);
             TextUsername.Name = "TextUsername";
             TextUsername.PlaceholderText = "Username";
-            TextUsername.Size = new Size(230, 24);
+            TextUsername.Size = new Size(386, 24);
             TextUsername.TabIndex = 0;
             // 
             // LinkRegistrasi
             // 
             LinkRegistrasi.AutoSize = true;
-            LinkRegistrasi.Location = new Point(191, 347);
+            LinkRegistrasi.Location = new Point(262, 403);
             LinkRegistrasi.Name = "LinkRegistrasi";
             LinkRegistrasi.Size = new Size(63, 20);
             LinkRegistrasi.TabIndex = 4;
@@ -128,7 +128,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 347);
+            label1.Location = new Point(104, 403);
             label1.Name = "label1";
             label1.Size = new Size(163, 20);
             label1.TabIndex = 8;
@@ -138,7 +138,7 @@
             // 
             pictureBox4.BackgroundImage = Properties.Resources.Gembok;
             pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(20, 203);
+            pictureBox4.Location = new Point(20, 225);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(25, 25);
             pictureBox4.TabIndex = 7;
@@ -148,7 +148,7 @@
             // 
             pictureBox3.BackgroundImage = Properties.Resources.User_Hitam;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(20, 111);
+            pictureBox3.Location = new Point(20, 126);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(25, 25);
             pictureBox3.TabIndex = 6;
@@ -161,23 +161,13 @@
             ButtonLogin.FlatStyle = FlatStyle.Flat;
             ButtonLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonLogin.ForeColor = Color.White;
-            ButtonLogin.Location = new Point(20, 296);
+            ButtonLogin.Location = new Point(20, 355);
             ButtonLogin.Name = "ButtonLogin";
-            ButtonLogin.Size = new Size(247, 45);
+            ButtonLogin.Size = new Size(399, 45);
             ButtonLogin.TabIndex = 3;
             ButtonLogin.Text = "Login";
             ButtonLogin.UseVisualStyleBackColor = false;
             ButtonLogin.Click += ButtonLogin_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = Properties.Resources._3D_LoginNew;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(48, 48);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(271, 357);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -187,14 +177,24 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(655, 449);
+            panel2.Size = new Size(804, 644);
             panel2.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources._3D_LoginNew;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(302, 602);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(655, 449);
+            ClientSize = new Size(804, 644);
             Controls.Add(panel2);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -206,15 +206,14 @@
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private PictureBox pictureBox1;
         private Panel panel2;
         private Button ButtonLogin;
         private TextBox TextPassword;
@@ -226,5 +225,6 @@
         private Panel panel4;
         private Panel panel3;
         private Label label2;
+        private PictureBox pictureBox1;
     }
 }

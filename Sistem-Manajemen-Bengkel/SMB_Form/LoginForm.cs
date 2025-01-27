@@ -72,5 +72,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
                 MessageBox.Show("Akun tidak ada");
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

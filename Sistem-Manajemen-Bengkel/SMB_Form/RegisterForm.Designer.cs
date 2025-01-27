@@ -30,42 +30,36 @@
         {
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            pictureBox6 = new PictureBox();
             panel5 = new Panel();
-            textBox2 = new TextBox();
+            TextNIK = new TextBox();
             panel9 = new Panel();
-            textBox6 = new TextBox();
+            TextNomorHP = new TextBox();
             panel7 = new Panel();
-            textBox4 = new TextBox();
-            pictureBox5 = new PictureBox();
-            pictureBox7 = new PictureBox();
+            TextPassword = new TextBox();
             panel2 = new Panel();
-            textBox1 = new TextBox();
-            pictureBox2 = new PictureBox();
+            TextUsername = new TextBox();
             label2 = new Label();
             panel4 = new Panel();
-            TextPassword = new TextBox();
+            TextAlamat = new TextBox();
             panel3 = new Panel();
-            TextUsername = new TextBox();
+            TextNamaLengkap = new TextBox();
             LinkLogin = new LinkLabel();
             label1 = new Label();
-            pictureBox4 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            ButtonLogin = new Button();
+            ButtonRegister = new Button();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel5.SuspendLayout();
             panel9.SuspendLayout();
             panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -82,149 +76,109 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(pictureBox6);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(panel7);
-            panel1.Controls.Add(pictureBox5);
-            panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(LinkLogin);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(ButtonLogin);
+            panel1.Controls.Add(ButtonRegister);
             panel1.Location = new Point(338, 22);
             panel1.Name = "panel1";
             panel1.Size = new Size(444, 586);
             panel1.TabIndex = 2;
             // 
-            // pictureBox6
-            // 
-            pictureBox6.BackgroundImage = Properties.Resources.Gembok;
-            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox6.Location = new Point(232, 79);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(25, 25);
-            pictureBox6.TabIndex = 18;
-            pictureBox6.TabStop = false;
-            // 
             // panel5
             // 
             panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(textBox2);
+            panel5.Controls.Add(TextNIK);
             panel5.Location = new Point(13, 110);
             panel5.Name = "panel5";
             panel5.Size = new Size(195, 41);
             panel5.TabIndex = 17;
             // 
-            // textBox2
+            // TextNIK
             // 
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(6, 7);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "NIK";
-            textBox2.Size = new Size(184, 24);
-            textBox2.TabIndex = 2;
+            TextNIK.BorderStyle = BorderStyle.None;
+            TextNIK.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNIK.Location = new Point(6, 7);
+            TextNIK.Name = "TextNIK";
+            TextNIK.PlaceholderText = "Masukan NIK";
+            TextNIK.Size = new Size(184, 24);
+            TextNIK.TabIndex = 2;
             // 
             // panel9
             // 
             panel9.BorderStyle = BorderStyle.FixedSingle;
-            panel9.Controls.Add(textBox6);
+            panel9.Controls.Add(TextNomorHP);
             panel9.Location = new Point(232, 110);
             panel9.Name = "panel9";
             panel9.Size = new Size(195, 41);
             panel9.TabIndex = 16;
             // 
-            // textBox6
+            // TextNomorHP
             // 
-            textBox6.BorderStyle = BorderStyle.None;
-            textBox6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox6.Location = new Point(6, 7);
-            textBox6.Name = "textBox6";
-            textBox6.PlaceholderText = "No. Handphone";
-            textBox6.Size = new Size(184, 24);
-            textBox6.TabIndex = 2;
+            TextNomorHP.BorderStyle = BorderStyle.None;
+            TextNomorHP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNomorHP.Location = new Point(6, 7);
+            TextNomorHP.Name = "TextNomorHP";
+            TextNomorHP.PlaceholderText = "Masukan Nomor";
+            TextNomorHP.Size = new Size(184, 24);
+            TextNomorHP.TabIndex = 2;
             // 
             // panel7
             // 
             panel7.BorderStyle = BorderStyle.FixedSingle;
-            panel7.Controls.Add(textBox4);
-            panel7.Location = new Point(17, 426);
+            panel7.Controls.Add(TextPassword);
+            panel7.Location = new Point(13, 426);
             panel7.Name = "panel7";
             panel7.Size = new Size(414, 41);
             panel7.TabIndex = 14;
             // 
-            // textBox4
+            // TextPassword
             // 
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(6, 7);
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Password";
-            textBox4.Size = new Size(403, 24);
-            textBox4.TabIndex = 2;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.BackgroundImage = Properties.Resources.Gembok;
-            pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox5.Location = new Point(16, 79);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(25, 25);
-            pictureBox5.TabIndex = 9;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.BackgroundImage = Properties.Resources.Gembok;
-            pictureBox7.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox7.Location = new Point(20, 395);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(25, 25);
-            pictureBox7.TabIndex = 15;
-            pictureBox7.TabStop = false;
+            TextPassword.BorderStyle = BorderStyle.None;
+            TextPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextPassword.Location = new Point(6, 7);
+            TextPassword.Name = "TextPassword";
+            TextPassword.PlaceholderText = "Masukan Password";
+            TextPassword.Size = new Size(403, 24);
+            TextPassword.TabIndex = 2;
             // 
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(TextUsername);
             panel2.Location = new Point(13, 348);
             panel2.Name = "panel2";
             panel2.Size = new Size(414, 41);
             panel2.TabIndex = 10;
             // 
-            // textBox1
+            // TextUsername
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(6, 7);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Username";
-            textBox1.Size = new Size(403, 24);
-            textBox1.TabIndex = 2;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackgroundImage = Properties.Resources.Gembok;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(16, 317);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(25, 25);
-            pictureBox2.TabIndex = 11;
-            pictureBox2.TabStop = false;
+            TextUsername.BorderStyle = BorderStyle.None;
+            TextUsername.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextUsername.Location = new Point(6, 7);
+            TextUsername.Name = "TextUsername";
+            TextUsername.PlaceholderText = "Masukan Username";
+            TextUsername.Size = new Size(403, 24);
+            TextUsername.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Corbel", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(82, 109, 130);
-            label2.Location = new Point(156, 12);
+            label2.Location = new Point(150, 12);
             label2.Name = "label2";
             label2.Size = new Size(142, 35);
             label2.TabIndex = 9;
@@ -233,40 +187,40 @@
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(TextPassword);
+            panel4.Controls.Add(TextAlamat);
             panel4.Location = new Point(13, 268);
             panel4.Name = "panel4";
             panel4.Size = new Size(414, 41);
             panel4.TabIndex = 1;
             // 
-            // TextPassword
+            // TextAlamat
             // 
-            TextPassword.BorderStyle = BorderStyle.None;
-            TextPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextPassword.Location = new Point(6, 7);
-            TextPassword.Name = "TextPassword";
-            TextPassword.PlaceholderText = "Alamat";
-            TextPassword.Size = new Size(403, 24);
-            TextPassword.TabIndex = 2;
+            TextAlamat.BorderStyle = BorderStyle.None;
+            TextAlamat.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextAlamat.Location = new Point(6, 7);
+            TextAlamat.Name = "TextAlamat";
+            TextAlamat.PlaceholderText = "Masukan Alamat";
+            TextAlamat.Size = new Size(403, 24);
+            TextAlamat.TabIndex = 2;
             // 
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(TextUsername);
+            panel3.Controls.Add(TextNamaLengkap);
             panel3.Location = new Point(13, 188);
             panel3.Name = "panel3";
             panel3.Size = new Size(414, 41);
             panel3.TabIndex = 0;
             // 
-            // TextUsername
+            // TextNamaLengkap
             // 
-            TextUsername.BorderStyle = BorderStyle.None;
-            TextUsername.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextUsername.Location = new Point(6, 8);
-            TextUsername.Name = "TextUsername";
-            TextUsername.PlaceholderText = "Nama Lengkap";
-            TextUsername.Size = new Size(403, 24);
-            TextUsername.TabIndex = 0;
+            TextNamaLengkap.BorderStyle = BorderStyle.None;
+            TextNamaLengkap.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNamaLengkap.Location = new Point(6, 8);
+            TextNamaLengkap.Name = "TextNamaLengkap";
+            TextNamaLengkap.PlaceholderText = "Masukan Nama";
+            TextNamaLengkap.Size = new Size(403, 24);
+            TextNamaLengkap.TabIndex = 0;
             // 
             // LinkLogin
             // 
@@ -287,39 +241,79 @@
             label1.TabIndex = 8;
             label1.Text = "Do you have an account?";
             // 
-            // pictureBox4
+            // ButtonRegister
             // 
-            pictureBox4.BackgroundImage = Properties.Resources.Gembok;
-            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(16, 237);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(25, 25);
-            pictureBox4.TabIndex = 7;
-            pictureBox4.TabStop = false;
+            ButtonRegister.BackColor = Color.FromArgb(82, 109, 130);
+            ButtonRegister.FlatAppearance.BorderSize = 0;
+            ButtonRegister.FlatStyle = FlatStyle.Flat;
+            ButtonRegister.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonRegister.ForeColor = Color.White;
+            ButtonRegister.Location = new Point(13, 500);
+            ButtonRegister.Name = "ButtonRegister";
+            ButtonRegister.Size = new Size(414, 45);
+            ButtonRegister.TabIndex = 3;
+            ButtonRegister.Text = " Register";
+            ButtonRegister.UseVisualStyleBackColor = false;
             // 
-            // pictureBox3
+            // label3
             // 
-            pictureBox3.BackgroundImage = Properties.Resources.User_Hitam;
-            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(16, 157);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(25, 25);
-            pictureBox3.TabIndex = 6;
-            pictureBox3.TabStop = false;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(13, 84);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 23);
+            label3.TabIndex = 18;
+            label3.Text = "NIK";
             // 
-            // ButtonLogin
+            // label4
             // 
-            ButtonLogin.BackColor = Color.FromArgb(82, 109, 130);
-            ButtonLogin.FlatAppearance.BorderSize = 0;
-            ButtonLogin.FlatStyle = FlatStyle.Flat;
-            ButtonLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonLogin.ForeColor = Color.White;
-            ButtonLogin.Location = new Point(20, 500);
-            ButtonLogin.Name = "ButtonLogin";
-            ButtonLogin.Size = new Size(414, 45);
-            ButtonLogin.TabIndex = 3;
-            ButtonLogin.Text = " Register";
-            ButtonLogin.UseVisualStyleBackColor = false;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(232, 84);
+            label4.Name = "label4";
+            label4.Size = new Size(133, 23);
+            label4.TabIndex = 19;
+            label4.Text = "No. Handphone";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(13, 400);
+            label5.Name = "label5";
+            label5.Size = new Size(82, 23);
+            label5.TabIndex = 20;
+            label5.Text = "Password";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(13, 322);
+            label6.Name = "label6";
+            label6.Size = new Size(87, 23);
+            label6.TabIndex = 21;
+            label6.Text = "Username";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(13, 242);
+            label7.Name = "label7";
+            label7.Size = new Size(64, 23);
+            label7.TabIndex = 22;
+            label7.Text = "Alamat";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(13, 162);
+            label8.Name = "label8";
+            label8.Size = new Size(126, 23);
+            label8.TabIndex = 23;
+            label8.Text = "Nama Lengkap";
             // 
             // RegisterForm
             // 
@@ -334,24 +328,18 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -361,25 +349,26 @@
         private Panel panel1;
         private Label label2;
         private Panel panel4;
-        private TextBox TextPassword;
+        private TextBox TextAlamat;
         private Panel panel3;
-        private TextBox TextUsername;
+        private TextBox TextNamaLengkap;
         private LinkLabel LinkLogin;
         private Label label1;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox3;
-        private Button ButtonLogin;
+        private Button ButtonRegister;
         private PictureBox pictureBox5;
         private Panel panel2;
-        private TextBox textBox1;
-        private PictureBox pictureBox2;
+        private TextBox TextUsername;
         private Panel panel7;
-        private TextBox textBox4;
-        private PictureBox pictureBox7;
-        private PictureBox pictureBox6;
+        private TextBox TextPassword;
         private Panel panel5;
-        private TextBox textBox2;
+        private TextBox TextNIK;
         private Panel panel9;
-        private TextBox textBox6;
+        private TextBox TextNomorHP;
+        private Label label3;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label4;
     }
 }

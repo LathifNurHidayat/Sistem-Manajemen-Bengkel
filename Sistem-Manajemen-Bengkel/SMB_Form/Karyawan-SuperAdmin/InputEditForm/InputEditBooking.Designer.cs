@@ -28,18 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            contextMenuStripEx1 = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             SuspendLayout();
             // 
-            // InputBooking
+            // contextMenuStripEx1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            contextMenuStripEx1.ImageScalingSize = new Size(20, 20);
+            contextMenuStripEx1.MetroColor = Color.FromArgb(204, 236, 249);
+            contextMenuStripEx1.Name = "contextMenuStripEx1";
+            contextMenuStripEx1.Size = new Size(61, 4);
+            // 
+            // InputEditBooking
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Name = "InputBooking";
-            Text = "InputBooking";
+            ClientSize = new Size(914, 600);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "InputEditBooking";
             ResumeLayout(false);
         }
 
         #endregion
+        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripEx1;
     }
 }
