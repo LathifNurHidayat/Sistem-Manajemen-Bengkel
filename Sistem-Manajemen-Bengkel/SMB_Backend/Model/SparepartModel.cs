@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
 {
-    internal class SparepartModel
+    public class SparepartModel
     {
+        public int id_sparepart { get; set; }
+        public string nama_sparepart { get; set; }
+        public decimal harga { get; set; }
+        public int stok { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime updated_at { get; set; }
     }
 }

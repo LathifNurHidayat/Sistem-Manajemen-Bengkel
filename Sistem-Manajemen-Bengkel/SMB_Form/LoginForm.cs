@@ -16,14 +16,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 {
     public partial class LoginForm : Form
     {
-        private readonly UserDal _userDal;
+        private readonly PelangganDal _userDal;
         public LoginForm()
         {
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            _userDal = new UserDal();
+            _userDal = new PelangganDal();
 
             CustomPanel(panel1);
 
@@ -58,7 +58,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            var data = new UserModel
+            var data = new RiwayatSparepartModel
             {
                 username = TextUsername.Text.Trim(),
                 password = TextPassword.Text.Trim(),

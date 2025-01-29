@@ -11,12 +11,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 {
     public partial class BookingForm : Form
     {
-        private readonly UserDal _userDal;
+        private readonly PelangganDal _userDal;
 
         public BookingForm()
         {
             InitializeComponent();
-            _userDal = new UserDal();
+            _userDal = new PelangganDal();
 
             RegisterControlEvent();
         }

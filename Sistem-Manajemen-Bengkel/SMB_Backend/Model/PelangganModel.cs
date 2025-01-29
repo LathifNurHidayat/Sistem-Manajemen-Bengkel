@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
 {
-    internal class PelangganModel
+    public class PelangganModel
     {
+        public int no_ktp { get; set;}
+        public string nama_pelanggan { get; set; }
+        public string no_hp { get; set; }
+        public string alamat { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime updated_at { get; set; }
     }
 }
