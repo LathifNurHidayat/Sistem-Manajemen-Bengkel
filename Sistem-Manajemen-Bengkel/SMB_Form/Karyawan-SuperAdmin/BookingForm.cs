@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
 using Syncfusion.Windows.Forms.Tools;
 using Syncfusion.WinForms.DataGrid;
 using Syncfusion.WinForms.DataGrid.Enums;
@@ -15,23 +16,22 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
         public BookingForm()
         {
             InitializeComponent();
-
-            // Inisialisasi DAL
             _userDal = new UserDal();
-            GridListBooking.DataSource = _userDal.ListUser().Select(x => new
+
+            RegisterControlEvent();
+        }
+
+        private void RegisterControlEvent()
+        {
+            ButtonTambah.Click += ButtonTambah_Click;
+        }
+
+        private void ButtonTambah_Click(object? sender, EventArgs e)
+        {
+            if (new InputEditBooking().ShowDialog() == DialogResult.OK)
             {
-                UserId = x.id_user,
-                Username = x.username,
-                Password = x.password,
-                Role = x.role,
-            });
 
-            GridListBooking.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-
-            GridListBooking.Columns["UserId"].Width = 50;
-            GridListBooking.Columns["Username"].AutoSizeColumnsMode = AutoSizeColumnsMode.Fill;
-            GridListBooking.Columns["Password"].Width = 150;
-            GridListBooking.Columns["Role"].Width = 150;
+            }
         }
     }
 }

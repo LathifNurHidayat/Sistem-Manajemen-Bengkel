@@ -58,7 +58,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;
-            form.FormBorderStyle = FormBorderStyle.None;
+            form.FormBorderStyle = FormBorderStyle.None; 
             PanelMain.Tag = form;
 
             PanelMain.Controls.Add(form);

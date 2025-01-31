@@ -31,7 +31,7 @@
             GridListBooking = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             PanelBooking = new SMB_CustomTolbox.LathifPanel();
             label7 = new Label();
-            lathifButton1 = new SMB_CustomTolbox.LathifButton();
+            ButtonTambah = new SMB_CustomTolbox.LathifButton();
             ((System.ComponentModel.ISupportInitialize)GridListBooking).BeginInit();
             PanelBooking.SuspendLayout();
             SuspendLayout();
@@ -40,10 +40,10 @@
             // 
             GridListBooking.AccessibleName = "Table";
             GridListBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            GridListBooking.Location = new Point(12, 170);
+            GridListBooking.Location = new Point(18, 185);
             GridListBooking.Name = "GridListBooking";
             GridListBooking.PreviewRowHeight = 35;
-            GridListBooking.Size = new Size(1035, 496);
+            GridListBooking.Size = new Size(1023, 439);
             GridListBooking.Style.BorderColor = Color.FromArgb(100, 100, 100);
             GridListBooking.Style.CheckBoxStyle.CheckedBackColor = Color.FromArgb(0, 120, 215);
             GridListBooking.Style.CheckBoxStyle.CheckedBorderColor = Color.FromArgb(0, 120, 215);
@@ -60,7 +60,7 @@
             PanelBooking.BorderRadius = 15;
             PanelBooking.BorderSize = 0;
             PanelBooking.Controls.Add(label7);
-            PanelBooking.Controls.Add(lathifButton1);
+            PanelBooking.Controls.Add(ButtonTambah);
             PanelBooking.Controls.Add(GridListBooking);
             PanelBooking.ForeColor = Color.White;
             PanelBooking.Location = new Point(11, 12);
@@ -79,24 +79,24 @@
             label7.TabIndex = 16;
             label7.Text = "🛠️  Jasa Servis";
             // 
-            // lathifButton1
+            // ButtonTambah
             // 
-            lathifButton1.BackColor = Color.MediumSlateBlue;
-            lathifButton1.BackgroundColor = Color.MediumSlateBlue;
-            lathifButton1.BorderColor = Color.DarkGray;
-            lathifButton1.BorderRadius = 5;
-            lathifButton1.BorderSize = 0;
-            lathifButton1.FlatAppearance.BorderSize = 0;
-            lathifButton1.FlatStyle = FlatStyle.Flat;
-            lathifButton1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lathifButton1.ForeColor = Color.White;
-            lathifButton1.Location = new Point(25, 120);
-            lathifButton1.Name = "lathifButton1";
-            lathifButton1.Size = new Size(135, 45);
-            lathifButton1.TabIndex = 15;
-            lathifButton1.Text = "➕ Tambah ";
-            lathifButton1.TextColor = Color.White;
-            lathifButton1.UseVisualStyleBackColor = false;
+            ButtonTambah.BackColor = Color.MediumSlateBlue;
+            ButtonTambah.BackgroundColor = Color.MediumSlateBlue;
+            ButtonTambah.BorderColor = Color.DarkGray;
+            ButtonTambah.BorderRadius = 5;
+            ButtonTambah.BorderSize = 0;
+            ButtonTambah.FlatAppearance.BorderSize = 0;
+            ButtonTambah.FlatStyle = FlatStyle.Flat;
+            ButtonTambah.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonTambah.ForeColor = Color.White;
+            ButtonTambah.Location = new Point(25, 120);
+            ButtonTambah.Name = "ButtonTambah";
+            ButtonTambah.Size = new Size(135, 45);
+            ButtonTambah.TabIndex = 15;
+            ButtonTambah.Text = "➕ Tambah ";
+            ButtonTambah.TextColor = Color.White;
+            ButtonTambah.UseVisualStyleBackColor = false;
             // 
             // JasaServisForm
             // 
@@ -116,7 +116,7 @@
         #endregion
         private Syncfusion.WinForms.DataGrid.SfDataGrid GridListBooking;
         private SMB_CustomTolbox.LathifPanel PanelBooking;
-        private SMB_CustomTolbox.LathifButton lathifButton1;
+        private SMB_CustomTolbox.LathifButton ButtonTambah;
         private Label label7;
     }
 }

@@ -32,7 +32,7 @@
             PanelBooking = new SMB_CustomTolbox.LathifPanel();
             textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label7 = new Label();
-            lathifButton1 = new SMB_CustomTolbox.LathifButton();
+            ButtonTambah = new SMB_CustomTolbox.LathifButton();
             ((System.ComponentModel.ISupportInitialize)GridListBooking).BeginInit();
             PanelBooking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textBoxExt1).BeginInit();
@@ -66,7 +66,7 @@
             PanelBooking.BorderSize = 0;
             PanelBooking.Controls.Add(textBoxExt1);
             PanelBooking.Controls.Add(label7);
-            PanelBooking.Controls.Add(lathifButton1);
+            PanelBooking.Controls.Add(ButtonTambah);
             PanelBooking.Controls.Add(GridListBooking);
             PanelBooking.ForeColor = Color.White;
             PanelBooking.Location = new Point(11, 12);
@@ -77,7 +77,7 @@
             // textBoxExt1
             // 
             textBoxExt1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBoxExt1.BeforeTouchSize = new Size(125, 27);
+            textBoxExt1.BeforeTouchSize = new Size(380, 24);
             textBoxExt1.Border3DStyle = Border3DStyle.Bump;
             textBoxExt1.BorderColor = Color.DimGray;
             textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
@@ -100,24 +100,24 @@
             label7.TabIndex = 16;
             label7.Text = "📆  Booking";
             // 
-            // lathifButton1
+            // ButtonTambah
             // 
-            lathifButton1.BackColor = Color.MediumSlateBlue;
-            lathifButton1.BackgroundColor = Color.MediumSlateBlue;
-            lathifButton1.BorderColor = Color.DarkGray;
-            lathifButton1.BorderRadius = 5;
-            lathifButton1.BorderSize = 0;
-            lathifButton1.FlatAppearance.BorderSize = 0;
-            lathifButton1.FlatStyle = FlatStyle.Flat;
-            lathifButton1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lathifButton1.ForeColor = Color.White;
-            lathifButton1.Location = new Point(25, 120);
-            lathifButton1.Name = "lathifButton1";
-            lathifButton1.Size = new Size(135, 45);
-            lathifButton1.TabIndex = 15;
-            lathifButton1.Text = "➕ Tambah ";
-            lathifButton1.TextColor = Color.White;
-            lathifButton1.UseVisualStyleBackColor = false;
+            ButtonTambah.BackColor = Color.MediumSlateBlue;
+            ButtonTambah.BackgroundColor = Color.MediumSlateBlue;
+            ButtonTambah.BorderColor = Color.DarkGray;
+            ButtonTambah.BorderRadius = 5;
+            ButtonTambah.BorderSize = 0;
+            ButtonTambah.FlatAppearance.BorderSize = 0;
+            ButtonTambah.FlatStyle = FlatStyle.Flat;
+            ButtonTambah.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonTambah.ForeColor = Color.White;
+            ButtonTambah.Location = new Point(25, 120);
+            ButtonTambah.Name = "ButtonTambah";
+            ButtonTambah.Size = new Size(135, 45);
+            ButtonTambah.TabIndex = 15;
+            ButtonTambah.Text = "➕ Tambah ";
+            ButtonTambah.TextColor = Color.White;
+            ButtonTambah.UseVisualStyleBackColor = false;
             // 
             // BookingForm
             // 
@@ -138,7 +138,7 @@
         #endregion
         private Syncfusion.WinForms.DataGrid.SfDataGrid GridListBooking;
         private SMB_CustomTolbox.LathifPanel PanelBooking;
-        private SMB_CustomTolbox.LathifButton lathifButton1;
+        private SMB_CustomTolbox.LathifButton ButtonTambah;
         private Label label7;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
     }

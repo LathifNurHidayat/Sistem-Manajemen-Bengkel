@@ -15,6 +15,27 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.JasaServisForm
         public InputEditJasaServis()
         {
             InitializeComponent();
+
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
+            RegisterControlEvent();
+        }
+
+        private void RegisterControlEvent()
+        {
+            ButtonSave.Click += ButtonSave_Click;
+            ButtonCancel.Click += ButtonCancel_Click;
+        }
+
+        private void ButtonCancel_Click(object? sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ButtonSave_Click(object? sender, EventArgs e)
+        {
+            
         }
     }
 }
