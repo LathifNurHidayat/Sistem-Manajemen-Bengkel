@@ -8,14 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 {
+
     public partial class RegisterForm : Form
     {
+        private readonly PelangganDal _pelangganDal;
         public RegisterForm()
         {
             InitializeComponent();
+            _pelangganDal = new PelangganDal();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
@@ -41,7 +45,44 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 
         private void RegisterControlEvent()
         {
-            LinkLogin.Click += LinkLogin_Click;
+            LinkMasuk.Click += LinkLogin_Click;
+            TextNIK.TextChanged += TextInput_TextChanged;
+            TextNomorHP.TextChanged += TextInput_TextChanged;
+            TextUsername.TextChanged += TextInput_TextChanged;
+            ButtonDaftar.Click += ButtonDaftar_Click;
+        }
+
+        private void ButtonDaftar_Click(object? sender, EventArgs e)
+        {
+            
+        }
+
+        private async void TextInput_TextChanged(object? sender, EventArgs e)
+        {
+            await Task.Delay(1000);
+
+            int no_ktp = Convert.ToInt32(TextNIK.Text);
+            string no_hp = TextNomorHP.Text.Trim();
+            string nama_pelanggan = TextUsername.Text.Trim();
+
+            var cekData = _pelangganDal.ValidasiDaftar(no_ktp, no_hp, nama_pelanggan);
+            if (cekData == 0)
+                return;
+
+            if (cekData == 1)
+                LabelNIK.Text = "NIK sudah terdaftar";
+            else
+                LabelNIK.Text = "";
+
+            if (cekData == 2)
+                LabelNoHP.Text = "Nomor HP sudah terdaftar";
+            else
+                LabelNoHP.Text = "";
+
+            if (cekData == 3)
+                LabelUsername.Text = "Username sudah terdaftar";
+            else
+                LabelUsername.Text = "";
         }
 
         private void LinkLogin_Click(object? sender, EventArgs e)

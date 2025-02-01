@@ -34,13 +34,15 @@
             TextPassword = new TextBox();
             panel3 = new Panel();
             TextUsername = new TextBox();
-            LinkRegistrasi = new LinkLabel();
+            LinkDaftar = new LinkLabel();
             label1 = new Label();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
-            ButtonLogin = new Button();
+            ButtonMasuk = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
+            label6 = new Label();
+            label5 = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -53,14 +55,16 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
-            panel1.Controls.Add(LinkRegistrasi);
+            panel1.Controls.Add(LinkDaftar);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(ButtonLogin);
+            panel1.Controls.Add(ButtonMasuk);
             panel1.Location = new Point(341, 91);
             panel1.Name = "panel1";
             panel1.Size = new Size(438, 462);
@@ -71,11 +75,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Corbel", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(82, 109, 130);
-            label2.Location = new Point(170, 33);
+            label2.Location = new Point(163, 31);
             label2.Name = "label2";
-            label2.Size = new Size(97, 35);
+            label2.Size = new Size(110, 35);
             label2.TabIndex = 9;
-            label2.Text = "LOGIN";
+            label2.Text = "MASUK";
             // 
             // panel4
             // 
@@ -92,7 +96,6 @@
             TextPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextPassword.Location = new Point(8, 7);
             TextPassword.Name = "TextPassword";
-            TextPassword.PlaceholderText = "Password";
             TextPassword.Size = new Size(386, 24);
             TextPassword.TabIndex = 2;
             // 
@@ -111,28 +114,27 @@
             TextUsername.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextUsername.Location = new Point(8, 8);
             TextUsername.Name = "TextUsername";
-            TextUsername.PlaceholderText = "Username";
             TextUsername.Size = new Size(386, 24);
             TextUsername.TabIndex = 0;
             // 
-            // LinkRegistrasi
+            // LinkDaftar
             // 
-            LinkRegistrasi.AutoSize = true;
-            LinkRegistrasi.Location = new Point(262, 403);
-            LinkRegistrasi.Name = "LinkRegistrasi";
-            LinkRegistrasi.Size = new Size(63, 20);
-            LinkRegistrasi.TabIndex = 4;
-            LinkRegistrasi.TabStop = true;
-            LinkRegistrasi.Text = "Register";
+            LinkDaftar.AutoSize = true;
+            LinkDaftar.Location = new Point(251, 403);
+            LinkDaftar.Name = "LinkDaftar";
+            LinkDaftar.Size = new Size(51, 20);
+            LinkDaftar.TabIndex = 4;
+            LinkDaftar.TabStop = true;
+            LinkDaftar.Text = "Daftar";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(104, 403);
+            label1.Location = new Point(111, 403);
             label1.Name = "label1";
-            label1.Size = new Size(163, 20);
+            label1.Size = new Size(141, 20);
             label1.TabIndex = 8;
-            label1.Text = "Don't have an account?";
+            label1.Text = "Belum punya akun ?";
             // 
             // pictureBox4
             // 
@@ -154,20 +156,20 @@
             pictureBox3.TabIndex = 6;
             pictureBox3.TabStop = false;
             // 
-            // ButtonLogin
+            // ButtonMasuk
             // 
-            ButtonLogin.BackColor = Color.FromArgb(82, 109, 130);
-            ButtonLogin.FlatAppearance.BorderSize = 0;
-            ButtonLogin.FlatStyle = FlatStyle.Flat;
-            ButtonLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonLogin.ForeColor = Color.White;
-            ButtonLogin.Location = new Point(20, 355);
-            ButtonLogin.Name = "ButtonLogin";
-            ButtonLogin.Size = new Size(399, 45);
-            ButtonLogin.TabIndex = 3;
-            ButtonLogin.Text = "Login";
-            ButtonLogin.UseVisualStyleBackColor = false;
-            ButtonLogin.Click += ButtonLogin_Click;
+            ButtonMasuk.BackColor = Color.FromArgb(82, 109, 130);
+            ButtonMasuk.FlatAppearance.BorderSize = 0;
+            ButtonMasuk.FlatStyle = FlatStyle.Flat;
+            ButtonMasuk.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonMasuk.ForeColor = Color.White;
+            ButtonMasuk.Location = new Point(20, 355);
+            ButtonMasuk.Name = "ButtonMasuk";
+            ButtonMasuk.Size = new Size(399, 45);
+            ButtonMasuk.TabIndex = 3;
+            ButtonMasuk.Text = "Masuk";
+            ButtonMasuk.UseVisualStyleBackColor = false;
+            ButtonMasuk.Click += ButtonLogin_Click;
             // 
             // panel2
             // 
@@ -189,6 +191,26 @@
             pictureBox1.Size = new Size(302, 602);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(51, 128);
+            label6.Name = "label6";
+            label6.Size = new Size(87, 23);
+            label6.TabIndex = 23;
+            label6.Text = "Username";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(51, 227);
+            label5.Name = "label5";
+            label5.Size = new Size(82, 23);
+            label5.TabIndex = 22;
+            label5.Text = "Password";
             // 
             // LoginForm
             // 
@@ -215,16 +237,18 @@
 
         private Panel panel1;
         private Panel panel2;
-        private Button ButtonLogin;
+        private Button ButtonMasuk;
         private TextBox TextPassword;
         private TextBox TextUsername;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private Label label1;
-        private LinkLabel LinkRegistrasi;
+        private LinkLabel LinkDaftar;
         private Panel panel4;
         private Panel panel3;
         private Label label2;
         private PictureBox pictureBox1;
+        private Label label6;
+        private Label label5;
     }
 }

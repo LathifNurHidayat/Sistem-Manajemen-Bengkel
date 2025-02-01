@@ -15,5 +15,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public string no_hp { get; set; }
         public string alamat { get; set; }
         public string role { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime updated_at { get; set; }
     }
 }

@@ -35,10 +35,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             int cornerRadius = 20;
             GraphicsPath path = new GraphicsPath();
 
-            path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); // kiri atas
-            path.AddArc(panel.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90); // kanan atas
-            path.AddArc(panel.Width - cornerRadius, panel.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90); // kanan bawah
-            path.AddArc(0, panel.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); // kiri bawah
+            path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); 
+            path.AddArc(panel.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(panel.Width - cornerRadius, panel.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90); 
+            path.AddArc(0, panel.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); 
             path.CloseAllFigures();
 
             panel.Region = new Region(path);
@@ -46,7 +46,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
         private void RegisterControlEvent()
         {
-            LinkRegistrasi.Click += LinkRegistrasi_Click;
+            LinkDaftar.Click += LinkRegistrasi_Click;
         }
 
         private void LinkRegistrasi_Click(object? sender, EventArgs e)
@@ -58,19 +58,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            var data = new RiwayatSparepartModel
-            {
-                username = TextUsername.Text.Trim(),
-                password = TextPassword.Text.Trim(),
-            };
-            if (_userDal.CekUser(data) == true)
-            {
-                MessageBox.Show("Login Berhasil");
-            }
-            else
-            {
-                MessageBox.Show("Akun tidak ada");
-            }
+          
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

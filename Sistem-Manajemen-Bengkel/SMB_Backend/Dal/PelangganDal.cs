@@ -13,18 +13,74 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
     public class PelangganDal
     {
+        public IEnumerable<PelangganModel> ListData()
+        {
+            const string sql = @"SELECT * FROM tb_pelanggan";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.Query<PelangganModel>(sql);
+        }
+
+        public PelangganModel? GetData(int no_ktp)
+        {
+            const string sql = @"SELECT * FROM tb_pelanggan WHERE no_ktp = @no_ktp";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.QueryFirstOrDefault<PelangganModel>(sql, new { no_ktp });
+        }
+
+        public void InsertData(PelangganModel peanggan)
+        {
+            const string sql = @"INSERT INTO tb_pelanggan 
+                                    (no_ktp, nama_pelanggan, no_hp, alamat, email, password)
+                                VALUES
+                                    (@no_ktp, @nama_pelanggan, @no_hp, @alamat, @email, @password)";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            Conn.Execute(sql, peanggan);
+        } 
+
+        public void UpdateData (int no_ktp)
+        {
+            const string sql = @"UPDATE tb_pelanggan
+                                SET
+                                    nama_pelanggan = @nama_pelanggan,
+                                    no_hp = @no_hp,
+                                    alamat = @alamat,
+                                    email = @email,
+                                    password = @password,
+                                    updated_at = GETDATE()
+                                WHERE
+                                    no_ktp = @no_ktp";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            Conn.Execute(sql, no_ktp);
+        }
+
+        public void DeleteData(int no_ktp)
+        {
+            const string sql = @"DELETE FROM tb_pelanggan WHERE no_ktp = @no_ktp";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            Conn.Execute(sql, new { no_ktp });
+        }
+
+        public int ValidasiDaftar(int no_ktp, string no_hp, string username)
+        {
+            const string cek_NIK = "SELECT COUNT(*) FROM tb_pelanggan WHERE no_ktp = @no_ktp";
+            const string cek_NoTelp = "SELECT COUNT(*) FROM tb_pelanggan WHERE no_hp = @no_hp";
+            const string cek_Username = "SELECT COUNT(*) FROM tb_pelanggan WHERE username = @username";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            var cekNIK = Conn.QueryFirstOrDefault<bool>(cek_NIK, new { no_ktp });
+            var cekNoTelp = Conn.QueryFirstOrDefault<bool>(cek_NoTelp, new { no_hp });
+            var cekUsername = Conn.QueryFirstOrDefault<bool>(cek_Username, new { username });
+
+            if (cekNIK)
+                return 1;
+            else if (cekNoTelp)
+                return 2;
+            else if (cekUsername)
+                return 3;
+            else
+                return 0;
+        }
+
 
     }
 }
-
-
-CREATE TABLE tb_pelanggan (
-	no_ktp INT PRIMARY KEY,
-    nama_pelanggan VARCHAR(100) NOT NULL DEFAULT(''),
-    no_hp VARCHAR(20) NOT NULL DEFAULT(''),
-    alamat VARCHAR(225) NOT NULL DEFAULT(''),
-    email VARCHAR(50) NOT NULL DEFAULT(''),
-    password VARCHAR(225) NOT NULL DEFAULT(''),
-    created_at DATETIME DEFAULT GETDATE(),
-    updated_at DATETIME DEFAULT GETDATE()
-	);

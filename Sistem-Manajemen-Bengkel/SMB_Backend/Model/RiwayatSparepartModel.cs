@@ -8,7 +8,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
 {
     public class RiwayatSparepartModel
     {
-
-
+        public int id_riwayat_sparepart { get; set; }
+        public int id_sparepart { get; set; }
+        public decimal jumlah { get; set; }
+        public decimal harga { get; set; }
     }
 }
