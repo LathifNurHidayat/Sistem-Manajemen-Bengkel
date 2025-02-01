@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            LabelConfirmPass = new Label();
+            label9 = new Label();
+            panel6 = new Panel();
+            TextConfirmPassword = new TextBox();
             LabelEmail = new Label();
             LabelNoHP = new Label();
             LabelNIK = new Label();
@@ -54,24 +58,22 @@
             LinkMasuk = new LinkLabel();
             label1 = new Label();
             ButtonDaftar = new Button();
-            label9 = new Label();
-            panel6 = new Panel();
-            TextConfirmPassword = new TextBox();
-            LabelConfirmPass = new Label();
+            LabelPassword = new Label();
             panel1.SuspendLayout();
+            panel6.SuspendLayout();
             panel5.SuspendLayout();
             panel9.SuspendLayout();
             panel7.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
-            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(LabelPassword);
             panel1.Controls.Add(LabelConfirmPass);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(panel6);
@@ -99,6 +101,47 @@
             panel1.Size = new Size(587, 646);
             panel1.TabIndex = 2;
             // 
+            // LabelConfirmPass
+            // 
+            LabelConfirmPass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelConfirmPass.ForeColor = Color.Red;
+            LabelConfirmPass.Location = new Point(365, 477);
+            LabelConfirmPass.Name = "LabelConfirmPass";
+            LabelConfirmPass.Size = new Size(205, 23);
+            LabelConfirmPass.TabIndex = 29;
+            LabelConfirmPass.Text = "Password tidak valid";
+            LabelConfirmPass.TextAlign = ContentAlignment.MiddleRight;
+            LabelConfirmPass.Visible = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(18, 477);
+            label9.Name = "label9";
+            label9.Size = new Size(149, 23);
+            label9.TabIndex = 28;
+            label9.Text = "Confirm Password";
+            // 
+            // panel6
+            // 
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(TextConfirmPassword);
+            panel6.Location = new Point(18, 503);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(552, 41);
+            panel6.TabIndex = 27;
+            // 
+            // TextConfirmPassword
+            // 
+            TextConfirmPassword.BorderStyle = BorderStyle.None;
+            TextConfirmPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextConfirmPassword.Location = new Point(6, 7);
+            TextConfirmPassword.Name = "TextConfirmPassword";
+            TextConfirmPassword.Size = new Size(538, 24);
+            TextConfirmPassword.TabIndex = 6;
+            TextConfirmPassword.Tag = "ConfirmPassword";
+            // 
             // LabelEmail
             // 
             LabelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -109,6 +152,7 @@
             LabelEmail.TabIndex = 26;
             LabelEmail.Text = "Email sudah terdaftar";
             LabelEmail.TextAlign = ContentAlignment.MiddleRight;
+            LabelEmail.Visible = false;
             // 
             // LabelNoHP
             // 
@@ -120,6 +164,7 @@
             LabelNoHP.TabIndex = 25;
             LabelNoHP.Text = "Nomor HP sudah terdaftar";
             LabelNoHP.TextAlign = ContentAlignment.MiddleRight;
+            LabelNoHP.Visible = false;
             // 
             // LabelNIK
             // 
@@ -131,6 +176,7 @@
             LabelNIK.TabIndex = 24;
             LabelNIK.Text = "NIK sudah terdaftar";
             LabelNIK.TextAlign = ContentAlignment.MiddleRight;
+            LabelNIK.Visible = false;
             // 
             // label8
             // 
@@ -208,7 +254,8 @@
             TextNIK.Location = new Point(6, 7);
             TextNIK.Name = "TextNIK";
             TextNIK.Size = new Size(251, 24);
-            TextNIK.TabIndex = 2;
+            TextNIK.TabIndex = 0;
+            TextNIK.Tag = "NIK";
             // 
             // panel9
             // 
@@ -226,7 +273,8 @@
             TextNomorHP.Location = new Point(6, 7);
             TextNomorHP.Name = "TextNomorHP";
             TextNomorHP.Size = new Size(254, 24);
-            TextNomorHP.TabIndex = 2;
+            TextNomorHP.TabIndex = 1;
+            TextNomorHP.Tag = "HP";
             // 
             // panel7
             // 
@@ -244,7 +292,8 @@
             TextPassword.Location = new Point(6, 7);
             TextPassword.Name = "TextPassword";
             TextPassword.Size = new Size(538, 24);
-            TextPassword.TabIndex = 2;
+            TextPassword.TabIndex = 5;
+            TextPassword.Tag = "Password";
             // 
             // panel2
             // 
@@ -262,7 +311,7 @@
             TextEmail.Location = new Point(6, 7);
             TextEmail.Name = "TextEmail";
             TextEmail.Size = new Size(538, 24);
-            TextEmail.TabIndex = 2;
+            TextEmail.TabIndex = 4;
             TextEmail.Tag = "Email";
             // 
             // label2
@@ -292,7 +341,7 @@
             TextAlamat.Location = new Point(6, 7);
             TextAlamat.Name = "TextAlamat";
             TextAlamat.Size = new Size(538, 24);
-            TextAlamat.TabIndex = 2;
+            TextAlamat.TabIndex = 3;
             // 
             // panel3
             // 
@@ -310,7 +359,7 @@
             TextNamaLengkap.Location = new Point(6, 8);
             TextNamaLengkap.Name = "TextNamaLengkap";
             TextNamaLengkap.Size = new Size(538, 24);
-            TextNamaLengkap.TabIndex = 0;
+            TextNamaLengkap.TabIndex = 2;
             // 
             // LinkMasuk
             // 
@@ -318,7 +367,7 @@
             LinkMasuk.Location = new Point(341, 609);
             LinkMasuk.Name = "LinkMasuk";
             LinkMasuk.Size = new Size(51, 20);
-            LinkMasuk.TabIndex = 4;
+            LinkMasuk.TabIndex = 8;
             LinkMasuk.TabStop = true;
             LinkMasuk.Text = "Masuk";
             // 
@@ -341,48 +390,21 @@
             ButtonDaftar.Location = new Point(18, 556);
             ButtonDaftar.Name = "ButtonDaftar";
             ButtonDaftar.Size = new Size(552, 45);
-            ButtonDaftar.TabIndex = 3;
+            ButtonDaftar.TabIndex = 7;
             ButtonDaftar.Text = "Daftar";
             ButtonDaftar.UseVisualStyleBackColor = false;
             // 
-            // label9
+            // LabelPassword
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(18, 477);
-            label9.Name = "label9";
-            label9.Size = new Size(149, 23);
-            label9.TabIndex = 28;
-            label9.Text = "Confirm Password";
-            // 
-            // panel6
-            // 
-            panel6.BorderStyle = BorderStyle.FixedSingle;
-            panel6.Controls.Add(TextConfirmPassword);
-            panel6.Location = new Point(18, 503);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(552, 41);
-            panel6.TabIndex = 27;
-            // 
-            // TextConfirmPassword
-            // 
-            TextConfirmPassword.BorderStyle = BorderStyle.None;
-            TextConfirmPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextConfirmPassword.Location = new Point(6, 7);
-            TextConfirmPassword.Name = "TextConfirmPassword";
-            TextConfirmPassword.Size = new Size(538, 24);
-            TextConfirmPassword.TabIndex = 2;
-            // 
-            // LabelConfirmPass
-            // 
-            LabelConfirmPass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelConfirmPass.ForeColor = Color.Red;
-            LabelConfirmPass.Location = new Point(365, 477);
-            LabelConfirmPass.Name = "LabelConfirmPass";
-            LabelConfirmPass.Size = new Size(205, 23);
-            LabelConfirmPass.TabIndex = 29;
-            LabelConfirmPass.Text = "Email sudah terdaftar";
-            LabelConfirmPass.TextAlign = ContentAlignment.MiddleRight;
+            LabelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelPassword.ForeColor = Color.Red;
+            LabelPassword.Location = new Point(152, 401);
+            LabelPassword.Name = "LabelPassword";
+            LabelPassword.Size = new Size(418, 23);
+            LabelPassword.TabIndex = 30;
+            LabelPassword.Text = "Harus berupa kombinasi huruf besar/kecil, dan angka";
+            LabelPassword.TextAlign = ContentAlignment.MiddleRight;
+            LabelPassword.Visible = false;
             // 
             // RegisterForm
             // 
@@ -395,6 +417,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel9.ResumeLayout(false);
@@ -407,8 +431,6 @@
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -444,5 +466,6 @@
         private Label label9;
         private Panel panel6;
         private TextBox TextConfirmPassword;
+        private Label LabelPassword;
     }
 }

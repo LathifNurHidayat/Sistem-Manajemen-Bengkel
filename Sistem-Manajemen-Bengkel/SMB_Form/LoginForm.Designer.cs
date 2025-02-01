@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            LabelEmail = new Label();
             label6 = new Label();
             label5 = new Label();
             label2 = new Label();
@@ -55,6 +56,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(LabelEmail);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label2);
@@ -69,6 +71,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(438, 462);
             panel1.TabIndex = 0;
+            // 
+            // LabelEmail
+            // 
+            LabelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelEmail.ForeColor = Color.Red;
+            LabelEmail.Location = new Point(214, 129);
+            LabelEmail.Name = "LabelEmail";
+            LabelEmail.Size = new Size(205, 23);
+            LabelEmail.TabIndex = 27;
+            LabelEmail.Text = "Masukan email yang valid";
+            LabelEmail.TextAlign = ContentAlignment.MiddleRight;
+            LabelEmail.Visible = false;
             // 
             // label6
             // 
@@ -117,7 +131,7 @@
             TextPassword.Location = new Point(8, 7);
             TextPassword.Name = "TextPassword";
             TextPassword.Size = new Size(386, 24);
-            TextPassword.TabIndex = 2;
+            TextPassword.TabIndex = 1;
             // 
             // panel3
             // 
@@ -143,7 +157,7 @@
             LinkDaftar.Location = new Point(251, 403);
             LinkDaftar.Name = "LinkDaftar";
             LinkDaftar.Size = new Size(51, 20);
-            LinkDaftar.TabIndex = 4;
+            LinkDaftar.TabIndex = 3;
             LinkDaftar.TabStop = true;
             LinkDaftar.Text = "Daftar";
             // 
@@ -186,7 +200,7 @@
             ButtonMasuk.Location = new Point(20, 355);
             ButtonMasuk.Name = "ButtonMasuk";
             ButtonMasuk.Size = new Size(399, 45);
-            ButtonMasuk.TabIndex = 3;
+            ButtonMasuk.TabIndex = 2;
             ButtonMasuk.Text = "Masuk";
             ButtonMasuk.UseVisualStyleBackColor = false;
             // 
@@ -249,5 +263,6 @@
         private PictureBox pictureBox1;
         private Label label6;
         private Label label5;
+        private Label LabelEmail;
     }
 }

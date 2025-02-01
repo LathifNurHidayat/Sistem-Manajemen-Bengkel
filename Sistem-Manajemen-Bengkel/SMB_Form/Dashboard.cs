@@ -18,6 +18,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
     {
         private Form _form;
         private int _id;
+        private string _role;   
         public Dashboard(Form form, int id, string role)
         {
             InitializeComponent();
@@ -25,10 +26,24 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             _form = form;
             _id = id;
+            _role = role;
+            CekRole();
 
             RegisterControlEvent();
+        }
 
-            
+        private void CekRole()
+        {
+            if (_role == "Super Admin")
+            {
+                ButtonKaryawan.Visible = true;
+                ButtonLaporan.Visible = true;
+            }
+            else
+            {
+                ButtonKaryawan.Visible = false;
+                ButtonLaporan.Visible = false;
+            }
         }
 
         private void StyleButton(Button button)
@@ -142,8 +157,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private void ButtonDashboard_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new MenuDashboardAdminForm());
-
+            if (_role == "Super Admin")
+                ShowFormInPanel(new MenuDashboardAdminForm());
+            else
+                ShowFormInPanel(new MenuDashboardKaryawanForm());
         }
     }
 }

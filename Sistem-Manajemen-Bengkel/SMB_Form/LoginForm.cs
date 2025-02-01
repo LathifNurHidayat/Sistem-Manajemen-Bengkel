@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
@@ -49,6 +50,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         {
             LinkDaftar.Click += LinkRegistrasi_Click;
             ButtonMasuk.Click += ButtonMasuk_Click;
+            TextEmail.TextChanged += TextEmail_TextChanged;
+        }
+
+        private void TextEmail_TextChanged(object? sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(TextEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                LabelEmail.Visible = true;
+                return;
+            }
+            else
+                LabelEmail.Visible = false;
         }
 
         private void ButtonMasuk_Click(object? sender, EventArgs e)
@@ -59,19 +72,19 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
                 return;
             } 
             int idPelanggan = _pelangganDal.ValidasiLoginPelanggan(TextEmail.Text.Trim(), TextPassword.Text.Trim());
-            int idPetugas = _petugasDal.ValidasiLoginPetugas(TextEmail.Text.Trim(), TextPassword.Text.Trim());
+            var dataPetugas = _petugasDal.ValidasiLoginPetugas(TextEmail.Text.Trim(), TextPassword.Text.Trim());
 
-            if (idPelanggan == 0 && idPetugas == 0)
+            if (idPelanggan == 0 && dataPetugas == null)
             {
                 MessageBox.Show("Username atau password yang Anda masukkan salah. Silakan coba lagi.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ClearForm();
                 TextEmail.Focus();
                 return;
             }
-
-            new Dashboard(this).Show();
-
-
+            string role = idPelanggan != 0 ? "Pelanggan" : dataPetugas?.role == "Super Admin" ? "Super Admin" : "Karyawan";
+            int id = idPelanggan != 0 ? idPelanggan : dataPetugas?.id_petugas ?? 0;
+            new Dashboard(this, id, role).Show();
+            this.Hide();
         }
 
         private void ClearForm()
