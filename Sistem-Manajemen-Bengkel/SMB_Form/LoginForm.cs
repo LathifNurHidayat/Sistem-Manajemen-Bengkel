@@ -16,17 +16,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 {
     public partial class LoginForm : Form
     {
-        private readonly PelangganDal _userDal;
+        private readonly PelangganDal _pelangganDal;
+        private readonly PetugasDal _petugasDal;
         public LoginForm()
         {
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            _userDal = new PelangganDal();
+            _pelangganDal = new PelangganDal();
+            _petugasDal = new PetugasDal();
 
             CustomPanel(panel1);
-
             RegisterControlEvent();
         }
 
@@ -47,23 +48,42 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private void RegisterControlEvent()
         {
             LinkDaftar.Click += LinkRegistrasi_Click;
+            ButtonMasuk.Click += ButtonMasuk_Click;
+        }
+
+        private void ButtonMasuk_Click(object? sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TextEmail.Text) || string.IsNullOrWhiteSpace(TextPassword.Text))
+            {
+                MessageBox.Show("Data tidak boleh kosong !", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            } 
+            int idPelanggan = _pelangganDal.ValidasiLoginPelanggan(TextEmail.Text.Trim(), TextPassword.Text.Trim());
+            int idPetugas = _petugasDal.ValidasiLoginPetugas(TextEmail.Text.Trim(), TextPassword.Text.Trim());
+
+            if (idPelanggan == 0 && idPetugas == 0)
+            {
+                MessageBox.Show("Username atau password yang Anda masukkan salah. Silakan coba lagi.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ClearForm();
+                TextEmail.Focus();
+                return;
+            }
+
+            new Dashboard(this).Show();
+
+
+        }
+
+        private void ClearForm()
+        {
+            TextEmail.Clear();
+            TextPassword.Clear();
         }
 
         private void LinkRegistrasi_Click(object? sender, EventArgs e)
         {
-            RegisterForm form = new RegisterForm();
-            form.Show();
+            new RegisterForm(this).Show();
             this.Hide();
-        }
-
-        private void ButtonLogin_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

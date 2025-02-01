@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             panel1 = new Panel();
-            currencyTextBox1 = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
-            LabelUsername = new Label();
+            LabelEmail = new Label();
             LabelNoHP = new Label();
             LabelNIK = new Label();
             label8 = new Label();
@@ -47,7 +45,7 @@
             panel7 = new Panel();
             TextPassword = new TextBox();
             panel2 = new Panel();
-            TextUsername = new TextBox();
+            TextEmail = new TextBox();
             label2 = new Label();
             panel4 = new Panel();
             TextAlamat = new TextBox();
@@ -56,22 +54,28 @@
             LinkMasuk = new LinkLabel();
             label1 = new Label();
             ButtonDaftar = new Button();
+            label9 = new Label();
+            panel6 = new Panel();
+            TextConfirmPassword = new TextBox();
+            LabelConfirmPass = new Label();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)currencyTextBox1).BeginInit();
             panel5.SuspendLayout();
             panel9.SuspendLayout();
             panel7.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(currencyTextBox1);
-            panel1.Controls.Add(LabelUsername);
+            panel1.Controls.Add(LabelConfirmPass);
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(panel6);
+            panel1.Controls.Add(LabelEmail);
             panel1.Controls.Add(LabelNoHP);
             panel1.Controls.Add(LabelNIK);
             panel1.Controls.Add(label8);
@@ -90,53 +94,42 @@
             panel1.Controls.Add(LinkMasuk);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(ButtonDaftar);
-            panel1.Location = new Point(27, 31);
+            panel1.Location = new Point(27, 28);
             panel1.Name = "panel1";
-            panel1.Size = new Size(587, 582);
+            panel1.Size = new Size(587, 646);
             panel1.TabIndex = 2;
             // 
-            // currencyTextBox1
+            // LabelEmail
             // 
-            currencyTextBox1.AccessibilityEnabled = true;
-            currencyTextBox1.BeforeTouchSize = new Size(125, 27);
-            currencyTextBox1.DecimalValue = new decimal(new int[] { 0, 0, 0, 131072 });
-            currencyTextBox1.Location = new Point(421, 35);
-            currencyTextBox1.Name = "currencyTextBox1";
-            currencyTextBox1.Size = new Size(125, 27);
-            currencyTextBox1.TabIndex = 27;
-            currencyTextBox1.Text = "Rp0,00";
-            // 
-            // LabelUsername
-            // 
-            LabelUsername.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelUsername.ForeColor = Color.Red;
-            LabelUsername.Location = new Point(365, 322);
-            LabelUsername.Name = "LabelUsername";
-            LabelUsername.Size = new Size(205, 23);
-            LabelUsername.TabIndex = 26;
-            LabelUsername.Text = "NIK ";
-            LabelUsername.TextAlign = ContentAlignment.MiddleRight;
+            LabelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelEmail.ForeColor = Color.Red;
+            LabelEmail.Location = new Point(365, 322);
+            LabelEmail.Name = "LabelEmail";
+            LabelEmail.Size = new Size(205, 23);
+            LabelEmail.TabIndex = 26;
+            LabelEmail.Text = "Email sudah terdaftar";
+            LabelEmail.TextAlign = ContentAlignment.MiddleRight;
             // 
             // LabelNoHP
             // 
-            LabelNoHP.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelNoHP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNoHP.ForeColor = Color.Red;
             LabelNoHP.Location = new Point(365, 85);
             LabelNoHP.Name = "LabelNoHP";
             LabelNoHP.Size = new Size(205, 23);
             LabelNoHP.TabIndex = 25;
-            LabelNoHP.Text = "Warning";
+            LabelNoHP.Text = "Nomor HP sudah terdaftar";
             LabelNoHP.TextAlign = ContentAlignment.MiddleRight;
             // 
             // LabelNIK
             // 
-            LabelNIK.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelNIK.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNIK.ForeColor = Color.Red;
             LabelNIK.Location = new Point(87, 84);
             LabelNIK.Name = "LabelNIK";
             LabelNIK.Size = new Size(199, 23);
             LabelNIK.TabIndex = 24;
-            LabelNIK.Text = "NIK ";
+            LabelNIK.Text = "NIK sudah terdaftar";
             LabelNIK.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label8
@@ -165,9 +158,9 @@
             label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(18, 322);
             label6.Name = "label6";
-            label6.Size = new Size(87, 23);
+            label6.Size = new Size(51, 23);
             label6.TabIndex = 21;
-            label6.Text = "Username";
+            label6.Text = "Email";
             // 
             // label5
             // 
@@ -256,20 +249,21 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(TextUsername);
+            panel2.Controls.Add(TextEmail);
             panel2.Location = new Point(18, 348);
             panel2.Name = "panel2";
             panel2.Size = new Size(552, 41);
             panel2.TabIndex = 10;
             // 
-            // TextUsername
+            // TextEmail
             // 
-            TextUsername.BorderStyle = BorderStyle.None;
-            TextUsername.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextUsername.Location = new Point(6, 7);
-            TextUsername.Name = "TextUsername";
-            TextUsername.Size = new Size(538, 24);
-            TextUsername.TabIndex = 2;
+            TextEmail.BorderStyle = BorderStyle.None;
+            TextEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextEmail.Location = new Point(6, 7);
+            TextEmail.Name = "TextEmail";
+            TextEmail.Size = new Size(538, 24);
+            TextEmail.TabIndex = 2;
+            TextEmail.Tag = "Email";
             // 
             // label2
             // 
@@ -321,7 +315,7 @@
             // LinkMasuk
             // 
             LinkMasuk.AutoSize = true;
-            LinkMasuk.Location = new Point(341, 548);
+            LinkMasuk.Location = new Point(341, 609);
             LinkMasuk.Name = "LinkMasuk";
             LinkMasuk.Size = new Size(51, 20);
             LinkMasuk.TabIndex = 4;
@@ -331,7 +325,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(186, 548);
+            label1.Location = new Point(186, 609);
             label1.Name = "label1";
             label1.Size = new Size(157, 20);
             label1.TabIndex = 8;
@@ -344,25 +338,63 @@
             ButtonDaftar.FlatStyle = FlatStyle.Flat;
             ButtonDaftar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonDaftar.ForeColor = Color.White;
-            ButtonDaftar.Location = new Point(18, 495);
+            ButtonDaftar.Location = new Point(18, 556);
             ButtonDaftar.Name = "ButtonDaftar";
             ButtonDaftar.Size = new Size(552, 45);
             ButtonDaftar.TabIndex = 3;
             ButtonDaftar.Text = "Daftar";
             ButtonDaftar.UseVisualStyleBackColor = false;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(18, 477);
+            label9.Name = "label9";
+            label9.Size = new Size(149, 23);
+            label9.TabIndex = 28;
+            label9.Text = "Confirm Password";
+            // 
+            // panel6
+            // 
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(TextConfirmPassword);
+            panel6.Location = new Point(18, 503);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(552, 41);
+            panel6.TabIndex = 27;
+            // 
+            // TextConfirmPassword
+            // 
+            TextConfirmPassword.BorderStyle = BorderStyle.None;
+            TextConfirmPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextConfirmPassword.Location = new Point(6, 7);
+            TextConfirmPassword.Name = "TextConfirmPassword";
+            TextConfirmPassword.Size = new Size(538, 24);
+            TextConfirmPassword.TabIndex = 2;
+            // 
+            // LabelConfirmPass
+            // 
+            LabelConfirmPass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelConfirmPass.ForeColor = Color.Red;
+            LabelConfirmPass.Location = new Point(365, 477);
+            LabelConfirmPass.Name = "LabelConfirmPass";
+            LabelConfirmPass.Size = new Size(205, 23);
+            LabelConfirmPass.TabIndex = 29;
+            LabelConfirmPass.Text = "Email sudah terdaftar";
+            LabelConfirmPass.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(641, 644);
+            ClientSize = new Size(641, 699);
             Controls.Add(panel1);
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)currencyTextBox1).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel9.ResumeLayout(false);
@@ -375,6 +407,8 @@
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -390,7 +424,7 @@
         private Button ButtonDaftar;
         private PictureBox pictureBox5;
         private Panel panel2;
-        private TextBox TextUsername;
+        private TextBox TextEmail;
         private Panel panel7;
         private TextBox TextPassword;
         private Panel panel5;
@@ -404,8 +438,11 @@
         private Label label5;
         private Label label4;
         private Label LabelNIK;
-        private Label LabelUsername;
+        private Label LabelEmail;
         private Label LabelNoHP;
-        private Syncfusion.Windows.Forms.Tools.CurrencyTextBox currencyTextBox1;
+        private Label LabelConfirmPass;
+        private Label label9;
+        private Panel panel6;
+        private TextBox TextConfirmPassword;
     }
 }

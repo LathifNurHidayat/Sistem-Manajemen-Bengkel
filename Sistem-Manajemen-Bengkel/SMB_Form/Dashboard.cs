@@ -16,11 +16,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        private Form _form;
+        private int _id;
+        public Dashboard(Form form, int id, string role)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            _form = form;
+            _id = id;
+
             RegisterControlEvent();
 
             

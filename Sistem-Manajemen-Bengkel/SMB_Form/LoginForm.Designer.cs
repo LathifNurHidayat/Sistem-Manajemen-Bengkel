@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label6 = new Label();
+            label5 = new Label();
             label2 = new Label();
             panel4 = new Panel();
             TextPassword = new TextBox();
             panel3 = new Panel();
-            TextUsername = new TextBox();
+            TextEmail = new TextBox();
             LinkDaftar = new LinkLabel();
             label1 = new Label();
             pictureBox4 = new PictureBox();
@@ -41,8 +43,6 @@
             ButtonMasuk = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
-            label6 = new Label();
-            label5 = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -69,6 +69,26 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(438, 462);
             panel1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(51, 128);
+            label6.Name = "label6";
+            label6.Size = new Size(51, 23);
+            label6.TabIndex = 23;
+            label6.Text = "Email";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(51, 227);
+            label5.Name = "label5";
+            label5.Size = new Size(82, 23);
+            label5.TabIndex = 22;
+            label5.Text = "Password";
             // 
             // label2
             // 
@@ -102,20 +122,20 @@
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(TextUsername);
+            panel3.Controls.Add(TextEmail);
             panel3.Location = new Point(20, 157);
             panel3.Name = "panel3";
             panel3.Size = new Size(399, 41);
             panel3.TabIndex = 0;
             // 
-            // TextUsername
+            // TextEmail
             // 
-            TextUsername.BorderStyle = BorderStyle.None;
-            TextUsername.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextUsername.Location = new Point(8, 8);
-            TextUsername.Name = "TextUsername";
-            TextUsername.Size = new Size(386, 24);
-            TextUsername.TabIndex = 0;
+            TextEmail.BorderStyle = BorderStyle.None;
+            TextEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextEmail.Location = new Point(8, 8);
+            TextEmail.Name = "TextEmail";
+            TextEmail.Size = new Size(386, 24);
+            TextEmail.TabIndex = 0;
             // 
             // LinkDaftar
             // 
@@ -169,7 +189,6 @@
             ButtonMasuk.TabIndex = 3;
             ButtonMasuk.Text = "Masuk";
             ButtonMasuk.UseVisualStyleBackColor = false;
-            ButtonMasuk.Click += ButtonLogin_Click;
             // 
             // panel2
             // 
@@ -191,26 +210,6 @@
             pictureBox1.Size = new Size(302, 602);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(51, 128);
-            label6.Name = "label6";
-            label6.Size = new Size(87, 23);
-            label6.TabIndex = 23;
-            label6.Text = "Username";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(51, 227);
-            label5.Name = "label5";
-            label5.Size = new Size(82, 23);
-            label5.TabIndex = 22;
-            label5.Text = "Password";
             // 
             // LoginForm
             // 
@@ -239,7 +238,7 @@
         private Panel panel2;
         private Button ButtonMasuk;
         private TextBox TextPassword;
-        private TextBox TextUsername;
+        private TextBox TextEmail;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private Label label1;

@@ -35,9 +35,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     (@no_ktp, @nama_pelanggan, @no_hp, @alamat, @email, @password)";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             Conn.Execute(sql, peanggan);
-        } 
+        }
 
-        public void UpdateData (int no_ktp)
+        public void UpdateData(int no_ktp)
         {
             const string sql = @"UPDATE tb_pelanggan
                                 SET
@@ -60,27 +60,32 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Conn.Execute(sql, new { no_ktp });
         }
 
-        public int ValidasiDaftar(int no_ktp, string no_hp, string username)
+        public int ValidasiDaftar(int no_ktp, string no_hp, string email)
         {
             const string cek_NIK = "SELECT COUNT(*) FROM tb_pelanggan WHERE no_ktp = @no_ktp";
             const string cek_NoTelp = "SELECT COUNT(*) FROM tb_pelanggan WHERE no_hp = @no_hp";
-            const string cek_Username = "SELECT COUNT(*) FROM tb_pelanggan WHERE username = @username";
+            const string cek_Email = "SELECT COUNT(*) FROM tb_pelanggan WHERE email = @email";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             var cekNIK = Conn.QueryFirstOrDefault<bool>(cek_NIK, new { no_ktp });
             var cekNoTelp = Conn.QueryFirstOrDefault<bool>(cek_NoTelp, new { no_hp });
-            var cekUsername = Conn.QueryFirstOrDefault<bool>(cek_Username, new { username });
+            var cekEmail = Conn.QueryFirstOrDefault<bool>(cek_Email, new { email });
 
             if (cekNIK)
                 return 1;
             else if (cekNoTelp)
                 return 2;
-            else if (cekUsername)
+            else if (cekEmail)
                 return 3;
             else
                 return 0;
         }
 
-
+        public int ValidasiLoginPelanggan(string email, string password)
+        {
+            const string sql = "SELECT id_pelanggan FROM tb_pelanggan WHERE email = @email AND password = @password";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.QueryFirstOrDefault<int>(sql, new { email, password });
+        }
     }
 }
