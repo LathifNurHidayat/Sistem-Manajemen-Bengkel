@@ -1,7 +1,7 @@
 ﻿
 CREATE TABLE tb_booking (
     id_booking INT IDENTITY(1,1) PRIMARY KEY,
-    no_ktp INT NOT NULL,
+    no_ktp VARCHAR(20) NOT NULL DEFAULT(''),
     tanggal DATETIME NOT NULL DEFAULT('2000-09-09'),
     antrean INT NOT NULL DEFAULT(0),
     keluhan VARCHAR(225) NOT NULL DEFAULT(''),

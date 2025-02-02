@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
-using Sistem_Manajemen_Bengkel.SMB_Database;
 using System.Data;
+using Sistem_Manajemen_Bengkel.Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
@@ -60,7 +60,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Conn.Execute(sql, new { no_ktp });
         }
 
-        public int ValidasiDaftar(long no_ktp, string no_hp, string email)
+        public int ValidasiDaftar(string no_ktp, string no_hp, string email)
         {
             const string cek_NIK = "SELECT COUNT(*) FROM tb_pelanggan WHERE no_ktp = @no_ktp";
             const string cek_NoTelp = "SELECT COUNT(*) FROM tb_pelanggan WHERE no_hp = @no_hp";

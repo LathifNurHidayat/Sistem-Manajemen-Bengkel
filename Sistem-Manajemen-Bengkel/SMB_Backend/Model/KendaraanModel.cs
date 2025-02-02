@@ -9,7 +9,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
     public class KendaraanModel
     {
         public int id_kendaraan { get; set; }
-        public int no_ktp { get; set; }
+        public string no_ktp { get; set; }
         public string no_polisi { get; set; }
         public string merek { get; set; }
         public string transmisi { get; set; }

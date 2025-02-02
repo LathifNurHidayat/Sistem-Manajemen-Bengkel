@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Database
+namespace Sistem_Manajemen_Bengkel.Helper
 {
     public class ConnStringHelper
     {

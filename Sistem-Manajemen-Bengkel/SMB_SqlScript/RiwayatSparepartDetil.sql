@@ -4,5 +4,5 @@
     jumlah INT NOT NULL,
     harga DECIMAL NOT NULL,
     CONSTRAINT fk_riwayatdetil_riwayat FOREIGN KEY (id_sparepart_riwayat) REFERENCES tb_riwayat (id_riwayat) 
-        ON DELETE CASCADE   
+        ON DELETE CASCADE
 )

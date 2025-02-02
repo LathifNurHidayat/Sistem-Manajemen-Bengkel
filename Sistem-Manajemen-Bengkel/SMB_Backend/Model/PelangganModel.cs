@@ -8,7 +8,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
 {
     public class PelangganModel
     {
-        public int no_ktp { get; set;}
+        public string no_ktp { get; set;}
         public string nama_pelanggan { get; set; }
         public string no_hp { get; set; }
         public string alamat { get; set; }

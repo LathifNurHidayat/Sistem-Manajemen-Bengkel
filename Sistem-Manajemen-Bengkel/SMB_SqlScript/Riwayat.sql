@@ -1,7 +1,7 @@
 ﻿CREATE TABLE tb_riwayat (
     id_riwayat INT IDENTITY(1,1) PRIMARY KEY,
     id_jasa_servis INT NOT NULL DEFAULT(0),
-    no_ktp INT NOT NULL DEFAULT(0),
+    no_ktp VARCHAR(20) NOT NULL DEFAULT(''),
     id_kendaraan INT NOT NULL DEFAULT(0),
     id_riwayat_sparepart INT NOT NULL DEFAULT(0),
     id_petugas INT NOT NULL DEFAULT(0),

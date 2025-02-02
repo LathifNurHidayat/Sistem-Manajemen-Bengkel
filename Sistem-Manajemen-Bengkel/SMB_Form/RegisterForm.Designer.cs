@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            LabelPassword = new Label();
             LabelConfirmPass = new Label();
             label9 = new Label();
             panel6 = new Panel();
@@ -58,7 +59,6 @@
             LinkMasuk = new LinkLabel();
             label1 = new Label();
             ButtonDaftar = new Button();
-            LabelPassword = new Label();
             panel1.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
@@ -99,7 +99,19 @@
             panel1.Location = new Point(27, 28);
             panel1.Name = "panel1";
             panel1.Size = new Size(587, 646);
-            panel1.TabIndex = 2;
+            panel1.TabIndex = 0;
+            // 
+            // LabelPassword
+            // 
+            LabelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelPassword.ForeColor = Color.Red;
+            LabelPassword.Location = new Point(152, 401);
+            LabelPassword.Name = "LabelPassword";
+            LabelPassword.Size = new Size(418, 23);
+            LabelPassword.TabIndex = 30;
+            LabelPassword.Text = "Harus berupa kombinasi huruf besar/kecil, dan angka";
+            LabelPassword.TextAlign = ContentAlignment.MiddleRight;
+            LabelPassword.Visible = false;
             // 
             // LabelConfirmPass
             // 
@@ -130,7 +142,7 @@
             panel6.Location = new Point(18, 503);
             panel6.Name = "panel6";
             panel6.Size = new Size(552, 41);
-            panel6.TabIndex = 27;
+            panel6.TabIndex = 7;
             // 
             // TextConfirmPassword
             // 
@@ -245,7 +257,7 @@
             panel5.Location = new Point(18, 110);
             panel5.Name = "panel5";
             panel5.Size = new Size(268, 41);
-            panel5.TabIndex = 17;
+            panel5.TabIndex = 1;
             // 
             // TextNIK
             // 
@@ -254,7 +266,7 @@
             TextNIK.Location = new Point(6, 7);
             TextNIK.Name = "TextNIK";
             TextNIK.Size = new Size(251, 24);
-            TextNIK.TabIndex = 0;
+            TextNIK.TabIndex = 1;
             TextNIK.Tag = "NIK";
             // 
             // panel9
@@ -264,7 +276,7 @@
             panel9.Location = new Point(302, 110);
             panel9.Name = "panel9";
             panel9.Size = new Size(268, 41);
-            panel9.TabIndex = 16;
+            panel9.TabIndex = 2;
             // 
             // TextNomorHP
             // 
@@ -283,7 +295,7 @@
             panel7.Location = new Point(18, 426);
             panel7.Name = "panel7";
             panel7.Size = new Size(552, 41);
-            panel7.TabIndex = 14;
+            panel7.TabIndex = 6;
             // 
             // TextPassword
             // 
@@ -302,7 +314,7 @@
             panel2.Location = new Point(18, 348);
             panel2.Name = "panel2";
             panel2.Size = new Size(552, 41);
-            panel2.TabIndex = 10;
+            panel2.TabIndex = 5;
             // 
             // TextEmail
             // 
@@ -332,7 +344,7 @@
             panel4.Location = new Point(18, 268);
             panel4.Name = "panel4";
             panel4.Size = new Size(552, 41);
-            panel4.TabIndex = 1;
+            panel4.TabIndex = 4;
             // 
             // TextAlamat
             // 
@@ -350,7 +362,7 @@
             panel3.Location = new Point(18, 188);
             panel3.Name = "panel3";
             panel3.Size = new Size(552, 41);
-            panel3.TabIndex = 0;
+            panel3.TabIndex = 3;
             // 
             // TextNamaLengkap
             // 
@@ -367,7 +379,7 @@
             LinkMasuk.Location = new Point(341, 609);
             LinkMasuk.Name = "LinkMasuk";
             LinkMasuk.Size = new Size(51, 20);
-            LinkMasuk.TabIndex = 8;
+            LinkMasuk.TabIndex = 9;
             LinkMasuk.TabStop = true;
             LinkMasuk.Text = "Masuk";
             // 
@@ -390,21 +402,9 @@
             ButtonDaftar.Location = new Point(18, 556);
             ButtonDaftar.Name = "ButtonDaftar";
             ButtonDaftar.Size = new Size(552, 45);
-            ButtonDaftar.TabIndex = 7;
+            ButtonDaftar.TabIndex = 8;
             ButtonDaftar.Text = "Daftar";
             ButtonDaftar.UseVisualStyleBackColor = false;
-            // 
-            // LabelPassword
-            // 
-            LabelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelPassword.ForeColor = Color.Red;
-            LabelPassword.Location = new Point(152, 401);
-            LabelPassword.Name = "LabelPassword";
-            LabelPassword.Size = new Size(418, 23);
-            LabelPassword.TabIndex = 30;
-            LabelPassword.Text = "Harus berupa kombinasi huruf besar/kecil, dan angka";
-            LabelPassword.TextAlign = ContentAlignment.MiddleRight;
-            LabelPassword.Visible = false;
             // 
             // RegisterForm
             // 

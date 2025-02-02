@@ -49,6 +49,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 
         private void RegisterControlEvent()
         {
+            this.FormClosed += RegisterForm_FormClosed; ;
             LinkMasuk.Click += LinkLogin_Click;
             TextNIK.TextChanged += TextInput_TextChanged;
             TextNomorHP.TextChanged += TextInput_TextChanged;
@@ -62,6 +63,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
             TextNomorHP.KeyPress += TextBox_KeyPress;
         }
 
+        private void RegisterForm_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            _form.Show();
+        }
+
         private void TextBox_KeyPress(object? sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -72,15 +78,29 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 
         private void ButtonDaftar_Click(object? sender, EventArgs e)
         {
-            if (LabelNIK.Visible || LabelNoHP.Visible || LabelEmail.Visible  || LabelConfirmPass.Visible)
+            List<TextBox> box = new List<TextBox>()
             {
-                MessageBox.Show("Data yang anda masukkan tidak valid");
+                TextNIK, TextNomorHP,TextNamaLengkap, TextEmail, TextAlamat, TextPassword, TextConfirmPassword
+            };
+
+            foreach (TextBox T in box)
+            {
+                if (string.IsNullOrWhiteSpace(T.Text))
+                {
+                    MesboxHelper.ShowWarning("Data tidak boleh kosong");    
+                    return;
+                }
+            }
+
+            if (LabelNIK.Visible || LabelNoHP.Visible || LabelEmail.Visible  || LabelConfirmPass.Visible || LabelPassword.Visible)
+            {
+                MesboxHelper.ShowWarning("Data tidak valid");
                 return;
             }
 
             var pelanggan = new PelangganModel
             {
-                no_ktp = Convert.ToInt32(TextNIK.Text.Trim()),
+                no_ktp = TextNIK.Text.Trim(),
                 no_hp = TextNomorHP.Text.Trim(),
                 nama_pelanggan = TextEmail.Text.Trim(),
                 alamat = TextAlamat.Text.Trim(),
@@ -95,41 +115,94 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 
         private async void TextInput_TextChanged(object? sender, EventArgs e)
         {
-            if (sender is not TextBox textbox) return; 
+            await Task.Delay(1000);
+            TextBox textbox = (TextBox)sender;
 
-            await Task.Delay(500); 
-
-            string text = textbox.Text.Trim();
-            bool isValid = true;
-
-            var ValidasiRules = new Dictionary<string, (string Pattern, Label LabelError, string PesanError)>
+            if (textbox.Tag == "Email")
             {
-                { "Email", (@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", LabelEmail, "Masukkan email yang valid") },
-                { "NIK", (@"^[0-9]{16}$", LabelNIK, "NIK harus 16 digit") },
-                { "NoHP", (@"^[0-9]{10,13}$", LabelNoHP, "No HP harus 10-13 digit") },
-                { "Password", (@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$", LabelPassword, "Password minimal 8 karakter, harus ada huruf besar, kecil, dan angka") }
-            };
-
-            if (ValidasiRules.TryGetValue(textbox.Tag?.ToString() ?? "", out var rule))
+                if (!Regex.IsMatch(TextEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+                {
+                    LabelEmail.Text = "Masukan email yang valid";
+                    LabelEmail.Visible = true;
+                    return;
+                }
+                else
+                {
+                    LabelEmail.Visible = false;
+                    LabelEmail.Text = "Email sudah terdaftar";
+                }
+            }
+            else if (textbox.Tag == "NIK")
             {
-                isValid = Regex.IsMatch(text, rule.Pattern);
-                rule.LabelError.Text = isValid ? "Sudah terdaftar" : rule.PesanError;
-                rule.LabelError .Visible = !isValid;
+                if (!Regex.IsMatch(TextNIK.Text, @"^[0-9]{16}$"))
+                {
+                    LabelNIK.Text = "NIK harus 16 digit";
+                    LabelNIK.Visible = true;
+                    return;
+                }
+                else
+                {
+                    LabelNIK.Visible = false;
+                    LabelNIK.Text = "NIK sudah terdaftar";
+                }
+            }
+            else if (textbox.Tag == "NoHP")
+            {
+                if (!Regex.IsMatch(TextNomorHP.Text, @"^[0-9]{10,13}$"))
+                {
+                    LabelNoHP.Text = "No HP harus 10-13 digit";
+                    LabelNoHP.Visible = true;
+                    return;
+                }
+                else
+                {
+                    LabelNoHP.Visible = false;
+                    LabelNoHP.Text = "No HP sudah terdaftar";
+                }
+            }
+            else if (textbox.Tag == "Password")
+            {
+                string password = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$";
+                if (!Regex.IsMatch(TextPassword.Text , password))
+                {
+                    LabelPassword.Visible = true;
+                    return;
+                }
+                else
+                    LabelPassword.Visible = false;
+            }
+            else if (textbox.Tag == "ConfirmPassword")
+            {
+                if (TextConfirmPassword.Text != TextPassword.Text)
+                {
+                    LabelConfirmPass.Visible = true;
+                    return;
+                }
+                else
+                {
+                    LabelConfirmPass.Visible = false;
+                }
             }
 
-            if (textbox.Tag?.ToString() == "ConfirmPassword")
-            {
-                isValid = (text == TextPassword.Text);
-                LabelConfirmPass.Visible = !isValid;
-            }
+            string no_ktp = TextNIK.Text.Trim();
+            string no_hp = TextNomorHP.Text.Trim();
+            string email = TextEmail.Text.Trim();
 
-            if (!isValid) return; 
-
-            var cekData = _pelangganDal.ValidasiDaftar(TextNIK.Text, TextNomorHP.Text, TextEmail.Text);
-
-            LabelNIK.Visible = (cekData == 1);
-            LabelNoHP.Visible = (cekData == 2);
-            LabelEmail.Visible = (cekData == 3);
+            var cekData = _pelangganDal.ValidasiDaftar(no_ktp, no_hp, email);
+            if (cekData == 0)
+                return;
+            if (cekData == 1)
+                LabelNIK.Visible = true;
+            else
+                LabelNIK.Visible = false;
+            if (cekData == 2)
+                LabelNoHP.Visible = true;
+            else
+                LabelNoHP.Visible = false;
+            if (cekData == 3)
+                LabelEmail.Visible = true;
+            else
+                LabelEmail.Visible = false;
         }
 
         private void LinkLogin_Click(object? sender, EventArgs e)

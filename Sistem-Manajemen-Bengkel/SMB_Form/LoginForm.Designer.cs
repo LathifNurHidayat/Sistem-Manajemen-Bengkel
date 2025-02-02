@@ -149,7 +149,7 @@
             TextEmail.Location = new Point(8, 8);
             TextEmail.Name = "TextEmail";
             TextEmail.Size = new Size(386, 24);
-            TextEmail.TabIndex = 0;
+            TextEmail.TabIndex = 8;
             // 
             // LinkDaftar
             // 

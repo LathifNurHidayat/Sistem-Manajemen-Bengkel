@@ -1,5 +1,5 @@
 ﻿CREATE TABLE tb_pelanggan (
-	no_ktp INT PRIMARY KEY,
+	no_ktp VARCHAR(20) PRIMARY KEY,
 	nama_pelanggan VARCHAR(100) NOT NULL DEFAULT(''),
 	no_hp VARCHAR(20) NOT NULL DEFAULT(''),
     alamat VARCHAR(225) NOT NULL DEFAULT(''),

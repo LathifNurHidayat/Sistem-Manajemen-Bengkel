@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
-using Sistem_Manajemen_Bengkel.SMB_Database;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
