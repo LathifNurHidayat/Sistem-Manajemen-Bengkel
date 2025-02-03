@@ -49,7 +49,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 
         private void RegisterControlEvent()
         {
-            this.FormClosed += RegisterForm_FormClosed; ;
+            this.FormClosed += RegisterForm_FormClosed;
             LinkMasuk.Click += LinkLogin_Click;
             TextNIK.TextChanged += TextInput_TextChanged;
             TextNomorHP.TextChanged += TextInput_TextChanged;
@@ -102,9 +102,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
             {
                 no_ktp = TextNIK.Text.Trim(),
                 no_hp = TextNomorHP.Text.Trim(),
-                nama_pelanggan = TextEmail.Text.Trim(),
+                nama_pelanggan = TextNamaLengkap.Text.Trim(),
+                email = TextEmail.Text.Trim(),
                 alamat = TextAlamat.Text.Trim(),
-                email = TextConfirmPassword.Text.Trim(),
+                password = TextConfirmPassword.Text.Trim(),
             };
 
             _pelangganDal.InsertData(pelanggan);
@@ -132,7 +133,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
                     LabelEmail.Text = "Email sudah terdaftar";
                 }
             }
-            else if (textbox.Tag == "NIK")
+            else if (textbox.Tag == "NIK") 
             {
                 if (!Regex.IsMatch(TextNIK.Text, @"^[0-9]{16}$"))
                 {

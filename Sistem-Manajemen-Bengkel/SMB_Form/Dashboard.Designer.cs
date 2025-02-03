@@ -233,11 +233,10 @@
             // LabelUsername
             // 
             LabelUsername.Anchor = AnchorStyles.Top;
-            LabelUsername.AutoSize = true;
             LabelUsername.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelUsername.Location = new Point(77, 151);
+            LabelUsername.Location = new Point(3, 151);
             LabelUsername.Name = "LabelUsername";
-            LabelUsername.Size = new Size(165, 24);
+            LabelUsername.Size = new Size(313, 24);
             LabelUsername.TabIndex = 5;
             LabelUsername.Text = "Lathif Nur Hidayat";
             LabelUsername.TextAlign = ContentAlignment.MiddleCenter;
@@ -245,12 +244,11 @@
             // LabelRole
             // 
             LabelRole.Anchor = AnchorStyles.Top;
-            LabelRole.AutoSize = true;
             LabelRole.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelRole.ForeColor = Color.Gray;
-            LabelRole.Location = new Point(105, 175);
+            LabelRole.Location = new Point(3, 175);
             LabelRole.Name = "LabelRole";
-            LabelRole.Size = new Size(97, 20);
+            LabelRole.Size = new Size(313, 20);
             LabelRole.TabIndex = 4;
             LabelRole.Text = "Super Admin";
             LabelRole.TextAlign = ContentAlignment.MiddleCenter;
@@ -287,7 +285,6 @@
             Name = "Dashboard";
             StartPosition = FormStartPosition.CenterScreen;
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PictureProfile).EndInit();
             ResumeLayout(false);
         }

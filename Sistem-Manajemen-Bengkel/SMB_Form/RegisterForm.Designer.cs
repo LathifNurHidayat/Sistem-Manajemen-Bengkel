@@ -150,6 +150,7 @@
             TextConfirmPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextConfirmPassword.Location = new Point(6, 7);
             TextConfirmPassword.Name = "TextConfirmPassword";
+            TextConfirmPassword.PasswordChar = '*';
             TextConfirmPassword.Size = new Size(538, 24);
             TextConfirmPassword.TabIndex = 6;
             TextConfirmPassword.Tag = "ConfirmPassword";
@@ -264,6 +265,7 @@
             TextNIK.BorderStyle = BorderStyle.None;
             TextNIK.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextNIK.Location = new Point(6, 7);
+            TextNIK.MaxLength = 16;
             TextNIK.Name = "TextNIK";
             TextNIK.Size = new Size(251, 24);
             TextNIK.TabIndex = 1;
@@ -283,6 +285,7 @@
             TextNomorHP.BorderStyle = BorderStyle.None;
             TextNomorHP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextNomorHP.Location = new Point(6, 7);
+            TextNomorHP.MaxLength = 13;
             TextNomorHP.Name = "TextNomorHP";
             TextNomorHP.Size = new Size(254, 24);
             TextNomorHP.TabIndex = 1;
@@ -303,6 +306,7 @@
             TextPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextPassword.Location = new Point(6, 7);
             TextPassword.Name = "TextPassword";
+            TextPassword.PasswordChar = '*';
             TextPassword.Size = new Size(538, 24);
             TextPassword.TabIndex = 5;
             TextPassword.Tag = "Password";

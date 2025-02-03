@@ -16,17 +16,20 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 {
     public partial class Dashboard : Form
     {
-        private Form _form;
-        private int _id;
-        private string _role;   
-        public Dashboard(Form form, int id, string role)
+        private Form _mainForm;
+        private long _id;
+        private string _username;
+        private string _role;
+
+        public Dashboard(Form form, long id, string username, string role)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            _form = form;
+            _mainForm = form;
             _id = id;
-            _role = role;
+            LabelUsername.Text = username;
+            LabelRole.Text = role;
             CekRole();
 
             RegisterControlEvent();
@@ -53,7 +56,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
                 ButtonDashboard, ButtonBooking, ButtonServis, ButtonRiwayat, ButtonPelanggan,
                 ButtonKendaraan, ButtonKaryawan, ButtonSparepart, ButtonLaporan, ButtonLogout
             };
-            
+
             foreach (Button coloringButton in menu)
             {
                 if (coloringButton == button)
@@ -78,7 +81,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;
-            form.FormBorderStyle = FormBorderStyle.None; 
+            form.FormBorderStyle = FormBorderStyle.None;
             PanelMain.Tag = form;
 
             PanelMain.Controls.Add(form);
@@ -87,6 +90,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
         private void RegisterControlEvent()
         {
+            this.FormClosed += Dashboard_FormClosed;
+            this.Load += Dashboard_Load;
             ButtonDashboard.Click += ButtonDashboard_Click;
             ButtonBooking.Click += ButtonBooking_Click;
             ButtonServis.Click += ButtonServis_Click;
@@ -98,6 +103,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             ButtonLaporan.Click += ButtonLaporan_Click;
             ButtonLogout.Click += ButtonLogout_Click;
 
+        }
+
+        private void Dashboard_Load(object? sender, EventArgs e)
+        {
+            ButtonDashboard.PerformClick();
+        }
+
+        private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            _mainForm.Close();
         }
 
         private void ButtonLogout_Click(object? sender, EventArgs e)
@@ -162,5 +177,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             else
                 ShowFormInPanel(new MenuDashboardKaryawanForm());
         }
+
     }
 }

@@ -53,8 +53,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             TextEmail.TextChanged += TextEmail_TextChanged;
         }
 
-        private void TextEmail_TextChanged(object? sender, EventArgs e)
+        private async void TextEmail_TextChanged(object? sender, EventArgs e)
         {
+            await Task.Delay(500);
             if (!Regex.IsMatch(TextEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
             {
                 LabelEmail.Visible = true;
@@ -68,22 +69,23 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         {
             if (string.IsNullOrWhiteSpace(TextEmail.Text) || string.IsNullOrWhiteSpace(TextPassword.Text))
             {
-                MessageBox.Show("Data tidak boleh kosong !", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MesboxHelper.ShowWarning("Data tidak boleh kosong !");
                 return;
             } 
-            int idPelanggan = _pelangganDal.ValidasiLoginPelanggan(TextEmail.Text.Trim(), TextPassword.Text.Trim());
+            var dataPelanggan = _pelangganDal.ValidasiLoginPelanggan(TextEmail.Text.Trim(), TextPassword.Text.Trim());
             var dataPetugas = _petugasDal.ValidasiLoginPetugas(TextEmail.Text.Trim(), TextPassword.Text.Trim());
 
-            if (idPelanggan == 0 && dataPetugas == null)
+            if (dataPelanggan == null && dataPetugas == null)
             {
-                MessageBox.Show("Username atau password yang Anda masukkan salah. Silakan coba lagi.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MesboxHelper.ShowWarning("Username atau password yang Anda masukkan salah. Silakan coba lagi!");    
                 ClearForm();
                 TextEmail.Focus();
                 return;
             }
-            string role = idPelanggan != 0 ? "Pelanggan" : dataPetugas?.role == "Super Admin" ? "Super Admin" : "Karyawan";
-            int id = idPelanggan != 0 ? idPelanggan : dataPetugas?.id_petugas ?? 0;
-            new Dashboard(this, id, role).Show();
+            string role = dataPelanggan != null ? "Pelanggan" : dataPetugas?.role == "Super Admin" ? "Super Admin" : "Karyawan";
+            string username = dataPelanggan?.nama_pelanggan != null ? dataPelanggan.nama_pelanggan : dataPetugas?.nama_petugas ?? "";
+            long id = dataPelanggan?.no_ktp != null ? long.Parse(dataPelanggan?.no_ktp) : dataPetugas?.id_petugas ?? 0;
+            new Dashboard(this, id, username, role).Show();
             this.Hide();
         }
 

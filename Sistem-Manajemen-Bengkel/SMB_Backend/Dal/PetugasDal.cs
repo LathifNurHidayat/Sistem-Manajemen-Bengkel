@@ -14,7 +14,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
     {
         public PetugasModel? ValidasiLoginPetugas(string email, string password)
         {
-            const string sql = "SELECT id_petugas, role FROM tb_petugas WHERE email = @email AND password = @password";
+            const string sql = "SELECT id_petugas, nama_petugas, role FROM tb_petugas WHERE email = @email AND password = @password";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<PetugasModel>(sql, new { email, password });
         }

@@ -81,11 +81,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                 return 0;
         }
 
-        public int ValidasiLoginPelanggan(string email, string password)
+        public PelangganModel? ValidasiLoginPelanggan(string email, string password)
         {
-            const string sql = "SELECT id_pelanggan FROM tb_pelanggan WHERE email = @email AND password = @password";
+            const string sql = "SELECT no_ktp, nama_pelanggan FROM tb_pelanggan WHERE email = @email AND password = @password";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.QueryFirstOrDefault<int>(sql, new { email, password });
+            return Conn.QueryFirstOrDefault<PelangganModel>(sql, new { email, password });
         }
     }
 }
