@@ -282,6 +282,7 @@
             ClientSize = new Size(1239, 1055);
             Controls.Add(PanelMain);
             Controls.Add(panel2);
+            DoubleBuffered = true;
             Name = "Dashboard";
             StartPosition = FormStartPosition.CenterScreen;
             panel2.ResumeLayout(false);

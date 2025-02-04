@@ -9,3 +9,5 @@
     created_at DATETIME DEFAULT GETDATE(),
     updated_at DATETIME DEFAULT GETDATE()
 );
+INSERT INTO tb_petugas (nama_petugas, email, password, no_hp, alamat, role)
+values ('Super Admin Bengkel', 'superadmin@gmail.com', 'Admin_#@123', '081234567890', '','Super Admin')

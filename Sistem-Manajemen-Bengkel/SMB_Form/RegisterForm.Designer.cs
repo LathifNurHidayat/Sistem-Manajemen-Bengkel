@@ -96,7 +96,7 @@
             panel1.Controls.Add(LinkMasuk);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(ButtonDaftar);
-            panel1.Location = new Point(27, 28);
+            panel1.Location = new Point(253, 28);
             panel1.Name = "panel1";
             panel1.Size = new Size(587, 646);
             panel1.TabIndex = 0;
@@ -109,6 +109,7 @@
             LabelPassword.Name = "LabelPassword";
             LabelPassword.Size = new Size(418, 23);
             LabelPassword.TabIndex = 30;
+            LabelPassword.Tag = "Password";
             LabelPassword.Text = "Harus berupa kombinasi huruf besar/kecil, dan angka";
             LabelPassword.TextAlign = ContentAlignment.MiddleRight;
             LabelPassword.Visible = false;
@@ -121,6 +122,7 @@
             LabelConfirmPass.Name = "LabelConfirmPass";
             LabelConfirmPass.Size = new Size(205, 23);
             LabelConfirmPass.TabIndex = 29;
+            LabelConfirmPass.Tag = "ConfirmPassword";
             LabelConfirmPass.Text = "Password tidak valid";
             LabelConfirmPass.TextAlign = ContentAlignment.MiddleRight;
             LabelConfirmPass.Visible = false;
@@ -163,6 +165,7 @@
             LabelEmail.Name = "LabelEmail";
             LabelEmail.Size = new Size(205, 23);
             LabelEmail.TabIndex = 26;
+            LabelEmail.Tag = "Email";
             LabelEmail.Text = "Email sudah terdaftar";
             LabelEmail.TextAlign = ContentAlignment.MiddleRight;
             LabelEmail.Visible = false;
@@ -175,6 +178,7 @@
             LabelNoHP.Name = "LabelNoHP";
             LabelNoHP.Size = new Size(205, 23);
             LabelNoHP.TabIndex = 25;
+            LabelNoHP.Tag = "NoHP";
             LabelNoHP.Text = "Nomor HP sudah terdaftar";
             LabelNoHP.TextAlign = ContentAlignment.MiddleRight;
             LabelNoHP.Visible = false;
@@ -187,6 +191,7 @@
             LabelNIK.Name = "LabelNIK";
             LabelNIK.Size = new Size(199, 23);
             LabelNIK.TabIndex = 24;
+            LabelNIK.Tag = "NIK";
             LabelNIK.Text = "NIK sudah terdaftar";
             LabelNIK.TextAlign = ContentAlignment.MiddleRight;
             LabelNIK.Visible = false;
@@ -289,7 +294,7 @@
             TextNomorHP.Name = "TextNomorHP";
             TextNomorHP.Size = new Size(254, 24);
             TextNomorHP.TabIndex = 1;
-            TextNomorHP.Tag = "HP";
+            TextNomorHP.Tag = "NoHP";
             // 
             // panel7
             // 
@@ -415,8 +420,10 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(641, 699);
+            ClientSize = new Size(867, 699);
             Controls.Add(panel1);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);

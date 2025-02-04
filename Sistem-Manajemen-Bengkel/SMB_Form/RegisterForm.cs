@@ -9,8 +9,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 {
@@ -28,23 +30,24 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            CustomPanel(panel1);
+            CustomComponentHelper.CustomPanel(panel1);
 
             RegisterControlEvent();
         }
 
-        private void CustomPanel(Panel panel)
+        private void InsertData()
         {
-            int cornerRadius = 20;
-            GraphicsPath path = new GraphicsPath();
+            var pelanggan = new PelangganModel
+            {
+                no_ktp = TextNIK.Text.Trim(),
+                no_hp = TextNomorHP.Text.Trim(),
+                nama_pelanggan = TextNamaLengkap.Text.Trim(),
+                email = TextEmail.Text.Trim(),
+                alamat = TextAlamat.Text.Trim(),
+                password = HashPasswordHelper.HashPassword(TextConfirmPassword.Text.Trim()),
+            };
 
-            path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); // kiri atas
-            path.AddArc(panel.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90); // kanan atas
-            path.AddArc(panel.Width - cornerRadius, panel.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90); // kanan bawah
-            path.AddArc(0, panel.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); // kiri bawah
-            path.CloseAllFigures();
-
-            panel.Region = new Region(path);
+            _pelangganDal.InsertData(pelanggan);
         }
 
         private void RegisterControlEvent()
@@ -97,18 +100,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
                 MesboxHelper.ShowWarning("Data tidak valid");
                 return;
             }
-
-            var pelanggan = new PelangganModel
-            {
-                no_ktp = TextNIK.Text.Trim(),
-                no_hp = TextNomorHP.Text.Trim(),
-                nama_pelanggan = TextNamaLengkap.Text.Trim(),
-                email = TextEmail.Text.Trim(),
-                alamat = TextAlamat.Text.Trim(),
-                password = TextConfirmPassword.Text.Trim(),
-            };
-
-            _pelangganDal.InsertData(pelanggan);
+            InsertData();
             ClearForm();
             _form.Show();
             this.Close();
@@ -116,7 +108,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 
         private async void TextInput_TextChanged(object? sender, EventArgs e)
         {
-            await Task.Delay(1000);
+            await Task.Delay(500);
             TextBox textbox = (TextBox)sender;
 
             if (textbox.Tag == "Email")
@@ -157,8 +149,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
                 }
                 else
                 {
+                    LabelNoHP.Text = "No HP sudah terdaftar"; 
                     LabelNoHP.Visible = false;
-                    LabelNoHP.Text = "No HP sudah terdaftar";
                 }
             }
             else if (textbox.Tag == "Password")

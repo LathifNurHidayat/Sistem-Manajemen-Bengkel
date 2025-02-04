@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-public static class MesboxHelper
+public class MesboxHelper
 {
     public static void ShowInfo(string message, string title = "Informasi")
     {

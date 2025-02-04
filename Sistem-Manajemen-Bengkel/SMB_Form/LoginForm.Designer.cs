@@ -67,7 +67,7 @@
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(ButtonMasuk);
-            panel1.Location = new Point(341, 91);
+            panel1.Location = new Point(361, 122);
             panel1.Name = "panel1";
             panel1.Size = new Size(438, 462);
             panel1.TabIndex = 0;
@@ -213,7 +213,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(804, 644);
+            panel2.Size = new Size(867, 699);
             panel2.TabIndex = 2;
             // 
             // pictureBox1
@@ -222,7 +222,7 @@
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(302, 602);
+            pictureBox1.Size = new Size(302, 675);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
@@ -230,8 +230,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(804, 644);
+            ClientSize = new Size(867, 699);
             Controls.Add(panel2);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);

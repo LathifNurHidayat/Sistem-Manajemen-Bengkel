@@ -26,7 +26,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            _mainForm = form;
+            this._mainForm = form;
             _id = id;
             LabelUsername.Text = username;
             LabelRole.Text = role;
@@ -86,7 +86,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
             PanelMain.Controls.Add(form);
             form.Show();
-        }
+        } 
 
         private void RegisterControlEvent()
         {

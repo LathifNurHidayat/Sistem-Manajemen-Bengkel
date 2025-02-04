@@ -56,6 +56,5 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             Conn.Execute(sql, new { id_jasa_servis });
         }
-
     }
 }

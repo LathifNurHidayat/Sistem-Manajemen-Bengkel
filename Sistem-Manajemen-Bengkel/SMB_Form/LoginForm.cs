@@ -9,9 +9,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form
 {
@@ -28,22 +30,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             _pelangganDal = new PelangganDal();
             _petugasDal = new PetugasDal();
 
-            CustomPanel(panel1);
+            CustomComponentHelper.CustomPanel(panel1);
             RegisterControlEvent();
-        }
-
-        private void CustomPanel(Panel panel)
-        {
-            int cornerRadius = 20;
-            GraphicsPath path = new GraphicsPath();
-
-            path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); 
-            path.AddArc(panel.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
-            path.AddArc(panel.Width - cornerRadius, panel.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90); 
-            path.AddArc(0, panel.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); 
-            path.CloseAllFigures();
-
-            panel.Region = new Region(path);
         }
 
         private void RegisterControlEvent()
@@ -51,6 +39,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             LinkDaftar.Click += LinkRegistrasi_Click;
             ButtonMasuk.Click += ButtonMasuk_Click;
             TextEmail.TextChanged += TextEmail_TextChanged;
+            TextPassword.KeyDown += TextPassword_KeyDown;
+        }
+
+        private void TextPassword_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                ButtonMasuk.PerformClick();
         }
 
         private async void TextEmail_TextChanged(object? sender, EventArgs e)
@@ -67,13 +62,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
         private void ButtonMasuk_Click(object? sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TextEmail.Text) || string.IsNullOrWhiteSpace(TextPassword.Text))
+            string email = TextEmail.Text.Trim();
+            string password = TextPassword.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 MesboxHelper.ShowWarning("Data tidak boleh kosong !");
                 return;
             } 
-            var dataPelanggan = _pelangganDal.ValidasiLoginPelanggan(TextEmail.Text.Trim(), TextPassword.Text.Trim());
-            var dataPetugas = _petugasDal.ValidasiLoginPetugas(TextEmail.Text.Trim(), TextPassword.Text.Trim());
+            var dataPelanggan = _pelangganDal.ValidasiLoginPelanggan(email, HashPasswordHelper.HashPassword(password));
+            var dataPetugas = _petugasDal.ValidasiLoginPetugas(email, HashPasswordHelper.HashPassword(password));
 
             if (dataPelanggan == null && dataPetugas == null)
             {
@@ -85,6 +83,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             string role = dataPelanggan != null ? "Pelanggan" : dataPetugas?.role == "Super Admin" ? "Super Admin" : "Karyawan";
             string username = dataPelanggan?.nama_pelanggan != null ? dataPelanggan.nama_pelanggan : dataPetugas?.nama_petugas ?? "";
             long id = dataPelanggan?.no_ktp != null ? long.Parse(dataPelanggan?.no_ktp) : dataPetugas?.id_petugas ?? 0;
+
+            ClearForm();
             new Dashboard(this, id, username, role).Show();
             this.Hide();
         }
@@ -98,6 +98,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private void LinkRegistrasi_Click(object? sender, EventArgs e)
         {
             new RegisterForm(this).Show();
+            ClearForm();
             this.Hide();
         }
     }

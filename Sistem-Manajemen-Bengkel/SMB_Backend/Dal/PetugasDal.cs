@@ -12,6 +12,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
     public class PetugasDal
     {
+        private IEnumerable<PetugasModel> ListData()
+        {
+            const string sql = @"SELECT * FROM tb_petugas";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.Query<PetugasModel>(sql);
+        }
+
+
+
         public PetugasModel? ValidasiLoginPetugas(string email, string password)
         {
             const string sql = "SELECT id_petugas, nama_petugas, role FROM tb_petugas WHERE email = @email AND password = @password";
