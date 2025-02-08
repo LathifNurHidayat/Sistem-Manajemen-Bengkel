@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            PanelBooking = new SMB_CustomTolbox.LathifPanel();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            PanelBooking = new Panel();
             label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
@@ -56,7 +56,6 @@
             // PanelBooking
             // 
             PanelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            PanelBooking.AutoScroll = true;
             PanelBooking.BackColor = Color.White;
             PanelBooking.Controls.Add(label2);
             PanelBooking.Controls.Add(label1);
@@ -71,21 +70,20 @@
             PanelBooking.Controls.Add(GridListData);
             PanelBooking.Controls.Add(label7);
             PanelBooking.Controls.Add(ButtonTambah);
-            PanelBooking.ForeColor = Color.White;
-            PanelBooking.Location = new Point(11, 12);
+            PanelBooking.Location = new Point(12, 12);
             PanelBooking.Name = "PanelBooking";
-            PanelBooking.Size = new Size(1059, 679);
-            PanelBooking.TabIndex = 14;
+            PanelBooking.Size = new Size(1058, 679);
+            PanelBooking.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(158, 174);
+            label2.Location = new Point(160, 178);
             label2.Name = "label2";
             label2.Size = new Size(61, 23);
-            label2.TabIndex = 41;
+            label2.TabIndex = 54;
             label2.Text = "entries";
             // 
             // label1
@@ -93,10 +91,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(26, 174);
+            label1.Location = new Point(28, 178);
             label1.Name = "label1";
             label1.Size = new Size(51, 23);
-            label1.TabIndex = 40;
+            label1.TabIndex = 53;
             label1.Text = "Show";
             // 
             // panel1
@@ -104,10 +102,10 @@
             panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(83, 92, 145);
             panel1.Controls.Add(TextPage);
-            panel1.Location = new Point(859, 620);
+            panel1.Location = new Point(861, 624);
             panel1.Name = "panel1";
             panel1.Size = new Size(66, 35);
-            panel1.TabIndex = 39;
+            panel1.TabIndex = 52;
             // 
             // TextPage
             // 
@@ -120,7 +118,7 @@
             TextPage.FocusBorderColor = Color.Black;
             TextPage.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             TextPage.ForeColor = Color.White;
-            TextPage.Location = new Point(3, 4);
+            TextPage.Location = new Point(-64, -29);
             TextPage.MinimumSize = new Size(24, 20);
             TextPage.Name = "TextPage";
             TextPage.Size = new Size(60, 24);
@@ -140,10 +138,10 @@
             ButtonNext.FlatStyle = FlatStyle.Flat;
             ButtonNext.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonNext.ForeColor = Color.DimGray;
-            ButtonNext.Location = new Point(925, 620);
+            ButtonNext.Location = new Point(927, 624);
             ButtonNext.Name = "ButtonNext";
             ButtonNext.Size = new Size(108, 35);
-            ButtonNext.TabIndex = 38;
+            ButtonNext.TabIndex = 51;
             ButtonNext.Text = "Next";
             ButtonNext.TextColor = Color.DimGray;
             ButtonNext.UseVisualStyleBackColor = false;
@@ -160,10 +158,10 @@
             ButtonPreviuos.FlatStyle = FlatStyle.Flat;
             ButtonPreviuos.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonPreviuos.ForeColor = Color.DimGray;
-            ButtonPreviuos.Location = new Point(751, 620);
+            ButtonPreviuos.Location = new Point(753, 624);
             ButtonPreviuos.Name = "ButtonPreviuos";
             ButtonPreviuos.Size = new Size(108, 35);
-            ButtonPreviuos.TabIndex = 37;
+            ButtonPreviuos.TabIndex = 50;
             ButtonPreviuos.Text = "Previous";
             ButtonPreviuos.TextColor = Color.DimGray;
             ButtonPreviuos.UseVisualStyleBackColor = false;
@@ -174,10 +172,10 @@
             LabelShowEntries.AutoSize = true;
             LabelShowEntries.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             LabelShowEntries.ForeColor = Color.Black;
-            LabelShowEntries.Location = new Point(25, 625);
+            LabelShowEntries.Location = new Point(27, 629);
             LabelShowEntries.Name = "LabelShowEntries";
             LabelShowEntries.Size = new Size(241, 23);
-            LabelShowEntries.TabIndex = 36;
+            LabelShowEntries.TabIndex = 49;
             LabelShowEntries.Text = "Showing 11 to 10 of 29 entries";
             // 
             // ComboEntries
@@ -186,10 +184,10 @@
             ComboEntries.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboEntries.ForeColor = Color.Black;
             ComboEntries.FormattingEnabled = true;
-            ComboEntries.Location = new Point(83, 168);
+            ComboEntries.Location = new Point(85, 172);
             ComboEntries.Name = "ComboEntries";
             ComboEntries.Size = new Size(69, 31);
-            ComboEntries.TabIndex = 35;
+            ComboEntries.TabIndex = 48;
             // 
             // ButtonSearch
             // 
@@ -203,10 +201,10 @@
             ButtonSearch.FlatStyle = FlatStyle.Flat;
             ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(845, 167);
+            ButtonSearch.Location = new Point(847, 171);
             ButtonSearch.Name = "ButtonSearch";
             ButtonSearch.Size = new Size(53, 31);
-            ButtonSearch.TabIndex = 33;
+            ButtonSearch.TabIndex = 47;
             ButtonSearch.Text = "🔍";
             ButtonSearch.TextColor = Color.White;
             ButtonSearch.UseVisualStyleBackColor = false;
@@ -218,10 +216,10 @@
             ComboFilter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboFilter.ForeColor = Color.Black;
             ComboFilter.FormattingEnabled = true;
-            ComboFilter.Location = new Point(904, 167);
+            ComboFilter.Location = new Point(906, 171);
             ComboFilter.Name = "ComboFilter";
             ComboFilter.Size = new Size(129, 31);
-            ComboFilter.TabIndex = 30;
+            ComboFilter.TabIndex = 46;
             // 
             // TextSearch
             // 
@@ -233,47 +231,47 @@
             TextSearch.FocusBorderColor = Color.Black;
             TextSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextSearch.ForeColor = Color.Black;
-            TextSearch.Location = new Point(603, 168);
+            TextSearch.Location = new Point(605, 172);
             TextSearch.MinimumSize = new Size(34, 30);
             TextSearch.Name = "TextSearch";
             TextSearch.PlaceholderText = "🔍   Cari";
             TextSearch.Size = new Size(236, 30);
-            TextSearch.TabIndex = 28;
+            TextSearch.TabIndex = 45;
             // 
             // GridListData
             // 
             GridListData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            GridListData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            GridListData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            GridListData.DefaultCellStyle = dataGridViewCellStyle5;
-            GridListData.Location = new Point(25, 209);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            GridListData.DefaultCellStyle = dataGridViewCellStyle2;
+            GridListData.Location = new Point(27, 213);
             GridListData.Name = "GridListData";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            GridListData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            GridListData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
             GridListData.Size = new Size(1008, 398);
-            GridListData.TabIndex = 27;
+            GridListData.TabIndex = 44;
             // 
             // label7
             // 
@@ -283,7 +281,7 @@
             label7.Location = new Point(15, 15);
             label7.Name = "label7";
             label7.Size = new Size(171, 39);
-            label7.TabIndex = 16;
+            label7.TabIndex = 43;
             label7.Text = "📆  Booking";
             // 
             // ButtonTambah
@@ -297,10 +295,10 @@
             ButtonTambah.FlatStyle = FlatStyle.Flat;
             ButtonTambah.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonTambah.ForeColor = Color.White;
-            ButtonTambah.Location = new Point(25, 111);
+            ButtonTambah.Location = new Point(27, 115);
             ButtonTambah.Name = "ButtonTambah";
             ButtonTambah.Size = new Size(124, 39);
-            ButtonTambah.TabIndex = 15;
+            ButtonTambah.TabIndex = 42;
             ButtonTambah.Text = "➕ Tambah ";
             ButtonTambah.TextColor = Color.White;
             ButtonTambah.UseVisualStyleBackColor = false;
@@ -325,20 +323,21 @@
         }
 
         #endregion
-        private SMB_CustomTolbox.LathifPanel PanelBooking;
-        private SMB_CustomTolbox.LathifButton ButtonTambah;
-        private Label label7;
-        private DataGridView GridListData;
-        private ComboBox ComboFilter;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt TextSearch;
-        private SMB_CustomTolbox.LathifButton ButtonSearch;
+
+        private Panel PanelBooking;
+        private Label label2;
+        private Label label1;
+        private Panel panel1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt TextPage;
+        private SMB_CustomTolbox.LathifButton ButtonNext;
+        private SMB_CustomTolbox.LathifButton ButtonPreviuos;
         private Label LabelShowEntries;
         private ComboBox ComboEntries;
-        private SMB_CustomTolbox.LathifButton ButtonPreviuos;
-        private Panel panel1;
-        private SMB_CustomTolbox.LathifButton ButtonNext;
-        private Label label1;
-        private Label label2;
+        private SMB_CustomTolbox.LathifButton ButtonSearch;
+        private ComboBox ComboFilter;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt TextSearch;
+        private DataGridView GridListData;
+        private Label label7;
+        private SMB_CustomTolbox.LathifButton ButtonTambah;
     }
 }

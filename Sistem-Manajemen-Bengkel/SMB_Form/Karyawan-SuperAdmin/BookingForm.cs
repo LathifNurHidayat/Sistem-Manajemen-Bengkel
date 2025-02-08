@@ -16,7 +16,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         public BookingForm()
         {
-            //    InitializeComponent();
             InitializeComponent();
             _userDal = new PelangganDal();
 
