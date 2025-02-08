@@ -25,22 +25,20 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         }
 
 
-        public static void CustomDataGrid(DataGridView grid)
+        public static void CustomDataGrid(DataGridView grid) 
         {
-            DataGridView grid = grid;
             grid.BackgroundColor = Color.White;
 
             grid.EnableHeadersVisualStyles = false;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
-            // Mengatur ukuran font header kolom
             grid.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             grid.DefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Regular);
             grid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             grid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            // Mengatur warna header kolom
+            // mengatur warna header kolom
             grid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 152, 219);
             grid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(52, 152, 219);
@@ -48,7 +46,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             grid.ForeColor = Color.DimGray;
 
 
-            // Menonaktifkan warna seleksi untuk sel
             grid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);
             grid.DefaultCellStyle.SelectionForeColor = grid.DefaultCellStyle.ForeColor;
 
@@ -70,6 +67,40 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             grid.AllowUserToAddRows = false;
 
             grid.ColumnHeadersDefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+        }
+
+
+        public static void CustomComboBox(ComboBox comboBox)
+        {
+            comboBox.FlatStyle = FlatStyle.Flat;
+            comboBox.BackColor = Color.White;
+            comboBox.ForeColor = Color.Black;
+            comboBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            comboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox.ItemHeight = 25;
+
+            // Menggambar ulang item
+            comboBox.DrawItem += (s, e) =>
+            {
+                if (e.Index < 0) return;
+
+                e.DrawBackground();
+                bool isSelected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+                Color bgColor = isSelected ? Color.LightBlue : Color.White;
+                Color textColor = isSelected ? Color.White : Color.Black;
+
+                using (SolidBrush bgBrush = new SolidBrush(bgColor))
+                    e.Graphics.FillRectangle(bgBrush, e.Bounds);
+
+                using (SolidBrush textBrush = new SolidBrush(textColor))
+                    e.Graphics.DrawString(comboBox.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds);
+
+                e.DrawFocusRectangle();
+            };
+
+            // Efek Hover
+            comboBox.MouseEnter += (s, e) => comboBox.BackColor = Color.LightGray;
+            comboBox.MouseLeave += (s, e) => comboBox.BackColor = Color.White;
         }
     }
 }

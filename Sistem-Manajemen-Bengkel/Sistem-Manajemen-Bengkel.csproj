@@ -38,4 +38,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SMB_Form\NewFolder\" />
+  </ItemGroup>
+
 </Project>

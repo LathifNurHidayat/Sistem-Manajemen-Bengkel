@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
-    internal class KendaraanDal
+    public class KendaraanDal
     {
+         
     }
 }

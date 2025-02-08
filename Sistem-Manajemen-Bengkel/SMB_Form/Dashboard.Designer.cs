@@ -49,6 +49,7 @@
             // 
             // panel2
             // 
+            panel2.AutoScroll = true;
             panel2.BackColor = Color.White;
             panel2.Controls.Add(ButtonLogout);
             panel2.Controls.Add(ButtonLaporan);
@@ -267,6 +268,7 @@
             // PanelMain
             // 
             PanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelMain.AutoScroll = true;
             PanelMain.BackColor = Color.Transparent;
             PanelMain.ForeColor = Color.Black;
             PanelMain.Location = new Point(329, 16);

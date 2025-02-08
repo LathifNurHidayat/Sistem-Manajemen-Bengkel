@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Syncfusion.Windows.Forms.Tools;
 using Syncfusion.WinForms.DataGrid;
 using Syncfusion.WinForms.DataGrid.Enums;
@@ -15,6 +16,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         public BookingForm()
         {
+            //    InitializeComponent();
             InitializeComponent();
             _userDal = new PelangganDal();
 

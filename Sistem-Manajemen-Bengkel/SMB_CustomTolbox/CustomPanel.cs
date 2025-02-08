@@ -1,0 +1,141 @@
+﻿using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+
+namespace Sistem_Manajemen_Bengkel.SMB_CustomTolbox
+{
+    public class LathifPanel : Panel
+    {
+        // Fields
+        private int borderRadius = 10;
+        private Color borderColor = Color.PaleVioletRed;
+        private int borderSize = 2;
+
+        // Properties
+        [Category("RJ Code Advance")]
+        public int BorderRadius
+        {
+            get { return borderRadius; }
+            set
+            {
+                borderRadius = Math.Min(value, Math.Min(this.Width, this.Height) / 2); // Maksimal setengah ukuran panel
+                this.Invalidate();
+            }
+        }
+
+        [Category("RJ Code Advance")]
+        public Color BorderColor
+        {
+            get { return borderColor; }
+            set
+            {
+                borderColor = value;
+                this.Invalidate();
+            }
+        }
+
+        [Category("RJ Code Advance")]
+        public int BorderSize
+        {
+            get { return borderSize; }
+            set
+            {
+                borderSize = Math.Max(0, value);
+                this.Invalidate();
+            }
+        }
+
+        // Constructor
+        public LathifPanel()
+        {
+            this.Size = new Size(200, 100);
+            this.BackColor = Color.MediumSlateBlue;
+            this.ForeColor = Color.White;
+            this.Resize += new EventHandler(Panel_Resize);
+
+            // Aktifkan Double Buffering untuk mencegah flickering
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint |
+                          ControlStyles.UserPaint |
+                          ControlStyles.OptimizedDoubleBuffer, true);
+        }
+
+        // Methods
+        private GraphicsPath GetFigurePath(Rectangle rect, int radius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            float curveSize = radius * 2F;
+
+            path.StartFigure();
+            path.AddArc(rect.X, rect.Y, curveSize, curveSize, 180, 90);
+            path.AddArc(rect.Right - curveSize, rect.Y, curveSize, curveSize, 270, 90);
+            path.AddArc(rect.Right - curveSize, rect.Bottom - curveSize, curveSize, curveSize, 0, 90);
+            path.AddArc(rect.X, rect.Bottom - curveSize, curveSize, curveSize, 90, 90);
+            path.CloseFigure();
+            return path;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            Rectangle rectSurface = this.ClientRectangle;
+            Rectangle rectBorder = Rectangle.Inflate(rectSurface, -borderSize, -borderSize);
+            int smoothSize = borderSize > 0 ? borderSize : 2;
+
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias; // Memastikan gambar halus
+
+            if (borderRadius > 2) // Panel dengan rounded corner
+            {
+                using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
+                using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - borderSize))
+                using (Pen penSurface = new Pen(this.Parent?.BackColor ?? Color.White, smoothSize))
+                using (Pen penBorder = new Pen(borderColor, borderSize))
+                {
+                    // Set Region untuk membuat efek rounded
+                    this.Region = new Region(pathSurface);
+
+                    // Gambar border luar
+                    e.Graphics.DrawPath(penSurface, pathSurface);
+
+                    // Gambar border jika borderSize > 0
+                    if (borderSize >= 1)
+                    {
+                        e.Graphics.DrawPath(penBorder, pathBorder);
+                    }
+                }
+            }
+            else // Panel normal tanpa rounded
+            {
+                this.Region = new Region(rectSurface);
+                if (borderSize >= 1)
+                {
+                    using (Pen penBorder = new Pen(borderColor, borderSize))
+                    {
+                        penBorder.Alignment = PenAlignment.Inset;
+                        e.Graphics.DrawRectangle(penBorder, 0, 0, this.Width - 1, this.Height - 1);
+                    }
+                }
+            }
+        }
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            if (this.Parent != null)
+                this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+        }
+
+        private void Container_BackColorChanged(object sender, EventArgs e)
+        {
+            this.Invalidate();
+        }
+
+        private void Panel_Resize(object sender, EventArgs e)
+        {
+            borderRadius = Math.Min(borderRadius, Math.Min(this.Width, this.Height) / 2);
+            this.Invalidate(); // Redraw panel saat resize
+        }
+    }
+}

@@ -12,14 +12,50 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
     public class PetugasDal
     {
-        private IEnumerable<PetugasModel> ListData()
+        public IEnumerable<PetugasModel> ListData()
         {
             const string sql = @"SELECT * FROM tb_petugas";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<PetugasModel>(sql);
         }
 
+        public PetugasModel? GetData(int id_petugas)
+        {
+            const string sql = @"SELECT * FROM tb_petugas WHERE id_petugas = @id_petugas";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.QueryFirstOrDefault<PetugasModel>(sql, new { id_petugas });
+        }
 
+        public void InsertData(PetugasModel petugasModel)
+        {
+            const string sql = @"INSERT INTO tb_petugas 
+                                    (nama_petugas, email, password, no_hp, alamat, role) 
+                                VALUES 
+                                    (@nama_petugas, @email, @password, @no_hp, @alamat, @role)";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            Conn.Execute(sql, petugasModel);
+        }
+
+        public void UpdateData (PetugasModel petugasModel)
+        {
+            const string sql = @"UPDATE tb_petugas SET
+                                    nama_petugas = @nama_petugas,
+                                    email = @email,
+                                    password = @password
+                                    no_hp = @no_hp,
+                                    alamat = @alamat,
+                                    role = @role
+                                WHERE id_petugas = @id_petugas";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            Conn.Execute(sql, petugasModel);
+        }
+
+        public void Delete(int id_petugas)
+        {
+            const string sql = "DELETE FROM tb_petugas WHERE id_petugas = @id_petugas";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            Conn.Execute(sql, new { id_petugas });
+        }
 
         public PetugasModel? ValidasiLoginPetugas(string email, string password)
         {
@@ -28,4 +64,4 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             return Conn.QueryFirstOrDefault<PetugasModel>(sql, new { email, password });
         }
     }
-}
+ }
