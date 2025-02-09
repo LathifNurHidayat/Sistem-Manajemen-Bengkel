@@ -14,7 +14,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan
     public partial class InvoiceForm : Form
     {
         public InvoiceForm()
-        {
+        { 
             InitializeComponent();
             CustomUI();
         }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Label = new Label();
             PanelBackground = new Panel();
             PanelService = new Panel();
             LabelTotalService = new Label();
@@ -47,6 +46,7 @@
             LabelTotalPelanggan = new Label();
             pictureBox3 = new PictureBox();
             PanelData = new SMB_CustomTolbox.LathifPanel();
+            chartControl1 = new Syncfusion.Windows.Forms.Chart.ChartControl();
             PanelBackground.SuspendLayout();
             PanelService.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -54,17 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             PanelPelanggan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            PanelData.SuspendLayout();
             SuspendLayout();
-            // 
-            // Label
-            // 
-            Label.AutoSize = true;
-            Label.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            Label.Location = new Point(11, 29);
-            Label.Name = "Label";
-            Label.Size = new Size(27, 42);
-            Label.TabIndex = 6;
-            Label.Text = " ";
             // 
             // PanelBackground
             // 
@@ -95,12 +86,11 @@
             // LabelTotalService
             // 
             LabelTotalService.Anchor = AnchorStyles.None;
-            LabelTotalService.AutoSize = true;
             LabelTotalService.Font = new Font("Microsoft New Tai Lue", 40.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelTotalService.ForeColor = Color.White;
-            LabelTotalService.Location = new Point(108, 107);
+            LabelTotalService.Location = new Point(0, 90);
             LabelTotalService.Name = "LabelTotalService";
-            LabelTotalService.Size = new Size(115, 88);
+            LabelTotalService.Size = new Size(335, 88);
             LabelTotalService.TabIndex = 16;
             LabelTotalService.Text = "56";
             LabelTotalService.TextAlign = ContentAlignment.MiddleCenter;
@@ -120,11 +110,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(113, 25);
+            label3.Location = new Point(90, 15);
             label3.Name = "label3";
-            label3.Size = new Size(134, 46);
+            label3.Size = new Size(111, 38);
             label3.TabIndex = 13;
             label3.Text = "Service";
             // 
@@ -132,9 +122,9 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.Service;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(7, 13);
+            pictureBox1.Location = new Point(10, 10);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(101, 75);
+            pictureBox1.Size = new Size(80, 50);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -142,10 +132,10 @@
             // 
             label7.AutoSize = true;
             label7.BackColor = Color.White;
-            label7.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(5, 15);
+            label7.Font = new Font("Comic Sans MS", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(15, 15);
             label7.Name = "label7";
-            label7.Size = new Size(226, 42);
+            label7.Size = new Size(211, 39);
             label7.TabIndex = 11;
             label7.Text = "🖥  Dashboard";
             // 
@@ -165,12 +155,11 @@
             // LabelTotalBooking
             // 
             LabelTotalBooking.Anchor = AnchorStyles.None;
-            LabelTotalBooking.AutoSize = true;
             LabelTotalBooking.Font = new Font("Microsoft New Tai Lue", 40.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelTotalBooking.ForeColor = Color.White;
-            LabelTotalBooking.Location = new Point(110, 107);
+            LabelTotalBooking.Location = new Point(0, 90);
             LabelTotalBooking.Name = "LabelTotalBooking";
-            LabelTotalBooking.Size = new Size(115, 88);
+            LabelTotalBooking.Size = new Size(334, 88);
             LabelTotalBooking.TabIndex = 15;
             LabelTotalBooking.Text = "89";
             LabelTotalBooking.TextAlign = ContentAlignment.MiddleCenter;
@@ -190,11 +179,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(113, 25);
+            label2.Location = new Point(90, 15);
             label2.Name = "label2";
-            label2.Size = new Size(155, 46);
+            label2.Size = new Size(127, 38);
             label2.TabIndex = 12;
             label2.Text = "Booking";
             // 
@@ -202,9 +191,9 @@
             // 
             pictureBox2.BackgroundImage = Properties.Resources.Booking;
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(7, 13);
+            pictureBox2.Location = new Point(10, 10);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(101, 75);
+            pictureBox2.Size = new Size(80, 50);
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
@@ -236,23 +225,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(113, 25);
+            label1.Location = new Point(90, 15);
             label1.Name = "label1";
-            label1.Size = new Size(188, 46);
+            label1.Size = new Size(154, 38);
             label1.TabIndex = 11;
             label1.Text = "Pelanggan";
             // 
             // LabelTotalPelanggan
             // 
             LabelTotalPelanggan.Anchor = AnchorStyles.None;
-            LabelTotalPelanggan.AutoSize = true;
             LabelTotalPelanggan.Font = new Font("Microsoft New Tai Lue", 40.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelTotalPelanggan.ForeColor = Color.White;
-            LabelTotalPelanggan.Location = new Point(106, 107);
+            LabelTotalPelanggan.Location = new Point(-1, 90);
             LabelTotalPelanggan.Name = "LabelTotalPelanggan";
-            LabelTotalPelanggan.Size = new Size(115, 88);
+            LabelTotalPelanggan.Size = new Size(335, 88);
             LabelTotalPelanggan.TabIndex = 14;
             LabelTotalPelanggan.Text = "34";
             LabelTotalPelanggan.TextAlign = ContentAlignment.MiddleCenter;
@@ -261,9 +249,9 @@
             // 
             pictureBox3.BackgroundImage = Properties.Resources.Pelanggan;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(7, 13);
+            pictureBox3.Location = new Point(10, 10);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(101, 75);
+            pictureBox3.Size = new Size(80, 50);
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
@@ -274,21 +262,45 @@
             PanelData.BorderColor = Color.PaleVioletRed;
             PanelData.BorderRadius = 10;
             PanelData.BorderSize = 0;
+            PanelData.Controls.Add(chartControl1);
             PanelData.ForeColor = Color.White;
             PanelData.Location = new Point(11, 379);
             PanelData.Name = "PanelData";
-            PanelData.Size = new Size(1057, 310);
+            PanelData.Size = new Size(1057, 470);
             PanelData.TabIndex = 12;
+            // 
+            // chartControl1
+            // 
+            chartControl1.ChartArea.CursorLocation = new Point(0, 0);
+            chartControl1.ChartArea.CursorReDraw = false;
+            // 
+            // 
+            // 
+            chartControl1.Legend.Location = new Point(379, 81);
+            chartControl1.Location = new Point(533, 57);
+            chartControl1.Name = "chartControl1";
+            chartControl1.PrimaryXAxis.LogLabelsDisplayMode = Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default;
+            chartControl1.PrimaryXAxis.Margin = true;
+            chartControl1.PrimaryYAxis.LogLabelsDisplayMode = Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default;
+            chartControl1.PrimaryYAxis.Margin = true;
+            chartControl1.Size = new Size(500, 375);
+            chartControl1.TabIndex = 0;
+            chartControl1.Text = "chartControl1";
+            // 
+            // 
+            // 
+            chartControl1.Title.Name = "Default";
+            chartControl1.Titles.Add(chartControl1.Title);
+            chartControl1.Click += chartControl1_Click;
             // 
             // MenuDashboardKaryawanForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1082, 703);
+            ClientSize = new Size(1082, 863);
             Controls.Add(PanelData);
             Controls.Add(PanelBackground);
-            Controls.Add(Label);
             Name = "MenuDashboardKaryawanForm";
             Text = " ";
             PanelBackground.ResumeLayout(false);
@@ -302,12 +314,11 @@
             PanelPelanggan.ResumeLayout(false);
             PanelPelanggan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            PanelData.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-        private Label Label;
         private Panel PanelBackground;
         private Panel PanelService;
         private Label label6;
@@ -326,5 +337,6 @@
         private Label LabelTotalPelanggan;
         private Label LabelTotalService;
         private SMB_CustomTolbox.LathifPanel PanelData;
+        private Syncfusion.Windows.Forms.Chart.ChartControl chartControl1;
     }
 }

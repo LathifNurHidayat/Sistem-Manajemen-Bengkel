@@ -118,7 +118,7 @@
             TextPage.FocusBorderColor = Color.Black;
             TextPage.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             TextPage.ForeColor = Color.White;
-            TextPage.Location = new Point(-64, -29);
+            TextPage.Location = new Point(3, 5);
             TextPage.MinimumSize = new Size(24, 20);
             TextPage.Name = "TextPage";
             TextPage.Size = new Size(60, 24);

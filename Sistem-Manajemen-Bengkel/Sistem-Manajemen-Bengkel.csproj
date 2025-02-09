@@ -17,7 +17,9 @@
     <PackageReference Include="Dapper" Version="2.1.35" />
     <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
-    <PackageReference Include="Syncfusion.Chart.Windows" Version="28.1.41" />
+    <PackageReference Include="OxyPlot.Core" Version="2.2.0" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.2.0" />
+    <PackageReference Include="Syncfusion.Chart.Windows" Version="28.2.4" />
     <PackageReference Include="Syncfusion.SfDataGrid.WinForms" Version="28.1.41" />
     <PackageReference Include="Syncfusion.Tools.Windows" Version="28.1.41" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />

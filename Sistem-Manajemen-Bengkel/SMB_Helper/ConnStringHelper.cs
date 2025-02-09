@@ -10,7 +10,7 @@ namespace Sistem_Manajemen_Bengkel.Helper
     {
         public static string GetConn()
         {
-            return "Server=(local); Database=db_bengkel; Integrated Security=True; TrustServerCertificate=True;";
+            return "Server=(local); Database=coba; Integrated Security=True; TrustServerCertificate=True;";
         }
     }
 }
