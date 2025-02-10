@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
 {
-    public partial class KaryawanForm : Form
+    public partial class AntreanForm : Form
     {
-        public KaryawanForm()
+        public AntreanForm()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             };
             ComboKendaraan.DataSource = d;
 
-            lathifButton1.Click += LathifButton1_Click;
+            ButtonCekKetersediaan.Click += LathifButton1_Click;
         }
 
         private void LathifButton1_Click(object? sender, EventArgs e)

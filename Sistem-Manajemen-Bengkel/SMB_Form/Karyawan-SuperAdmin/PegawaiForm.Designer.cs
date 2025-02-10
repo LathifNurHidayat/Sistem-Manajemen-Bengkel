@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 {
-    partial class KaryawanForm
+    partial class PegawaiForm
     {
         /// <summary>
         /// Required designer variable.

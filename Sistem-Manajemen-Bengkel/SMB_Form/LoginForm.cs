@@ -26,6 +26,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.WindowState = FormWindowState.Maximized;
 
             _pelangganDal = new PelangganDal();
             _petugasDal = new PetugasDal();
@@ -85,7 +86,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             long id = dataPelanggan?.no_ktp != null ? long.Parse(dataPelanggan?.no_ktp) : dataPetugas?.id_petugas ?? 0;
 
             ClearForm();
-            new Dashboard(this, id, username, role).Show();
+            new Dashboard(id, username, role).Show();
             this.Hide();
         }
 

@@ -59,7 +59,6 @@
             LinkMasuk = new LinkLabel();
             label1 = new Label();
             ButtonDaftar = new Button();
-            pictureBox1 = new PictureBox();
             MainPanel.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
@@ -68,12 +67,11 @@
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // MainPanel
             // 
-            MainPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            MainPanel.Anchor = AnchorStyles.None;
             MainPanel.BackColor = Color.White;
             MainPanel.Controls.Add(LabelPassword);
             MainPanel.Controls.Add(LabelConfirmPass);
@@ -98,7 +96,7 @@
             MainPanel.Controls.Add(LinkMasuk);
             MainPanel.Controls.Add(label1);
             MainPanel.Controls.Add(ButtonDaftar);
-            MainPanel.Location = new Point(337, 12);
+            MainPanel.Location = new Point(10, 12);
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(587, 675);
             MainPanel.TabIndex = 0;
@@ -417,23 +415,12 @@
             ButtonDaftar.Text = "Daftar";
             ButtonDaftar.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = Properties.Resources._3D_LoginNew;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(302, 675);
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
-            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(936, 699);
-            Controls.Add(pictureBox1);
+            ClientSize = new Size(609, 699);
             Controls.Add(MainPanel);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -455,7 +442,6 @@
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -492,6 +478,5 @@
         private Panel panel6;
         private TextBox TextConfirmPassword;
         private Label LabelPassword;
-        private PictureBox pictureBox1;
     }
 }

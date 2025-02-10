@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.KaryawanForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
@@ -21,12 +22,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private string _username;
         private string _role;
 
-        public Dashboard(Form form, long id, string username, string role)
+        public Dashboard(long id, string username, string role)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            this._mainForm = form;
             _id = id;
             LabelUsername.Text = username;
             LabelRole.Text = role;
@@ -117,7 +117,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
         private void ButtonLogout_Click(object? sender, EventArgs e)
         {
-
+            StyleButton(sender as Button);
+            ShowFormInPanel(new InvoiceForm());
         }
 
         private void ButtonLaporan_Click(object? sender, EventArgs e)
@@ -136,7 +137,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private void ButtonKaryawan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new SuperAdminForm.KaryawanForm());
+            ShowFormInPanel(new SuperAdminForm.PegawaiForm());
         }
 
         private void ButtonKendaraan_Click(object? sender, EventArgs e)

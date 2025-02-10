@@ -29,6 +29,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.WindowState = FormWindowState.Maximized;
+
 
             CustomComponentHelper.CustomPanel(MainPanel);
 

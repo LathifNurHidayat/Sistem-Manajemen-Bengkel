@@ -60,6 +60,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel2 = new Panel();
             TextNomorKTP = new TextBox();
             label1 = new Label();
+            LabelJudul = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ComboKendaraan).BeginInit();
@@ -76,14 +77,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoScroll = true;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(LabelJudul);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(ButtonSimpan);
             panel1.Controls.Add(ButtonBatal);
             panel1.Controls.Add(panel3);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1058, 679);
+            panel1.Size = new Size(1058, 729);
             panel1.TabIndex = 0;
             // 
             // panel4
@@ -102,7 +105,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel4.Controls.Add(label5);
             panel4.Controls.Add(panel9);
             panel4.Controls.Add(label6);
-            panel4.Location = new Point(544, 40);
+            panel4.Location = new Point(544, 77);
             panel4.Name = "panel4";
             panel4.Size = new Size(480, 561);
             panel4.TabIndex = 2;
@@ -283,7 +286,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             ButtonSimpan.FlatStyle = FlatStyle.Flat;
             ButtonSimpan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSimpan.ForeColor = Color.White;
-            ButtonSimpan.Location = new Point(889, 615);
+            ButtonSimpan.Location = new Point(889, 652);
             ButtonSimpan.Name = "ButtonSimpan";
             ButtonSimpan.Size = new Size(135, 45);
             ButtonSimpan.TabIndex = 4;
@@ -303,7 +306,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             ButtonBatal.FlatStyle = FlatStyle.Flat;
             ButtonBatal.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBatal.ForeColor = Color.White;
-            ButtonBatal.Location = new Point(742, 615);
+            ButtonBatal.Location = new Point(742, 652);
             ButtonBatal.Name = "ButtonBatal";
             ButtonBatal.Size = new Size(135, 45);
             ButtonBatal.TabIndex = 3;
@@ -323,7 +326,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel3.Controls.Add(label7);
             panel3.Controls.Add(panel2);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(36, 40);
+            panel3.Location = new Point(36, 77);
             panel3.Name = "panel3";
             panel3.Size = new Size(480, 561);
             panel3.TabIndex = 1;
@@ -333,7 +336,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             // 
             LabelNoKTP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNoKTP.ForeColor = Color.Red;
-            LabelNoKTP.Location = new Point(225, 33);
+            LabelNoKTP.Location = new Point(219, 36);
             LabelNoKTP.Name = "LabelNoKTP";
             LabelNoKTP.Size = new Size(205, 23);
             LabelNoKTP.TabIndex = 56;
@@ -346,7 +349,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel7.BackColor = Color.White;
             panel7.BorderStyle = BorderStyle.FixedSingle;
             panel7.Controls.Add(TextTelepon);
-            panel7.Location = new Point(47, 244);
+            panel7.Location = new Point(41, 247);
             panel7.Name = "panel7";
             panel7.Size = new Size(383, 44);
             panel7.TabIndex = 3;
@@ -366,7 +369,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel6.BackColor = Color.White;
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(TextNama);
-            panel6.Location = new Point(47, 151);
+            panel6.Location = new Point(41, 154);
             panel6.Name = "panel6";
             panel6.Size = new Size(383, 44);
             panel6.TabIndex = 2;
@@ -386,7 +389,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(47, 216);
+            label2.Location = new Point(41, 219);
             label2.Name = "label2";
             label2.Size = new Size(78, 25);
             label2.TabIndex = 53;
@@ -397,7 +400,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(47, 123);
+            label7.Location = new Point(41, 126);
             label7.Name = "label7";
             label7.Size = new Size(60, 25);
             label7.TabIndex = 51;
@@ -408,7 +411,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(TextNomorKTP);
-            panel2.Location = new Point(47, 58);
+            panel2.Location = new Point(41, 61);
             panel2.Name = "panel2";
             panel2.Size = new Size(383, 44);
             panel2.TabIndex = 1;
@@ -429,24 +432,36 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(47, 30);
+            label1.Location = new Point(41, 33);
             label1.Name = "label1";
             label1.Size = new Size(78, 25);
             label1.TabIndex = 43;
             label1.Text = "No. KTP";
+            // 
+            // LabelJudul
+            // 
+            LabelJudul.AutoSize = true;
+            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJudul.ForeColor = Color.Black;
+            LabelJudul.Location = new Point(36, 25);
+            LabelJudul.Name = "LabelJudul";
+            LabelJudul.Size = new Size(228, 38);
+            LabelJudul.TabIndex = 45;
+            LabelJudul.Text = "Input Kendaraan";
             // 
             // InputEditKendaraan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1082, 703);
+            ClientSize = new Size(1082, 753);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
             Name = "InputEditKendaraan";
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ComboKendaraan).EndInit();
@@ -501,5 +516,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
         private Label label6;
         private Syncfusion.WinForms.ListView.SfComboBox ComboKendaraan;
         private Label label9;
+        private Label LabelJudul;
     }
 }

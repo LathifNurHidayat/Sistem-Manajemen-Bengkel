@@ -56,6 +56,7 @@
             // PanelBooking
             // 
             PanelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelBooking.AutoScroll = true;
             PanelBooking.BackColor = Color.White;
             PanelBooking.Controls.Add(label2);
             PanelBooking.Controls.Add(label1);
@@ -111,7 +112,7 @@
             // 
             TextPage.Anchor = AnchorStyles.None;
             TextPage.BackColor = Color.FromArgb(83, 92, 145);
-            TextPage.BeforeTouchSize = new Size(236, 30);
+            TextPage.BeforeTouchSize = new Size(362, 34);
             TextPage.Border3DStyle = Border3DStyle.Bump;
             TextPage.BorderColor = Color.SlateGray;
             TextPage.BorderStyle = BorderStyle.None;
@@ -224,7 +225,7 @@
             // TextSearch
             // 
             TextSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TextSearch.BeforeTouchSize = new Size(236, 30);
+            TextSearch.BeforeTouchSize = new Size(362, 34);
             TextSearch.Border3DStyle = Border3DStyle.Bump;
             TextSearch.BorderColor = Color.DimGray;
             TextSearch.BorderStyle = BorderStyle.FixedSingle;

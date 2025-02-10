@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdmin.SparepartForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 {
-    public partial class InputEditLaporan : Form
+    public partial class PegawaiForm : Form
     {
-        public InputEditLaporan()
+        public PegawaiForm()
         {
             InitializeComponent();
         }

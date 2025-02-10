@@ -43,18 +43,17 @@
             pictureBox3 = new PictureBox();
             ButtonMasuk = new Button();
             panel2 = new Panel();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.White;
             panel1.Controls.Add(LabelEmail);
             panel1.Controls.Add(label6);
@@ -67,7 +66,7 @@
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(ButtonMasuk);
-            panel1.Location = new Point(361, 122);
+            panel1.Location = new Point(210, 127);
             panel1.Name = "panel1";
             panel1.Size = new Size(438, 462);
             panel1.TabIndex = 0;
@@ -208,23 +207,12 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(221, 230, 237);
-            panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(panel1);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(867, 699);
             panel2.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = Properties.Resources._3D_LoginNew;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(302, 675);
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
@@ -245,7 +233,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -263,7 +250,6 @@
         private Panel panel4;
         private Panel panel3;
         private Label label2;
-        private PictureBox pictureBox1;
         private Label label6;
         private Label label5;
         private Label LabelEmail;

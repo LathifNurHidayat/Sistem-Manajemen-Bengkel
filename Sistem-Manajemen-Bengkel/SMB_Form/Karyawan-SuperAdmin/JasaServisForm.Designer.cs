@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -45,18 +46,43 @@
             TextSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             GridListData = new DataGridView();
             label7 = new Label();
-            ButtonTambah = new SMB_CustomTolbox.LathifButton();
+            panel2 = new Panel();
+            ButtonCancel = new SMB_CustomTolbox.LathifButton();
+            TextKeterangan = new TextBox();
+            ButtonSave = new SMB_CustomTolbox.LathifButton();
+            label5 = new Label();
+            panel4 = new Panel();
+            TextBiaya = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
+            label4 = new Label();
+            panel3 = new Panel();
+            TextJenisServis = new TextBox();
+            ButtonBaru = new SMB_CustomTolbox.LathifButton();
+            label3 = new Label();
             PanelBooking.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TextPage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TextSearch).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TextBiaya).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // PanelBooking
             // 
             PanelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelBooking.AutoScroll = true;
             PanelBooking.BackColor = Color.White;
+            PanelBooking.Controls.Add(label3);
+            PanelBooking.Controls.Add(ButtonCancel);
+            PanelBooking.Controls.Add(TextKeterangan);
+            PanelBooking.Controls.Add(ButtonSave);
+            PanelBooking.Controls.Add(label5);
+            PanelBooking.Controls.Add(panel4);
+            PanelBooking.Controls.Add(label4);
+            PanelBooking.Controls.Add(panel3);
+            PanelBooking.Controls.Add(ButtonBaru);
+            PanelBooking.Controls.Add(panel2);
             PanelBooking.Controls.Add(label2);
             PanelBooking.Controls.Add(label1);
             PanelBooking.Controls.Add(panel1);
@@ -69,10 +95,9 @@
             PanelBooking.Controls.Add(TextSearch);
             PanelBooking.Controls.Add(GridListData);
             PanelBooking.Controls.Add(label7);
-            PanelBooking.Controls.Add(ButtonTambah);
             PanelBooking.Location = new Point(12, 12);
             PanelBooking.Name = "PanelBooking";
-            PanelBooking.Size = new Size(1058, 679);
+            PanelBooking.Size = new Size(1058, 778);
             PanelBooking.TabIndex = 0;
             // 
             // label2
@@ -80,7 +105,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(160, 178);
+            label2.Location = new Point(159, 351);
             label2.Name = "label2";
             label2.Size = new Size(61, 23);
             label2.TabIndex = 54;
@@ -91,7 +116,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(28, 178);
+            label1.Location = new Point(27, 351);
             label1.Name = "label1";
             label1.Size = new Size(51, 23);
             label1.TabIndex = 53;
@@ -102,7 +127,7 @@
             panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(83, 92, 145);
             panel1.Controls.Add(TextPage);
-            panel1.Location = new Point(861, 624);
+            panel1.Location = new Point(861, 723);
             panel1.Name = "panel1";
             panel1.Size = new Size(66, 35);
             panel1.TabIndex = 52;
@@ -111,7 +136,7 @@
             // 
             TextPage.Anchor = AnchorStyles.None;
             TextPage.BackColor = Color.FromArgb(83, 92, 145);
-            TextPage.BeforeTouchSize = new Size(236, 30);
+            TextPage.BeforeTouchSize = new Size(438, 24);
             TextPage.Border3DStyle = Border3DStyle.Bump;
             TextPage.BorderColor = Color.SlateGray;
             TextPage.BorderStyle = BorderStyle.None;
@@ -138,7 +163,7 @@
             ButtonNext.FlatStyle = FlatStyle.Flat;
             ButtonNext.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonNext.ForeColor = Color.DimGray;
-            ButtonNext.Location = new Point(927, 624);
+            ButtonNext.Location = new Point(927, 723);
             ButtonNext.Name = "ButtonNext";
             ButtonNext.Size = new Size(108, 35);
             ButtonNext.TabIndex = 51;
@@ -158,7 +183,7 @@
             ButtonPreviuos.FlatStyle = FlatStyle.Flat;
             ButtonPreviuos.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonPreviuos.ForeColor = Color.DimGray;
-            ButtonPreviuos.Location = new Point(753, 624);
+            ButtonPreviuos.Location = new Point(753, 723);
             ButtonPreviuos.Name = "ButtonPreviuos";
             ButtonPreviuos.Size = new Size(108, 35);
             ButtonPreviuos.TabIndex = 50;
@@ -172,7 +197,7 @@
             LabelShowEntries.AutoSize = true;
             LabelShowEntries.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             LabelShowEntries.ForeColor = Color.Black;
-            LabelShowEntries.Location = new Point(27, 629);
+            LabelShowEntries.Location = new Point(27, 728);
             LabelShowEntries.Name = "LabelShowEntries";
             LabelShowEntries.Size = new Size(241, 23);
             LabelShowEntries.TabIndex = 49;
@@ -184,7 +209,7 @@
             ComboEntries.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboEntries.ForeColor = Color.Black;
             ComboEntries.FormattingEnabled = true;
-            ComboEntries.Location = new Point(85, 172);
+            ComboEntries.Location = new Point(84, 345);
             ComboEntries.Name = "ComboEntries";
             ComboEntries.Size = new Size(69, 31);
             ComboEntries.TabIndex = 48;
@@ -201,7 +226,7 @@
             ButtonSearch.FlatStyle = FlatStyle.Flat;
             ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(847, 171);
+            ButtonSearch.Location = new Point(846, 344);
             ButtonSearch.Name = "ButtonSearch";
             ButtonSearch.Size = new Size(53, 31);
             ButtonSearch.TabIndex = 47;
@@ -216,7 +241,7 @@
             ComboFilter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboFilter.ForeColor = Color.Black;
             ComboFilter.FormattingEnabled = true;
-            ComboFilter.Location = new Point(906, 171);
+            ComboFilter.Location = new Point(905, 344);
             ComboFilter.Name = "ComboFilter";
             ComboFilter.Size = new Size(129, 31);
             ComboFilter.TabIndex = 46;
@@ -224,14 +249,14 @@
             // TextSearch
             // 
             TextSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TextSearch.BeforeTouchSize = new Size(236, 30);
+            TextSearch.BeforeTouchSize = new Size(438, 24);
             TextSearch.Border3DStyle = Border3DStyle.Bump;
             TextSearch.BorderColor = Color.DimGray;
             TextSearch.BorderStyle = BorderStyle.FixedSingle;
             TextSearch.FocusBorderColor = Color.Black;
             TextSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextSearch.ForeColor = Color.Black;
-            TextSearch.Location = new Point(605, 172);
+            TextSearch.Location = new Point(604, 345);
             TextSearch.MinimumSize = new Size(34, 30);
             TextSearch.Name = "TextSearch";
             TextSearch.PlaceholderText = "🔍   Cari";
@@ -258,7 +283,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             GridListData.DefaultCellStyle = dataGridViewCellStyle2;
-            GridListData.Location = new Point(27, 213);
+            GridListData.Location = new Point(27, 386);
             GridListData.Name = "GridListData";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -270,7 +295,7 @@
             GridListData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(1008, 398);
+            GridListData.Size = new Size(1008, 324);
             GridListData.TabIndex = 44;
             // 
             // label7
@@ -280,35 +305,171 @@
             label7.ForeColor = Color.Black;
             label7.Location = new Point(15, 15);
             label7.Name = "label7";
-            label7.Size = new Size(171, 39);
+            label7.Size = new Size(223, 39);
             label7.TabIndex = 43;
-            label7.Text = "📆  Booking";
+            label7.Text = "🛠️  Jasa Servis";
             // 
-            // ButtonTambah
+            // panel2
             // 
-            ButtonTambah.BackColor = Color.FromArgb(83, 92, 145);
-            ButtonTambah.BackgroundColor = Color.FromArgb(83, 92, 145);
-            ButtonTambah.BorderColor = Color.DarkGray;
-            ButtonTambah.BorderRadius = 3;
-            ButtonTambah.BorderSize = 0;
-            ButtonTambah.FlatAppearance.BorderSize = 0;
-            ButtonTambah.FlatStyle = FlatStyle.Flat;
-            ButtonTambah.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonTambah.ForeColor = Color.White;
-            ButtonTambah.Location = new Point(27, 115);
-            ButtonTambah.Name = "ButtonTambah";
-            ButtonTambah.Size = new Size(124, 39);
-            ButtonTambah.TabIndex = 42;
-            ButtonTambah.Text = "➕ Tambah ";
-            ButtonTambah.TextColor = Color.White;
-            ButtonTambah.UseVisualStyleBackColor = false;
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = Color.LightGray;
+            panel2.Location = new Point(26, 311);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1008, 3);
+            panel2.TabIndex = 55;
+            // 
+            // ButtonCancel
+            // 
+            ButtonCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonCancel.BackColor = Color.Red;
+            ButtonCancel.BackgroundColor = Color.Red;
+            ButtonCancel.BorderColor = Color.DarkGray;
+            ButtonCancel.BorderRadius = 5;
+            ButtonCancel.BorderSize = 0;
+            ButtonCancel.FlatAppearance.BorderSize = 0;
+            ButtonCancel.FlatStyle = FlatStyle.Flat;
+            ButtonCancel.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonCancel.ForeColor = Color.White;
+            ButtonCancel.Location = new Point(749, 256);
+            ButtonCancel.Name = "ButtonCancel";
+            ButtonCancel.Size = new Size(125, 38);
+            ButtonCancel.TabIndex = 65;
+            ButtonCancel.Text = "❌ Cancel";
+            ButtonCancel.TextColor = Color.White;
+            ButtonCancel.UseVisualStyleBackColor = false;
+            // 
+            // TextKeterangan
+            // 
+            TextKeterangan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextKeterangan.BorderStyle = BorderStyle.FixedSingle;
+            TextKeterangan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextKeterangan.Location = new Point(557, 123);
+            TextKeterangan.MaxLength = 15;
+            TextKeterangan.Multiline = true;
+            TextKeterangan.Name = "TextKeterangan";
+            TextKeterangan.Size = new Size(476, 117);
+            TextKeterangan.TabIndex = 63;
+            // 
+            // ButtonSave
+            // 
+            ButtonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonSave.BackColor = Color.LimeGreen;
+            ButtonSave.BackgroundColor = Color.LimeGreen;
+            ButtonSave.BorderColor = Color.DarkGray;
+            ButtonSave.BorderRadius = 5;
+            ButtonSave.BorderSize = 0;
+            ButtonSave.FlatAppearance.BorderSize = 0;
+            ButtonSave.FlatStyle = FlatStyle.Flat;
+            ButtonSave.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonSave.ForeColor = Color.White;
+            ButtonSave.Location = new Point(904, 256);
+            ButtonSave.Name = "ButtonSave";
+            ButtonSave.Size = new Size(125, 38);
+            ButtonSave.TabIndex = 64;
+            ButtonSave.Text = "✅ Save";
+            ButtonSave.TextColor = Color.White;
+            ButtonSave.UseVisualStyleBackColor = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(40, 172);
+            label5.Name = "label5";
+            label5.Size = new Size(53, 25);
+            label5.TabIndex = 62;
+            label5.Text = "Biaya";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(TextBiaya);
+            panel4.Location = new Point(40, 200);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(451, 40);
+            panel4.TabIndex = 61;
+            // 
+            // TextBiaya
+            // 
+            TextBiaya.AccessibilityEnabled = true;
+            TextBiaya.BeforeTouchSize = new Size(438, 24);
+            TextBiaya.BorderStyle = BorderStyle.None;
+            TextBiaya.DecimalValue = new decimal(new int[] { 0, 0, 0, 131072 });
+            TextBiaya.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextBiaya.Location = new Point(8, 6);
+            TextBiaya.Name = "TextBiaya";
+            TextBiaya.Size = new Size(438, 24);
+            TextBiaya.TabIndex = 37;
+            TextBiaya.Text = "Rp0,00";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(40, 95);
+            label4.Name = "label4";
+            label4.Size = new Size(100, 25);
+            label4.TabIndex = 60;
+            label4.Text = "Jenis Servis";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(TextJenisServis);
+            panel3.Location = new Point(40, 123);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(451, 40);
+            panel3.TabIndex = 59;
+            // 
+            // TextJenisServis
+            // 
+            TextJenisServis.BorderStyle = BorderStyle.None;
+            TextJenisServis.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextJenisServis.Location = new Point(8, 8);
+            TextJenisServis.MaxLength = 15;
+            TextJenisServis.Name = "TextJenisServis";
+            TextJenisServis.Size = new Size(438, 24);
+            TextJenisServis.TabIndex = 0;
+            // 
+            // ButtonBaru
+            // 
+            ButtonBaru.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonBaru.BackColor = Color.FromArgb(83, 92, 145);
+            ButtonBaru.BackgroundColor = Color.FromArgb(83, 92, 145);
+            ButtonBaru.BorderColor = Color.DarkGray;
+            ButtonBaru.BorderRadius = 3;
+            ButtonBaru.BorderSize = 0;
+            ButtonBaru.FlatAppearance.BorderSize = 0;
+            ButtonBaru.FlatStyle = FlatStyle.Flat;
+            ButtonBaru.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonBaru.ForeColor = Color.White;
+            ButtonBaru.Location = new Point(594, 256);
+            ButtonBaru.Name = "ButtonBaru";
+            ButtonBaru.Size = new Size(125, 38);
+            ButtonBaru.TabIndex = 58;
+            ButtonBaru.Text = "➕ Baru";
+            ButtonBaru.TextColor = Color.White;
+            ButtonBaru.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(557, 95);
+            label3.Name = "label3";
+            label3.Size = new Size(101, 25);
+            label3.TabIndex = 66;
+            label3.Text = "Keterangan";
             // 
             // JasaServisForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1082, 703);
+            ClientSize = new Size(1082, 802);
             Controls.Add(PanelBooking);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "JasaServisForm";
@@ -319,6 +480,11 @@
             ((System.ComponentModel.ISupportInitialize)TextPage).EndInit();
             ((System.ComponentModel.ISupportInitialize)TextSearch).EndInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)TextBiaya).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -338,6 +504,17 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt TextSearch;
         private DataGridView GridListData;
         private Label label7;
-        private SMB_CustomTolbox.LathifButton ButtonTambah;
+        private SMB_CustomTolbox.LathifButton ButtonCancel;
+        private TextBox TextKeterangan;
+        private SMB_CustomTolbox.LathifButton ButtonSave;
+        private Label label5;
+        private Panel panel4;
+        private Syncfusion.Windows.Forms.Tools.CurrencyTextBox TextBiaya;
+        private Label label4;
+        private Panel panel3;
+        private TextBox TextJenisServis;
+        private SMB_CustomTolbox.LathifButton ButtonBaru;
+        private Panel panel2;
+        private Label label3;
     }
 }

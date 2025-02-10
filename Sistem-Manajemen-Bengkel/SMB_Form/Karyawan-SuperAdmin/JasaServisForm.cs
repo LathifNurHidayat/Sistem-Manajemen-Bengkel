@@ -22,7 +22,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         private void RegisterControlEvent()
         {
-            ButtonTambah.Click += ButtonTambah_Click;
+            ButtonBaru.Click += ButtonTambah_Click;
         }
 
         private void ButtonTambah_Click(object? sender, EventArgs e)

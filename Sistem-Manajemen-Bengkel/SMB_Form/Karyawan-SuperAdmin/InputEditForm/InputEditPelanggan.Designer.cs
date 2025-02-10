@@ -59,6 +59,7 @@
             TextAlamat = new TextBox();
             panel7 = new Panel();
             TextNamaLengkap = new TextBox();
+            LabelJudul = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel8.SuspendLayout();
@@ -74,14 +75,16 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoScroll = true;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(LabelJudul);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(ButtonSimpan);
             panel1.Controls.Add(ButtonBatal);
             panel1.Controls.Add(panel3);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1058, 679);
+            panel1.Size = new Size(1058, 729);
             panel1.TabIndex = 0;
             // 
             // panel4
@@ -98,7 +101,7 @@
             panel4.Controls.Add(label5);
             panel4.Controls.Add(panel9);
             panel4.Controls.Add(panel10);
-            panel4.Location = new Point(544, 40);
+            panel4.Location = new Point(544, 77);
             panel4.Name = "panel4";
             panel4.Size = new Size(480, 561);
             panel4.TabIndex = 2;
@@ -107,7 +110,7 @@
             // 
             LabelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelPassword.ForeColor = Color.Red;
-            LabelPassword.Location = new Point(166, 151);
+            LabelPassword.Location = new Point(166, 166);
             LabelPassword.Name = "LabelPassword";
             LabelPassword.Size = new Size(268, 23);
             LabelPassword.TabIndex = 39;
@@ -120,7 +123,7 @@
             // 
             LabelConfirmPass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelConfirmPass.ForeColor = Color.Red;
-            LabelConfirmPass.Location = new Point(197, 266);
+            LabelConfirmPass.Location = new Point(197, 281);
             LabelConfirmPass.Name = "LabelConfirmPass";
             LabelConfirmPass.Size = new Size(237, 23);
             LabelConfirmPass.TabIndex = 38;
@@ -133,7 +136,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(42, 265);
+            label9.Location = new Point(42, 280);
             label9.Name = "label9";
             label9.Size = new Size(149, 23);
             label9.TabIndex = 37;
@@ -144,7 +147,7 @@
             panel8.BackColor = Color.White;
             panel8.BorderStyle = BorderStyle.FixedSingle;
             panel8.Controls.Add(TextConfirmPassword);
-            panel8.Location = new Point(42, 291);
+            panel8.Location = new Point(42, 306);
             panel8.Name = "panel8";
             panel8.Size = new Size(392, 41);
             panel8.TabIndex = 33;
@@ -164,7 +167,7 @@
             // 
             LabelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelEmail.ForeColor = Color.Red;
-            LabelEmail.Location = new Point(126, 35);
+            LabelEmail.Location = new Point(126, 50);
             LabelEmail.Name = "LabelEmail";
             LabelEmail.Size = new Size(308, 23);
             LabelEmail.TabIndex = 36;
@@ -177,7 +180,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(42, 35);
+            label6.Location = new Point(42, 50);
             label6.Name = "label6";
             label6.Size = new Size(51, 23);
             label6.TabIndex = 35;
@@ -187,7 +190,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(42, 150);
+            label5.Location = new Point(42, 165);
             label5.Name = "label5";
             label5.Size = new Size(82, 23);
             label5.TabIndex = 34;
@@ -198,7 +201,7 @@
             panel9.BackColor = Color.White;
             panel9.BorderStyle = BorderStyle.FixedSingle;
             panel9.Controls.Add(TextPassword);
-            panel9.Location = new Point(42, 176);
+            panel9.Location = new Point(42, 191);
             panel9.Name = "panel9";
             panel9.Size = new Size(392, 41);
             panel9.TabIndex = 32;
@@ -219,7 +222,7 @@
             panel10.BackColor = Color.White;
             panel10.BorderStyle = BorderStyle.FixedSingle;
             panel10.Controls.Add(TextEmail);
-            panel10.Location = new Point(42, 61);
+            panel10.Location = new Point(42, 76);
             panel10.Name = "panel10";
             panel10.Size = new Size(392, 41);
             panel10.TabIndex = 31;
@@ -246,7 +249,7 @@
             ButtonSimpan.FlatStyle = FlatStyle.Flat;
             ButtonSimpan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSimpan.ForeColor = Color.White;
-            ButtonSimpan.Location = new Point(889, 615);
+            ButtonSimpan.Location = new Point(889, 652);
             ButtonSimpan.Name = "ButtonSimpan";
             ButtonSimpan.Size = new Size(135, 45);
             ButtonSimpan.TabIndex = 4;
@@ -266,7 +269,7 @@
             ButtonBatal.FlatStyle = FlatStyle.Flat;
             ButtonBatal.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBatal.ForeColor = Color.White;
-            ButtonBatal.Location = new Point(742, 615);
+            ButtonBatal.Location = new Point(742, 652);
             ButtonBatal.Name = "ButtonBatal";
             ButtonBatal.Size = new Size(135, 45);
             ButtonBatal.TabIndex = 3;
@@ -289,7 +292,7 @@
             panel3.Controls.Add(panel2);
             panel3.Controls.Add(panel6);
             panel3.Controls.Add(panel7);
-            panel3.Location = new Point(36, 40);
+            panel3.Location = new Point(36, 77);
             panel3.Name = "panel3";
             panel3.Size = new Size(480, 561);
             panel3.TabIndex = 1;
@@ -298,7 +301,7 @@
             // 
             LabelNoHP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNoHP.ForeColor = Color.Red;
-            LabelNoHP.Location = new Point(107, 151);
+            LabelNoHP.Location = new Point(107, 166);
             LabelNoHP.Name = "LabelNoHP";
             LabelNoHP.Size = new Size(323, 23);
             LabelNoHP.TabIndex = 35;
@@ -311,7 +314,7 @@
             // 
             LabelNIK.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNIK.ForeColor = Color.Red;
-            LabelNIK.Location = new Point(113, 35);
+            LabelNIK.Location = new Point(113, 50);
             LabelNIK.Name = "LabelNIK";
             LabelNIK.Size = new Size(317, 23);
             LabelNIK.TabIndex = 34;
@@ -324,7 +327,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(44, 265);
+            label1.Location = new Point(44, 280);
             label1.Name = "label1";
             label1.Size = new Size(126, 23);
             label1.TabIndex = 33;
@@ -334,7 +337,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(44, 380);
+            label7.Location = new Point(44, 395);
             label7.Name = "label7";
             label7.Size = new Size(64, 23);
             label7.TabIndex = 32;
@@ -344,7 +347,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(44, 150);
+            label2.Location = new Point(44, 165);
             label2.Name = "label2";
             label2.Size = new Size(65, 23);
             label2.TabIndex = 31;
@@ -354,7 +357,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(44, 35);
+            label10.Location = new Point(44, 50);
             label10.Name = "label10";
             label10.Size = new Size(71, 23);
             label10.TabIndex = 30;
@@ -365,7 +368,7 @@
             panel5.BackColor = Color.White;
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(TextNIK);
-            panel5.Location = new Point(44, 61);
+            panel5.Location = new Point(44, 76);
             panel5.Name = "panel5";
             panel5.Size = new Size(386, 41);
             panel5.TabIndex = 26;
@@ -386,7 +389,7 @@
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(TextNomorHP);
-            panel2.Location = new Point(44, 176);
+            panel2.Location = new Point(44, 191);
             panel2.Name = "panel2";
             panel2.Size = new Size(386, 41);
             panel2.TabIndex = 27;
@@ -407,7 +410,7 @@
             panel6.BackColor = Color.White;
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(TextAlamat);
-            panel6.Location = new Point(44, 406);
+            panel6.Location = new Point(44, 421);
             panel6.Name = "panel6";
             panel6.Size = new Size(386, 41);
             panel6.TabIndex = 29;
@@ -426,7 +429,7 @@
             panel7.BackColor = Color.White;
             panel7.BorderStyle = BorderStyle.FixedSingle;
             panel7.Controls.Add(TextNamaLengkap);
-            panel7.Location = new Point(44, 291);
+            panel7.Location = new Point(44, 306);
             panel7.Name = "panel7";
             panel7.Size = new Size(386, 41);
             panel7.TabIndex = 28;
@@ -440,18 +443,30 @@
             TextNamaLengkap.Size = new Size(375, 24);
             TextNamaLengkap.TabIndex = 2;
             // 
+            // LabelJudul
+            // 
+            LabelJudul.AutoSize = true;
+            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJudul.ForeColor = Color.Black;
+            LabelJudul.Location = new Point(36, 24);
+            LabelJudul.Name = "LabelJudul";
+            LabelJudul.Size = new Size(225, 38);
+            LabelJudul.TabIndex = 46;
+            LabelJudul.Text = "Input Pelanggan";
+            // 
             // InputEditPelanggan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1082, 703);
+            ClientSize = new Size(1082, 753);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
             Name = "InputEditPelanggan";
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel8.ResumeLayout(false);
@@ -506,5 +521,6 @@
         private TextBox TextPassword;
         private Panel panel10;
         private TextBox TextEmail;
+        private Label LabelJudul;
     }
 }
