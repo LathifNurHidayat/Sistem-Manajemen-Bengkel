@@ -45,7 +45,7 @@
             label1 = new Label();
             LabelTotalPelanggan = new Label();
             pictureBox3 = new PictureBox();
-            PanelData = new SMB_CustomTolbox.LathifPanel();
+            panel1 = new Panel();
             chartControl1 = new Syncfusion.Windows.Forms.Chart.ChartControl();
             PanelBackground.SuspendLayout();
             PanelService.SuspendLayout();
@@ -54,7 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             PanelPelanggan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            PanelData.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // PanelBackground
@@ -255,19 +255,14 @@
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
-            // PanelData
+            // panel1
             // 
-            PanelData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            PanelData.BackColor = Color.White;
-            PanelData.BorderColor = Color.PaleVioletRed;
-            PanelData.BorderRadius = 10;
-            PanelData.BorderSize = 0;
-            PanelData.Controls.Add(chartControl1);
-            PanelData.ForeColor = Color.White;
-            PanelData.Location = new Point(11, 379);
-            PanelData.Name = "PanelData";
-            PanelData.Size = new Size(1057, 470);
-            PanelData.TabIndex = 12;
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(chartControl1);
+            panel1.Location = new Point(12, 384);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1056, 467);
+            panel1.TabIndex = 11;
             // 
             // chartControl1
             // 
@@ -276,22 +271,21 @@
             // 
             // 
             // 
-            chartControl1.Legend.Location = new Point(379, 81);
-            chartControl1.Location = new Point(533, 57);
+            chartControl1.Legend.Location = new Point(619, 81);
+            chartControl1.Location = new Point(34, 42);
             chartControl1.Name = "chartControl1";
             chartControl1.PrimaryXAxis.LogLabelsDisplayMode = Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default;
             chartControl1.PrimaryXAxis.Margin = true;
             chartControl1.PrimaryYAxis.LogLabelsDisplayMode = Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default;
             chartControl1.PrimaryYAxis.Margin = true;
-            chartControl1.Size = new Size(500, 375);
-            chartControl1.TabIndex = 0;
+            chartControl1.Size = new Size(740, 375);
+            chartControl1.TabIndex = 1;
             chartControl1.Text = "chartControl1";
             // 
             // 
             // 
             chartControl1.Title.Name = "Default";
             chartControl1.Titles.Add(chartControl1.Title);
-            chartControl1.Click += chartControl1_Click;
             // 
             // MenuDashboardKaryawanForm
             // 
@@ -299,7 +293,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
             ClientSize = new Size(1082, 863);
-            Controls.Add(PanelData);
+            Controls.Add(panel1);
             Controls.Add(PanelBackground);
             Name = "MenuDashboardKaryawanForm";
             Text = " ";
@@ -314,7 +308,7 @@
             PanelPelanggan.ResumeLayout(false);
             PanelPelanggan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            PanelData.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -336,7 +330,7 @@
         private Label LabelTotalBooking;
         private Label LabelTotalPelanggan;
         private Label LabelTotalService;
-        private SMB_CustomTolbox.LathifPanel PanelData;
+        private Panel panel1;
         private Syncfusion.Windows.Forms.Chart.ChartControl chartControl1;
     }
 }

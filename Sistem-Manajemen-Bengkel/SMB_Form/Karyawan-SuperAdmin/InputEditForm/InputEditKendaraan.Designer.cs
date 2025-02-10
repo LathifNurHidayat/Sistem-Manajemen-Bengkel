@@ -32,6 +32,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
         {
             panel1 = new Panel();
             panel4 = new Panel();
+            label9 = new Label();
             ComboKendaraan = new Syncfusion.WinForms.ListView.SfComboBox();
             panel10 = new Panel();
             TextTahun = new TextBox();
@@ -59,7 +60,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel2 = new Panel();
             TextNomorKTP = new TextBox();
             label1 = new Label();
-            label9 = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ComboKendaraan).BeginInit();
@@ -107,19 +107,34 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel4.Size = new Size(480, 561);
             panel4.TabIndex = 2;
             // 
+            // label9
+            // 
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Red;
+            label9.Location = new Point(175, 36);
+            label9.Name = "label9";
+            label9.Size = new Size(257, 23);
+            label9.TabIndex = 66;
+            label9.Text = "Nomor polisi sudah terdaaftar";
+            label9.TextAlign = ContentAlignment.MiddleRight;
+            label9.Visible = false;
+            // 
             // ComboKendaraan
             // 
+            ComboKendaraan.BackColor = Color.White;
             ComboKendaraan.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            ComboKendaraan.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDownList;
             ComboKendaraan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboKendaraan.Location = new Point(49, 244);
             ComboKendaraan.Name = "ComboKendaraan";
             ComboKendaraan.Size = new Size(383, 44);
+            ComboKendaraan.Style.EditorStyle.BackColor = Color.White;
             ComboKendaraan.Style.EditorStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboKendaraan.Style.ReadOnlyEditorStyle.BackColor = Color.White;
             ComboKendaraan.Style.ReadOnlyEditorStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboKendaraan.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
             ComboKendaraan.Style.TokenStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboKendaraan.TabIndex = 3;
-            ComboKendaraan.TabStop = false;
             // 
             // panel10
             // 
@@ -419,18 +434,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             label1.Size = new Size(78, 25);
             label1.TabIndex = 43;
             label1.Text = "No. KTP";
-            // 
-            // label9
-            // 
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.ForeColor = Color.Red;
-            label9.Location = new Point(175, 36);
-            label9.Name = "label9";
-            label9.Size = new Size(257, 23);
-            label9.TabIndex = 66;
-            label9.Text = "Nomor polisi sudah terdaaftar";
-            label9.TextAlign = ContentAlignment.MiddleRight;
-            label9.Visible = false;
             // 
             // InputEditKendaraan
             // 

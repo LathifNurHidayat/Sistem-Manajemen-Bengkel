@@ -30,7 +30,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.KaryawanForm
         private void RegisterControlEvent()
         {
             PanelBackground.Resize += PanelBackground_Resize;
-            PanelData.Resize += (s, e) => PanelData.Invalidate();
         }
 
         private void PanelBackground_Resize(object? sender, EventArgs e)

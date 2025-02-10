@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            MainPanel = new Panel();
             LabelPassword = new Label();
             LabelConfirmPass = new Label();
             label9 = new Label();
@@ -59,7 +59,8 @@
             LinkMasuk = new LinkLabel();
             label1 = new Label();
             ButtonDaftar = new Button();
-            panel1.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            MainPanel.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
             panel9.SuspendLayout();
@@ -67,39 +68,40 @@
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // MainPanel
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(LabelPassword);
-            panel1.Controls.Add(LabelConfirmPass);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(panel6);
-            panel1.Controls.Add(LabelEmail);
-            panel1.Controls.Add(LabelNoHP);
-            panel1.Controls.Add(LabelNIK);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(panel5);
-            panel1.Controls.Add(panel9);
-            panel1.Controls.Add(panel7);
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(panel4);
-            panel1.Controls.Add(panel3);
-            panel1.Controls.Add(LinkMasuk);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(ButtonDaftar);
-            panel1.Location = new Point(253, 28);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(587, 646);
-            panel1.TabIndex = 0;
+            MainPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            MainPanel.BackColor = Color.White;
+            MainPanel.Controls.Add(LabelPassword);
+            MainPanel.Controls.Add(LabelConfirmPass);
+            MainPanel.Controls.Add(label9);
+            MainPanel.Controls.Add(panel6);
+            MainPanel.Controls.Add(LabelEmail);
+            MainPanel.Controls.Add(LabelNoHP);
+            MainPanel.Controls.Add(LabelNIK);
+            MainPanel.Controls.Add(label8);
+            MainPanel.Controls.Add(label7);
+            MainPanel.Controls.Add(label6);
+            MainPanel.Controls.Add(label5);
+            MainPanel.Controls.Add(label4);
+            MainPanel.Controls.Add(label3);
+            MainPanel.Controls.Add(panel5);
+            MainPanel.Controls.Add(panel9);
+            MainPanel.Controls.Add(panel7);
+            MainPanel.Controls.Add(panel2);
+            MainPanel.Controls.Add(label2);
+            MainPanel.Controls.Add(panel4);
+            MainPanel.Controls.Add(panel3);
+            MainPanel.Controls.Add(LinkMasuk);
+            MainPanel.Controls.Add(label1);
+            MainPanel.Controls.Add(ButtonDaftar);
+            MainPanel.Location = new Point(337, 12);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Size = new Size(587, 675);
+            MainPanel.TabIndex = 0;
             // 
             // LabelPassword
             // 
@@ -385,7 +387,7 @@
             // LinkMasuk
             // 
             LinkMasuk.AutoSize = true;
-            LinkMasuk.Location = new Point(341, 609);
+            LinkMasuk.Location = new Point(341, 633);
             LinkMasuk.Name = "LinkMasuk";
             LinkMasuk.Size = new Size(51, 20);
             LinkMasuk.TabIndex = 9;
@@ -395,7 +397,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(186, 609);
+            label1.Location = new Point(186, 633);
             label1.Name = "label1";
             label1.Size = new Size(157, 20);
             label1.TabIndex = 8;
@@ -408,26 +410,37 @@
             ButtonDaftar.FlatStyle = FlatStyle.Flat;
             ButtonDaftar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonDaftar.ForeColor = Color.White;
-            ButtonDaftar.Location = new Point(18, 556);
+            ButtonDaftar.Location = new Point(18, 580);
             ButtonDaftar.Name = "ButtonDaftar";
             ButtonDaftar.Size = new Size(552, 45);
             ButtonDaftar.TabIndex = 8;
             ButtonDaftar.Text = "Daftar";
             ButtonDaftar.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources._3D_LoginNew;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(302, 675);
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(867, 699);
-            Controls.Add(panel1);
+            ClientSize = new Size(936, 699);
+            Controls.Add(pictureBox1);
+            Controls.Add(MainPanel);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            MainPanel.ResumeLayout(false);
+            MainPanel.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel5.ResumeLayout(false);
@@ -442,11 +455,12 @@
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private Panel panel1;
+        private Panel MainPanel;
         private Label label2;
         private Panel panel4;
         private TextBox TextAlamat;
@@ -478,5 +492,6 @@
         private Panel panel6;
         private TextBox TextConfirmPassword;
         private Label LabelPassword;
+        private PictureBox pictureBox1;
     }
 }

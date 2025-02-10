@@ -101,14 +101,14 @@
             // ComboStatus
             // 
             ComboStatus.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            ComboStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboStatus.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ComboStatus.Location = new Point(54, 421);
             ComboStatus.Name = "ComboStatus";
             ComboStatus.Size = new Size(383, 44);
-            ComboStatus.Style.EditorStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            ComboStatus.Style.ReadOnlyEditorStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboStatus.Style.EditorStyle.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboStatus.Style.ReadOnlyEditorStyle.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ComboStatus.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
-            ComboStatus.Style.TokenStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboStatus.Style.TokenStyle.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ComboStatus.TabIndex = 53;
             ComboStatus.TabStop = false;
             // 
@@ -267,14 +267,14 @@
             // ComboKendaraan
             // 
             ComboKendaraan.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            ComboKendaraan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboKendaraan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ComboKendaraan.Location = new Point(47, 340);
             ComboKendaraan.Name = "ComboKendaraan";
             ComboKendaraan.Size = new Size(383, 44);
-            ComboKendaraan.Style.EditorStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            ComboKendaraan.Style.ReadOnlyEditorStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboKendaraan.Style.EditorStyle.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboKendaraan.Style.ReadOnlyEditorStyle.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ComboKendaraan.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
-            ComboKendaraan.Style.TokenStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboKendaraan.Style.TokenStyle.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ComboKendaraan.TabIndex = 4;
             ComboKendaraan.TabStop = false;
             ComboKendaraan.SelectedIndexChanged += sfComboBox1_SelectedIndexChanged;
@@ -305,10 +305,10 @@
             // 
             TextTelepon.BackColor = Color.White;
             TextTelepon.BorderStyle = BorderStyle.None;
-            TextTelepon.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextTelepon.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextTelepon.Location = new Point(4, 10);
             TextTelepon.Name = "TextTelepon";
-            TextTelepon.Size = new Size(373, 23);
+            TextTelepon.Size = new Size(373, 24);
             TextTelepon.TabIndex = 49;
             // 
             // panel6
@@ -325,10 +325,10 @@
             // 
             TextNama.BackColor = Color.White;
             TextNama.BorderStyle = BorderStyle.None;
-            TextNama.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNama.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextNama.Location = new Point(4, 10);
             TextNama.Name = "TextNama";
-            TextNama.Size = new Size(373, 23);
+            TextNama.Size = new Size(373, 24);
             TextNama.TabIndex = 49;
             // 
             // label2
@@ -389,11 +389,11 @@
             // 
             TextNomorKTP.BackColor = Color.White;
             TextNomorKTP.BorderStyle = BorderStyle.None;
-            TextNomorKTP.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNomorKTP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextNomorKTP.Location = new Point(4, 10);
             TextNomorKTP.Name = "TextNomorKTP";
             TextNomorKTP.PlaceholderText = "🔍 Cari berdasarkan nomor KTP ";
-            TextNomorKTP.Size = new Size(373, 23);
+            TextNomorKTP.Size = new Size(373, 24);
             TextNomorKTP.TabIndex = 49;
             // 
             // label4

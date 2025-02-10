@@ -30,7 +30,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            CustomComponentHelper.CustomPanel(panel1);
+            CustomComponentHelper.CustomPanel(MainPanel);
 
             RegisterControlEvent();
         }
@@ -156,13 +156,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
             else if (textbox.Tag == "Password")
             {
                 string password = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$";
-                if (!Regex.IsMatch(TextPassword.Text , password))
+                if (!Regex.IsMatch(TextPassword.Text, password))
                 {
                     LabelPassword.Visible = true;
                     return;
                 }
                 else
+                {
                     LabelPassword.Visible = false;
+                }
             }
             else if (textbox.Tag == "ConfirmPassword")
             {
