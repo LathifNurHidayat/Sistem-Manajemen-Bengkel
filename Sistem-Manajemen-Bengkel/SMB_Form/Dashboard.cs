@@ -22,14 +22,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private string _username;
         private string _role;
 
-        public Dashboard(long id, string username, string role)
+        public Dashboard(/*long id, string username, string role*/)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            _id = id;
-            LabelUsername.Text = username;
-            LabelRole.Text = role;
+            /*       _id = id;
+                 LabelUsername.Text = username;
+                  LabelRole.Text = role;*/
             CekRole();
 
             RegisterControlEvent();

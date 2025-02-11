@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panel2 = new Panel();
             ButtonLogout = new Button();
             ButtonLaporan = new Button();
@@ -41,16 +42,17 @@
             ButtonDashboard = new Button();
             LabelUsername = new Label();
             LabelRole = new Label();
-            PictureProfile = new PictureBox();
             PanelMain = new Panel();
+            PictureProfiles = new SMB_CustomTolbox.RJCircularPictureBox();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PictureProfile).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PictureProfiles).BeginInit();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.AutoScroll = true;
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(PictureProfiles);
             panel2.Controls.Add(ButtonLogout);
             panel2.Controls.Add(ButtonLaporan);
             panel2.Controls.Add(ButtonSparepart);
@@ -63,7 +65,6 @@
             panel2.Controls.Add(ButtonDashboard);
             panel2.Controls.Add(LabelUsername);
             panel2.Controls.Add(LabelRole);
-            panel2.Controls.Add(PictureProfile);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
@@ -254,17 +255,6 @@
             LabelRole.Text = "Super Admin";
             LabelRole.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // PictureProfile
-            // 
-            PictureProfile.Anchor = AnchorStyles.Top;
-            PictureProfile.BackgroundImage = Properties.Resources.user;
-            PictureProfile.BackgroundImageLayout = ImageLayout.Zoom;
-            PictureProfile.Location = new Point(107, 48);
-            PictureProfile.Name = "PictureProfile";
-            PictureProfile.Size = new Size(101, 100);
-            PictureProfile.TabIndex = 0;
-            PictureProfile.TabStop = false;
-            // 
             // PanelMain
             // 
             PanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -275,6 +265,25 @@
             PanelMain.Name = "PanelMain";
             PanelMain.Size = new Size(901, 1029);
             PanelMain.TabIndex = 4;
+            // 
+            // PictureProfiles
+            // 
+            PictureProfiles.Anchor = AnchorStyles.Top;
+            PictureProfiles.BackgroundImage = Properties.Resources.User_Hitam;
+            PictureProfiles.BackgroundImageLayout = ImageLayout.Stretch;
+            PictureProfiles.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            PictureProfiles.BorderColor = Color.FromArgb(83, 92, 145);
+            PictureProfiles.BorderColor2 = Color.FromArgb(83, 92, 145);
+            PictureProfiles.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            PictureProfiles.BorderSize = 2;
+            PictureProfiles.GradientAngle = 50F;
+            PictureProfiles.Image = (Image)resources.GetObject("PictureProfiles.Image");
+            PictureProfiles.Location = new Point(109, 48);
+            PictureProfiles.Name = "PictureProfiles";
+            PictureProfiles.Size = new Size(101, 101);
+            PictureProfiles.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureProfiles.TabIndex = 36;
+            PictureProfiles.TabStop = false;
             // 
             // Dashboard
             // 
@@ -287,15 +296,15 @@
             DoubleBuffered = true;
             Name = "Dashboard";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = " ";
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)PictureProfile).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PictureProfiles).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel2;
-        private PictureBox PictureProfile;
         private Label LabelUsername;
         private Label LabelRole;
         private Button ButtonDashboard;
@@ -309,5 +318,6 @@
         private Button ButtonLaporan;
         private Button ButtonSparepart;
         private Button ButtonLogout;
+        private SMB_CustomTolbox.RJCircularPictureBox PictureProfiles;
     }
 }

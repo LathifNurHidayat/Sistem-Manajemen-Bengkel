@@ -86,7 +86,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             long id = dataPelanggan?.no_ktp != null ? long.Parse(dataPelanggan?.no_ktp) : dataPetugas?.id_petugas ?? 0;
 
             ClearForm();
-            new Dashboard(id, username, role).Show();
+            new Dashboard(/*id, username, role*/).Show();
             this.Hide();
         }
 
