@@ -1,5 +1,4 @@
-﻿SELECT * FROM INFORMATION_SCHEMA.TABLES 
-
+﻿
 CREATE TABLE tb_pelanggan (
     no_ktp_pelanggan VARCHAR(20) NOT NULL PRIMARY KEY,
     nama_pelanggan VARCHAR(100),
@@ -7,6 +6,7 @@ CREATE TABLE tb_pelanggan (
     alamat VARCHAR(225), 
     email VARCHAR(50),
     password VARCHAR(225),
+    total_servis INT,
     created_at DATETIME DEFAULT GETDATE(),
     updated_at DATETIME DEFAULT GETDATE()
 );

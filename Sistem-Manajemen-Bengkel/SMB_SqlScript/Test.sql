@@ -1,20 +1,20 @@
-﻿INSERT INTO tb_pelanggan (no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password)
+﻿INSERT INTO tb_pelanggan (no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis)
 VALUES
-('3201011000010001', 'Ahmad Syaiful', '081234567890', 'Jakarta', 'ahmad@example.com', 'ef92b778bafee02a'),
-('3201011000010002', 'Rina Lestari', '081298765432', 'Bandung', 'rina@example.com', 'ef92b778bafee02a'),
-('3201011000010003', 'Budi Santoso', '082345678901', 'Surabaya', 'budi@example.com', 'ef92b778bafee02a'),
-('3201011000010004', 'Siti Aminah', '083456789012', 'Medan', 'siti@example.com', 'ef92b778bafee02a'),
-('3201011000010005', 'Dedi Prasetyo', '084567890123', 'Yogyakarta', 'dedi@example.com', 'ef92b778bafee02a'),
-('3201011000010006', 'Lina Kusuma', '085678901234', 'Semarang', 'lina@example.com', 'ef92b778bafee02a'),
-('3201011000010007', 'Eko Saputra', '086789012345', 'Palembang', 'eko@example.com', 'ef92b778bafee02a'),
-('3201011000010008', 'Tina Maharani', '087890123456', 'Makassar', 'tina@example.com', 'ef92b778bafee02a'),
-('3201011000010009', 'Fadli Akbar', '088901234567', 'Bali', 'fadli@example.com', 'ef92b778bafee02a'),
-('3201011000010010', 'Hana Wijaya', '089012345678', 'Balikpapan', 'hana@example.com', 'ef92b778bafee02a'),
-('3201011000010011', 'Rahmat Hidayat', '081234567899', 'Pontianak', 'rahmat@example.com', 'ef92b778bafee02a'),
-('3201011000010012', 'Sari Melati', '081234567898', 'Batam', 'sari@example.com', 'ef92b778bafee02a'),
-('3201011000010013', 'Andre Wahyudi', '081234567897', 'Lampung', 'andre@example.com', 'ef92b778bafee02a'),
-('3201011000010014', 'Desi Aprilia', '081234567896', 'Malang', 'desi@example.com', 'ef92b778bafee02a'),
-('3201011000010015', 'Bayu Setiawan', '081234567895', 'Pekanbaru', 'bayu@example.com', 'ef92b778bafee02a');
+('3201011000010001', 'Ahmad Syaiful', '081234567890', 'Jakarta', 'ahmad@example.com', 'ef92b778bafee02a',4),
+('3201011000010002', 'Rina Lestari', '081298765432', 'Bandung', 'rina@example.com', 'ef92b778bafee02a',6),
+('3201011000010003', 'Budi Santoso', '082345678901', 'Surabaya', 'budi@example.com', 'ef92b778bafee02a',8),
+('3201011000010004', 'Siti Aminah', '083456789012', 'Medan', 'siti@example.com', 'ef92b778bafee02a',3),
+('3201011000010005', 'Dedi Prasetyo', '084567890123', 'Yogyakarta', 'dedi@example.com', 'ef92b778bafee02a',3),
+('3201011000010006', 'Lina Kusuma', '085678901234', 'Semarang', 'lina@example.com', 'ef92b778bafee02a',45),
+('3201011000010007', 'Eko Saputra', '086789012345', 'Palembang', 'eko@example.com', 'ef92b778bafee02a',4),
+('3201011000010008', 'Tina Maharani', '087890123456', 'Makassar', 'tina@example.com', 'ef92b778bafee02a',21),
+('3201011000010009', 'Fadli Akbar', '088901234567', 'Bali', 'fadli@example.com', 'ef92b778bafee02a',2),
+('3201011000010010', 'Hana Wijaya', '089012345678', 'Balikpapan', 'hana@example.com', 'ef92b778bafee02a',6),
+('3201011000010011', 'Rahmat Hidayat', '081234567899', 'Pontianak', 'rahmat@example.com', 'ef92b778bafee02a',2),
+('3201011000010012', 'Sari Melati', '081234567898', 'Batam', 'sari@example.com', 'ef92b778bafee02a',4),
+('3201011000010013', 'Andre Wahyudi', '081234567897', 'Lampung', 'andre@example.com', 'ef92b778bafee02a',2),
+('3201011000010014', 'Desi Aprilia', '081234567896', 'Malang', 'desi@example.com', 'ef92b778bafee02a',7),
+('3201011000010015', 'Bayu Setiawan', '081234567895', 'Pekanbaru', 'bayu@example.com', 'ef92b778bafee02a',9);
 
 INSERT INTO tb_pegawai (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_name, image_data)
 VALUES

@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            LabelJudul = new Label();
             panel4 = new Panel();
             ComboStatus = new Syncfusion.WinForms.ListView.SfComboBox();
             label5 = new Label();
             panel5 = new Panel();
             PickerTanggal = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             label6 = new Label();
+            label4 = new Label();
+            TextKeluhan = new TextBox();
             ButtonCekKetersediaan = new SMB_CustomTolbox.LathifButton();
             ButtonBatal = new SMB_CustomTolbox.LathifButton();
             panel3 = new Panel();
@@ -47,12 +50,10 @@
             label2 = new Label();
             label7 = new Label();
             label3 = new Label();
-            TextKeluhan = new TextBox();
             panel2 = new Panel();
             TextNomorKTP = new TextBox();
-            label4 = new Label();
             label1 = new Label();
-            LabelJudul = new Label();
+            lathifButton1 = new SMB_CustomTolbox.LathifButton();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ComboStatus).BeginInit();
@@ -69,6 +70,7 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoScroll = true;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(lathifButton1);
             panel1.Controls.Add(LabelJudul);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(ButtonCekKetersediaan);
@@ -79,6 +81,17 @@
             panel1.Size = new Size(1058, 729);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // LabelJudul
+            // 
+            LabelJudul.AutoSize = true;
+            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJudul.ForeColor = Color.Black;
+            LabelJudul.Location = new Point(36, 27);
+            LabelJudul.Name = "LabelJudul";
+            LabelJudul.Size = new Size(198, 38);
+            LabelJudul.TabIndex = 45;
+            LabelJudul.Text = "Input Booking";
             // 
             // panel4
             // 
@@ -155,6 +168,28 @@
             label6.Size = new Size(76, 25);
             label6.TabIndex = 43;
             label6.Text = "Tanggal";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(54, 143);
+            label4.Name = "label4";
+            label4.Size = new Size(79, 25);
+            label4.TabIndex = 44;
+            label4.Text = "Keluhan";
+            // 
+            // TextKeluhan
+            // 
+            TextKeluhan.BackColor = Color.White;
+            TextKeluhan.BorderStyle = BorderStyle.FixedSingle;
+            TextKeluhan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextKeluhan.Location = new Point(54, 171);
+            TextKeluhan.Multiline = true;
+            TextKeluhan.Name = "TextKeluhan";
+            TextKeluhan.Size = new Size(373, 147);
+            TextKeluhan.TabIndex = 5;
             // 
             // ButtonCekKetersediaan
             // 
@@ -314,17 +349,6 @@
             label3.TabIndex = 48;
             label3.Text = "Kendaraan";
             // 
-            // TextKeluhan
-            // 
-            TextKeluhan.BackColor = Color.White;
-            TextKeluhan.BorderStyle = BorderStyle.FixedSingle;
-            TextKeluhan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextKeluhan.Location = new Point(54, 171);
-            TextKeluhan.Multiline = true;
-            TextKeluhan.Name = "TextKeluhan";
-            TextKeluhan.Size = new Size(373, 147);
-            TextKeluhan.TabIndex = 5;
-            // 
             // panel2
             // 
             panel2.BackColor = Color.White;
@@ -346,17 +370,6 @@
             TextNomorKTP.Size = new Size(373, 24);
             TextNomorKTP.TabIndex = 49;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = Color.Black;
-            label4.Location = new Point(54, 143);
-            label4.Name = "label4";
-            label4.Size = new Size(79, 25);
-            label4.TabIndex = 44;
-            label4.Text = "Keluhan";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -368,16 +381,25 @@
             label1.TabIndex = 43;
             label1.Text = "Nomor KTP";
             // 
-            // LabelJudul
+            // lathifButton1
             // 
-            LabelJudul.AutoSize = true;
-            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelJudul.ForeColor = Color.Black;
-            LabelJudul.Location = new Point(36, 27);
-            LabelJudul.Name = "LabelJudul";
-            LabelJudul.Size = new Size(198, 38);
-            LabelJudul.TabIndex = 45;
-            LabelJudul.Text = "Input Booking";
+            lathifButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lathifButton1.BackColor = Color.Red;
+            lathifButton1.BackgroundColor = Color.Red;
+            lathifButton1.BorderColor = Color.DarkGray;
+            lathifButton1.BorderRadius = 5;
+            lathifButton1.BorderSize = 0;
+            lathifButton1.FlatAppearance.BorderSize = 0;
+            lathifButton1.FlatStyle = FlatStyle.Flat;
+            lathifButton1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            lathifButton1.ForeColor = Color.White;
+            lathifButton1.Location = new Point(36, 659);
+            lathifButton1.Name = "lathifButton1";
+            lathifButton1.Size = new Size(94, 45);
+            lathifButton1.TabIndex = 46;
+            lathifButton1.Text = "⬅️";
+            lathifButton1.TextColor = Color.White;
+            lathifButton1.UseVisualStyleBackColor = false;
             // 
             // InputEditBooking
             // 
@@ -437,5 +459,6 @@
         private Syncfusion.WinForms.ListView.SfComboBox ComboStatus;
         private Label label5;
         private Label LabelJudul;
+        private SMB_CustomTolbox.LathifButton lathifButton1;
     }
 }

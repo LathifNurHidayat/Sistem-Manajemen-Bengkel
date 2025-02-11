@@ -12,6 +12,7 @@ using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.KaryawanForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form
 {
@@ -33,6 +34,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             CekRole();
 
             RegisterControlEvent();
+            ShowFormHelper.SetPanel(PanelMain);
         }
 
         private void CekRole()
@@ -72,21 +74,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             }
         }
 
-        private void ShowFormInPanel(Form form)
-        {
-            if (PanelMain.Controls.Count > 0)
-                PanelMain.Controls.RemoveAt(0);
-
-            if (form == null) return;
-
-            form.TopLevel = false;
-            form.Dock = DockStyle.Fill;
-            form.FormBorderStyle = FormBorderStyle.None;
-            PanelMain.Tag = form;
-
-            PanelMain.Controls.Add(form);
-            form.Show();
-        } 
+      
 
         private void RegisterControlEvent()
         {
@@ -112,72 +100,70 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
         private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            _mainForm.Close();
         }
 
         private void ButtonLogout_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new InvoiceForm());
+            ShowFormHelper.ShowFormInPanel(new InvoiceForm());
         }
 
         private void ButtonLaporan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new LaporanForm());
+            ShowFormHelper.ShowFormInPanel(new LaporanForm());
         }
 
         private void ButtonSparepart_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new SparepartForm());
+            ShowFormHelper.ShowFormInPanel(new SparepartForm());
 
         }
 
         private void ButtonKaryawan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new SuperAdminForm.PegawaiForm());
+            ShowFormHelper.ShowFormInPanel(new SuperAdminForm.PegawaiForm());
         }
 
         private void ButtonKendaraan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new KendaraanForm());
+            ShowFormHelper.ShowFormInPanel(new KendaraanForm());
         }
 
         private void ButtonPelanggan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new PelangganForm());
+            ShowFormHelper.ShowFormInPanel(new PelangganForm());
         }
 
         private void ButtonRiwayat_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new RiwayatForm());
+            ShowFormHelper.ShowFormInPanel(new RiwayatForm());
         }
 
         private void ButtonServis_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new JasaServisForm());
+            ShowFormHelper.ShowFormInPanel(new JasaServisForm());
         }
 
         private void ButtonBooking_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
-            ShowFormInPanel(new BookingForm());
+            ShowFormHelper.ShowFormInPanel(new BookingForm());
         }
 
         private void ButtonDashboard_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
             if (_role == "Super Admin")
-                ShowFormInPanel(new MenuDashboardAdminForm());
-            else
-                ShowFormInPanel(new MenuDashboardKaryawanForm());
+                ShowFormHelper.ShowFormInPanel(new MenuDashboardAdminForm());
+            else if (_role == "Karyawan")
+                ShowFormHelper.ShowFormInPanel(new MenuDashboardKaryawanForm());
         }
-
     }
 }

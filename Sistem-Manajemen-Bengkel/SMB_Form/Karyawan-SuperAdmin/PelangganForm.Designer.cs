@@ -41,7 +41,6 @@
             LabelShowEntries = new Label();
             ComboEntries = new ComboBox();
             ButtonSearch = new SMB_CustomTolbox.LathifButton();
-            ComboFilter = new ComboBox();
             TextSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             GridListData = new DataGridView();
             label7 = new Label();
@@ -66,7 +65,6 @@
             PanelBooking.Controls.Add(LabelShowEntries);
             PanelBooking.Controls.Add(ComboEntries);
             PanelBooking.Controls.Add(ButtonSearch);
-            PanelBooking.Controls.Add(ComboFilter);
             PanelBooking.Controls.Add(TextSearch);
             PanelBooking.Controls.Add(GridListData);
             PanelBooking.Controls.Add(label7);
@@ -112,7 +110,7 @@
             // 
             TextPage.Anchor = AnchorStyles.None;
             TextPage.BackColor = Color.FromArgb(83, 92, 145);
-            TextPage.BeforeTouchSize = new Size(236, 30);
+            TextPage.BeforeTouchSize = new Size(245, 30);
             TextPage.Border3DStyle = Border3DStyle.Bump;
             TextPage.BorderColor = Color.SlateGray;
             TextPage.BorderStyle = BorderStyle.None;
@@ -202,7 +200,7 @@
             ButtonSearch.FlatStyle = FlatStyle.Flat;
             ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(847, 171);
+            ButtonSearch.Location = new Point(982, 174);
             ButtonSearch.Name = "ButtonSearch";
             ButtonSearch.Size = new Size(53, 31);
             ButtonSearch.TabIndex = 47;
@@ -210,33 +208,21 @@
             ButtonSearch.TextColor = Color.White;
             ButtonSearch.UseVisualStyleBackColor = false;
             // 
-            // ComboFilter
-            // 
-            ComboFilter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ComboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboFilter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            ComboFilter.ForeColor = Color.Black;
-            ComboFilter.FormattingEnabled = true;
-            ComboFilter.Location = new Point(906, 171);
-            ComboFilter.Name = "ComboFilter";
-            ComboFilter.Size = new Size(129, 31);
-            ComboFilter.TabIndex = 46;
-            // 
             // TextSearch
             // 
             TextSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TextSearch.BeforeTouchSize = new Size(236, 30);
+            TextSearch.BeforeTouchSize = new Size(245, 30);
             TextSearch.Border3DStyle = Border3DStyle.Bump;
             TextSearch.BorderColor = Color.DimGray;
             TextSearch.BorderStyle = BorderStyle.FixedSingle;
             TextSearch.FocusBorderColor = Color.Black;
             TextSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextSearch.ForeColor = Color.Black;
-            TextSearch.Location = new Point(605, 172);
+            TextSearch.Location = new Point(724, 175);
             TextSearch.MinimumSize = new Size(34, 30);
             TextSearch.Name = "TextSearch";
             TextSearch.PlaceholderText = "🔍   Cari";
-            TextSearch.Size = new Size(236, 30);
+            TextSearch.Size = new Size(245, 30);
             TextSearch.TabIndex = 45;
             // 
             // GridListData
@@ -336,7 +322,6 @@
         private Label LabelShowEntries;
         private ComboBox ComboEntries;
         private SMB_CustomTolbox.LathifButton ButtonSearch;
-        private ComboBox ComboFilter;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt TextSearch;
         private DataGridView GridListData;
         private Label label7;
