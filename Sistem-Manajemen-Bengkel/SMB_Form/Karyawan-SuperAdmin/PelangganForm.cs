@@ -37,7 +37,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
         {
             var data = _pelangganDal.ListData().Select(x => new PelangganDto
             {
-                Nomor_KTP  = x.no_ktp_pelanggan,
+                Nomor_KTP = x.no_ktp_pelanggan,
                 Nama_Pelanggan = x.nama_pelanggan,
                 Nomor_HP = x.no_hp,
                 Alamat = x.alamat,
@@ -79,7 +79,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             GridListData.Columns["Alamat"].HeaderText = "Alamat";
             GridListData.Columns["Email"].HeaderText = "Email";
         }
-        
+
 
 
         private void RegisterControlEvent()
@@ -107,4 +107,5 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             public string Alamat { get; set; }
             public string Email { get; set; }
         }
+    }
 }
