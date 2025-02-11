@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.JasaServisForm;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 {
@@ -22,15 +21,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         private void RegisterControlEvent()
         {
-            ButtonBaru.Click += ButtonTambah_Click;
         }
 
-        private void ButtonTambah_Click(object? sender, EventArgs e)
-        {
-            if (new InputEditJasaServis().ShowDialog(this) == DialogResult.OK)
-            {
-
-            }
-        }
+      
     }
 }

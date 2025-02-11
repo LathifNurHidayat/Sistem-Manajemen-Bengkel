@@ -83,7 +83,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             }
             string role = dataPelanggan != null ? "Pelanggan" : dataPetugas?.role == "Super Admin" ? "Super Admin" : "Karyawan";
             string username = dataPelanggan?.nama_pelanggan != null ? dataPelanggan.nama_pelanggan : dataPetugas?.nama_petugas ?? "";
-            long id = dataPelanggan?.no_ktp != null ? long.Parse(dataPelanggan?.no_ktp) : dataPetugas?.id_petugas ?? 0;
+            long id = dataPelanggan?.no_ktp_pelanggan != null ? long.Parse(dataPelanggan?.no_ktp_pelanggan) : dataPetugas?.id_petugas ?? 0;
 
             ClearForm();
             new Dashboard(/*id, username, role*/).Show();

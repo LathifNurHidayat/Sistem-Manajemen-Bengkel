@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
 {
-    public class PetugasModel
+    public class PegawaiModel
     {
         public int id_petugas { get; set; }
         public string nama_petugas { get; set; }

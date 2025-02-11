@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputEditPegawai));
             panel1 = new Panel();
+            LabelJudul = new Label();
             panel4 = new Panel();
             label1 = new Label();
             panel6 = new Panel();
@@ -52,6 +53,7 @@
             ButtonSimpan = new SMB_CustomTolbox.LathifButton();
             ButtonBatal = new SMB_CustomTolbox.LathifButton();
             panel3 = new Panel();
+            ButtonEditProfiles = new SMB_CustomTolbox.LathifButton();
             PictureProfiles = new SMB_CustomTolbox.RJCircularPictureBox();
             LabelNIK = new Label();
             label2 = new Label();
@@ -60,8 +62,6 @@
             TextNoKTP = new TextBox();
             panel2 = new Panel();
             TextNamaLengkap = new TextBox();
-            ButtonEditProfiles = new SMB_CustomTolbox.LathifButton();
-            LabelJudul = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel6.SuspendLayout();
@@ -87,6 +87,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1058, 729);
             panel1.TabIndex = 0;
+            // 
+            // LabelJudul
+            // 
+            LabelJudul.AutoSize = true;
+            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJudul.ForeColor = Color.Black;
+            LabelJudul.Location = new Point(35, 22);
+            LabelJudul.Name = "LabelJudul";
+            LabelJudul.Size = new Size(197, 38);
+            LabelJudul.TabIndex = 45;
+            LabelJudul.Text = "Input Pegawai";
             // 
             // panel4
             // 
@@ -319,8 +330,8 @@
             // ButtonSimpan
             // 
             ButtonSimpan.Anchor = AnchorStyles.None;
-            ButtonSimpan.BackColor = Color.LimeGreen;
-            ButtonSimpan.BackgroundColor = Color.LimeGreen;
+            ButtonSimpan.BackColor = Color.ForestGreen;
+            ButtonSimpan.BackgroundColor = Color.ForestGreen;
             ButtonSimpan.BorderColor = Color.DarkGray;
             ButtonSimpan.BorderRadius = 5;
             ButtonSimpan.BorderSize = 0;
@@ -372,6 +383,26 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(480, 561);
             panel3.TabIndex = 1;
+            // 
+            // ButtonEditProfiles
+            // 
+            ButtonEditProfiles.Anchor = AnchorStyles.None;
+            ButtonEditProfiles.BackColor = Color.FromArgb(83, 92, 145);
+            ButtonEditProfiles.BackgroundColor = Color.FromArgb(83, 92, 145);
+            ButtonEditProfiles.BorderColor = Color.DarkGray;
+            ButtonEditProfiles.BorderRadius = 5;
+            ButtonEditProfiles.BorderSize = 0;
+            ButtonEditProfiles.FlatAppearance.BorderSize = 0;
+            ButtonEditProfiles.FlatStyle = FlatStyle.Flat;
+            ButtonEditProfiles.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonEditProfiles.ForeColor = Color.White;
+            ButtonEditProfiles.Location = new Point(186, 180);
+            ButtonEditProfiles.Name = "ButtonEditProfiles";
+            ButtonEditProfiles.Size = new Size(104, 37);
+            ButtonEditProfiles.TabIndex = 36;
+            ButtonEditProfiles.Text = "🖍 Edit";
+            ButtonEditProfiles.TextColor = Color.White;
+            ButtonEditProfiles.UseVisualStyleBackColor = false;
             // 
             // PictureProfiles
             // 
@@ -465,37 +496,6 @@
             TextNamaLengkap.Size = new Size(375, 24);
             TextNamaLengkap.TabIndex = 1;
             TextNamaLengkap.Tag = "NoHP";
-            // 
-            // ButtonEditProfiles
-            // 
-            ButtonEditProfiles.Anchor = AnchorStyles.None;
-            ButtonEditProfiles.BackColor = Color.FromArgb(83, 92, 145);
-            ButtonEditProfiles.BackgroundColor = Color.FromArgb(83, 92, 145);
-            ButtonEditProfiles.BorderColor = Color.DarkGray;
-            ButtonEditProfiles.BorderRadius = 5;
-            ButtonEditProfiles.BorderSize = 0;
-            ButtonEditProfiles.FlatAppearance.BorderSize = 0;
-            ButtonEditProfiles.FlatStyle = FlatStyle.Flat;
-            ButtonEditProfiles.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonEditProfiles.ForeColor = Color.White;
-            ButtonEditProfiles.Location = new Point(186, 180);
-            ButtonEditProfiles.Name = "ButtonEditProfiles";
-            ButtonEditProfiles.Size = new Size(104, 37);
-            ButtonEditProfiles.TabIndex = 36;
-            ButtonEditProfiles.Text = "🖍 Edit";
-            ButtonEditProfiles.TextColor = Color.White;
-            ButtonEditProfiles.UseVisualStyleBackColor = false;
-            // 
-            // LabelJudul
-            // 
-            LabelJudul.AutoSize = true;
-            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelJudul.ForeColor = Color.Black;
-            LabelJudul.Location = new Point(35, 22);
-            LabelJudul.Name = "LabelJudul";
-            LabelJudul.Size = new Size(197, 38);
-            LabelJudul.TabIndex = 45;
-            LabelJudul.Text = "Input Pegawai";
             // 
             // InputEditPegawai
             // 

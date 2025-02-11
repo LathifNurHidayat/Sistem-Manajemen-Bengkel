@@ -32,16 +32,19 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             grid.EnableHeadersVisualStyles = false;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-            grid.DefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Regular);
+            grid.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            grid.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
             grid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            grid.GridColor = Color.Gainsboro;
+            grid.BorderStyle = BorderStyle.FixedSingle;
+
             grid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             // mengatur warna header kolom
-            grid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 152, 219);
+            grid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(83, 92, 145);
             grid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(52, 152, 219);
+            grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(83, 92, 145);
             grid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             grid.ForeColor = Color.DimGray;
 
@@ -67,6 +70,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             grid.AllowUserToAddRows = false;
 
             grid.ColumnHeadersDefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+
+            
         }
 
 

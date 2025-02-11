@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            LabelJudul = new Label();
             panel4 = new Panel();
             LabelPassword = new Label();
             LabelConfirmPass = new Label();
@@ -59,7 +60,6 @@
             TextAlamat = new TextBox();
             panel7 = new Panel();
             TextNamaLengkap = new TextBox();
-            LabelJudul = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel8.SuspendLayout();
@@ -86,6 +86,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1058, 729);
             panel1.TabIndex = 0;
+            // 
+            // LabelJudul
+            // 
+            LabelJudul.AutoSize = true;
+            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJudul.ForeColor = Color.Black;
+            LabelJudul.Location = new Point(36, 24);
+            LabelJudul.Name = "LabelJudul";
+            LabelJudul.Size = new Size(225, 38);
+            LabelJudul.TabIndex = 46;
+            LabelJudul.Text = "Input Pelanggan";
             // 
             // panel4
             // 
@@ -240,8 +251,8 @@
             // ButtonSimpan
             // 
             ButtonSimpan.Anchor = AnchorStyles.None;
-            ButtonSimpan.BackColor = Color.LimeGreen;
-            ButtonSimpan.BackgroundColor = Color.LimeGreen;
+            ButtonSimpan.BackColor = Color.ForestGreen;
+            ButtonSimpan.BackgroundColor = Color.ForestGreen;
             ButtonSimpan.BorderColor = Color.DarkGray;
             ButtonSimpan.BorderRadius = 5;
             ButtonSimpan.BorderSize = 0;
@@ -442,17 +453,6 @@
             TextNamaLengkap.Name = "TextNamaLengkap";
             TextNamaLengkap.Size = new Size(375, 24);
             TextNamaLengkap.TabIndex = 2;
-            // 
-            // LabelJudul
-            // 
-            LabelJudul.AutoSize = true;
-            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelJudul.ForeColor = Color.Black;
-            LabelJudul.Location = new Point(36, 24);
-            LabelJudul.Name = "LabelJudul";
-            LabelJudul.Size = new Size(225, 38);
-            LabelJudul.TabIndex = 46;
-            LabelJudul.Text = "Input Pelanggan";
             // 
             // InputEditPelanggan
             // 

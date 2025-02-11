@@ -31,6 +31,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            LabelJudul = new Label();
             panel4 = new Panel();
             label9 = new Label();
             ComboKendaraan = new Syncfusion.WinForms.ListView.SfComboBox();
@@ -60,7 +61,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel2 = new Panel();
             TextNomorKTP = new TextBox();
             label1 = new Label();
-            LabelJudul = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ComboKendaraan).BeginInit();
@@ -88,6 +88,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel1.Name = "panel1";
             panel1.Size = new Size(1058, 729);
             panel1.TabIndex = 0;
+            // 
+            // LabelJudul
+            // 
+            LabelJudul.AutoSize = true;
+            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJudul.ForeColor = Color.Black;
+            LabelJudul.Location = new Point(36, 25);
+            LabelJudul.Name = "LabelJudul";
+            LabelJudul.Size = new Size(228, 38);
+            LabelJudul.TabIndex = 45;
+            LabelJudul.Text = "Input Kendaraan";
             // 
             // panel4
             // 
@@ -277,8 +288,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             // ButtonSimpan
             // 
             ButtonSimpan.Anchor = AnchorStyles.None;
-            ButtonSimpan.BackColor = Color.LimeGreen;
-            ButtonSimpan.BackgroundColor = Color.LimeGreen;
+            ButtonSimpan.BackColor = Color.ForestGreen;
+            ButtonSimpan.BackgroundColor = Color.ForestGreen;
             ButtonSimpan.BorderColor = Color.DarkGray;
             ButtonSimpan.BorderRadius = 5;
             ButtonSimpan.BorderSize = 0;
@@ -437,17 +448,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             label1.Size = new Size(78, 25);
             label1.TabIndex = 43;
             label1.Text = "No. KTP";
-            // 
-            // LabelJudul
-            // 
-            LabelJudul.AutoSize = true;
-            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelJudul.ForeColor = Color.Black;
-            LabelJudul.Location = new Point(36, 25);
-            LabelJudul.Name = "LabelJudul";
-            LabelJudul.Size = new Size(228, 38);
-            LabelJudul.TabIndex = 45;
-            LabelJudul.Text = "Input Kendaraan";
             // 
             // InputEditKendaraan
             // 

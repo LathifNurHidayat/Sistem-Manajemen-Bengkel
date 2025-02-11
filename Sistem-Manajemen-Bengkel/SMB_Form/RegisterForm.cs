@@ -41,7 +41,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
         {
             var pelanggan = new PelangganModel
             {
-                no_ktp = TextNIK.Text.Trim(),
+                no_ktp_pelanggan = TextNIK.Text.Trim(),
                 no_hp = TextNomorHP.Text.Trim(),
                 nama_pelanggan = TextNamaLengkap.Text.Trim(),
                 email = TextEmail.Text.Trim(),
