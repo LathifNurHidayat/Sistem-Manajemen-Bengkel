@@ -8,7 +8,8 @@ CREATE TABLE tb_pelanggan (
     password VARCHAR(225),
     total_servis INT,
     created_at DATETIME DEFAULT GETDATE(),
-    updated_at DATETIME DEFAULT GETDATE()
+    updated_at DATETIME DEFAULT GETDATE(),
+    deleted_at DATETIME NULL
 );
 
 CREATE TABLE tb_pegawai (
@@ -22,7 +23,8 @@ CREATE TABLE tb_pegawai (
     image_name NVARCHAR(100),
     image_data VARBINARY(MAX),
     created_at DATETIME DEFAULT GETDATE(),
-    updated_at DATETIME DEFAULT GETDATE()
+    updated_at DATETIME DEFAULT GETDATE(),
+    deleted_at DATETIME NULL
 );
 
 CREATE TABLE tb_mekanik (
@@ -35,6 +37,7 @@ CREATE TABLE tb_mekanik (
     image_data VARBINARY(MAX),
     created_at DATETIME DEFAULT GETDATE(),
     updated_at DATETIME DEFAULT GETDATE(),
+    deleted_at DATETIME NULL
 );
 
 CREATE TABLE tb_jasa_servis (
@@ -42,6 +45,9 @@ CREATE TABLE tb_jasa_servis (
     jenis_servis VARCHAR(50),
     keterangan VARCHAR(225),
     biaya DECIMAL(18,2),
+    created_at DATETIME DEFAULT GETDATE(),
+    updated_at DATETIME DEFAULT GETDATE(),
+    deleted_at DATETIME NULL
 );
 
 CREATE TABLE tb_batas_booking(
@@ -60,7 +66,8 @@ CREATE TABLE tb_sparepart(
     stok_minimal INT,
     status_stok VARCHAR(50),
     created_at DATETIME DEFAULT GETDATE(),
-    updated_at DATETIME DEFAULT GETDATE()
+    updated_at DATETIME DEFAULT GETDATE(),
+    deleted_at DATETIME NULL
 );
 
 
@@ -74,6 +81,8 @@ CREATE TABLE tb_kendaraan (
     tahun INT,
     created_at DATETIME DEFAULT GETDATE(),
     updated_at DATETIME DEFAULT GETDATE(),
+    deleted_at DATETIME NULL,
+
     CONSTRAINT fk_kendaraan_pelanggan FOREIGN KEY (no_ktp_pelanggan) REFERENCES tb_pelanggan(no_ktp_pelanggan)
         ON DELETE CASCADE
         ON UPDATE CASCADE

@@ -1,6 +1,6 @@
-﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PelangganForm
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 {
-    partial class InputEditPelanggan
+    partial class InputPelanggan
     {
         /// <summary>
         /// Required designer variable.
@@ -53,7 +53,7 @@
             label2 = new Label();
             label10 = new Label();
             panel5 = new Panel();
-            TextNIK = new TextBox();
+            TextNoKTP = new TextBox();
             panel2 = new Panel();
             TextNomorHP = new TextBox();
             panel6 = new Panel();
@@ -100,7 +100,7 @@
             // 
             // panel4
             // 
-            panel4.Anchor = AnchorStyles.None;
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.WhiteSmoke;
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(LabelPassword);
@@ -112,16 +112,17 @@
             panel4.Controls.Add(label5);
             panel4.Controls.Add(panel9);
             panel4.Controls.Add(panel10);
-            panel4.Location = new Point(544, 77);
+            panel4.Location = new Point(622, 77);
             panel4.Name = "panel4";
-            panel4.Size = new Size(480, 561);
+            panel4.Size = new Size(402, 561);
             panel4.TabIndex = 2;
             // 
             // LabelPassword
             // 
+            LabelPassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelPassword.ForeColor = Color.Red;
-            LabelPassword.Location = new Point(166, 166);
+            LabelPassword.Location = new Point(88, 166);
             LabelPassword.Name = "LabelPassword";
             LabelPassword.Size = new Size(268, 23);
             LabelPassword.TabIndex = 39;
@@ -132,9 +133,10 @@
             // 
             // LabelConfirmPass
             // 
+            LabelConfirmPass.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelConfirmPass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelConfirmPass.ForeColor = Color.Red;
-            LabelConfirmPass.Location = new Point(197, 281);
+            LabelConfirmPass.Location = new Point(119, 281);
             LabelConfirmPass.Name = "LabelConfirmPass";
             LabelConfirmPass.Size = new Size(237, 23);
             LabelConfirmPass.TabIndex = 38;
@@ -155,32 +157,35 @@
             // 
             // panel8
             // 
+            panel8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel8.BackColor = Color.White;
             panel8.BorderStyle = BorderStyle.FixedSingle;
             panel8.Controls.Add(TextConfirmPassword);
             panel8.Location = new Point(42, 306);
             panel8.Name = "panel8";
-            panel8.Size = new Size(392, 41);
-            panel8.TabIndex = 33;
+            panel8.Size = new Size(314, 41);
+            panel8.TabIndex = 3;
             // 
             // TextConfirmPassword
             // 
+            TextConfirmPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextConfirmPassword.BorderStyle = BorderStyle.None;
             TextConfirmPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextConfirmPassword.Location = new Point(6, 7);
             TextConfirmPassword.Name = "TextConfirmPassword";
             TextConfirmPassword.PasswordChar = '*';
-            TextConfirmPassword.Size = new Size(381, 24);
+            TextConfirmPassword.Size = new Size(303, 24);
             TextConfirmPassword.TabIndex = 6;
             TextConfirmPassword.Tag = "ConfirmPassword";
             // 
             // LabelEmail
             // 
+            LabelEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelEmail.ForeColor = Color.Red;
-            LabelEmail.Location = new Point(126, 50);
+            LabelEmail.Location = new Point(72, 50);
             LabelEmail.Name = "LabelEmail";
-            LabelEmail.Size = new Size(308, 23);
+            LabelEmail.Size = new Size(284, 23);
             LabelEmail.TabIndex = 36;
             LabelEmail.Tag = "Email";
             LabelEmail.Text = "Email sudah terdaftar";
@@ -209,48 +214,52 @@
             // 
             // panel9
             // 
+            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel9.BackColor = Color.White;
             panel9.BorderStyle = BorderStyle.FixedSingle;
             panel9.Controls.Add(TextPassword);
             panel9.Location = new Point(42, 191);
             panel9.Name = "panel9";
-            panel9.Size = new Size(392, 41);
-            panel9.TabIndex = 32;
+            panel9.Size = new Size(314, 41);
+            panel9.TabIndex = 2;
             // 
             // TextPassword
             // 
+            TextPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextPassword.BorderStyle = BorderStyle.None;
             TextPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextPassword.Location = new Point(6, 7);
             TextPassword.Name = "TextPassword";
             TextPassword.PasswordChar = '*';
-            TextPassword.Size = new Size(381, 24);
+            TextPassword.Size = new Size(303, 24);
             TextPassword.TabIndex = 5;
             TextPassword.Tag = "Password";
             // 
             // panel10
             // 
+            panel10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel10.BackColor = Color.White;
             panel10.BorderStyle = BorderStyle.FixedSingle;
             panel10.Controls.Add(TextEmail);
             panel10.Location = new Point(42, 76);
             panel10.Name = "panel10";
-            panel10.Size = new Size(392, 41);
-            panel10.TabIndex = 31;
+            panel10.Size = new Size(314, 41);
+            panel10.TabIndex = 1;
             // 
             // TextEmail
             // 
+            TextEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextEmail.BorderStyle = BorderStyle.None;
             TextEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextEmail.Location = new Point(6, 7);
             TextEmail.Name = "TextEmail";
-            TextEmail.Size = new Size(381, 24);
+            TextEmail.Size = new Size(303, 24);
             TextEmail.TabIndex = 4;
             TextEmail.Tag = "Email";
             // 
             // ButtonSimpan
             // 
-            ButtonSimpan.Anchor = AnchorStyles.None;
+            ButtonSimpan.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonSimpan.BackColor = Color.ForestGreen;
             ButtonSimpan.BackgroundColor = Color.ForestGreen;
             ButtonSimpan.BorderColor = Color.DarkGray;
@@ -270,7 +279,7 @@
             // 
             // ButtonBatal
             // 
-            ButtonBatal.Anchor = AnchorStyles.None;
+            ButtonBatal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonBatal.BackColor = Color.Red;
             ButtonBatal.BackgroundColor = Color.Red;
             ButtonBatal.BorderColor = Color.DarkGray;
@@ -290,7 +299,7 @@
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.None;
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel3.BackColor = Color.WhiteSmoke;
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(LabelNoHP);
@@ -305,14 +314,15 @@
             panel3.Controls.Add(panel7);
             panel3.Location = new Point(36, 77);
             panel3.Name = "panel3";
-            panel3.Size = new Size(480, 561);
+            panel3.Size = new Size(560, 561);
             panel3.TabIndex = 1;
             // 
             // LabelNoHP
             // 
+            LabelNoHP.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelNoHP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNoHP.ForeColor = Color.Red;
-            LabelNoHP.Location = new Point(107, 166);
+            LabelNoHP.Location = new Point(187, 166);
             LabelNoHP.Name = "LabelNoHP";
             LabelNoHP.Size = new Size(323, 23);
             LabelNoHP.TabIndex = 35;
@@ -323,9 +333,10 @@
             // 
             // LabelNIK
             // 
+            LabelNIK.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelNIK.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNIK.ForeColor = Color.Red;
-            LabelNIK.Location = new Point(113, 50);
+            LabelNIK.Location = new Point(193, 51);
             LabelNIK.Name = "LabelNIK";
             LabelNIK.Size = new Size(317, 23);
             LabelNIK.TabIndex = 34;
@@ -376,85 +387,93 @@
             // 
             // panel5
             // 
+            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel5.BackColor = Color.White;
             panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(TextNIK);
+            panel5.Controls.Add(TextNoKTP);
             panel5.Location = new Point(44, 76);
             panel5.Name = "panel5";
-            panel5.Size = new Size(386, 41);
-            panel5.TabIndex = 26;
+            panel5.Size = new Size(466, 41);
+            panel5.TabIndex = 1;
             // 
-            // TextNIK
+            // TextNoKTP
             // 
-            TextNIK.BorderStyle = BorderStyle.None;
-            TextNIK.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextNIK.Location = new Point(6, 7);
-            TextNIK.MaxLength = 16;
-            TextNIK.Name = "TextNIK";
-            TextNIK.Size = new Size(375, 24);
-            TextNIK.TabIndex = 1;
-            TextNIK.Tag = "NIK";
+            TextNoKTP.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextNoKTP.BorderStyle = BorderStyle.None;
+            TextNoKTP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNoKTP.Location = new Point(6, 7);
+            TextNoKTP.MaxLength = 16;
+            TextNoKTP.Name = "TextNoKTP";
+            TextNoKTP.Size = new Size(455, 24);
+            TextNoKTP.TabIndex = 1;
+            TextNoKTP.Tag = "NIK";
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(TextNomorHP);
             panel2.Location = new Point(44, 191);
             panel2.Name = "panel2";
-            panel2.Size = new Size(386, 41);
-            panel2.TabIndex = 27;
+            panel2.Size = new Size(466, 41);
+            panel2.TabIndex = 2;
             // 
             // TextNomorHP
             // 
+            TextNomorHP.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextNomorHP.BorderStyle = BorderStyle.None;
             TextNomorHP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextNomorHP.Location = new Point(6, 7);
             TextNomorHP.MaxLength = 13;
             TextNomorHP.Name = "TextNomorHP";
-            TextNomorHP.Size = new Size(375, 24);
+            TextNomorHP.Size = new Size(455, 24);
             TextNomorHP.TabIndex = 1;
             TextNomorHP.Tag = "NoHP";
             // 
             // panel6
             // 
+            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel6.BackColor = Color.White;
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(TextAlamat);
             panel6.Location = new Point(44, 421);
             panel6.Name = "panel6";
-            panel6.Size = new Size(386, 41);
-            panel6.TabIndex = 29;
+            panel6.Size = new Size(466, 41);
+            panel6.TabIndex = 4;
             // 
             // TextAlamat
             // 
+            TextAlamat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextAlamat.BorderStyle = BorderStyle.None;
             TextAlamat.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextAlamat.Location = new Point(6, 7);
             TextAlamat.Name = "TextAlamat";
-            TextAlamat.Size = new Size(375, 24);
+            TextAlamat.Size = new Size(455, 24);
             TextAlamat.TabIndex = 3;
             // 
             // panel7
             // 
+            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel7.BackColor = Color.White;
             panel7.BorderStyle = BorderStyle.FixedSingle;
             panel7.Controls.Add(TextNamaLengkap);
             panel7.Location = new Point(44, 306);
             panel7.Name = "panel7";
-            panel7.Size = new Size(386, 41);
-            panel7.TabIndex = 28;
+            panel7.Size = new Size(466, 41);
+            panel7.TabIndex = 3;
             // 
             // TextNamaLengkap
             // 
+            TextNamaLengkap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextNamaLengkap.BorderStyle = BorderStyle.None;
             TextNamaLengkap.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextNamaLengkap.Location = new Point(6, 8);
             TextNamaLengkap.Name = "TextNamaLengkap";
-            TextNamaLengkap.Size = new Size(375, 24);
+            TextNamaLengkap.Size = new Size(455, 24);
             TextNamaLengkap.TabIndex = 2;
             // 
-            // InputEditPelanggan
+            // InputPelanggan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -463,7 +482,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "InputEditPelanggan";
+            Name = "InputPelanggan";
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -502,7 +521,7 @@
         private Label label2;
         private Label label10;
         private Panel panel5;
-        private TextBox TextNIK;
+        private TextBox TextNoKTP;
         private Panel panel2;
         private TextBox TextNomorHP;
         private Panel panel6;

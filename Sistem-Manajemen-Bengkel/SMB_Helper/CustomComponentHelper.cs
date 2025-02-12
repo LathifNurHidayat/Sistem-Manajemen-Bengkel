@@ -70,7 +70,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             grid.AllowUserToAddRows = false;
 
             grid.ColumnHeadersDefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
-
+            grid.ReadOnly = true;
             
         }
 

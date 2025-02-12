@@ -32,6 +32,8 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             PanelBooking = new Panel();
+            label3 = new Label();
+            ComboFilter = new ComboBox();
             label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
@@ -45,11 +47,15 @@
             GridListData = new DataGridView();
             label7 = new Label();
             ButtonTambah = new SMB_CustomTolbox.LathifButton();
+            contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
             PanelBooking.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TextPage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TextSearch).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
+            contextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // PanelBooking
@@ -57,6 +63,8 @@
             PanelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelBooking.AutoScroll = true;
             PanelBooking.BackColor = Color.White;
+            PanelBooking.Controls.Add(label3);
+            PanelBooking.Controls.Add(ComboFilter);
             PanelBooking.Controls.Add(label2);
             PanelBooking.Controls.Add(label1);
             PanelBooking.Controls.Add(panel1);
@@ -73,6 +81,30 @@
             PanelBooking.Name = "PanelBooking";
             PanelBooking.Size = new Size(1058, 679);
             PanelBooking.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(791, 175);
+            label3.Name = "label3";
+            label3.Size = new Size(64, 23);
+            label3.TabIndex = 56;
+            label3.Text = "Sort by";
+            // 
+            // ComboFilter
+            // 
+            ComboFilter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ComboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboFilter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboFilter.ForeColor = Color.Black;
+            ComboFilter.FormattingEnabled = true;
+            ComboFilter.Location = new Point(861, 169);
+            ComboFilter.Name = "ComboFilter";
+            ComboFilter.Size = new Size(165, 31);
+            ComboFilter.TabIndex = 55;
             // 
             // label2
             // 
@@ -120,9 +152,10 @@
             TextPage.Location = new Point(3, 5);
             TextPage.MinimumSize = new Size(24, 20);
             TextPage.Name = "TextPage";
+            TextPage.ReadOnly = true;
             TextPage.Size = new Size(60, 24);
             TextPage.TabIndex = 32;
-            TextPage.Text = "12";
+            TextPage.Text = "1";
             TextPage.TextAlign = HorizontalAlignment.Center;
             // 
             // ButtonNext
@@ -200,7 +233,7 @@
             ButtonSearch.FlatStyle = FlatStyle.Flat;
             ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(982, 174);
+            ButtonSearch.Location = new Point(693, 169);
             ButtonSearch.Name = "ButtonSearch";
             ButtonSearch.Size = new Size(53, 31);
             ButtonSearch.TabIndex = 47;
@@ -218,7 +251,7 @@
             TextSearch.FocusBorderColor = Color.Black;
             TextSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextSearch.ForeColor = Color.Black;
-            TextSearch.Location = new Point(724, 175);
+            TextSearch.Location = new Point(435, 170);
             TextSearch.MinimumSize = new Size(34, 30);
             TextSearch.Name = "TextSearch";
             TextSearch.PlaceholderText = "🔍   Cari";
@@ -291,6 +324,31 @@
             ButtonTambah.TextColor = Color.White;
             ButtonTambah.UseVisualStyleBackColor = false;
             // 
+            // contextMenuStrip
+            // 
+            contextMenuStrip.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            contextMenuStrip.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, deleteToolStripMenuItem });
+            contextMenuStrip.MetroColor = Color.FromArgb(204, 236, 249);
+            contextMenuStrip.Name = "contextMenuStrip";
+            contextMenuStrip.Size = new Size(146, 68);
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            editToolStripMenuItem.Image = Properties.Resources.pencil;
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(145, 32);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteToolStripMenuItem.Image = Properties.Resources.delete__1_;
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(145, 32);
+            deleteToolStripMenuItem.Text = "Delete";
+            // 
             // PelangganForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -307,6 +365,7 @@
             ((System.ComponentModel.ISupportInitialize)TextPage).EndInit();
             ((System.ComponentModel.ISupportInitialize)TextSearch).EndInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
+            contextMenuStrip.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -326,5 +385,10 @@
         private DataGridView GridListData;
         private Label label7;
         private SMB_CustomTolbox.LathifButton ButtonTambah;
+        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+        private Label label3;
+        private ComboBox ComboFilter;
     }
 }

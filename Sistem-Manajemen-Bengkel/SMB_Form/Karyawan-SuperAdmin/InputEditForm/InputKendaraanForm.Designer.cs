@@ -1,8 +1,6 @@
-﻿using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
-
-namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 {
-    partial class InputEditKendaraan
+    partial class InputKendaraanForm
     {
         /// <summary>
         /// Required designer variable.
@@ -341,7 +339,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KendaraanForm
             panel3.Name = "panel3";
             panel3.Size = new Size(480, 561);
             panel3.TabIndex = 1;
-            panel3.Paint += panel3_Paint;
             // 
             // LabelNoKTP
             // 

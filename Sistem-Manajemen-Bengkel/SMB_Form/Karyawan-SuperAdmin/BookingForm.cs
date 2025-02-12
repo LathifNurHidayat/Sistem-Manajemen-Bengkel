@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Syncfusion.Windows.Forms.Tools;
 using Syncfusion.WinForms.DataGrid;
@@ -29,10 +29,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
-            if (new InputEditBooking().ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            ShowFormHelper.ShowFormInPanel(new InputBookingForm());
         }
     }
 }

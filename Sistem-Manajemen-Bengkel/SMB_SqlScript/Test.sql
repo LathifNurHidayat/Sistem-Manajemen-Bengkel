@@ -67,4 +67,6 @@ VALUES
 
 
 
-SELECT * FROM tb_pelanggan ORDER BY created_at ASC  OFFSET 2 ROW FETCH NEXT 15 ROWS ONLY
+SELECT * FROM tb_pelanggan where deleted_at IS null  ORDER BY created_at ASC  OFFSET 0 ROW FETCH NEXT 5 ROWS ONLY
+
+UPDATE tb_pelanggan SET deleted_at = GETDATE() WHERE no_ktp_pelanggan = '3201011000010001'

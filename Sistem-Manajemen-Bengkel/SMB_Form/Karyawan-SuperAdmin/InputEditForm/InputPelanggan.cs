@@ -3,109 +3,88 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sistem_Manajemen_Bengkel.Helper;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
-using Sistem_Manajemen_Bengkel.SMB_Helper;
+using Microsoft.Win32;
+using System.Windows.Automation.Text;
+using System.Text.RegularExpressions;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 {
-
-    public partial class RegisterForm : Form
+    public partial class InputPelanggan : Form
     {
         private readonly PelangganDal _pelangganDal;
-        private Form _form;
-        public RegisterForm(Form form)
+        private string _noKTP;
+
+        public InputPelanggan(string no_ktp_pelanggan)
         {
             InitializeComponent();
             _pelangganDal = new PelangganDal();
-            _form = form;
 
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.WindowState = FormWindowState.Maximized;
-
-
-            CustomComponentHelper.CustomPanel(MainPanel);
+            GetData(no_ktp_pelanggan);
+            _noKTP = TextNoKTP.Text.Trim();
 
             RegisterControlEvent();
         }
 
-        private void InsertData()
+        private void GetData(string no_ktp_pelanggan)
+        {
+            var pelanggan = _pelangganDal.GetData(no_ktp_pelanggan);
+            if (pelanggan == null) return;
+
+            TextNoKTP.Text = pelanggan.no_ktp_pelanggan;
+            TextNomorHP.Text = pelanggan.no_hp;
+            TextAlamat.Text = pelanggan.alamat;
+            TextEmail.Text = pelanggan.email;
+            TextPassword.Text = pelanggan.password;
+            TextConfirmPassword.Text = pelanggan.password;
+        }
+
+        private void SaveData()
         {
             var pelanggan = new PelangganModel
             {
-                no_ktp_pelanggan = TextNIK.Text.Trim(),
-                no_hp = TextNomorHP.Text.Trim(),
+                no_ktp_pelanggan = TextNoKTP.Text.Trim(),
                 nama_pelanggan = TextNamaLengkap.Text.Trim(),
-                email = TextEmail.Text.Trim(),
+                no_hp = TextNomorHP.Text.Trim(),
                 alamat = TextAlamat.Text.Trim(),
-                password = HashPasswordHelper.HashPassword(TextConfirmPassword.Text.Trim()),
+                email = TextEmail.Text.Trim(),
+                password = TextConfirmPassword.Text.Trim()
             };
 
-            _pelangganDal.InsertData(pelanggan);
+            if (string.IsNullOrEmpty(_noKTP))
+                _pelangganDal.InsertData(pelanggan);
+            else
+            {
+                if (_noKTP == TextNoKTP.Text.Trim())
+                    _pelangganDal.UpdateData(pelanggan);
+                else
+                    _pelangganDal.UpdateDataNoKTP(pelanggan, _noKTP);
+            }
         }
+
+     
+        #region EVENT
 
         private void RegisterControlEvent()
         {
-            this.FormClosed += RegisterForm_FormClosed;
-            LinkMasuk.Click += LinkLogin_Click;
-            TextNIK.TextChanged += TextInput_TextChanged;
+            ButtonBatal.Click += ButtonBatal_Click;
+            ButtonSimpan.Click += ButtonSimpan_Click;
+
+            TextNoKTP.TextChanged += TextInput_TextChanged;
             TextNomorHP.TextChanged += TextInput_TextChanged;
             TextEmail.TextChanged += TextInput_TextChanged;
             TextEmail.TextChanged += TextInput_TextChanged;
             TextConfirmPassword.TextChanged += TextInput_TextChanged;
             TextPassword.TextChanged += TextInput_TextChanged;
-            ButtonDaftar.Click += ButtonDaftar_Click;
-
-            TextNIK.KeyPress += TextBox_KeyPress;
-            TextNomorHP.KeyPress += TextBox_KeyPress;
-        }
-
-        private void RegisterForm_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            _form.Show();
-        }
-
-        private void TextBox_KeyPress(object? sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void ButtonDaftar_Click(object? sender, EventArgs e)
-        {
-            List<TextBox> box = new List<TextBox>()
-            {
-                TextNIK, TextNomorHP,TextNamaLengkap, TextEmail, TextAlamat, TextPassword, TextConfirmPassword
-            };
-
-            foreach (TextBox T in box)
-            {
-                if (string.IsNullOrWhiteSpace(T.Text))
-                {
-                    MesboxHelper.ShowWarning("Data tidak boleh kosong");    
-                    return;
-                }
-            }
-
-            if (LabelNIK.Visible || LabelNoHP.Visible || LabelEmail.Visible  || LabelConfirmPass.Visible || LabelPassword.Visible)
-            {
-                MesboxHelper.ShowWarning("Data tidak valid");
-                return;
-            }
-            InsertData();
-            ClearForm();
-            _form.Show();
-            this.Close();
         }
 
         private async void TextInput_TextChanged(object? sender, EventArgs e)
@@ -127,9 +106,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
                     LabelEmail.Text = "Email sudah terdaftar";
                 }
             }
-            else if (textbox.Tag == "NIK") 
+            else if (textbox.Tag == "NIK")
             {
-                if (!Regex.IsMatch(TextNIK.Text, @"^[0-9]{16}$"))
+                if (!Regex.IsMatch(TextNoKTP.Text, @"^[0-9]{16}$"))
                 {
                     LabelNIK.Text = "NIK harus 16 digit";
                     LabelNIK.Visible = true;
@@ -151,7 +130,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
                 }
                 else
                 {
-                    LabelNoHP.Text = "No HP sudah terdaftar"; 
+                    LabelNoHP.Text = "No HP sudah terdaftar";
                     LabelNoHP.Visible = false;
                 }
             }
@@ -181,13 +160,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
                 }
             }
 
-            string no_ktp = TextNIK.Text.Trim();
+            string no_ktp = TextNoKTP.Text.Trim() != _noKTP ? TextNoKTP.Text.Trim() : string.Empty;
             string no_hp = TextNomorHP.Text.Trim();
             string email = TextEmail.Text.Trim();
 
             var cekData = _pelangganDal.ValidasiDaftar(no_ktp, no_hp, email);
             if (cekData == 0)
                 return;
+            if (cekData == 1)
+            {
+                RestorePelangganForm restore = new RestorePelangganForm(no_ktp);
+                restore.ShowDialog(this);
+            }
             if (cekData == 2)
                 LabelNIK.Visible = true;
             else
@@ -202,21 +186,22 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
                 LabelEmail.Visible = false;
         }
 
-        private void LinkLogin_Click(object? sender, EventArgs e)
+
+        private void ButtonSimpan_Click(object? sender, EventArgs e)
         {
-            _form.Show();
-            this.Close();
+            if (string.IsNullOrEmpty(TextNoKTP.Text) || string.IsNullOrEmpty(TextNamaLengkap.Text) || string.IsNullOrEmpty(TextNomorHP.Text) ||
+                string.IsNullOrEmpty(TextEmail.Text) || string.IsNullOrEmpty(TextPassword.Text) || string.IsNullOrEmpty(TextConfirmPassword.Text))
+                {
+                    MesboxHelper.ShowWarning("Data wajib lengkap");
+                    return;
+                }
+            SaveData();
         }
 
-        private void ClearForm()
+        private void ButtonBatal_Click(object? sender, EventArgs e)
         {
-            TextNIK.Clear();
-            TextNomorHP.Clear();
-            TextNamaLengkap.Clear();
-            TextAlamat.Clear();
-            TextEmail.Clear();
-            TextPassword.Clear();
-            TextConfirmPassword.Clear();
+            ShowFormHelper.ShowFormInPanel(new PelangganForm());
         }
+        #endregion
     }
 }

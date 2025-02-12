@@ -17,5 +17,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public int total_servis { get; set; }   
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
+        public DateTime deleted_at { get; set; }
     }
 }

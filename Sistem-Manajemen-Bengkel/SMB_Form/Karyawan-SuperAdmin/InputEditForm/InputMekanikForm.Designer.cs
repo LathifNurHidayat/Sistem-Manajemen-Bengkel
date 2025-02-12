@@ -1,6 +1,6 @@
-﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdmin.DataKaryawanForm
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 {
-    partial class InputEditKaryawan
+    partial class InputMekanikForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputEditKaryawan));
             panel1 = new Panel();
             label4 = new Label();
             panel7 = new Panel();
@@ -304,7 +303,7 @@
             PictureProfiles.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             PictureProfiles.BorderSize = 2;
             PictureProfiles.GradientAngle = 50F;
-            PictureProfiles.Image = (Image)resources.GetObject("PictureProfiles.Image");
+            PictureProfiles.Image = Properties.Resources.user1;
             PictureProfiles.Location = new Point(138, 107);
             PictureProfiles.Name = "PictureProfiles";
             PictureProfiles.Size = new Size(193, 193);
@@ -332,7 +331,7 @@
             ButtonEditProfiles.TextColor = Color.White;
             ButtonEditProfiles.UseVisualStyleBackColor = false;
             // 
-            // InputEditKaryawan
+            // InputMekanikForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -341,7 +340,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "InputEditKaryawan";
+            Name = "InputMekanikForm";
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

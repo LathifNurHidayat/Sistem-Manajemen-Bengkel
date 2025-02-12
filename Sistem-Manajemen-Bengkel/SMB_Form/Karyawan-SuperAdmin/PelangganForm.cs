@@ -1,6 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Data;
+using System.Windows.Forms;
+using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
@@ -8,90 +11,193 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
     public partial class PelangganForm : Form
     {
         private readonly PelangganDal _pelangganDal;
-        private BindingList<PelangganDto> _listPelanggan;
 
         public PelangganForm()
         {
             InitializeComponent();
             _pelangganDal = new PelangganDal();
-            _listPelanggan = new BindingList<PelangganDto>();
-
             CustomComponent();
             LoadData();
+            CustomDataGrid(GridListData);
             RegisterControlEvent();
         }
 
+        #region PROSEDURE
+
         private void CustomComponent()
         {
+            List<int> entries = new() { 5, 10, 25, 50, 100 };
+            ComboEntries.DataSource = entries;
+            List<string> sortBy = new() { "Default", "Servis Terbanyak", "Servis Tersedikit" };
+            ComboFilter.DataSource = sortBy;
             CustomComponentHelper.CustomDataGrid(GridListData);
             // CustomComponentHelper.CustomPanel(PanelBooking);
         }
 
+
+
+        int page = 1;
+        int totalPage;
         private void LoadData()
         {
-            _listPelanggan.Clear();
-            var data = _pelangganDal.ListData().Select((x, index) => new PelangganDto
+            TextPage.Text = page.ToString();
+            string search = TextSearch.Text.Trim();
+            int rowPerPage = (int)ComboEntries.SelectedValue;
+            int inRowPage = (page - 1) * rowPerPage;
+            var dp = new DynamicParameters();
+            string filters = string.Empty;
+            string orderBy = string.Empty;
+            string comboFilterCek = (string)ComboFilter.SelectedItem;
+
+            if (comboFilterCek == "Default")
+                orderBy = " created_at ASC";
+            else if (comboFilterCek == "Servis Terbanyak")
+                orderBy = " total_servis DESC";
+            else if (comboFilterCek == "Servis Tersedikit")
+                orderBy = " total_servis ASC";
+
+            if (!string.IsNullOrEmpty(search))
             {
-                No = index + 1,
-                Nomor_KTP = x.no_ktp_pelanggan,
-                Nama_Pelanggan = x.nama_pelanggan,
-                Nomor_HP = x.no_hp,
-                Alamat = x.alamat,
-                Email = x.email,
-                Total_Servis = x.total_servis
-            }).ToList();
-            
-            foreach (var item in data)
-                _listPelanggan.Add(item);
+                dp.Add("@Search", $"%{search}%");
+                filters = @" AND (no_ktp_pelanggan LIKE @Search OR 
+                                  nama_pelanggan LIKE @Search OR 
+                                  no_hp LIKE @Search OR 
+                                  alamat LIKE @Search OR 
+                                  email LIKE @Search)";
+            }
 
-            GridListData.DataSource = _listPelanggan;
+            dp.Add("@offset", inRowPage);
+            dp.Add("@fetch", rowPerPage);
 
-            GridListData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            GridListData.Columns["No"].FillWeight = 5;
-            GridListData.Columns["Nomor_KTP"].FillWeight = 12;
-            GridListData.Columns["Nama_Pelanggan"].FillWeight = 25;
-            GridListData.Columns["Nomor_HP"].FillWeight = 12;
-            GridListData.Columns["Alamat"].FillWeight = 28;
-            GridListData.Columns["Email"].FillWeight = 15;
-            GridListData.Columns["Total_Servis"].FillWeight = 12;
+            int totalEntries = _pelangganDal.CountData(filters, dp);
+            totalPage = (int)Math.Ceiling((double) totalEntries / rowPerPage);
 
-            foreach (DataGridViewColumn col in GridListData.Columns)
+            LabelShowEntries.Text = $"Showing {inRowPage + 1} to {inRowPage + rowPerPage} of {totalEntries} entries";
+
+            var data = _pelangganDal.ListData(filters, orderBy ,dp) 
+                .Select((x, index) => new PelangganDto
+                {
+                    No = inRowPage + index + 1,
+                    Nomor_KTP = x.no_ktp_pelanggan,
+                    Nama_Pelanggan = x.nama_pelanggan,
+                    Nomor_HP = x.no_hp,
+                    Alamat = x.alamat,
+                    Email = x.email,
+                    Total_Servis = x.total_servis
+                }).ToList();
+
+            GridListData.DataSource = data;
+        }
+
+        private void CustomDataGrid(DataGridView grid)
+        {
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grid.Columns["No"].FillWeight = 5;
+            grid.Columns["Nomor_KTP"].FillWeight = 12;
+            grid.Columns["Nama_Pelanggan"].FillWeight = 25;
+            grid.Columns["Nomor_HP"].FillWeight = 12;
+            grid.Columns["Alamat"].FillWeight = 28;
+            grid.Columns["Email"].FillWeight = 15;
+            grid.Columns["Total_Servis"].FillWeight = 12;
+
+            foreach (DataGridViewColumn col in grid.Columns)
             {
                 col.DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
             }
 
-            GridListData.Columns["Nomor_KTP"].HeaderText = "No KTP";
-            GridListData.Columns["Nama_Pelanggan"].HeaderText = "Nama Pelanggan";
-            GridListData.Columns["Nomor_HP"].HeaderText = "No. HP";
-            GridListData.Columns["Alamat"].HeaderText = "Alamat";
-            GridListData.Columns["Email"].HeaderText = "Email";
-            GridListData.Columns["Total_Servis"].HeaderText = "Total Servis";
+            grid.Columns["Nomor_KTP"].HeaderText = "No KTP";
+            grid.Columns["Nama_Pelanggan"].HeaderText = "Nama Pelanggan";
+            grid.Columns["Nomor_HP"].HeaderText = "No. HP";
+            grid.Columns["Alamat"].HeaderText = "Alamat";
+            grid.Columns["Email"].HeaderText = "Email";
+            grid.Columns["Total_Servis"].HeaderText = "Total Servis";
 
-            // Menengahkan nilai pada Total Servis agar lebih rapih
-            GridListData.Columns["Total_Servis"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+            grid.Columns["Total_Servis"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
+        #endregion
+
+        #region EVENT
 
         private void RegisterControlEvent()
-        {   TextSearch.KeyDown += (s, e) =>{if (e.KeyCode == Keys.Enter)  ButtonSearch.PerformClick();};
-            TextSearch.TextChanged += (s, e) => { if (TextSearch.Text.Length == 0) LoadData(); };
+        {
+            TextSearch.KeyDown += TextSearch_KeyDown;
+            TextSearch.TextChanged += TextSearch_TextChanged;
             ButtonSearch.Click += ButtonSearch_Click;
-        } 
+            ButtonTambah.Click += ButtonTambah_Click;
+            GridListData.CellMouseClick += GridListData_CellMouseClick;
+            ComboEntries.SelectedValueChanged += ComboEntries_SelectedValueChanged;
+            ComboFilter.SelectedIndexChanged += ComboFilter_SelectedIndexChanged;
+            ButtonNext.Click += ButtonNext_Click;
+            ButtonPreviuos.Click += ButtonPreviuos_Click;
+            editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
+        }
+
+        private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            string no_ktp = GridListData.CurrentRow.Cells["No KTP"].Value.ToString();
+        }
+
+        private void ButtonPreviuos_Click(object? sender, EventArgs e)
+        {
+            if (page > 1)
+            {
+                page--;
+                LoadData();
+            }
+        }
+
+        private void ButtonNext_Click(object? sender, EventArgs e)
+        {
+            if (page < totalPage)
+            {
+                page++;
+                LoadData();
+            }
+        }
+
+        private void TextSearch_TextChanged(object? sender, EventArgs e)
+        {
+            if (TextSearch.Text.Length == 0) LoadData();
+        }
+
+        private void TextSearch_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) ButtonSearch.PerformClick();
+        }
+
+        private void ComboFilter_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void ComboEntries_SelectedValueChanged(object? sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void GridListData_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                GridListData.ClearSelection();
+                GridListData.CurrentCell = GridListData[e.ColumnIndex, e.RowIndex];
+                contextMenuStrip.Show(Cursor.Position);
+            }
+        }
+
+        private void ButtonTambah_Click(object? sender, EventArgs e)
+        {
+            ShowFormHelper.ShowFormInPanel(new InputPelanggan(string.Empty));
+        }
 
         private void ButtonSearch_Click(object? sender, EventArgs e)
         {
-            string input = TextSearch.Text.Trim();
-            var result = _listPelanggan
-                .Where(p => p.Nomor_KTP.Contains(input, StringComparison.OrdinalIgnoreCase) ||
-                            p.Nama_Pelanggan.Contains(input, StringComparison.OrdinalIgnoreCase) ||
-                            p.Nomor_HP.Contains(input, StringComparison.OrdinalIgnoreCase) ||
-                            p.Email.Contains(input, StringComparison.OrdinalIgnoreCase) ||
-                            p.Alamat.Contains(input, StringComparison.OrdinalIgnoreCase))
-                .ToList();
-
-            GridListData.DataSource = result;
+            if (string.IsNullOrWhiteSpace(TextSearch.Text)) return;
+            LoadData();
         }
+
+        #endregion 
 
 
         public class PelangganDto
