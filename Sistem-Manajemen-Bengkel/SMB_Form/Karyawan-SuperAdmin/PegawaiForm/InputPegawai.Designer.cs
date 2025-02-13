@@ -212,12 +212,12 @@
             // 
             LabelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelPassword.ForeColor = Color.Red;
-            LabelPassword.Location = new Point(107, 242);
+            LabelPassword.Location = new Point(102, 243);
             LabelPassword.Name = "LabelPassword";
-            LabelPassword.Size = new Size(308, 23);
+            LabelPassword.Size = new Size(313, 23);
             LabelPassword.TabIndex = 39;
             LabelPassword.Tag = "Password";
-            LabelPassword.Text = "Harus kombinasi huruf besar/kecil dan angka";
+            LabelPassword.Text = "⚠ Harus kombinasi huruf besar/kecil/angka";
             LabelPassword.TextAlign = ContentAlignment.MiddleRight;
             LabelPassword.Visible = false;
             // 
@@ -230,7 +230,7 @@
             LabelConfirmPass.Size = new Size(237, 23);
             LabelConfirmPass.TabIndex = 38;
             LabelConfirmPass.Tag = "ConfirmPassword";
-            LabelConfirmPass.Text = "Password tidak valid";
+            LabelConfirmPass.Text = "⚠ Password tidak valid";
             LabelConfirmPass.TextAlign = ContentAlignment.MiddleRight;
             LabelConfirmPass.Visible = false;
             // 
@@ -253,6 +253,7 @@
             panel8.Name = "panel8";
             panel8.Size = new Size(392, 41);
             panel8.TabIndex = 33;
+            panel8.Paint += panel8_Paint;
             // 
             // TextConfirmPassword
             // 
@@ -274,7 +275,7 @@
             LabelEmail.Size = new Size(308, 23);
             LabelEmail.TabIndex = 36;
             LabelEmail.Tag = "Email";
-            LabelEmail.Text = "Email sudah terdaftar";
+            LabelEmail.Text = "⚠ Email sudah terdaftar";
             LabelEmail.TextAlign = ContentAlignment.MiddleRight;
             LabelEmail.Visible = false;
             // 
@@ -442,7 +443,7 @@
             LabelNIK.Size = new Size(298, 23);
             LabelNIK.TabIndex = 34;
             LabelNIK.Tag = "NIK";
-            LabelNIK.Text = "No. KTP sudah terdaftar";
+            LabelNIK.Text = "⚠ No. KTP sudah terdaftar";
             LabelNIK.TextAlign = ContentAlignment.MiddleRight;
             LabelNIK.Visible = false;
             // 
@@ -506,7 +507,7 @@
             TextNamaLengkap.Name = "TextNamaLengkap";
             TextNamaLengkap.Size = new Size(375, 24);
             TextNamaLengkap.TabIndex = 1;
-            TextNamaLengkap.Tag = "NoHP";
+            TextNamaLengkap.Tag = "NamaLengkap";
             // 
             // InputPegawai
             // 

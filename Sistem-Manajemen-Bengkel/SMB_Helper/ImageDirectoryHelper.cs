@@ -8,7 +8,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
 {
     public class ImageDirectoryHelper
     {
-        public static Image _defaultProfilesOnGrid = Properties.Resources.user1;
+        public static Image _defaultProfilesOnGrid = Properties.Resources.user1.GetThumbnailImage(55, 55, () => false, IntPtr.Zero);
         
 /*        public static byte[] _defaultImageGrid = convert
 */

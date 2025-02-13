@@ -18,7 +18,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
     {
 
         private readonly PegawaiDal _pegawaiDal;
-        private Image _defaultProfile = Properties.Resources.user1.GetThumbnailImage(100, 100, () => false, IntPtr.Zero);
+        
         public PegawaiForm()
         {
             InitializeComponent();
@@ -80,8 +80,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
                     No = inRowPage + index + 1,
                     Image = x.image_data != null ?
                             Image.FromStream(new MemoryStream(x.image_data))
-                                .GetThumbnailImage(100, 100, () => false, IntPtr.Zero)
-                            : _defaultProfile,
+                                .GetThumbnailImage(55, 55, () => false, IntPtr.Zero)
+                            : ImageDirectoryHelper._defaultProfilesOnGrid,
                     NoKTP = x.no_ktp_pegawai,
                     Nama = x.nama_pegawai,
                     NoHP = x.no_hp,

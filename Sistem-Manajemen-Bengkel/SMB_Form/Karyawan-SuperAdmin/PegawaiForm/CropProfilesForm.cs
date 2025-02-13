@@ -23,31 +23,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
             RegisterControlEvent();
         }
 
-        private void RegisterControlEvent()
-        {
-            PictureFotoAwal.MouseDown += PictureFotoAwal_MouseDown;
-            PictureFotoAwal.MouseMove += PictureFotoAwal_MouseMove;
-            PictureFotoAwal.MouseUp += PictureFotoAwal_MouseUp;
-            PictureFotoAwal.Paint += PictureFotoAwal_Paint;
-
-            ButtonPilihFoto.Click += ButtonPilihFoto_Click;
-            ButtonPotong.Click += ButtonPotong_Click;
-            ButtonSimpan.Click += ButtonSimpan_Click;
-        }
-
-        private void ButtonSimpan_Click(object? sender, EventArgs e)
-        {
-            if (PictureFotoAwal.Image == null)
-            {
-                MessageBox.Show("Gambar sumber tidak ditemukan.");
-                return;
-            }
-            _hasilCrop = PictureHasil.Image;
-            this.Close();
-        }
-
-
-        // Fungsi untuk memuat gambar dari folder dan mengubah ukurannya agar pas di PictureBox
+        #region Prosedure 
         private void LoadImageFromFolder()
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -64,7 +40,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
             }
         }
 
-        // Fungsi untuk meresize image agar sesuai dengan container (PictureBox) tanpa stretch
         private Image ResizeImageToFit(Image image, Size containerSize)
         {
             float ratioWidth = (float)containerSize.Width / image.Width;
@@ -95,6 +70,36 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
             }
             return croppedBitmap;
         }
+        #endregion
+
+        #region Event
+
+        private void RegisterControlEvent()
+        {
+            PictureFotoAwal.MouseDown += PictureFotoAwal_MouseDown;
+            PictureFotoAwal.MouseMove += PictureFotoAwal_MouseMove;
+            PictureFotoAwal.MouseUp += PictureFotoAwal_MouseUp;
+            PictureFotoAwal.Paint += PictureFotoAwal_Paint;
+
+            ButtonPilihFoto.Click += ButtonPilihFoto_Click;
+            ButtonPotong.Click += ButtonPotong_Click;
+            ButtonSimpan.Click += ButtonSimpan_Click;
+        }
+
+        private void ButtonSimpan_Click(object? sender, EventArgs e)
+        {
+            if (PictureFotoAwal.Image == null)
+            {
+                MessageBox.Show("Gambar sumber tidak ditemukan.");
+                return;
+            }
+            _hasilCrop = PictureHasil.Image;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+
+     
 
         private void PictureFotoAwal_MouseDown(object sender, MouseEventArgs e)
         {
@@ -170,5 +175,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
             _selectionRect = Rectangle.Empty;
             PictureFotoAwal.Invalidate();
         }
+        #endregion
     }
 }

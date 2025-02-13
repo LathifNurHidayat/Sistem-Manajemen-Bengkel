@@ -27,7 +27,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         }
 
         
-        public static Image Image_ByteToImage(byte[] image_data)
+        public static Image ByteToImage(byte[] image_data)
         {
             if (image_data == null || image_data.Length == 0)
                 throw new ArgumentNullException(nameof(image_data), "Data gambar tidak boleh null atau kosong");
@@ -98,18 +98,5 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         }
         #endregion
 
-        #region LOAD IMAGE
-        public static void LoadImageToPictureBox(PictureBox picture, string image_data)
-        {
-            byte[] imageBytes = System.Text.Encoding.UTF8.GetBytes(image_data);
-            if (imageBytes != null && imageBytes.Length > 0)
-            {
-                using (MemoryStream ms = new MemoryStream(imageBytes))
-                {
-                    picture.Image = Image.FromStream(ms);
-                }
-            }
-        }
-        #endregion
     }
 }
