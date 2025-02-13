@@ -19,6 +19,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
     public partial class InputPegawai : Form
     {
         private readonly PegawaiDal _pegawaiDal;
+        private string _noKTP;
+        private string _noHP;
+        private string _email;
+
         public InputPegawai(string no_ktp_pegawai)
         {
             InitializeComponent();
@@ -42,10 +46,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             TextEmail.Text = pegawai.email;
             TextPassword.Text = pegawai.password;
             TextConfirmPassword.Text = pegawai.password;
-            if (pegawai.role == "Karyawan")
+            if (pegawai.role == 2)
                 RadioKaryawan.Checked = true;
-            if (pegawai.role == "Super Admin")
+            if (pegawai.role == 1)
                 RadioSuperAdmin.Checked = true;
+
+            _noKTP = TextNoKTP.Text.Trim();
+            _noHP = TextNoHP.Text.Trim();
+            _email = TextEmail.Text.Trim();
         }
 
         private void SaveData()
@@ -67,9 +75,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
         {
             ButtonEditProfiles.Click += ButtonEditProfiles_Click;
             ButtonSimpan.Click += ButtonSimpan_Click;
+
+            TextNoKTP.TextChanged += TextInput_TextChanged;
+            TextNoHP.TextChanged += TextInput_TextChanged;
+            TextEmail.TextChanged += TextInput_TextChanged;
+            TextEmail.TextChanged += TextInput_TextChanged;
+            TextConfirmPassword.TextChanged += TextInput_TextChanged;
+            TextPassword.TextChanged += TextInput_TextChanged;
         }
 
-        private async void ButtonSimpan_Click(object? sender, EventArgs e)
+        private async void TextInput_TextChanged(object? sender, EventArgs e)
         {
             await Task.Delay(500);
             TextBox textbox = (TextBox)sender;
@@ -143,10 +158,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             }
 
             string no_ktp = TextNoKTP.Text.Trim() != _noKTP ? TextNoKTP.Text.Trim() : string.Empty;
-            string no_hp = TextNomorHP.Text.Trim() != _noHP ? TextNomorHP.Text.Trim() : string.Empty;
+            string no_hp = TextNoHP.Text.Trim() != _noHP ? TextNoHP.Text.Trim() : string.Empty;
             string email = TextEmail.Text.Trim() != _email ? TextEmail.Text.Trim() : string.Empty;
 
-            var cekData = _pelangganDal.ValidasiDaftar(no_ktp, no_hp, email);
+            var cekData = _pegawaiDal.ValidasiDaftar(no_ktp, no_hp, email);
             if (cekData == 0)
                 return;
 
@@ -167,6 +182,26 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 LabelEmail.Visible = true;
             else
                 LabelEmail.Visible = false;
+        }
+
+
+        private async void ButtonSimpan_Click(object? sender, EventArgs e)
+        {
+            if (LabelNIK.Visible || LabelNoHP.Visible || LabelEmail.Visible || LabelConfirmPass.Visible || LabelPassword.Visible)
+            {
+                MesboxHelper.ShowWarning("Data yang dimasukan tidak valid");
+                return;
+            }
+            if (string.IsNullOrEmpty(TextNoKTP.Text) || string.IsNullOrEmpty(TextNamaLengkap.Text) || string.IsNullOrEmpty(TextNoHP.Text) ||
+                string.IsNullOrEmpty(TextEmail.Text) || string.IsNullOrEmpty(TextPassword.Text) || string.IsNullOrEmpty(TextConfirmPassword.Text))
+            {
+                MesboxHelper.ShowWarning("Mohon lengkapi data");
+                return;
+            }
+
+            SaveData();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void ButtonEditProfiles_Click(object? sender, EventArgs e)

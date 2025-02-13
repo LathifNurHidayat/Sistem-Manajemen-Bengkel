@@ -197,6 +197,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
         private void ButtonSimpan_Click(object? sender, EventArgs e)
         {
+            if (LabelNIK.Visible || LabelNoHP.Visible || LabelEmail.Visible || LabelConfirmPass.Visible || LabelPassword.Visible)
+            {
+                MesboxHelper.ShowWarning("Data yang dimasukan tidak valid");
+                return;
+            }
             if (string.IsNullOrEmpty(TextNoKTP.Text) || string.IsNullOrEmpty(TextNamaLengkap.Text) || string.IsNullOrEmpty(TextNomorHP.Text) ||
                 string.IsNullOrEmpty(TextEmail.Text) || string.IsNullOrEmpty(TextPassword.Text) || string.IsNullOrEmpty(TextConfirmPassword.Text))
                 {

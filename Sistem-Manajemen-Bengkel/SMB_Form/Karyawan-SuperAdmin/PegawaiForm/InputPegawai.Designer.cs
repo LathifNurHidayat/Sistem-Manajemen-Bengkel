@@ -33,6 +33,7 @@
             pictureBox1 = new PictureBox();
             LabelJudul = new Label();
             panel4 = new Panel();
+            LabelNoHP = new Label();
             label1 = new Label();
             panel6 = new Panel();
             TextNoHP = new TextBox();
@@ -116,6 +117,7 @@
             // 
             panel4.BackColor = Color.WhiteSmoke;
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(LabelNoHP);
             panel4.Controls.Add(label1);
             panel4.Controls.Add(panel6);
             panel4.Controls.Add(label3);
@@ -134,6 +136,19 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(441, 548);
             panel4.TabIndex = 2;
+            // 
+            // LabelNoHP
+            // 
+            LabelNoHP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelNoHP.ForeColor = Color.Red;
+            LabelNoHP.Location = new Point(169, 26);
+            LabelNoHP.Name = "LabelNoHP";
+            LabelNoHP.Size = new Size(242, 23);
+            LabelNoHP.TabIndex = 46;
+            LabelNoHP.Tag = "Email";
+            LabelNoHP.Text = "⚠ No HP sudah terdaftar";
+            LabelNoHP.TextAlign = ContentAlignment.MiddleRight;
+            LabelNoHP.Visible = false;
             // 
             // label1
             // 
@@ -180,16 +195,16 @@
             // 
             RadioKaryawan.AutoSize = true;
             RadioKaryawan.Depth = 0;
-            RadioKaryawan.Location = new Point(309, 477);
+            RadioKaryawan.Location = new Point(322, 477);
             RadioKaryawan.Margin = new Padding(0);
             RadioKaryawan.MouseLocation = new Point(-1, -1);
             RadioKaryawan.MouseState = MaterialSkin.MouseState.HOVER;
             RadioKaryawan.Name = "RadioKaryawan";
             RadioKaryawan.Ripple = true;
-            RadioKaryawan.Size = new Size(106, 37);
+            RadioKaryawan.Size = new Size(93, 37);
             RadioKaryawan.TabIndex = 42;
             RadioKaryawan.TabStop = true;
-            RadioKaryawan.Text = "Karyawan";
+            RadioKaryawan.Text = "Petugas";
             RadioKaryawan.UseVisualStyleBackColor = true;
             // 
             // RadioSuperAdmin
@@ -418,7 +433,6 @@
             // 
             // PictureProfiles
             // 
-            PictureProfiles.BackgroundImage = Properties.Resources.User_Hitam;
             PictureProfiles.BackgroundImageLayout = ImageLayout.Stretch;
             PictureProfiles.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
             PictureProfiles.BorderColor = Color.FromArgb(83, 92, 145);
@@ -580,5 +594,6 @@
         private SMB_CustomTolbox.LathifButton ButtonEditProfiles;
         private Label LabelJudul;
         private PictureBox pictureBox1;
+        private Label LabelNoHP;
     }
 }

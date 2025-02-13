@@ -111,5 +111,30 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             return conn.QueryFirstOrDefault<PegawaiModel>(sql, new { email, password });
         }
 
+        public int ValidasiDaftar(string no_ktp_pegawai, string no_hp, string email)
+        {
+            const string cek_RestoreData = "SELECT COUNT(*) FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai AND deleted_at IS NOT NULL";
+            const string cek_NIK = "SELECT COUNT(*) FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai";
+            const string cek_NoTelp = "SELECT COUNT(*) FROM tb_pegawai WHERE no_hp = @no_hp";
+            const string cek_Email = "SELECT COUNT(*) FROM tb_pegawai WHERE email = @email";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            var cekRestoreData = Conn.QueryFirstOrDefault<bool>(cek_RestoreData, new { no_ktp_pegawai });
+            var cekNIK = Conn.QueryFirstOrDefault<bool>(cek_NIK, new { no_ktp_pegawai });
+            var cekNoTelp = Conn.QueryFirstOrDefault<bool>(cek_NoTelp, new { no_hp });
+            var cekEmail = Conn.QueryFirstOrDefault<bool>(cek_Email, new { email });
+
+            if (cekRestoreData)
+                return 1;
+            if (cekNIK)
+                return 2;
+            else if (cekNoTelp)
+                return 3;
+            else if (cekEmail)
+                return 4;
+            else
+                return 0;
+        }
+
     }
 }

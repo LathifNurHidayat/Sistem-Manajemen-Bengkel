@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 using static Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm.PelangganForm;
 
@@ -27,17 +28,52 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 
             CustomComponent();
             LoadData();
+            CustomDataGrid(GridListData);
+
+            RegisterControlEvent();
         }
 
         private void CustomComponent()
         {
             List<int> entries = new() { 10, 25, 50, 100 };
             ComboEntries.DataSource = entries;
-            List<string> sortBy = new() { "Semua (All)", "Karyawan", "Super Admin" };
+            List<string> sortBy = new() { "Semua (All)", "Petugas", "Super Admin" };
             ComboFilter.DataSource = sortBy;
             CustomComponentHelper.CustomDataGrid(GridListData);
             // CustomComponentHelper.CustomPanel(PanelBooking);
         }
+
+        public static void CustomDataGrid(DataGridView grid)
+        {
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            grid.Columns["No"].FillWeight = 5;
+            grid.Columns["Image"].FillWeight = 8;
+            grid.Columns["NoKTP"].FillWeight = 12;
+            grid.Columns["Nama"].FillWeight = 25;
+            grid.Columns["NoHP"].FillWeight = 12;
+            grid.Columns["Alamat"].FillWeight = 27;
+            grid.Columns["Email"].FillWeight = 15;
+            grid.Columns["Role"].FillWeight = 15;
+
+            foreach (DataGridViewColumn col in grid.Columns)
+            {
+                col.DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+            }
+
+            grid.Columns["NoKTP"].HeaderText = "No KTP";
+            grid.Columns["Nama"].HeaderText = "Nama Pelanggan";
+            grid.Columns["Image"].HeaderText = "Profile";
+            grid.Columns["NoHP"].HeaderText = "No. HP";
+            grid.Columns["Alamat"].HeaderText = "Alamat";
+            grid.Columns["Email"].HeaderText = "Email";
+            grid.Columns["Role"].HeaderText = "Role";
+
+            grid.Columns["Role"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grid.Columns["Image"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+
 
         int page = 1;
         int totalPage = 0;
@@ -53,18 +89,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 
             if (!string.IsNullOrEmpty(search))
             {
-                dp.Add("@Search", $"%{search}%");
-                filters = @" AND (no_ktp_pelanggan LIKE @Search OR 
-                                  nama_pelanggan LIKE @Search OR 
+                dp.Add("@Search", $"% {search} %");
+                filters = @" AND (no_ktp_pegawai LIKE @Search OR 
+                                  nama_pegawai LIKE @Search OR 
                                   no_hp LIKE @Search OR 
                                   alamat LIKE @Search OR 
-                                  email LIKE @Search)";
+                                  email LIKE @Search) ";
             }
-            if (ComboFilter.SelectedItem == "Karyawan")
-                filters = string.Join(" AND ", "role = 'Karyawan' ");
+            if (ComboFilter.SelectedItem == "Petugas")
+                filters += " AND role = 2 ";
 
             else if (ComboFilter.SelectedItem == "Super Admin")
-                filters = string.Join(" AND ", "role = 'Super Admin' ");
+                filters += " AND role = 1 ";
 
             dp.Add("@offset", inRowPage);
             dp.Add("@fetch", rowPerPage);
@@ -80,19 +116,93 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
                     No = inRowPage + index + 1,
                     Image = x.image_data != null ?
                             Image.FromStream(new MemoryStream(x.image_data))
-                                .GetThumbnailImage(55, 55, () => false, IntPtr.Zero)
+                                .GetThumbnailImage(40, 40, () => false, IntPtr.Zero)
                             : ImageDirectoryHelper._defaultProfilesOnGrid,
                     NoKTP = x.no_ktp_pegawai,
                     Nama = x.nama_pegawai,
                     NoHP = x.no_hp,
                     Alamat = x.alamat,
                     Email = x.email,
-                    Role = x.role
+                    Role = x.role == 1 ? ImageDirectoryHelper._roleSuperAdmin :
+                           x.role == 2 ? ImageDirectoryHelper._rolePetugas : null
                 }).ToList();
 
             GridListData.DataSource = data;
         }
 
+        private void RegisterControlEvent()
+        {
+            ButtonTambah.Click += ButtonTambah_Click;
+            ComboEntries.SelectedValueChanged += ComboEntries_SelectedValueChanged;
+            ComboFilter.SelectedIndexChanged += ComboFilter_SelectedIndexChanged;
+            ButtonNext.Click += ButtonNext_Click;
+            ButtonPreviuos.Click += ButtonPreviuos_Click;
+            ButtonSearch.Click += ButtonSearch_Click;
+            TextSearch.TextChanged += TextSearch_TextChanged;
+            TextSearch.KeyDown += TextSearch_KeyDown;
+        }
 
+        private void ButtonTambah_Click(object? sender, EventArgs e)
+        {
+            InputPegawai input = new InputPegawai(string.Empty);
+            if (input.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadData();
+            }
+        }
+
+        private void ButtonSearch_Click(object? sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TextSearch.Text)) return;
+            LoadData();
+        }
+
+        private void ButtonPreviuos_Click(object? sender, EventArgs e)
+        {
+            if (page > 1)
+            {
+                page--;
+                LoadData();
+            }
+        }
+
+        private void ButtonNext_Click(object? sender, EventArgs e)
+        {
+            if (page < totalPage)
+            {
+                page++;
+                LoadData();
+            }
+        }
+
+        private void TextSearch_TextChanged(object? sender, EventArgs e)
+        {
+            if (TextSearch.Text.Length == 0)
+            {
+                page = 1;
+                LoadData();
+            }
+        }
+
+        private void TextSearch_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                page = 1;
+                ButtonSearch.PerformClick();
+            }
+        }
+
+        private void ComboFilter_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            page = 1;
+            LoadData();
+        }
+
+        private void ComboEntries_SelectedValueChanged(object? sender, EventArgs e)
+        {
+            page = 1;
+            LoadData();
+        }
     }
 }

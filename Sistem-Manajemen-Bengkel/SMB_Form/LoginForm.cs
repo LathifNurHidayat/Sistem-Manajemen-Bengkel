@@ -81,7 +81,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
                 TextEmail.Focus();
                 return;
             }
-            string role = dataPelanggan != null ? "Pelanggan" : dataPetugas?.role == "Super Admin" ? "Super Admin" : "Karyawan";
+
+            string role = dataPelanggan != null ? "Pelanggan" : dataPetugas?.role == 1 ? "Super Admin" : "Petugas";
             string username = dataPelanggan?.nama_pelanggan != null ? dataPelanggan.nama_pelanggan : dataPetugas?.nama_pegawai ?? "";
            // string no_ktp = dataPelanggan?.no_ktp_pelanggan != null ? dataPelanggan?.no_ktp_pelanggan : dataPelanggan?.no_ktp_pelanggan ?? string.Empty;
 

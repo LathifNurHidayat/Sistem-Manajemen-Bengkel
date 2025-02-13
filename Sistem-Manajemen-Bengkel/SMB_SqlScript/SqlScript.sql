@@ -167,4 +167,3 @@ CREATE TABLE tb_log_sparepart (
     CONSTRAINT dk_log_sparepart_pegawai FOREIGN KEY (no_ktp_pegawai) REFERENCES tb_pegawai(no_ktp_pegawai),
 );
 
-
