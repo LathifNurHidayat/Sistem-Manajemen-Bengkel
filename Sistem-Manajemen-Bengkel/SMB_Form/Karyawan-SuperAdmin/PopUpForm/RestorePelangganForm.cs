@@ -22,6 +22,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
         {
             InitializeComponent();
             _pelangganDal = new PelangganDal();
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             _noKTP = no_ktp;
             GetData(no_ktp);
 

@@ -94,7 +94,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Conn.Execute(sql, new { no_ktp_pelanggan });
         }
 
-        public int CountData(string filter, object dp)
+        public int CountData(string filter)
         {
             string sql = @$"
                 SELECT COUNT(*) 
@@ -103,7 +103,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                 {filter}";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.ExecuteScalar<int>(sql, dp);
+            return Conn.ExecuteScalar<int>(sql);
         }
 
         public void RestoreData(string no_ktp_pelanggan)

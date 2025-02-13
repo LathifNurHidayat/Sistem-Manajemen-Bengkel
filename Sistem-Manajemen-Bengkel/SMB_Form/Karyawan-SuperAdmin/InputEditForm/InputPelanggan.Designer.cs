@@ -60,6 +60,7 @@
             TextAlamat = new TextBox();
             panel7 = new Panel();
             TextNamaLengkap = new TextBox();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel8.SuspendLayout();
@@ -70,6 +71,7 @@
             panel2.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -77,6 +79,7 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoScroll = true;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(LabelJudul);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(ButtonSimpan);
@@ -92,7 +95,7 @@
             LabelJudul.AutoSize = true;
             LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelJudul.ForeColor = Color.Black;
-            LabelJudul.Location = new Point(36, 24);
+            LabelJudul.Location = new Point(132, 63);
             LabelJudul.Name = "LabelJudul";
             LabelJudul.Size = new Size(225, 38);
             LabelJudul.TabIndex = 46;
@@ -112,9 +115,9 @@
             panel4.Controls.Add(label5);
             panel4.Controls.Add(panel9);
             panel4.Controls.Add(panel10);
-            panel4.Location = new Point(622, 77);
+            panel4.Location = new Point(622, 143);
             panel4.Name = "panel4";
-            panel4.Size = new Size(402, 561);
+            panel4.Size = new Size(402, 495);
             panel4.TabIndex = 2;
             // 
             // LabelPassword
@@ -122,12 +125,12 @@
             LabelPassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelPassword.ForeColor = Color.Red;
-            LabelPassword.Location = new Point(88, 166);
+            LabelPassword.Location = new Point(72, 166);
             LabelPassword.Name = "LabelPassword";
-            LabelPassword.Size = new Size(268, 23);
+            LabelPassword.Size = new Size(284, 23);
             LabelPassword.TabIndex = 39;
             LabelPassword.Tag = "Password";
-            LabelPassword.Text = "Harus berupa kombinasi huruf besar/kecil, dan angka";
+            LabelPassword.Text = "⚠ Harus berupa kombinasi huruf besar/kecil, dan angka";
             LabelPassword.TextAlign = ContentAlignment.MiddleRight;
             LabelPassword.Visible = false;
             // 
@@ -141,7 +144,7 @@
             LabelConfirmPass.Size = new Size(237, 23);
             LabelConfirmPass.TabIndex = 38;
             LabelConfirmPass.Tag = "ConfirmPassword";
-            LabelConfirmPass.Text = "Password tidak valid";
+            LabelConfirmPass.Text = "⚠ Password tidak valid";
             LabelConfirmPass.TextAlign = ContentAlignment.MiddleRight;
             LabelConfirmPass.Visible = false;
             // 
@@ -188,7 +191,7 @@
             LabelEmail.Size = new Size(284, 23);
             LabelEmail.TabIndex = 36;
             LabelEmail.Tag = "Email";
-            LabelEmail.Text = "Email sudah terdaftar";
+            LabelEmail.Text = "⚠ Email sudah terdaftar";
             LabelEmail.TextAlign = ContentAlignment.MiddleRight;
             LabelEmail.Visible = false;
             // 
@@ -312,9 +315,9 @@
             panel3.Controls.Add(panel2);
             panel3.Controls.Add(panel6);
             panel3.Controls.Add(panel7);
-            panel3.Location = new Point(36, 77);
+            panel3.Location = new Point(36, 143);
             panel3.Name = "panel3";
-            panel3.Size = new Size(560, 561);
+            panel3.Size = new Size(560, 495);
             panel3.TabIndex = 1;
             // 
             // LabelNoHP
@@ -327,7 +330,7 @@
             LabelNoHP.Size = new Size(323, 23);
             LabelNoHP.TabIndex = 35;
             LabelNoHP.Tag = "NoHP";
-            LabelNoHP.Text = "Nomor HP sudah terdaftar";
+            LabelNoHP.Text = "⚠ Nomor HP sudah terdaftar";
             LabelNoHP.TextAlign = ContentAlignment.MiddleRight;
             LabelNoHP.Visible = false;
             // 
@@ -341,7 +344,7 @@
             LabelNIK.Size = new Size(317, 23);
             LabelNIK.TabIndex = 34;
             LabelNIK.Tag = "NIK";
-            LabelNIK.Text = "No. KTP sudah terdaftar";
+            LabelNIK.Text = "⚠ No. KTP sudah terdaftar";
             LabelNIK.TextAlign = ContentAlignment.MiddleRight;
             LabelNIK.Visible = false;
             // 
@@ -473,6 +476,16 @@
             TextNamaLengkap.Size = new Size(455, 24);
             TextNamaLengkap.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.target;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(36, 36);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 90);
+            pictureBox1.TabIndex = 48;
+            pictureBox1.TabStop = false;
+            // 
             // InputPelanggan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -504,6 +517,7 @@
             panel6.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -541,5 +555,6 @@
         private Panel panel10;
         private TextBox TextEmail;
         private Label LabelJudul;
+        private PictureBox pictureBox1;
     }
 }

@@ -20,7 +20,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
     public partial class LoginForm : Form
     {
         private readonly PelangganDal _pelangganDal;
-        private readonly PetugasDal _petugasDal;
+        private readonly PegawaiDal _petugasDal;
         public LoginForm()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             this.WindowState = FormWindowState.Maximized;
 
             _pelangganDal = new PelangganDal();
-            _petugasDal = new PetugasDal();
+            _petugasDal = new PegawaiDal();
 
             CustomComponentHelper.CustomPanel(panel1);
             RegisterControlEvent();
@@ -82,8 +82,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
                 return;
             }
             string role = dataPelanggan != null ? "Pelanggan" : dataPetugas?.role == "Super Admin" ? "Super Admin" : "Karyawan";
-            string username = dataPelanggan?.nama_pelanggan != null ? dataPelanggan.nama_pelanggan : dataPetugas?.nama_petugas ?? "";
-            long id = dataPelanggan?.no_ktp_pelanggan != null ? long.Parse(dataPelanggan?.no_ktp_pelanggan) : dataPetugas?.id_petugas ?? 0;
+            string username = dataPelanggan?.nama_pelanggan != null ? dataPelanggan.nama_pelanggan : dataPetugas?.nama_pegawai ?? "";
+           // string no_ktp = dataPelanggan?.no_ktp_pelanggan != null ? dataPelanggan?.no_ktp_pelanggan : dataPelanggan?.no_ktp_pelanggan ?? string.Empty;
 
             ClearForm();
             new Dashboard(/*id, username, role*/).Show();

@@ -23,15 +23,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
     {
         private readonly PelangganDal _pelangganDal;
         private string _noKTP;
+        private string _noHP;
+        private string _email;    
 
         public InputPelanggan(string no_ktp_pelanggan)
         {
             InitializeComponent();
             _pelangganDal = new PelangganDal();
 
-            GetData(no_ktp_pelanggan);
-            _noKTP = TextNoKTP.Text.Trim();
+            if (no_ktp_pelanggan != string.Empty)
+                LabelJudul.Text = "Update Pelanggan";
 
+            GetData(no_ktp_pelanggan);
             RegisterControlEvent();
         }
 
@@ -42,10 +45,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
             TextNoKTP.Text = pelanggan.no_ktp_pelanggan;
             TextNomorHP.Text = pelanggan.no_hp;
+            TextNamaLengkap.Text = pelanggan.nama_pelanggan;
             TextAlamat.Text = pelanggan.alamat;
             TextEmail.Text = pelanggan.email;
             TextPassword.Text = pelanggan.password;
             TextConfirmPassword.Text = pelanggan.password;
+
+            _noKTP = TextNoKTP.Text.Trim();
+            _noHP = TextNomorHP.Text.Trim();
+            _email = TextEmail.Text.Trim();
         }
 
         private void SaveData()
@@ -96,41 +104,41 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             {
                 if (!Regex.IsMatch(TextEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
                 {
-                    LabelEmail.Text = "Masukan email yang valid";
+                    LabelEmail.Text = "⚠ Masukan email yang valid";
                     LabelEmail.Visible = true;
                     return;
                 }
                 else
                 {
                     LabelEmail.Visible = false;
-                    LabelEmail.Text = "Email sudah terdaftar";
+                    LabelEmail.Text = "⚠ Email sudah terdaftar";
                 }
             }
             else if (textbox.Tag == "NIK")
             {
                 if (!Regex.IsMatch(TextNoKTP.Text, @"^[0-9]{16}$"))
                 {
-                    LabelNIK.Text = "NIK harus 16 digit";
+                    LabelNIK.Text = "⚠ NIK harus 16 digit";
                     LabelNIK.Visible = true;
                     return;
                 }
                 else
                 {
                     LabelNIK.Visible = false;
-                    LabelNIK.Text = "NIK sudah terdaftar";
+                    LabelNIK.Text = "⚠ NIK sudah terdaftar";
                 }
             }
             else if (textbox.Tag == "NoHP")
             {
                 if (!Regex.IsMatch(TextNomorHP.Text, @"^[0-9]{10,13}$"))
                 {
-                    LabelNoHP.Text = "No HP harus 10-13 digit";
+                    LabelNoHP.Text = "⚠ No HP harus 10-13 digit";
                     LabelNoHP.Visible = true;
                     return;
                 }
                 else
                 {
-                    LabelNoHP.Text = "No HP sudah terdaftar";
+                    LabelNoHP.Text = "⚠ No HP sudah terdaftar";
                     LabelNoHP.Visible = false;
                 }
             }
@@ -161,12 +169,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             }
 
             string no_ktp = TextNoKTP.Text.Trim() != _noKTP ? TextNoKTP.Text.Trim() : string.Empty;
-            string no_hp = TextNomorHP.Text.Trim();
-            string email = TextEmail.Text.Trim();
+            string no_hp = TextNomorHP.Text.Trim() != _noHP ? TextNomorHP.Text.Trim() : string.Empty;
+            string email = TextEmail.Text.Trim() != _email ? TextEmail.Text.Trim() : string.Empty;
 
             var cekData = _pelangganDal.ValidasiDaftar(no_ktp, no_hp, email);
             if (cekData == 0)
                 return;
+
             if (cekData == 1)
             {
                 RestorePelangganForm restore = new RestorePelangganForm(no_ktp);
@@ -186,16 +195,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 LabelEmail.Visible = false;
         }
 
-
         private void ButtonSimpan_Click(object? sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TextNoKTP.Text) || string.IsNullOrEmpty(TextNamaLengkap.Text) || string.IsNullOrEmpty(TextNomorHP.Text) ||
                 string.IsNullOrEmpty(TextEmail.Text) || string.IsNullOrEmpty(TextPassword.Text) || string.IsNullOrEmpty(TextConfirmPassword.Text))
                 {
-                    MesboxHelper.ShowWarning("Data wajib lengkap");
+                    MesboxHelper.ShowWarning("Mohon lengkapi data");
                     return;
                 }
             SaveData();
+            ShowFormHelper.ShowFormInPanel(new PelangganForm());
+            MesboxHelper.ShowInfo("Data berhasil disimpan");
         }
 
         private void ButtonBatal_Click(object? sender, EventArgs e)

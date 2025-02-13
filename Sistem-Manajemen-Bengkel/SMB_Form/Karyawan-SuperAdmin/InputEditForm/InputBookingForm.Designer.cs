@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             ButtonBack = new SMB_CustomTolbox.LathifButton();
             LabelJudul = new Label();
             panel4 = new Panel();
@@ -72,6 +73,7 @@
             TextNomorKTP = new TextBox();
             label1 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
             panel12.SuspendLayout();
             panel13.SuspendLayout();
@@ -92,6 +94,7 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoScroll = true;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(ButtonBack);
             panel1.Controls.Add(LabelJudul);
             panel1.Controls.Add(panel4);
@@ -102,6 +105,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1227, 866);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.customer_service;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(36, 36);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 90);
+            pictureBox1.TabIndex = 47;
+            pictureBox1.TabStop = false;
             // 
             // ButtonBack
             // 
@@ -132,7 +145,7 @@
             LabelJudul.AutoSize = true;
             LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelJudul.ForeColor = Color.Black;
-            LabelJudul.Location = new Point(36, 27);
+            LabelJudul.Location = new Point(132, 63);
             LabelJudul.Name = "LabelJudul";
             LabelJudul.Size = new Size(198, 38);
             LabelJudul.TabIndex = 45;
@@ -159,9 +172,9 @@
             panel4.Controls.Add(label4);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(TextKeluhan);
-            panel4.Location = new Point(699, 104);
+            panel4.Location = new Point(699, 145);
             panel4.Name = "panel4";
-            panel4.Size = new Size(494, 656);
+            panel4.Size = new Size(494, 615);
             panel4.TabIndex = 2;
             // 
             // label11
@@ -405,7 +418,7 @@
             TextKeluhan.Location = new Point(51, 530);
             TextKeluhan.Multiline = true;
             TextKeluhan.Name = "TextKeluhan";
-            TextKeluhan.Size = new Size(393, 40);
+            TextKeluhan.Size = new Size(393, 0);
             TextKeluhan.TabIndex = 5;
             // 
             // ButtonCekKetersediaan
@@ -424,7 +437,7 @@
             ButtonCekKetersediaan.Name = "ButtonCekKetersediaan";
             ButtonCekKetersediaan.Size = new Size(201, 45);
             ButtonCekKetersediaan.TabIndex = 4;
-            ButtonCekKetersediaan.Text = "✅ Cek Ketersediaan";
+            ButtonCekKetersediaan.Text = "✅ Cek Antrean";
             ButtonCekKetersediaan.TextColor = Color.White;
             ButtonCekKetersediaan.UseVisualStyleBackColor = false;
             // 
@@ -465,9 +478,9 @@
             panel3.Controls.Add(label9);
             panel3.Controls.Add(panel2);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(36, 104);
+            panel3.Location = new Point(36, 145);
             panel3.Name = "panel3";
-            panel3.Size = new Size(635, 656);
+            panel3.Size = new Size(635, 615);
             panel3.TabIndex = 1;
             // 
             // panel7
@@ -563,11 +576,11 @@
             LabelNoKTP.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelNoKTP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNoKTP.ForeColor = Color.Red;
-            LabelNoKTP.Location = new Point(378, 43);
+            LabelNoKTP.Location = new Point(356, 43);
             LabelNoKTP.Name = "LabelNoKTP";
-            LabelNoKTP.Size = new Size(205, 23);
+            LabelNoKTP.Size = new Size(227, 23);
             LabelNoKTP.TabIndex = 56;
-            LabelNoKTP.Text = "Nomor KTP tidak ditemukan";
+            LabelNoKTP.Text = "⚠ Nomor KTP tidak ditemukan";
             LabelNoKTP.TextAlign = ContentAlignment.MiddleRight;
             LabelNoKTP.Visible = false;
             // 
@@ -648,7 +661,7 @@
             label1.TabIndex = 43;
             label1.Text = "Nomor KTP";
             // 
-            // InputEditBooking
+            // InputBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -657,11 +670,12 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "InputEditBooking";
+            Name = "InputBookingForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel12.ResumeLayout(false);
@@ -734,5 +748,6 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
+        private PictureBox pictureBox1;
     }
 }

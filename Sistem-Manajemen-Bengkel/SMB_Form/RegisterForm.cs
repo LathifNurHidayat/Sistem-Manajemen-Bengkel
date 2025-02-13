@@ -117,41 +117,41 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
             {
                 if (!Regex.IsMatch(TextEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
                 {
-                    LabelEmail.Text = "Masukan email yang valid";
+                    LabelEmail.Text = "⚠ Masukan email yang valid";
                     LabelEmail.Visible = true;
                     return;
                 }
                 else
                 {
                     LabelEmail.Visible = false;
-                    LabelEmail.Text = "Email sudah terdaftar";
+                    LabelEmail.Text = "⚠ Email sudah terdaftar";
                 }
             }
             else if (textbox.Tag == "NIK") 
             {
                 if (!Regex.IsMatch(TextNIK.Text, @"^[0-9]{16}$"))
                 {
-                    LabelNIK.Text = "NIK harus 16 digit";
+                    LabelNIK.Text = "⚠ NIK harus 16 digit";
                     LabelNIK.Visible = true;
                     return;
                 }
                 else
                 {
                     LabelNIK.Visible = false;
-                    LabelNIK.Text = "NIK sudah terdaftar";
+                    LabelNIK.Text = "⚠ NIK sudah terdaftar";
                 }
             }
             else if (textbox.Tag == "NoHP")
             {
                 if (!Regex.IsMatch(TextNomorHP.Text, @"^[0-9]{10,13}$"))
                 {
-                    LabelNoHP.Text = "No HP harus 10-13 digit";
+                    LabelNoHP.Text = "⚠ No HP harus 10-13 digit";
                     LabelNoHP.Visible = true;
                     return;
                 }
                 else
                 {
-                    LabelNoHP.Text = "No HP sudah terdaftar"; 
+                    LabelNoHP.Text = "⚠ No HP sudah terdaftar"; 
                     LabelNoHP.Visible = false;
                 }
             }

@@ -96,13 +96,14 @@
             MainPanel.Controls.Add(LinkMasuk);
             MainPanel.Controls.Add(label1);
             MainPanel.Controls.Add(ButtonDaftar);
-            MainPanel.Location = new Point(10, 12);
+            MainPanel.Location = new Point(12, 12);
             MainPanel.Name = "MainPanel";
-            MainPanel.Size = new Size(587, 675);
+            MainPanel.Size = new Size(601, 675);
             MainPanel.TabIndex = 0;
             // 
             // LabelPassword
             // 
+            LabelPassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelPassword.ForeColor = Color.Red;
             LabelPassword.Location = new Point(152, 401);
@@ -110,12 +111,13 @@
             LabelPassword.Size = new Size(418, 23);
             LabelPassword.TabIndex = 30;
             LabelPassword.Tag = "Password";
-            LabelPassword.Text = "Harus berupa kombinasi huruf besar/kecil, dan angka";
+            LabelPassword.Text = "⚠ Harus berupa kombinasi huruf besar/kecil, dan angka";
             LabelPassword.TextAlign = ContentAlignment.MiddleRight;
             LabelPassword.Visible = false;
             // 
             // LabelConfirmPass
             // 
+            LabelConfirmPass.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelConfirmPass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelConfirmPass.ForeColor = Color.Red;
             LabelConfirmPass.Location = new Point(365, 477);
@@ -123,7 +125,7 @@
             LabelConfirmPass.Size = new Size(205, 23);
             LabelConfirmPass.TabIndex = 29;
             LabelConfirmPass.Tag = "ConfirmPassword";
-            LabelConfirmPass.Text = "Password tidak valid";
+            LabelConfirmPass.Text = "⚠ Password tidak valid";
             LabelConfirmPass.TextAlign = ContentAlignment.MiddleRight;
             LabelConfirmPass.Visible = false;
             // 
@@ -143,22 +145,24 @@
             panel6.Controls.Add(TextConfirmPassword);
             panel6.Location = new Point(18, 503);
             panel6.Name = "panel6";
-            panel6.Size = new Size(552, 41);
+            panel6.Size = new Size(565, 41);
             panel6.TabIndex = 7;
             // 
             // TextConfirmPassword
             // 
+            TextConfirmPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextConfirmPassword.BorderStyle = BorderStyle.None;
             TextConfirmPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextConfirmPassword.Location = new Point(6, 7);
             TextConfirmPassword.Name = "TextConfirmPassword";
             TextConfirmPassword.PasswordChar = '*';
-            TextConfirmPassword.Size = new Size(538, 24);
+            TextConfirmPassword.Size = new Size(551, 24);
             TextConfirmPassword.TabIndex = 6;
             TextConfirmPassword.Tag = "ConfirmPassword";
             // 
             // LabelEmail
             // 
+            LabelEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelEmail.ForeColor = Color.Red;
             LabelEmail.Location = new Point(365, 322);
@@ -166,20 +170,21 @@
             LabelEmail.Size = new Size(205, 23);
             LabelEmail.TabIndex = 26;
             LabelEmail.Tag = "Email";
-            LabelEmail.Text = "Email sudah terdaftar";
+            LabelEmail.Text = "⚠ Email sudah terdaftar";
             LabelEmail.TextAlign = ContentAlignment.MiddleRight;
             LabelEmail.Visible = false;
             // 
             // LabelNoHP
             // 
+            LabelNoHP.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LabelNoHP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNoHP.ForeColor = Color.Red;
-            LabelNoHP.Location = new Point(365, 85);
+            LabelNoHP.Location = new Point(373, 84);
             LabelNoHP.Name = "LabelNoHP";
-            LabelNoHP.Size = new Size(205, 23);
+            LabelNoHP.Size = new Size(212, 23);
             LabelNoHP.TabIndex = 25;
             LabelNoHP.Tag = "NoHP";
-            LabelNoHP.Text = "Nomor HP sudah terdaftar";
+            LabelNoHP.Text = "⚠ Nomor HP sudah terdaftar";
             LabelNoHP.TextAlign = ContentAlignment.MiddleRight;
             LabelNoHP.Visible = false;
             // 
@@ -192,7 +197,7 @@
             LabelNIK.Size = new Size(199, 23);
             LabelNIK.TabIndex = 24;
             LabelNIK.Tag = "NIK";
-            LabelNIK.Text = "NIK sudah terdaftar";
+            LabelNIK.Text = "⚠ NIK sudah terdaftar";
             LabelNIK.TextAlign = ContentAlignment.MiddleRight;
             LabelNIK.Visible = false;
             // 
@@ -282,17 +287,18 @@
             panel9.Controls.Add(TextNomorHP);
             panel9.Location = new Point(302, 110);
             panel9.Name = "panel9";
-            panel9.Size = new Size(268, 41);
+            panel9.Size = new Size(281, 41);
             panel9.TabIndex = 2;
             // 
             // TextNomorHP
             // 
+            TextNomorHP.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextNomorHP.BorderStyle = BorderStyle.None;
             TextNomorHP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextNomorHP.Location = new Point(6, 7);
             TextNomorHP.MaxLength = 13;
             TextNomorHP.Name = "TextNomorHP";
-            TextNomorHP.Size = new Size(254, 24);
+            TextNomorHP.Size = new Size(267, 24);
             TextNomorHP.TabIndex = 1;
             TextNomorHP.Tag = "NoHP";
             // 
@@ -302,17 +308,18 @@
             panel7.Controls.Add(TextPassword);
             panel7.Location = new Point(18, 426);
             panel7.Name = "panel7";
-            panel7.Size = new Size(552, 41);
+            panel7.Size = new Size(565, 41);
             panel7.TabIndex = 6;
             // 
             // TextPassword
             // 
+            TextPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextPassword.BorderStyle = BorderStyle.None;
             TextPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextPassword.Location = new Point(6, 7);
             TextPassword.Name = "TextPassword";
             TextPassword.PasswordChar = '*';
-            TextPassword.Size = new Size(538, 24);
+            TextPassword.Size = new Size(551, 24);
             TextPassword.TabIndex = 5;
             TextPassword.Tag = "Password";
             // 
@@ -322,16 +329,17 @@
             panel2.Controls.Add(TextEmail);
             panel2.Location = new Point(18, 348);
             panel2.Name = "panel2";
-            panel2.Size = new Size(552, 41);
+            panel2.Size = new Size(565, 41);
             panel2.TabIndex = 5;
             // 
             // TextEmail
             // 
+            TextEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextEmail.BorderStyle = BorderStyle.None;
             TextEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextEmail.Location = new Point(6, 7);
             TextEmail.Name = "TextEmail";
-            TextEmail.Size = new Size(538, 24);
+            TextEmail.Size = new Size(551, 24);
             TextEmail.TabIndex = 4;
             TextEmail.Tag = "Email";
             // 
@@ -352,16 +360,17 @@
             panel4.Controls.Add(TextAlamat);
             panel4.Location = new Point(18, 268);
             panel4.Name = "panel4";
-            panel4.Size = new Size(552, 41);
+            panel4.Size = new Size(565, 41);
             panel4.TabIndex = 4;
             // 
             // TextAlamat
             // 
+            TextAlamat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextAlamat.BorderStyle = BorderStyle.None;
             TextAlamat.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextAlamat.Location = new Point(6, 7);
             TextAlamat.Name = "TextAlamat";
-            TextAlamat.Size = new Size(538, 24);
+            TextAlamat.Size = new Size(551, 24);
             TextAlamat.TabIndex = 3;
             // 
             // panel3
@@ -370,16 +379,17 @@
             panel3.Controls.Add(TextNamaLengkap);
             panel3.Location = new Point(18, 188);
             panel3.Name = "panel3";
-            panel3.Size = new Size(552, 41);
+            panel3.Size = new Size(565, 41);
             panel3.TabIndex = 3;
             // 
             // TextNamaLengkap
             // 
+            TextNamaLengkap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextNamaLengkap.BorderStyle = BorderStyle.None;
             TextNamaLengkap.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextNamaLengkap.Location = new Point(6, 8);
             TextNamaLengkap.Name = "TextNamaLengkap";
-            TextNamaLengkap.Size = new Size(538, 24);
+            TextNamaLengkap.Size = new Size(551, 24);
             TextNamaLengkap.TabIndex = 2;
             // 
             // LinkMasuk
@@ -410,7 +420,7 @@
             ButtonDaftar.ForeColor = Color.White;
             ButtonDaftar.Location = new Point(18, 580);
             ButtonDaftar.Name = "ButtonDaftar";
-            ButtonDaftar.Size = new Size(552, 45);
+            ButtonDaftar.Size = new Size(565, 45);
             ButtonDaftar.TabIndex = 8;
             ButtonDaftar.Text = "Daftar";
             ButtonDaftar.UseVisualStyleBackColor = false;
@@ -420,7 +430,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(609, 699);
+            ClientSize = new Size(625, 699);
             Controls.Add(MainPanel);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;

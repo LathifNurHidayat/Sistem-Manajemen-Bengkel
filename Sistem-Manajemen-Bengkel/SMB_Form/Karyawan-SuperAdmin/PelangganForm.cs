@@ -26,7 +26,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         private void CustomComponent()
         {
-            List<int> entries = new() { 5, 10, 25, 50, 100 };
+            List<int> entries = new() { 10, 25, 50, 100 };
             ComboEntries.DataSource = entries;
             List<string> sortBy = new() { "Default", "Servis Terbanyak", "Servis Tersedikit" };
             ComboFilter.DataSource = sortBy;
@@ -69,7 +69,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             dp.Add("@offset", inRowPage);
             dp.Add("@fetch", rowPerPage);
 
-            int totalEntries = _pelangganDal.CountData(filters, dp);
+            int totalEntries = _pelangganDal.CountData(filters);
             totalPage = (int)Math.Ceiling((double) totalEntries / rowPerPage);
 
             LabelShowEntries.Text = $"Showing {inRowPage + 1} to {inRowPage + rowPerPage} of {totalEntries} entries";
@@ -131,11 +131,25 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             ButtonNext.Click += ButtonNext_Click;
             ButtonPreviuos.Click += ButtonPreviuos_Click;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
+            deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
+        }
+
+        private void DeleteToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            string no_ktp = GridListData.CurrentRow?.Cells["Nomor_KTP"]?.Value?.ToString() ?? string.Empty;
+            if (string.IsNullOrEmpty(no_ktp)) return;
+            if (MesboxHelper.ShowConfirm("Anda yakin ingin menghapus data ?"))
+            {
+                _pelangganDal.SoftDeleteData(no_ktp);
+                LoadData();
+            }
         }
 
         private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            string no_ktp = GridListData.CurrentRow.Cells["No KTP"].Value.ToString();
+            string no_ktp = GridListData.CurrentRow?.Cells["Nomor_KTP"]?.Value?.ToString()?? string.Empty;
+            if (string.IsNullOrEmpty(no_ktp)) return;
+            ShowFormHelper.ShowFormInPanel(new InputPelanggan(no_ktp));
         }
 
         private void ButtonPreviuos_Click(object? sender, EventArgs e)
@@ -158,21 +172,31 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         private void TextSearch_TextChanged(object? sender, EventArgs e)
         {
-            if (TextSearch.Text.Length == 0) LoadData();
+            if (TextSearch.Text.Length == 0)
+            {
+                page = 1;
+                LoadData();
+            } 
         }
 
         private void TextSearch_KeyDown(object? sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) ButtonSearch.PerformClick();
+            if (e.KeyCode == Keys.Enter) 
+            {
+                page = 1;
+                ButtonSearch.PerformClick();
+            }
         }
 
         private void ComboFilter_SelectedIndexChanged(object? sender, EventArgs e)
         {
+            page = 1;
             LoadData();
         }
 
         private void ComboEntries_SelectedValueChanged(object? sender, EventArgs e)
         {
+            page = 1;
             LoadData();
         }
 

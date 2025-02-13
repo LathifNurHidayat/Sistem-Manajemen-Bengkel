@@ -1,72 +1,183 @@
-﻿INSERT INTO tb_pelanggan (no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis)
-VALUES
-('3201011000010001', 'Ahmad Syaiful', '081234567890', 'Jakarta', 'ahmad@example.com', 'ef92b778bafee02a',4),
-('3201011000010002', 'Rina Lestari', '081298765432', 'Bandung', 'rina@example.com', 'ef92b778bafee02a',6),
-('3201011000010003', 'Budi Santoso', '082345678901', 'Surabaya', 'budi@example.com', 'ef92b778bafee02a',8),
-('3201011000010004', 'Siti Aminah', '083456789012', 'Medan', 'siti@example.com', 'ef92b778bafee02a',3),
-('3201011000010005', 'Dedi Prasetyo', '084567890123', 'Yogyakarta', 'dedi@example.com', 'ef92b778bafee02a',3),
-('3201011000010006', 'Lina Kusuma', '085678901234', 'Semarang', 'lina@example.com', 'ef92b778bafee02a',45),
-('3201011000010007', 'Eko Saputra', '086789012345', 'Palembang', 'eko@example.com', 'ef92b778bafee02a',4),
-('3201011000010008', 'Tina Maharani', '087890123456', 'Makassar', 'tina@example.com', 'ef92b778bafee02a',21),
-('3201011000010009', 'Fadli Akbar', '088901234567', 'Bali', 'fadli@example.com', 'ef92b778bafee02a',2),
-('3201011000010010', 'Hana Wijaya', '089012345678', 'Balikpapan', 'hana@example.com', 'ef92b778bafee02a',6),
-('3201011000010011', 'Rahmat Hidayat', '081234567899', 'Pontianak', 'rahmat@example.com', 'ef92b778bafee02a',2),
-('3201011000010012', 'Sari Melati', '081234567898', 'Batam', 'sari@example.com', 'ef92b778bafee02a',4),
-('3201011000010013', 'Andre Wahyudi', '081234567897', 'Lampung', 'andre@example.com', 'ef92b778bafee02a',2),
-('3201011000010014', 'Desi Aprilia', '081234567896', 'Malang', 'desi@example.com', 'ef92b778bafee02a',7),
-('3201011000010015', 'Bayu Setiawan', '081234567895', 'Pekanbaru', 'bayu@example.com', 'ef92b778bafee02a',9);
+﻿-------------------------------------------------
+-- 1. Insert 500 Data ke tb_pelanggan
+-------------------------------------------------
+DECLARE @i INT = 1;
+WHILE @i <= 100
+BEGIN
+    INSERT INTO tb_pelanggan 
+        (no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis)
+    VALUES (
+        -- Membuat no_ktp_pelanggan secara unik misalnya dengan menggabungkan prefix dengan nilai counter
+        '32010110000' + RIGHT('000' + CAST(@i AS VARCHAR(4)), 4),  
+        'Pelanggan_' + CAST(@i AS VARCHAR(10)),  
+        '0812' + RIGHT('000000000' + CAST(@i AS VARCHAR(9)), 9),  
+        'Alamat Pelanggan ' + CAST(@i AS VARCHAR(10)),  
+        'pelanggan' + CAST(@i AS VARCHAR(10)) + '@example.com',  
+        'password' + CAST(@i AS VARCHAR(10)),  
+        0  -- Misal total_servis diinisialisasi 0
+    );
+    SET @i = @i + 1;
+END;
 
-INSERT INTO tb_pegawai (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_name, image_data)
-VALUES
-('3201012000010001', 'Taufik Hidayat', 'taufik@example.com', 'ef92b778bafee02a', '081312345678', 'Jakarta', 1, NULL, NULL),
-('3201012000010002', 'Lestari Putri', 'lestari@example.com', 'ef92b778bafee02a', '081323456789', 'Bandung', 2, NULL, NULL),
-('3201012000010003', 'Hendra Saputra', 'hendra@example.com', 'ef92b778bafee02a', '081334567890', 'Surabaya', 2, NULL, NULL);
+-------------------------------------------------
+-- 2. Insert 500 Data ke tb_pegawai
+-------------------------------------------------
+SET @i = 1;
+WHILE @i <= 500
+BEGIN
+    INSERT INTO tb_pegawai 
+        (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_name, image_data)
+    VALUES (
+        '32010120000' + RIGHT('000' + CAST(@i AS VARCHAR(4)), 4),
+        'Pegawai_' + CAST(@i AS VARCHAR(10)),
+        'pegawai' + CAST(@i AS VARCHAR(10)) + '@example.com',
+        'password' + CAST(@i AS VARCHAR(10)),
+        '0813' + RIGHT('000000000' + CAST(@i AS VARCHAR(9)), 9),
+        'Alamat Pegawai ' + CAST(@i AS VARCHAR(10)),
+        CASE WHEN @i % 2 = 0 THEN 1 ELSE 2 END,  -- Contoh pembagian role secara bergantian
+        NULL,
+        NULL
+    );
+    SET @i = @i + 1;
+END;
 
-INSERT INTO tb_mekanik (no_ktp_mekanik, nama_mekanik, no_hp, alamat, spesialis, image_name, image_data)
-VALUES
-('3201013000010001', 'Bambang Sutrisno', '082345678901', 'Jakarta', 'Mesin', NULL, NULL),
-('3201013000010002', 'Yanto Supriyadi', '083456789012', 'Bandung', 'Kelistrikan', NULL, NULL),
-('3201013000010003', 'Sukarno', '084567890123', 'Surabaya', 'Body & Cat', NULL, NULL);
+-------------------------------------------------
+-- 3. Insert 500 Data ke tb_mekanik
+-------------------------------------------------
+SET @i = 1;
+WHILE @i <= 500
+BEGIN
+    INSERT INTO tb_mekanik 
+        (no_ktp_mekanik, nama_mekanik, no_hp, alamat, spesialis, image_name, image_data)
+    VALUES (
+        '32010130000' + RIGHT('000' + CAST(@i AS VARCHAR(4)), 4),
+        'Mekanik_' + CAST(@i AS VARCHAR(10)),
+        '0814' + RIGHT('000000000' + CAST(@i AS VARCHAR(9)), 9),
+        'Alamat Mekanik ' + CAST(@i AS VARCHAR(10)),
+        CASE 
+            WHEN @i % 3 = 0 THEN 'Mesin'
+            WHEN @i % 3 = 1 THEN 'Kelistrikan'
+            ELSE 'Body & Cat'
+        END,
+        NULL,
+        NULL
+    );
+    SET @i = @i + 1;
+END;
 
-INSERT INTO tb_jasa_servis (jenis_servis, keterangan, biaya)
-VALUES
-('Ganti Oli', 'Penggantian oli mesin kendaraan', 150000),
-('Tune Up', 'Pemeriksaan dan penyetelan mesin', 250000),
-('Servis Rem', 'Pemeriksaan dan penggantian kampas rem', 200000);
+-------------------------------------------------
+-- 4. Insert 500 Data ke tb_jasa_servis
+-------------------------------------------------
+SET @i = 1;
+WHILE @i <= 500
+BEGIN
+    INSERT INTO tb_jasa_servis 
+        (jenis_servis, keterangan, biaya)
+    VALUES (
+        'Jasa Servis ' + CAST(@i AS VARCHAR(10)),
+        'Keterangan jasa servis ' + CAST(@i AS VARCHAR(10)),
+        100000 + (@i * 1000)  -- Contoh perhitungan biaya
+    );
+    SET @i = @i + 1;
+END;
 
-INSERT INTO tb_batas_booking (tanggal, batas_booking)
-VALUES
-(GETDATE(), 10),
-(GETDATE(), 15),
-(GETDATE(), 12);
+-------------------------------------------------
+-- 5. Insert 500 Data ke tb_batas_booking
+-------------------------------------------------
+SET @i = 1;
+WHILE @i <= 500
+BEGIN
+    INSERT INTO tb_batas_booking 
+        (tanggal, batas_booking)
+    VALUES (
+        DATEADD(DAY, @i, GETDATE()),
+        10 + (@i % 10)  -- Nilai batas booking antara 10 s.d. 19
+    );
+    SET @i = @i + 1;
+END;
 
-INSERT INTO tb_sparepart (nama_sparepart, harga, stok, stok_minimal, status_stok)
-VALUES
-('Busi NGK', 50000, 100, 10, 'Tersedia'),
-('Kampas Rem', 120000, 50, 5, 'Tersedia'),
-('Oli Mesin', 80000, 200, 20, 'Tersedia');
+-------------------------------------------------
+-- 6. Insert 500 Data ke tb_sparepart
+-------------------------------------------------
+SET @i = 1;
+WHILE @i <= 500
+BEGIN
+    INSERT INTO tb_sparepart 
+        (nama_sparepart, harga, stok, stok_minimal, status_stok)
+    VALUES (
+        'Sparepart ' + CAST(@i AS VARCHAR(10)),
+        50000 + (@i * 100),  
+        100 + @i,
+        10,
+        'Tersedia'
+    );
+    SET @i = @i + 1;
+END;
 
-INSERT INTO tb_kendaraan (no_ktp_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, tahun)
-VALUES
-('3201011000010001', 'B 1234 ABC', 'Toyota Avanza', 'Manual', 1500, 2020),
-('3201011000010002', 'D 5678 XYZ', 'Honda Jazz', 'Automatic', 1300, 2018),
-('3201011000010003', 'L 9101 PQR', 'Mitsubishi Xpander', 'Automatic', 1500, 2021);
+-------------------------------------------------
+-- 7. Insert 500 Data ke tb_kendaraan
+-------------------------------------------------
+SET @i = 1;
+WHILE @i <= 500
+BEGIN
+    INSERT INTO tb_kendaraan 
+        (no_ktp_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, tahun)
+    VALUES (
+        '32010110000' + RIGHT('000' + CAST(@i AS VARCHAR(4)), 4),  -- Mengacu ke tb_pelanggan
+        'B ' + CAST(1000 + @i AS VARCHAR(10)) + ' ABC',
+        'Merek_' + CAST(@i AS VARCHAR(10)),
+        CASE WHEN @i % 2 = 0 THEN 'Automatic' ELSE 'Manual' END,
+        1500 + (@i % 3) * 100,
+        2000 + (@i % 25)
+    );
+    SET @i = @i + 1;
+END;
 
-INSERT INTO tb_booking (no_ktp_pelanggan, no_ktp_mekanik, id_kendaraan, id_jasa_servis, tanggal, antrean, keluhan, status)
-VALUES
-('3201011000010001', '3201013000010001', 1, 1, GETDATE(), 1, 'Oli bocor', 'Menunggu'),
-('3201011000010002', '3201013000010002', 2, 2, GETDATE(), 2, 'AC tidak dingin', 'Menunggu'),
-('3201011000010003', '3201013000010003', 3, 3, GETDATE(), 3, 'Rem blong', 'Menunggu');
+-------------------------------------------------
+-- 8. Insert 500 Data ke tb_booking
+-------------------------------------------------
+SET @i = 1;
+WHILE @i <= 500
+BEGIN
+    INSERT INTO tb_booking 
+        (no_ktp_pelanggan, no_ktp_mekanik, id_kendaraan, id_jasa_servis, tanggal, antrean, keluhan, status)
+    VALUES (
+        '32010110000' + RIGHT('000' + CAST(@i AS VARCHAR(4)), 4),
+        '32010130000' + RIGHT('000' + CAST(@i AS VARCHAR(4)), 4),
+         @i,        -- Asumsikan id_kendaraan dihasilkan berurutan dari 1 ke 500
+         @i,        -- Asumsikan id_jasa_servis dihasilkan berurutan dari 1 ke 500
+        DATEADD(MINUTE, @i, GETDATE()),
+         @i,        -- Nomor antrean sama dengan counter
+        'Keluhan ' + CAST(@i AS VARCHAR(10)),
+        'Menunggu'
+    );
+    SET @i = @i + 1;
+END;
 
-INSERT INTO tb_riwayat (id_jasa_servis, no_ktp_pelanggan, no_ktp_pegawai, no_ktp_mekanik, id_kendaraan, id_riwayat_sparepart, tanggal, keluhan, catatan, total_biaya, status)
-VALUES
-(1, '3201011000010001', '3201012000010001', '3201013000010001', 1, NULL, GETDATE(), 'Oli bocor', 'Ganti oli', 150000, 'Selesai'),
-(2, '3201011000010002', '3201012000010002', '3201013000010002', 2, NULL, GETDATE(), 'AC tidak dingin', 'Tambah freon', 200000, 'Selesai'),
-(3, '3201011000010003', '3201012000010003', '3201013000010003', 3, NULL, GETDATE(), 'Rem blong', 'Ganti kampas rem', 250000, 'Selesai');
+-------------------------------------------------
+-- 9. Insert 500 Data ke tb_riwayat
+-------------------------------------------------
+SET @i = 1;
+WHILE @i <= 500
+BEGIN
+    INSERT INTO tb_riwayat 
+        (id_jasa_servis, no_ktp_pelanggan, no_ktp_pegawai, no_ktp_mekanik, id_kendaraan, id_riwayat_sparepart, tanggal, keluhan, catatan, total_biaya, status)
+    VALUES (
+         @i,  -- id_jasa_servis (misal sama dengan counter)
+        '32010110000' + RIGHT('000' + CAST(@i AS VARCHAR(4)), 4),
+        '32010120000' + RIGHT('000' + CAST(@i AS VARCHAR(4)), 4),
+        '32010130000' + RIGHT('000' + CAST(@i AS VARCHAR(4)), 4),
+         @i,  -- id_kendaraan
+         NULL,  -- id_riwayat_sparepart dibiarkan NULL atau bisa diisi sesuai kebutuhan
+        DATEADD(MINUTE, @i, GETDATE()),
+        'Keluhan ' + CAST(@i AS VARCHAR(10)),
+        'Catatan ' + CAST(@i AS VARCHAR(10)),
+        100000 + (@i * 500),
+        'Selesai'
+    );
+    SET @i = @i + 1;
+END;
 
 
 
 
-SELECT * FROM tb_pelanggan where deleted_at IS null  ORDER BY created_at ASC  OFFSET 0 ROW FETCH NEXT 5 ROWS ONLY
-
-UPDATE tb_pelanggan SET deleted_at = GETDATE() WHERE no_ktp_pelanggan = '3201011000010001'

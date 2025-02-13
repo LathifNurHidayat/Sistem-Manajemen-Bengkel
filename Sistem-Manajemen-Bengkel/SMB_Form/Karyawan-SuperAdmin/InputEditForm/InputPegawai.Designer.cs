@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputPegawai));
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             LabelJudul = new Label();
             panel4 = new Panel();
             label1 = new Label();
@@ -63,6 +64,7 @@
             panel2 = new Panel();
             TextNamaLengkap = new TextBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
             panel6.SuspendLayout();
             panel8.SuspendLayout();
@@ -78,6 +80,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(LabelJudul);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(ButtonSimpan);
@@ -85,15 +88,25 @@
             panel1.Controls.Add(panel3);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1058, 729);
+            panel1.Size = new Size(952, 729);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.technical_support;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(24, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 90);
+            pictureBox1.TabIndex = 49;
+            pictureBox1.TabStop = false;
             // 
             // LabelJudul
             // 
             LabelJudul.AutoSize = true;
             LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelJudul.ForeColor = Color.Black;
-            LabelJudul.Location = new Point(35, 22);
+            LabelJudul.Location = new Point(120, 39);
             LabelJudul.Name = "LabelJudul";
             LabelJudul.Size = new Size(197, 38);
             LabelJudul.TabIndex = 45;
@@ -101,7 +114,6 @@
             // 
             // panel4
             // 
-            panel4.Anchor = AnchorStyles.None;
             panel4.BackColor = Color.WhiteSmoke;
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(label1);
@@ -118,16 +130,16 @@
             panel4.Controls.Add(label5);
             panel4.Controls.Add(panel9);
             panel4.Controls.Add(panel10);
-            panel4.Location = new Point(543, 77);
+            panel4.Location = new Point(484, 106);
             panel4.Name = "panel4";
-            panel4.Size = new Size(480, 561);
+            panel4.Size = new Size(441, 548);
             panel4.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(44, 32);
+            label1.Location = new Point(23, 26);
             label1.Name = "label1";
             label1.Size = new Size(65, 23);
             label1.TabIndex = 45;
@@ -138,7 +150,7 @@
             panel6.BackColor = Color.White;
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(TextNoHP);
-            panel6.Location = new Point(44, 58);
+            panel6.Location = new Point(23, 52);
             panel6.Name = "panel6";
             panel6.Size = new Size(386, 41);
             panel6.TabIndex = 44;
@@ -158,7 +170,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(44, 453);
+            label3.Location = new Point(23, 447);
             label3.Name = "label3";
             label3.Size = new Size(44, 23);
             label3.TabIndex = 43;
@@ -168,7 +180,7 @@
             // 
             RadioKaryawan.AutoSize = true;
             RadioKaryawan.Depth = 0;
-            RadioKaryawan.Location = new Point(330, 483);
+            RadioKaryawan.Location = new Point(309, 477);
             RadioKaryawan.Margin = new Padding(0);
             RadioKaryawan.MouseLocation = new Point(-1, -1);
             RadioKaryawan.MouseState = MaterialSkin.MouseState.HOVER;
@@ -184,7 +196,7 @@
             // 
             RadioSuperAdmin.AutoSize = true;
             RadioSuperAdmin.Depth = 0;
-            RadioSuperAdmin.Location = new Point(44, 483);
+            RadioSuperAdmin.Location = new Point(23, 477);
             RadioSuperAdmin.Margin = new Padding(0);
             RadioSuperAdmin.MouseLocation = new Point(-1, -1);
             RadioSuperAdmin.MouseState = MaterialSkin.MouseState.HOVER;
@@ -200,7 +212,7 @@
             // 
             LabelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelPassword.ForeColor = Color.Red;
-            LabelPassword.Location = new Point(128, 248);
+            LabelPassword.Location = new Point(107, 242);
             LabelPassword.Name = "LabelPassword";
             LabelPassword.Size = new Size(308, 23);
             LabelPassword.TabIndex = 39;
@@ -213,7 +225,7 @@
             // 
             LabelConfirmPass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelConfirmPass.ForeColor = Color.Red;
-            LabelConfirmPass.Location = new Point(199, 358);
+            LabelConfirmPass.Location = new Point(178, 352);
             LabelConfirmPass.Name = "LabelConfirmPass";
             LabelConfirmPass.Size = new Size(237, 23);
             LabelConfirmPass.TabIndex = 38;
@@ -226,7 +238,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(44, 356);
+            label9.Location = new Point(23, 350);
             label9.Name = "label9";
             label9.Size = new Size(149, 23);
             label9.TabIndex = 37;
@@ -237,7 +249,7 @@
             panel8.BackColor = Color.White;
             panel8.BorderStyle = BorderStyle.FixedSingle;
             panel8.Controls.Add(TextConfirmPassword);
-            panel8.Location = new Point(44, 382);
+            panel8.Location = new Point(23, 376);
             panel8.Name = "panel8";
             panel8.Size = new Size(392, 41);
             panel8.TabIndex = 33;
@@ -257,7 +269,7 @@
             // 
             LabelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelEmail.ForeColor = Color.Red;
-            LabelEmail.Location = new Point(128, 140);
+            LabelEmail.Location = new Point(107, 134);
             LabelEmail.Name = "LabelEmail";
             LabelEmail.Size = new Size(308, 23);
             LabelEmail.TabIndex = 36;
@@ -270,7 +282,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(44, 140);
+            label6.Location = new Point(23, 134);
             label6.Name = "label6";
             label6.Size = new Size(51, 23);
             label6.TabIndex = 35;
@@ -280,7 +292,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(44, 248);
+            label5.Location = new Point(23, 242);
             label5.Name = "label5";
             label5.Size = new Size(82, 23);
             label5.TabIndex = 34;
@@ -291,7 +303,7 @@
             panel9.BackColor = Color.White;
             panel9.BorderStyle = BorderStyle.FixedSingle;
             panel9.Controls.Add(TextPassword);
-            panel9.Location = new Point(44, 274);
+            panel9.Location = new Point(23, 268);
             panel9.Name = "panel9";
             panel9.Size = new Size(392, 41);
             panel9.TabIndex = 32;
@@ -312,7 +324,7 @@
             panel10.BackColor = Color.White;
             panel10.BorderStyle = BorderStyle.FixedSingle;
             panel10.Controls.Add(TextEmail);
-            panel10.Location = new Point(44, 166);
+            panel10.Location = new Point(23, 160);
             panel10.Name = "panel10";
             panel10.Size = new Size(392, 41);
             panel10.TabIndex = 31;
@@ -339,7 +351,7 @@
             ButtonSimpan.FlatStyle = FlatStyle.Flat;
             ButtonSimpan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSimpan.ForeColor = Color.White;
-            ButtonSimpan.Location = new Point(888, 652);
+            ButtonSimpan.Location = new Point(790, 663);
             ButtonSimpan.Name = "ButtonSimpan";
             ButtonSimpan.Size = new Size(135, 45);
             ButtonSimpan.TabIndex = 4;
@@ -359,7 +371,7 @@
             ButtonBatal.FlatStyle = FlatStyle.Flat;
             ButtonBatal.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBatal.ForeColor = Color.White;
-            ButtonBatal.Location = new Point(728, 652);
+            ButtonBatal.Location = new Point(634, 663);
             ButtonBatal.Name = "ButtonBatal";
             ButtonBatal.Size = new Size(135, 45);
             ButtonBatal.TabIndex = 3;
@@ -369,7 +381,6 @@
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.None;
             panel3.BackColor = Color.WhiteSmoke;
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(ButtonEditProfiles);
@@ -379,9 +390,9 @@
             panel3.Controls.Add(label10);
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel2);
-            panel3.Location = new Point(35, 77);
+            panel3.Location = new Point(24, 106);
             panel3.Name = "panel3";
-            panel3.Size = new Size(480, 561);
+            panel3.Size = new Size(432, 548);
             panel3.TabIndex = 1;
             // 
             // ButtonEditProfiles
@@ -394,13 +405,13 @@
             ButtonEditProfiles.BorderSize = 0;
             ButtonEditProfiles.FlatAppearance.BorderSize = 0;
             ButtonEditProfiles.FlatStyle = FlatStyle.Flat;
-            ButtonEditProfiles.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonEditProfiles.Font = new Font("Segoe UI Variable Small", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonEditProfiles.ForeColor = Color.White;
-            ButtonEditProfiles.Location = new Point(186, 180);
+            ButtonEditProfiles.Location = new Point(162, 183);
             ButtonEditProfiles.Name = "ButtonEditProfiles";
             ButtonEditProfiles.Size = new Size(104, 37);
             ButtonEditProfiles.TabIndex = 36;
-            ButtonEditProfiles.Text = "🖍 Edit";
+            ButtonEditProfiles.Text = "♻ Ganti";
             ButtonEditProfiles.TextColor = Color.White;
             ButtonEditProfiles.UseVisualStyleBackColor = false;
             // 
@@ -415,10 +426,10 @@
             PictureProfiles.BorderSize = 2;
             PictureProfiles.GradientAngle = 50F;
             PictureProfiles.Image = (Image)resources.GetObject("PictureProfiles.Image");
-            PictureProfiles.Location = new Point(176, 44);
+            PictureProfiles.Location = new Point(152, 44);
             PictureProfiles.Name = "PictureProfiles";
             PictureProfiles.Size = new Size(125, 125);
-            PictureProfiles.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureProfiles.SizeMode = PictureBoxSizeMode.Zoom;
             PictureProfiles.TabIndex = 35;
             PictureProfiles.TabStop = false;
             // 
@@ -428,7 +439,7 @@
             LabelNIK.ForeColor = Color.Red;
             LabelNIK.Location = new Point(109, 291);
             LabelNIK.Name = "LabelNIK";
-            LabelNIK.Size = new Size(317, 23);
+            LabelNIK.Size = new Size(298, 23);
             LabelNIK.TabIndex = 34;
             LabelNIK.Tag = "NIK";
             LabelNIK.Text = "No. KTP sudah terdaftar";
@@ -439,7 +450,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(40, 406);
+            label2.Location = new Point(21, 403);
             label2.Name = "label2";
             label2.Size = new Size(126, 23);
             label2.TabIndex = 31;
@@ -449,7 +460,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(40, 291);
+            label10.Location = new Point(21, 290);
             label10.Name = "label10";
             label10.Size = new Size(71, 23);
             label10.TabIndex = 30;
@@ -460,7 +471,7 @@
             panel5.BackColor = Color.White;
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(TextNoKTP);
-            panel5.Location = new Point(40, 317);
+            panel5.Location = new Point(21, 317);
             panel5.Name = "panel5";
             panel5.Size = new Size(386, 41);
             panel5.TabIndex = 26;
@@ -481,7 +492,7 @@
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(TextNamaLengkap);
-            panel2.Location = new Point(40, 432);
+            panel2.Location = new Point(21, 429);
             panel2.Name = "panel2";
             panel2.Size = new Size(386, 41);
             panel2.TabIndex = 27;
@@ -497,19 +508,20 @@
             TextNamaLengkap.TabIndex = 1;
             TextNamaLengkap.Tag = "NoHP";
             // 
-            // InputEditPegawai
+            // InputPegawai
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1082, 753);
+            ClientSize = new Size(976, 753);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "InputEditPegawai";
+            Name = "InputPegawai";
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel6.ResumeLayout(false);
@@ -566,5 +578,6 @@
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButton3;
         private SMB_CustomTolbox.LathifButton ButtonEditProfiles;
         private Label LabelJudul;
+        private PictureBox pictureBox1;
     }
 }

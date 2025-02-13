@@ -139,9 +139,16 @@ CREATE TABLE tb_riwayat(
     updated_at DATETIME DEFAULT GETDATE(),
 
     CONSTRAINT fk_riwayat_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis),
-    CONSTRAINT fk_riwayat_pelanggan FOREIGN KEY (no_ktp_pelanggan) REFERENCES tb_pelanggan(no_ktp_pelanggan),
-    CONSTRAINT fk_riwayat_pegawai FOREIGN KEY (no_ktp_pegawai) REFERENCES tb_pegawai(no_ktp_pegawai),
-    CONSTRAINT fk_riwayat_mekanik FOREIGN KEY (no_ktp_mekanik) REFERENCES tb_mekanik(no_ktp_mekanik),
+    CONSTRAINT fk_riwayat_pelanggan FOREIGN KEY (no_ktp_pelanggan) REFERENCES tb_pelanggan(no_ktp_pelanggan)
+        ON UPDATE CASCADE 
+        ON DELETE CASCADE,
+
+    CONSTRAINT fk_riwayat_pegawai FOREIGN KEY (no_ktp_pegawai) REFERENCES tb_pegawai(no_ktp_pegawai)
+        ON UPDATE CASCADE, 
+
+    CONSTRAINT fk_riwayat_mekanik FOREIGN KEY (no_ktp_mekanik) REFERENCES tb_mekanik(no_ktp_mekanik)
+        ON UPDATE CASCADE, 
+
     CONSTRAINT fk_riwayat_kendaraan FOREIGN KEY (id_kendaraan) REFERENCES tb_kendaraan(id_kendaraan),
     CONSTRAINT fk_riwayat_riwayat_sparepart FOREIGN KEY (id_riwayat_sparepart) REFERENCES tb_riwayat_sparepart(id_riwayat_sparepart)
 );
@@ -159,3 +166,5 @@ CREATE TABLE tb_log_sparepart (
 
     CONSTRAINT dk_log_sparepart_pegawai FOREIGN KEY (no_ktp_pegawai) REFERENCES tb_pegawai(no_ktp_pegawai),
 );
+
+
