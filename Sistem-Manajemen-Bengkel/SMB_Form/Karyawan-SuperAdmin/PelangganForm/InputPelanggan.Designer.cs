@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             LabelJudul = new Label();
             panel4 = new Panel();
             LabelPassword = new Label();
@@ -60,8 +61,10 @@
             TextAlamat = new TextBox();
             panel7 = new Panel();
             TextNamaLengkap = new TextBox();
-            pictureBox1 = new PictureBox();
+            label3 = new Label();
+            LinkReset = new LinkLabel();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
             panel8.SuspendLayout();
             panel9.SuspendLayout();
@@ -71,7 +74,6 @@
             panel2.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -90,6 +92,16 @@
             panel1.Size = new Size(1058, 729);
             panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.target;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(36, 36);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 90);
+            pictureBox1.TabIndex = 48;
+            pictureBox1.TabStop = false;
+            // 
             // LabelJudul
             // 
             LabelJudul.AutoSize = true;
@@ -106,6 +118,8 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.WhiteSmoke;
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(LinkReset);
+            panel4.Controls.Add(label3);
             panel4.Controls.Add(LabelPassword);
             panel4.Controls.Add(LabelConfirmPass);
             panel4.Controls.Add(label9);
@@ -476,15 +490,29 @@
             TextNamaLengkap.Size = new Size(455, 24);
             TextNamaLengkap.TabIndex = 2;
             // 
-            // pictureBox1
+            // label3
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.target;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(36, 36);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(90, 90);
-            pictureBox1.TabIndex = 48;
-            pictureBox1.TabStop = false;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(42, 348);
+            label3.Name = "label3";
+            label3.Size = new Size(266, 23);
+            label3.TabIndex = 50;
+            label3.Tag = "ConfirmPassword";
+            label3.Text = "Apakah anda ingin mereset password?";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            label3.Visible = false;
+            // 
+            // LinkReset
+            // 
+            LinkReset.AutoSize = true;
+            LinkReset.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            LinkReset.Location = new Point(304, 349);
+            LinkReset.Name = "LinkReset";
+            LinkReset.Size = new Size(45, 20);
+            LinkReset.TabIndex = 51;
+            LinkReset.TabStop = true;
+            LinkReset.Text = "Reset";
             // 
             // InputPelanggan
             // 
@@ -499,6 +527,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel8.ResumeLayout(false);
@@ -517,7 +546,6 @@
             panel6.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -556,5 +584,7 @@
         private TextBox TextEmail;
         private Label LabelJudul;
         private PictureBox pictureBox1;
+        private LinkLabel LinkReset;
+        private Label label3;
     }
 }

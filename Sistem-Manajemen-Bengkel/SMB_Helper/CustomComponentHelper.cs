@@ -57,16 +57,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
 
             grid.RowHeadersVisible = false;
 
-            // Mencegah penggeseran kolom
             grid.AllowUserToOrderColumns = false;
 
-            // Mencegah pengubahan ukuran kolom
             grid.AllowUserToResizeColumns = true;
 
-            // Mencegah pengubahan ukuran baris
             grid.AllowUserToResizeRows = false;
 
-            // Mencegah penambahan baris baru
             grid.AllowUserToAddRows = false;
 
             grid.ColumnHeadersDefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
@@ -103,7 +99,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
                 e.DrawFocusRectangle();
             };
 
-            // Efek Hover
             comboBox.MouseEnter += (s, e) => comboBox.BackColor = Color.LightGray;
             comboBox.MouseLeave += (s, e) => comboBox.BackColor = Color.White;
         }

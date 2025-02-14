@@ -8,20 +8,23 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
 {
     public class ImageDirectoryHelper
     {
-        public static Image _defaultProfilesOnGrid = Properties.Resources.user1.GetThumbnailImage(40, 40, () => false, IntPtr.Zero);
+        public static Image _defaultProfilesOnGrid = ImageHelper.GetHighQualityThumbnail(Properties.Resources.user1, 40, 40);
 
-        public static Image _statusMenunggu = Properties.Resources.Menunggu.GetThumbnailImage(80, 40, () => false, IntPtr.Zero);
-
-
-        public static Image _statusDikerjakan = Properties.Resources.Dikerjakan.GetThumbnailImage(80, 40, () => false, IntPtr.Zero);
-
-        public static Image _statusSelesai = Properties.Resources.Selesai.GetThumbnailImage(80, 40, () => false, IntPtr.Zero);
-
-        public static Image _statusDibatalkan = Properties.Resources.Dibatalkan.GetThumbnailImage(80, 40, () => false, IntPtr.Zero);
+        public static Image _statusMenunggu = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Menunggu, 80, 40);
 
 
-        public static Image _roleSuperAdmin = Properties.Resources.SuperAdmin.GetThumbnailImage(148, 40, () => false, IntPtr.Zero);
 
-        public static Image _rolePetugas = Properties.Resources.Petugas.GetThumbnailImage(148, 40, () => false, IntPtr.Zero);
+        public static Image _statusDikerjakan = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Dikerjakan, 80, 40);
+
+        public static Image _statusSelesai = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Selesai, 80, 40);
+
+        public static Image _statusDibatalkan = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Dibatalkan, 80, 40);
+
+
+
+        public static Image _roleSuperAdmin = ImageHelper.GetHighQualityThumbnail(Properties.Resources.SuperAdmin, 148, 40);
+
+        public static Image _rolePetugas = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Petugas, 148, 40);
+
     }
 }

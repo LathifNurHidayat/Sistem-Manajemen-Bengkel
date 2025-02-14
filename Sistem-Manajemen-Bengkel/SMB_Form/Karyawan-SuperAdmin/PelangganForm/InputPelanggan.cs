@@ -24,8 +24,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
         private readonly PelangganDal _pelangganDal;
         private string _noKTP;
         private string _noHP;
-        private string _email;    
-
+        private string _email;
+        private bool _isReset = false;
         public InputPelanggan(string no_ktp_pelanggan)
         {
             InitializeComponent();
@@ -65,8 +65,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 no_hp = TextNomorHP.Text.Trim(),
                 alamat = TextAlamat.Text.Trim(),
                 email = TextEmail.Text.Trim(),
-                password = TextConfirmPassword.Text.Trim()
             };
+            if (_isReset)
+                pelanggan.password = TextConfirmPassword.Text.Trim();
+
 
             if (string.IsNullOrEmpty(_noKTP))
                 _pelangganDal.InsertData(pelanggan);
@@ -93,6 +95,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             TextEmail.TextChanged += TextInput_TextChanged;
             TextConfirmPassword.TextChanged += TextInput_TextChanged;
             TextPassword.TextChanged += TextInput_TextChanged;
+            LinkReset.Click += LinkReset_Click;
+        }
+
+        private void LinkReset_Click(object? sender, EventArgs e)
+        {
+            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin mereset password ?"))
+            {
+                TextPassword.Clear();
+                TextConfirmPassword.Clear();
+                _isReset = true;
+            }
         }
 
         private async void TextInput_TextChanged(object? sender, EventArgs e)

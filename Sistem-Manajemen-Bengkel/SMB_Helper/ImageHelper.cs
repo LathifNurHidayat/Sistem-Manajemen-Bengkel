@@ -26,11 +26,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             }
         }
 
-        
+
         public static Image ByteToImage(byte[] image_data)
         {
             if (image_data == null || image_data.Length == 0)
-                throw new ArgumentNullException(nameof(image_data), "Data gambar tidak boleh null atau kosong");
+                return null;
 
             using (MemoryStream ms = new MemoryStream(image_data))
             {
@@ -38,65 +38,63 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             }
         }
 
+
         #endregion
 
 
-        #region Convert Image Show To Grid
-        public static byte[] ResizeImageBytes(byte[] imageBytes, int maxWidth, int maxHeight)
+        #region Set Image
+
+        public static Image GetCircularImage(Image image)
         {
-            if (imageBytes == null || imageBytes.Length == 0)
-                throw new ArgumentNullException(nameof(imageBytes), "Data gambar tidak boleh null atau kosong");
+            int diameter = Math.Min(image.Width, image.Height);
 
-            // convert byte[] ke Image
-            using (MemoryStream ms = new MemoryStream(imageBytes))
+            Bitmap circularImage = new Bitmap(diameter, diameter, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            using (Graphics g = Graphics.FromImage(circularImage))
             {
-                Image image = Image.FromStream(ms);
+                g.SmoothingMode = SmoothingMode.AntiAlias;// agar tepinya halus
 
-                // Hitung rasio untuk mempertahankan aspect ratio
-                double ratioX = (double)maxWidth / image.Width;
-                double ratioY = (double)maxHeight / image.Height;
-                double ratio = Math.Min(ratioX, ratioY);
-
-                int newWidth = (int)(image.Width * ratio);
-                int newHeight = (int)(image.Height * ratio);
-
-                Image resizedImage = new Bitmap(image, newWidth, newHeight);
-
-                using (MemoryStream resizedStream = new MemoryStream())
+                using (GraphicsPath path = new GraphicsPath())
                 {
-                    resizedImage.Save(resizedStream, ImageFormat.Png); // Simpan sebagai PNG atau format lain
-                    return resizedStream.ToArray();
+                    path.AddEllipse(0, 0, diameter, diameter);// membuat lingkaran
+                    g.SetClip(path);
+                    g.Clear(Color.Transparent); // bg transparant
+
+                    //jika gambar tidak persegi
+                    int x = (image.Width - diameter) / 2;
+                    int y = (image.Height - diameter) / 2;
+
+                    g.DrawImage(image, new Rectangle(0, 0, diameter, diameter),
+                                new Rectangle(x, y, diameter, diameter), GraphicsUnit.Pixel);
                 }
             }
+            return circularImage;
         }
 
-        // Contoh fungsi tambahan: Resize Image ke ukuran maksimal tertentu (untuk file dari direktori)
-        public static byte[] ImageToByteMaxSize(string imgDirectory, int width, int height)
+
+        public static Image GetHighQualityThumbnail(Image image, int width, int height)
         {
-            Image image = Image.FromFile(imgDirectory);
-            Image imageResize = ResizeImage(image, width, height);
-            return ImageToByteArray(imageResize);
-        }
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
 
-        // Fungsi untuk meresize Image dengan mempertahankan aspect ratio
-        public static Image ResizeImage(Image image, int maxWidth, int maxHeight)
-        {
-            double ratioX = (double)maxWidth / image.Width;
-            double ratioY = (double)maxHeight / image.Height;
-            double ratio = Math.Min(ratioX, ratioY);
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
 
-            int newWidth = (int)(image.Width * ratio);
-            int newHeight = (int)(image.Height * ratio);
-
-            Bitmap newImage = new Bitmap(newWidth, newHeight);
-            using (Graphics g = Graphics.FromImage(newImage))
+            using (var graphics = Graphics.FromImage(destImage))
             {
-                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                g.DrawImage(image, 0, 0, newWidth, newHeight);
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
             }
-            return newImage;
+            return destImage;
         }
         #endregion
-
     }
 }

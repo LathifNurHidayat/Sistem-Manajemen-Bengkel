@@ -69,7 +69,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             dp.Add("@offset", inRowPage);
             dp.Add("@fetch", rowPerPage);
 
-            int totalEntries = _pelangganDal.CountData(filters);
+            int totalEntries = _pelangganDal.CountData(filters, dp);
             totalPage = (int)Math.Ceiling((double) totalEntries / rowPerPage);
 
             LabelShowEntries.Text = $"Showing {inRowPage + 1} to {inRowPage + rowPerPage} of {totalEntries} entries";

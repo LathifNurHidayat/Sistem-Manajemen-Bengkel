@@ -15,6 +15,7 @@ TRUNCATE TABLE tb_pelanggan;
 -------------------------------------------------
 -- 1. Insert 20 Data ke tb_pelanggan
 -------------------------------------------------
+
 INSERT INTO tb_pelanggan 
     (no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis, created_at)
 VALUES
@@ -254,3 +255,23 @@ VALUES
 (18, '32010110000018', '32010120000018', '32010130000018', 18, NULL, DATEADD(MINUTE, 18, GETDATE()), 'Lampu redup', 'Ganti bohlam', 120000, 'Selesai'),
 (19, '32010110000019', '32010120000019', '32010130000019', 19, NULL, DATEADD(MINUTE, 19, GETDATE()), 'AC berisik', 'Service AC', 220000, 'Selesai'),
 (20, '32010110000020', '32010120000020', '32010130000020', 20, NULL, DATEADD(MINUTE, 20, GETDATE()), 'Mesin tidak mau hidup', 'Perbaikan mesin', 300000, 'Selesai');
+
+
+
+
+
+
+
+
+
+UPDATE tb_pelanggan
+SET 
+no_ktp_pelanggan = '32011111111111',
+    nama_pelanggan = 'AKUUUU',
+    no_hp = '5363636363',
+    alamat = 'hgsdgbsdf skjdfbdsfsd',
+    email = 'jhsdbfdsmnfsd',
+    password = 'gfshdfhbsdf',
+    total_servis = 6,
+    created_at = GETDATE()
+WHERE no_ktp_pelanggan = '32010110000001';

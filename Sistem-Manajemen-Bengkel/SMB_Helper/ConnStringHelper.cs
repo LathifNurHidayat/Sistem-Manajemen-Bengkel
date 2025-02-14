@@ -10,7 +10,7 @@ namespace Sistem_Manajemen_Bengkel.Helper
     {
         public static string GetConn()
         {
-            return "Server=(local); Database=DB_Bengkel; Integrated Security=True; TrustServerCertificate=True;";
+            return "Server=(local); Database=DB_Bengkel; Integrated Security=True; TrustServerCertificate=True; Connect Timeout=120;";
         }
     }
 }

@@ -61,14 +61,32 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, pegawaiModel);
         }
 
-        public void SoftDeleteData(string no_ktp_pegawai)
+        public void UpdateDataNoKTP(PegawaiModel pegawai, string no_ktp)
+        {
+            const string sql = @"UPDATE tb_pegawai
+                                SET
+                                    no_ktp_pegawai = @no_ktp_pegawai,
+                                    nama_pegawai = @nama_pegawai,
+                                    no_hp = @no_hp,
+                                    alamat = @alamat,
+                                    email = @email,
+                                    password = @password,
+                                    updated_at = GETDATE()
+                                WHERE
+                                    no_ktp_pegawai = @no_ktp";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            Conn.Execute(sql, new { pegawai, no_ktp  = no_ktp});
+        }
+
+        public void SoftDeleteData(string no_ktp)
         {
             const string sql = @"UPDATE tb_pegawai SET
-                                    deleted_at = GETDATE()
-                                WHERE no_ktp_pegawai = @no_ktp_pegawai";
+                             deleted_at = GETDATE()
+                         WHERE no_ktp_pegawai = @no_ktp_pegawai";
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, no_ktp_pegawai);
+            conn.Execute(sql, new { no_ktp_pegawai = no_ktp });
         }
+
 
         public void RestoreData(string no_ktp_pegawai)
         {
@@ -86,7 +104,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, new { no_ktp_pegawai });
         }
 
-        public int CountData(string filter)
+        public int CountData(string filter, DynamicParameters dp)
         {
             string sql = @$"
                 SELECT COUNT(*) 
@@ -95,7 +113,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                 {filter}";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.ExecuteScalar<int>(sql);
+            return Conn.ExecuteScalar<int>(sql, dp);
         }
 
         public PegawaiModel? ValidasiLoginPetugas(string email, string password)

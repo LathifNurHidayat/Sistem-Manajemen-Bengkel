@@ -41,7 +41,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SMB_Form\Karyawan-SuperAdmin\PopUpForm\" />
     <Folder Include="SMB_Form\Karyawan-SuperAdmin\SparepartForm\" />
   </ItemGroup>
 

@@ -10,6 +10,7 @@ namespace Sistem_Manajemen_Bengkel.Helper
 {
     public class HashPasswordHelper
     {
+        #region Hash Password
         public static string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -23,5 +24,6 @@ namespace Sistem_Manajemen_Bengkel.Helper
                 return builder.ToString();
             }
         }
+        #endregion
     }
 }

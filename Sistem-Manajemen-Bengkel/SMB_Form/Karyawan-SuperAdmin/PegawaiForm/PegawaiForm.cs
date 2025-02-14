@@ -89,7 +89,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 
             if (!string.IsNullOrEmpty(search))
             {
-                dp.Add("@Search", $"% {search} %");
+                dp.Add("@Search", $"%{search}%");
                 filters = @" AND (no_ktp_pegawai LIKE @Search OR 
                                   nama_pegawai LIKE @Search OR 
                                   no_hp LIKE @Search OR 
@@ -105,7 +105,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             dp.Add("@offset", inRowPage);
             dp.Add("@fetch", rowPerPage);
 
-            int totalEntries = _pegawaiDal.CountData(filters);
+            
+            int totalEntries = _pegawaiDal.CountData(filters, dp);
             totalPage = (int)Math.Ceiling((double)totalEntries / rowPerPage);
 
             LabelShowEntries.Text = $"Showing {inRowPage + 1} to {inRowPage + rowPerPage} of {totalEntries} entries";
@@ -115,9 +116,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
                 {
                     No = inRowPage + index + 1,
                     Image = x.image_data != null ?
-                            Image.FromStream(new MemoryStream(x.image_data))
-                                .GetThumbnailImage(40, 40, () => false, IntPtr.Zero)
-                            : ImageDirectoryHelper._defaultProfilesOnGrid,
+                            ImageHelper.GetHighQualityThumbnail(Image.FromStream(new MemoryStream(x.image_data)), 40, 40) :
+                            ImageDirectoryHelper._defaultProfilesOnGrid,
                     NoKTP = x.no_ktp_pegawai,
                     Nama = x.nama_pegawai,
                     NoHP = x.no_hp,
@@ -140,6 +140,41 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             ButtonSearch.Click += ButtonSearch_Click;
             TextSearch.TextChanged += TextSearch_TextChanged;
             TextSearch.KeyDown += TextSearch_KeyDown;
+            GridListData.CellMouseClick += GridListData_CellMouseClick;
+            editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
+            deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
+
+        }
+
+        private void DeleteToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            string no_ktp = GridListData.CurrentRow?.Cells["NoKTP"]?.Value?.ToString() ?? string.Empty;
+            if (string.IsNullOrEmpty(no_ktp)) return;
+            if (MesboxHelper.ShowConfirm("Anda yakin ingin menghapus data ?"))
+            {
+                _pegawaiDal.SoftDeleteData(no_ktp);
+                LoadData();
+            }
+        }
+
+        private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            string no_ktp = GridListData.CurrentRow?.Cells["NoKTP"]?.Value?.ToString() ?? string.Empty;
+            if (string.IsNullOrEmpty(no_ktp)) return;
+
+            InputPegawai pegawai = new InputPegawai(no_ktp);
+            if (pegawai.ShowDialog(this) == DialogResult.OK)
+                LoadData();
+        }
+
+        private void GridListData_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                GridListData.ClearSelection();
+                GridListData.CurrentCell = GridListData[e.ColumnIndex, e.RowIndex];
+                contextMenuStrip.Show(Cursor.Position);
+            }
         }
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
