@@ -38,7 +38,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
                 _pelangganDal.RestoreData(_noKTP);
                 MesboxHelper.ShowInfo("Data berhasil dipulihkan");
                 ShowFormHelper.ShowFormInPanel(new PelangganForm());
-                this.Close();
+                this.DialogResult = DialogResult.OK;
             }
         }
 

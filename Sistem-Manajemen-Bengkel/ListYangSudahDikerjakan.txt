@@ -1,1 +1,3 @@
 ﻿1. CRUD Pelanggan 
+2. CRUD Pegawai
+3. 

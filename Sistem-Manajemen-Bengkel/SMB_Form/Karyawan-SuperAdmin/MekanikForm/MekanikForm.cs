@@ -11,20 +11,16 @@ using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
-using static Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm.PelangganForm;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
 {
-    public partial class PegawaiForm : Form
+    public partial class MekanikForm : Form
     {
-
-        private readonly PegawaiDal _pegawaiDal;
-        
-        public PegawaiForm()
+        private readonly MekanikDal _mekanikDal;
+        public MekanikForm()
         {
             InitializeComponent();
-
-            _pegawaiDal = new PegawaiDal();
+            _mekanikDal = new MekanikDal();
 
             CustomComponent();
             LoadData();
@@ -37,8 +33,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
         {
             List<int> entries = new() { 10, 25, 50, 100 };
             ComboEntries.DataSource = entries;
-            List<string> sortBy = new() { "Semua (All)", "Petugas", "Super Admin" };
-            ComboFilter.DataSource = sortBy;
             CustomComponentHelper.CustomDataGrid(GridListData);
             CustomComponentHelper.CustomPanel(PanelBooking);
         }
@@ -49,30 +43,27 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 
             grid.Columns["No"].FillWeight = 5;
             grid.Columns["Image"].FillWeight = 8;
-            grid.Columns["NoKTP"].FillWeight = 12;
+            grid.Columns["NoKTP"].FillWeight = 15;
             grid.Columns["Nama"].FillWeight = 25;
             grid.Columns["NoHP"].FillWeight = 12;
-            grid.Columns["Alamat"].FillWeight = 27;
-            grid.Columns["Email"].FillWeight = 15;
-            grid.Columns["Role"].FillWeight = 15;
+            grid.Columns["Alamat"].FillWeight = 25;
+            grid.Columns["Spesialis"].FillWeight = 20;
 
             foreach (DataGridViewColumn col in grid.Columns)
             {
                 col.DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
             }
 
-            grid.Columns["NoKTP"].HeaderText = "No KTP";
-            grid.Columns["Nama"].HeaderText = "Nama Pelanggan";
+            grid.Columns["No"].HeaderText = "No";
             grid.Columns["Image"].HeaderText = "Profile";
+            grid.Columns["NoKTP"].HeaderText = "No KTP";
+            grid.Columns["Nama"].HeaderText = "Nama Mekanik";
             grid.Columns["NoHP"].HeaderText = "No. HP";
             grid.Columns["Alamat"].HeaderText = "Alamat";
-            grid.Columns["Email"].HeaderText = "Email";
-            grid.Columns["Role"].HeaderText = "Role";
+            grid.Columns["Spesialis"].HeaderText = "Spesialis";
 
-            grid.Columns["Role"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            grid.Columns["Image"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //grid.Columns["Image"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
-
 
 
         int page = 1;
@@ -86,44 +77,36 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             var dp = new DynamicParameters();
             string filters = string.Empty;
 
-            if (ComboFilter.SelectedItem == "Petugas")
-                filters += " AND role = 2 ";
-
-            else if (ComboFilter.SelectedItem == "Super Admin")
-                filters += " AND role = 1 ";
-
             if (!string.IsNullOrEmpty(search))
             {
                 dp.Add("@Search", $"%{search}%");
-                filters = @" AND (no_ktp_pegawai LIKE @Search OR 
-                                  nama_pegawai LIKE @Search OR 
+                filters = @" AND (no_ktp_mekanik LIKE @Search OR 
+                                  nama_mekanik LIKE @Search OR 
                                   no_hp LIKE @Search OR 
                                   alamat LIKE @Search OR 
-                                  email LIKE @Search) ";
+                                  spesialis LIKE @Search) ";
             }
             dp.Add("@offset", inRowPage);
             dp.Add("@fetch", rowPerPage);
 
-            
-            int totalEntries = _pegawaiDal.CountData(filters, dp);
+
+            int totalEntries = _mekanikDal.CountData(filters, dp);
             totalPage = (int)Math.Ceiling((double)totalEntries / rowPerPage);
 
             LabelShowEntries.Text = $"Showing {inRowPage + 1} to {inRowPage + rowPerPage} of {totalEntries} entries";
 
-            var data = _pegawaiDal.ListData(filters, dp)
+            var data = _mekanikDal.ListData(filters, dp)
                 .Select((x, index) => new
                 {
                     No = inRowPage + index + 1,
                     Image = x.image_data != null ?
                             ImageHelper.GetHighQualityThumbnail(Image.FromStream(new MemoryStream(x.image_data)), 40, 40) :
                             ImageDirectoryHelper._defaultProfilesOnGrid,
-                    NoKTP = x.no_ktp_pegawai,
-                    Nama = x.nama_pegawai,
+                    NoKTP = x.no_ktp_mekanik,
+                    Nama = x.nama_mekanik,
                     NoHP = x.no_hp,
                     Alamat = x.alamat,
-                    Email = x.email,
-                    Role = x.role == 1 ? ImageDirectoryHelper._roleSuperAdmin :
-                           x.role == 2 ? ImageDirectoryHelper._rolePetugas : null
+                    Spesialis = x.spesialis
                 }).ToList();
 
             GridListData.DataSource = data;
@@ -133,7 +116,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
         {
             ButtonTambah.Click += ButtonTambah_Click;
             ComboEntries.SelectedValueChanged += ComboEntries_SelectedValueChanged;
-            ComboFilter.SelectedValueChanged += ComboFilter_SelectedIndexChanged;
             ButtonNext.Click += ButtonNext_Click;
             ButtonPreviuos.Click += ButtonPreviuos_Click;
             ButtonSearch.Click += ButtonSearch_Click;
@@ -150,7 +132,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             if (string.IsNullOrEmpty(no_ktp)) return;
             if (MesboxHelper.ShowConfirm("Anda yakin ingin menghapus data ?"))
             {
-                _pegawaiDal.SoftDeleteData(no_ktp);
+                _mekanikDal.SoftDeleteData(no_ktp);
                 LoadData();
             }
         }
@@ -160,7 +142,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             string no_ktp = GridListData.CurrentRow?.Cells["NoKTP"]?.Value?.ToString() ?? string.Empty;
             if (string.IsNullOrEmpty(no_ktp)) return;
 
-            InputPegawai pegawai = new InputPegawai(no_ktp);
+            InputMekanikForm pegawai = new InputMekanikForm(no_ktp);
             if (pegawai.ShowDialog(this) == DialogResult.OK)
                 LoadData();
         }
@@ -224,12 +206,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
                 page = 1;
                 ButtonSearch.PerformClick();
             }
-        }
-
-        private void ComboFilter_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            page = 1;
-            LoadData();
         }
 
         private void ComboEntries_SelectedValueChanged(object? sender, EventArgs e)

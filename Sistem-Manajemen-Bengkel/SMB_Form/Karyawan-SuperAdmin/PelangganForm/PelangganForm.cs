@@ -31,7 +31,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             List<string> sortBy = new() { "Default", "Servis Terbanyak", "Servis Tersedikit" };
             ComboFilter.DataSource = sortBy;
             CustomComponentHelper.CustomDataGrid(GridListData);
-            // CustomComponentHelper.CustomPanel(PanelBooking);
+            CustomComponentHelper.CustomPanel(PanelBooking);
         }
 
 
@@ -102,7 +102,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
             foreach (DataGridViewColumn col in grid.Columns)
             {
-                col.DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+                col.DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
             }
 
             grid.Columns["Nomor_KTP"].HeaderText = "No KTP";
@@ -142,6 +142,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             {
                 _pelangganDal.SoftDeleteData(no_ktp);
                 LoadData();
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil dihapus");
+                nontifikasiForm.ShowDialog(this);
             }
         }
 
@@ -149,7 +151,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
         {
             string no_ktp = GridListData.CurrentRow?.Cells["Nomor_KTP"]?.Value?.ToString()?? string.Empty;
             if (string.IsNullOrEmpty(no_ktp)) return;
-            ShowFormHelper.ShowFormInPanel(new InputPelanggan(no_ktp));
+            InputPelangganForm inputPelanggan = new InputPelangganForm(no_ktp);
+            if (inputPelanggan.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadData();
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil diubah");
+                nontifikasiForm.ShowDialog(this);
+            }
         }
 
         private void ButtonPreviuos_Click(object? sender, EventArgs e)
@@ -212,7 +220,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
-            ShowFormHelper.ShowFormInPanel(new InputPelanggan(string.Empty));
+            InputPelangganForm inputPelanggan = new InputPelangganForm(string.Empty);
+            if (inputPelanggan.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadData();
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil ditambahkan");
+                nontifikasiForm.ShowDialog(this);
+            }
         }
 
         private void ButtonSearch_Click(object? sender, EventArgs e)

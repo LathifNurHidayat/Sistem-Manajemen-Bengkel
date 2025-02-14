@@ -274,4 +274,4 @@ no_ktp_pelanggan = '32011111111111',
     password = 'gfshdfhbsdf',
     total_servis = 6,
     created_at = GETDATE()
-WHERE no_ktp_pelanggan = '32010110000001';
+WHERE no_ktp_pelanggan = '32011111111111';

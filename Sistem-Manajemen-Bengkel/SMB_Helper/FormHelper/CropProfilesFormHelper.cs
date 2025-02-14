@@ -7,7 +7,7 @@ using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
 {
-    public partial class CropProfilesForm : Form
+    public partial class CropProfilesFormHelper : Form
     {
         private bool _isMouseDown = false;
         private Point _startPoint;
@@ -15,7 +15,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
         private Image _gambarAsli = null;
         public Image _hasilCrop { get; private set; }
 
-        public CropProfilesForm()
+        public CropProfilesFormHelper()
         {
             InitializeComponent();
             this.MaximizeBox = false;
@@ -120,18 +120,26 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
             Point currentPoint = e.Location;
             int deltaX = Math.Abs(currentPoint.X - _startPoint.X);
             int deltaY = Math.Abs(currentPoint.Y - _startPoint.Y);
-            int side = Math.Min(deltaX, deltaY); // sisi persegi adalah nilai minimum dari deltaX dan deltaY
+            int side = Math.Min(deltaX, deltaY); // Sisi persegi adalah nilai minimum dari deltaX dan deltaY
 
             int x = _startPoint.X;
             int y = _startPoint.Y;
+
             if (currentPoint.X < _startPoint.X)
                 x = _startPoint.X - side;
             if (currentPoint.Y < _startPoint.Y)
                 y = _startPoint.Y - side;
 
+            // **Cegah agar kotak tidak keluar dari batas PictureBox**
+            if (x < 0) x = 0;
+            if (y < 0) y = 0;
+            if (x + side > PictureFotoAwal.Width) side = PictureFotoAwal.Width - x;
+            if (y + side > PictureFotoAwal.Height) side = PictureFotoAwal.Height - y;
+
             _selectionRect = new Rectangle(x, y, side, side);
-            PictureFotoAwal.Invalidate(); 
+            PictureFotoAwal.Invalidate();
         }
+
 
         // Event MouseUp pada PictureFotoAwal: selesai memilih area crop
         private void PictureFotoAwal_MouseUp(object sender, MouseEventArgs e)

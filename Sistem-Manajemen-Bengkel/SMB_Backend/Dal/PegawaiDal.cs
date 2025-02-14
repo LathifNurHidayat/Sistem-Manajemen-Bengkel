@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.Helper;
+using System.Data;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
@@ -29,54 +30,94 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = @"SELECT * FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.QueryFirstOrDefault<PegawaiModel>(sql, new { no_ktp_pegawai });
+            return Conn.QueryFirstOrDefault<PegawaiModel>(sql, new { no_ktp_pegawai = no_ktp_pegawai });
         }
 
         public void InsertData(PegawaiModel pegawaiModel)
         {
             const string sql = @"INSERT INTO tb_pegawai 
-                                    (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_name, image_data)
-                                 VALUES 
-                                    (@no_ktp_pegawai, @nama_pegawai, @email, @password, @no_hp, @alamat, @role, @image_name, @image_data)";
+                            (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_name, image_data)
+                         VALUES 
+                            (@no_ktp_pegawai, @nama_pegawai, @email, @password, @no_hp, @alamat, @role, @image_name, @image_data)";
 
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, pegawaiModel);
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@no_ktp_pegawai", pegawaiModel.no_ktp_pegawai);
+            Dp.Add("@nama_pegawai", pegawaiModel.nama_pegawai);
+            Dp.Add("@email", pegawaiModel.email);
+            Dp.Add("@password", pegawaiModel.password);
+            Dp.Add("@no_hp", pegawaiModel.no_hp);
+            Dp.Add("@alamat", pegawaiModel.alamat);
+            Dp.Add("@role", pegawaiModel.role);
+            Dp.Add("@image_data", pegawaiModel.image_data);
+
+            conn.Execute(sql, Dp);
         }
 
-        public void UpdateData(PegawaiModel pegawaiModel)
+        public void UpdateData(PegawaiModel pegawaiModel, bool isPasswordReset)
         {
-            const string sql = @"UPDATE tb_pegawai SET
-                                    nama_pegawai = @nama_pegawai,
-                                    email = @email,
-                                    password = @password,
-                                    no_hp = @no_hp,
-                                    alamat = @alamat,
-                                    role = @role,
-                                    image_name = @image_name,
-                                    image_data = @image_data,
-                                    updated_at = GETDATE()
-                                WHERE no_ktp_pegawai = @no_ktp_pegawai";
+            string sql = @$"UPDATE tb_pegawai SET
+                                nama_pegawai = @nama_pegawai,
+                                email = @email,
+                                no_hp = @no_hp,
+                                alamat = @alamat,
+                                role = @role,
+                                image_data = @image_data,
+                                updated_at = GETDATE()
+                                {( isPasswordReset ? ", password = @password" : "")}
+                            WHERE no_ktp_pegawai = @no_ktp_pegawai";
 
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, pegawaiModel);
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@no_ktp_pegawai", pegawaiModel.no_ktp_pegawai);
+            Dp.Add("@nama_pegawai", pegawaiModel.nama_pegawai);
+            Dp.Add("@email", pegawaiModel.email);
+            Dp.Add("@no_hp", pegawaiModel.no_hp);
+            Dp.Add("@alamat", pegawaiModel.alamat);
+            Dp.Add("@role", pegawaiModel.role);
+            Dp.Add("@image_data", pegawaiModel.image_data);
+
+            if (isPasswordReset)
+                Dp.Add("@password", pegawaiModel.password);
+
+            conn.Execute(sql, Dp);
         }
 
-        public void UpdateDataNoKTP(PegawaiModel pegawai, string no_ktp)
+        public void UpdateDataNoKTP(PegawaiModel pegawai, string no_ktp, bool isPasswordReset)
         {
-            const string sql = @"UPDATE tb_pegawai
-                                SET
-                                    no_ktp_pegawai = @no_ktp_pegawai,
-                                    nama_pegawai = @nama_pegawai,
-                                    no_hp = @no_hp,
-                                    alamat = @alamat,
-                                    email = @email,
-                                    password = @password,
-                                    updated_at = GETDATE()
-                                WHERE
-                                    no_ktp_pegawai = @no_ktp";
+            string sql = @$"UPDATE tb_pegawai SET
+                                no_ktp_pegawai = @no_ktp_pegawai,
+                                nama_pegawai = @nama_pegawai,
+                                email = @email,
+                                no_hp = @no_hp,
+                                alamat = @alamat,
+                                role = @role,
+                                image_data = @image_data,
+                                updated_at = GETDATE()
+                                {(isPasswordReset ? ", password = @password" : "")} 
+                            WHERE no_ktp_pegawai = @no_ktp";
+
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            Conn.Execute(sql, new { pegawai, no_ktp  = no_ktp});
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@no_ktp_pegawai", pegawai.no_ktp_pegawai);
+            Dp.Add("@nama_pegawai", pegawai.nama_pegawai);
+            Dp.Add("@email", pegawai.email);
+            Dp.Add("@no_hp", pegawai.no_hp);
+            Dp.Add("@alamat", pegawai.alamat);
+            Dp.Add("@role", pegawai.role);
+            Dp.Add("@image_data", pegawai.image_data);
+            Dp.Add("@no_ktp", no_ktp);
+
+            if (isPasswordReset)
+                Dp.Add("@password", pegawai.password);
+
+            Conn.Execute(sql, Dp);
         }
+
+
 
         public void SoftDeleteData(string no_ktp)
         {
@@ -94,20 +135,20 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     deleted_at = NULL
                                 WHERE no_ktp_pegawai = @no_ktp_pegawai";
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, no_ktp_pegawai);
+            conn.Execute(sql, new { no_ktp_pegawai = no_ktp_pegawai});
         }
 
         public void DeletePermanent(string no_ktp_pegawai)
         {
             const string sql = "DELETE FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai";
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, new { no_ktp_pegawai });
+            conn.Execute(sql, new { no_ktp_pegawai = no_ktp_pegawai });
         }
 
         public int CountData(string filter, DynamicParameters dp)
         {
             string sql = @$"
-                SELECT COUNT(*) 
+                SELECT COUNT(no_ktp_pegawai) 
                 FROM tb_pegawai 
                 WHERE deleted_at IS NULL 
                 {filter}";
@@ -131,27 +172,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
         public int ValidasiDaftar(string no_ktp_pegawai, string no_hp, string email)
         {
-            const string cek_RestoreData = "SELECT COUNT(*) FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai AND deleted_at IS NOT NULL";
-            const string cek_NIK = "SELECT COUNT(*) FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai";
-            const string cek_NoTelp = "SELECT COUNT(*) FROM tb_pegawai WHERE no_hp = @no_hp";
-            const string cek_Email = "SELECT COUNT(*) FROM tb_pegawai WHERE email = @email";
+            const string sql = @"SELECT CASE 
+                                        WHEN EXISTS (SELECT 1 FRON tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai AND deleted_at IS NULL) THEN 1
+                                        WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai) THEN 2
+                                        WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_hp = @no_hp) THEN 3
+                                        WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE email = @email) THEN 4
+                                        ELSE 0
+                                END AS Result";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            var cekRestoreData = Conn.QueryFirstOrDefault<bool>(cek_RestoreData, new { no_ktp_pegawai });
-            var cekNIK = Conn.QueryFirstOrDefault<bool>(cek_NIK, new { no_ktp_pegawai });
-            var cekNoTelp = Conn.QueryFirstOrDefault<bool>(cek_NoTelp, new { no_hp });
-            var cekEmail = Conn.QueryFirstOrDefault<bool>(cek_Email, new { email });
-
-            if (cekRestoreData)
-                return 1;
-            if (cekNIK)
-                return 2;
-            else if (cekNoTelp)
-                return 3;
-            else if (cekEmail)
-                return 4;
-            else
-                return 0;
+            return Conn.QueryFirstOrDefault<int>(sql, new { no_ktp_pegawai, no_hp, email });
         }
 
     }

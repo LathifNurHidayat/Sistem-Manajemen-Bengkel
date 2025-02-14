@@ -8,24 +8,26 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PegawaiForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
-using Syncfusion.Windows.Forms.Tools;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 {
-    public partial class InputPegawai : Form
+    public partial class InputPegawaiForm : Form
     {
-       // private CancellationTokenSource _cts = new CancellationTokenSource();
         private readonly PegawaiDal _pegawaiDal;
         private string _noKTP;
         private string _noHP;
         private string _email;
+        private bool _isPasswordReset = false;
+        private bool _isUserTyping = false;
+        private DateTime _lastUserTyping;
 
-        public InputPegawai(string no_ktp_pegawai)
+        public InputPegawaiForm(string no_ktp_pegawai)
         {
             InitializeComponent();
             _pegawaiDal = new PegawaiDal();
@@ -33,7 +35,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             this.MinimizeBox = false;
 
             if (!string.IsNullOrEmpty(no_ktp_pegawai))
+            {
                 GetData(no_ktp_pegawai);
+                LabelJudul.Text = "Update Data Pegawai";
+                LabelResetPass.Visible = true;
+                LinkReset.Visible = true;
+                TextPassword.ReadOnly = true;
+                TextConfirmPassword.ReadOnly = true;
+                TextPassword.BackColor = SystemColors.Window;
+                TextConfirmPassword.BackColor = SystemColors.Window;
+            }
 
             RegisterControlEvent();
         }
@@ -43,7 +54,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             var pegawai = _pegawaiDal.GetData(no_ktp_pegawai);
             if (pegawai == null) return;
 
-            PictureProfiles.Image = ImageHelper.ByteToImage(pegawai.image_data) == null ? ImageDirectoryHelper._defaultProfilesOnGrid : ImageHelper.ByteToImage(pegawai.image_data);
+            PictureProfiles.Image = ImageHelper.ByteToImage(pegawai.image_data) == null ? ImageDirectoryHelper._defaultProfiles : ImageHelper.ByteToImage(pegawai.image_data);
             TextNamaLengkap.Text = pegawai.nama_pegawai;
             TextNoKTP.Text = pegawai.no_ktp_pegawai;
             TextNoHP.Text = pegawai.no_hp;
@@ -73,60 +84,29 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 alamat =  TextAlamat.Text,
                 nama_pegawai = TextNamaLengkap.Text,
                 email = TextEmail.Text,
-                password = TextConfirmPassword.Text,
                 role = RadioKaryawan.Checked ? 2 : RadioSuperAdmin.Checked ? 1 : 0
             };
+
             if (string.IsNullOrEmpty(_noKTP))
+            {
+                pegawai.password = HashPasswordHelper.HashPassword(TextConfirmPassword.Text.Trim());
                 _pegawaiDal.InsertData(pegawai);
+            }
             else
             {
+                if (_isPasswordReset == true)
+                    pegawai.password = HashPasswordHelper.HashPassword(TextConfirmPassword.Text.Trim());
+
                 if (_noKTP == TextNoKTP.Text.Trim())
-                    _pegawaiDal.UpdateData(pegawai);
+                    _pegawaiDal.UpdateData(pegawai, _isPasswordReset);
                 else
-                    _pegawaiDal.UpdateDataNoKTP(pegawai, _noKTP);
+                    _pegawaiDal.UpdateDataNoKTP(pegawai, _noKTP, _isPasswordReset);
             }
         }
 
 
-        private void RegisterControlEvent()
+        private void ValidasiInput(TextBox textbox)
         {
-            ButtonEditProfiles.Click += ButtonEditProfiles_Click;
-            ButtonSimpan.Click += ButtonSimpan_Click;
-
-            TextNoKTP.TextChanged += TextInput_TextChanged;
-            TextNoHP.TextChanged += TextInput_TextChanged;
-            TextEmail.TextChanged += TextInput_TextChanged;
-            TextEmail.TextChanged += TextInput_TextChanged;
-            TextConfirmPassword.TextChanged += TextInput_TextChanged;
-            TextPassword.TextChanged += TextInput_TextChanged;
-            ButtonBatal.Click += ButtonBatal_Click;
-        }
-
-        private void ButtonBatal_Click(object? sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private async void TextInput_TextChanged(object? sender, EventArgs e)
-        {
-          /*  _cts.Cancel();
-            _cts.Dispose();
-            _cts = new CancellationTokenSource();
-
-
-            try
-            {
-                await Task.Delay(500, _cts.Token);
-            }
-            catch (TaskCanceledException)
-            {
-                return;
-            }*/
-
-
-
-            TextBox textbox = (TextBox)sender;
-
             if (textbox.Tag == "Email")
             {
                 if (!Regex.IsMatch(TextEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
@@ -205,8 +185,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
             if (cekData == 1)
             {
-                RestorePelangganForm restore = new RestorePelangganForm(no_ktp);
-                restore.ShowDialog(this);
+                RestorePegawaiForm restore = new RestorePegawaiForm(no_ktp);
+                if (restore.ShowDialog() == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    return;
+                }
             }
             if (cekData == 2)
                 LabelNIK.Visible = true;
@@ -220,6 +204,56 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 LabelEmail.Visible = true;
             else
                 LabelEmail.Visible = false;
+        }
+
+
+        private void RegisterControlEvent()
+        {
+            ButtonEditProfiles.Click += ButtonEditProfiles_Click;
+            ButtonSimpan.Click += ButtonSimpan_Click;
+
+            TextNoKTP.TextChanged += TextInput_TextChanged;
+            TextNoHP.TextChanged += TextInput_TextChanged;
+            TextEmail.TextChanged += TextInput_TextChanged;
+            TextEmail.TextChanged += TextInput_TextChanged;
+            TextConfirmPassword.TextChanged += TextInput_TextChanged;
+            TextPassword.TextChanged += TextInput_TextChanged;
+            ButtonBatal.Click += ButtonBatal_Click;
+            LinkReset.Click += LinkReset_Click;
+        }
+
+        private void LinkReset_Click(object? sender, EventArgs e)
+        {
+            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin mereset password ?"))
+            {
+                TextPassword.Clear();
+                TextConfirmPassword.Clear();
+                _isPasswordReset = true;
+                TextPassword.Focus();
+                TextPassword.ReadOnly = false;
+                TextConfirmPassword.ReadOnly = false;
+            }
+        }
+
+        private void ButtonBatal_Click(object? sender, EventArgs e) 
+        {
+            this.Close();
+        }
+
+        private async void TextInput_TextChanged(object? sender, EventArgs e)
+        {
+            _isUserTyping = true;
+            _lastUserTyping = DateTime.Now;
+
+            await Task.Delay(800);
+
+            if ((DateTime.Now - _lastUserTyping).TotalMilliseconds >= 800 && _isUserTyping)
+            {
+                _isUserTyping = false;
+                TextBox textbox = (TextBox)sender;
+                if (textbox == null) return;
+                ValidasiInput(textbox);
+            }
         }
 
 
@@ -239,12 +273,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
             SaveData();
             this.DialogResult = DialogResult.OK;
-            this.Close();
         }
 
         private void ButtonEditProfiles_Click(object? sender, EventArgs e)
         {
-            CropProfilesForm cropProfilesForm = new CropProfilesForm();
+            CropProfilesFormHelper cropProfilesForm = new CropProfilesFormHelper();
             if (cropProfilesForm.ShowDialog(this) == DialogResult.OK)
             {
                 PictureProfiles.Image = null;
@@ -253,11 +286,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

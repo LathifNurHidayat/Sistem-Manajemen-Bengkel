@@ -12,7 +12,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 {
     public partial class InputMekanikForm : Form
     {
-        public InputMekanikForm()
+        public InputMekanikForm(string no_ktp)
         {
             InitializeComponent();
         }

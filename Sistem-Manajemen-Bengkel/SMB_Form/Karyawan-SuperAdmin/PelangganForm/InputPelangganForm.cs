@@ -16,26 +16,55 @@ using Microsoft.Win32;
 using System.Windows.Automation.Text;
 using System.Text.RegularExpressions;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm;
+using Sistem_Manajemen_Bengkel.Helper;
+using Syncfusion.Licensing;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 {
-    public partial class InputPelanggan : Form
+    public partial class InputPelangganForm : Form
     {
         private readonly PelangganDal _pelangganDal;
         private string _noKTP;
         private string _noHP;
         private string _email;
-        private bool _isReset = false;
-        public InputPelanggan(string no_ktp_pelanggan)
+        private bool _isPasswordReset = false;
+        private bool _isUserTyping = false;
+        private DateTime _lastUserTyping;
+
+        public InputPelangganForm(string no_ktp_pelanggan)
         {
             InitializeComponent();
             _pelangganDal = new PelangganDal();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
 
-            if (no_ktp_pelanggan != string.Empty)
-                LabelJudul.Text = "Update Pelanggan";
+            if (!string.IsNullOrEmpty(no_ktp_pelanggan))
+            {
+                GetData(no_ktp_pelanggan);
+                LabelJudul.Text = "Update Data Pelanggan";
+                LinkReset.Visible = true;
+                LabelResetPass.Visible = true;
+                BoolReadonlyTextbox(true);
+            }
 
-            GetData(no_ktp_pelanggan);
             RegisterControlEvent();
+        }
+
+        private void BoolReadonlyTextbox(bool kondisi)
+        {
+            TextPassword.ReadOnly = kondisi;
+            TextConfirmPassword.ReadOnly = kondisi;
+            
+            if (kondisi)
+            {
+                panel8.BackColor = TextPassword.BackColor;
+                panel9.BackColor = TextPassword.BackColor;
+            }
+            if (!kondisi)
+            {
+                panel8.BackColor = TextConfirmPassword.BackColor;
+                panel9.BackColor = TextConfirmPassword.BackColor;
+            }
         }
 
         private void GetData(string no_ktp_pelanggan)
@@ -66,53 +95,27 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 alamat = TextAlamat.Text.Trim(),
                 email = TextEmail.Text.Trim(),
             };
-            if (_isReset)
-                pelanggan.password = TextConfirmPassword.Text.Trim();
 
 
             if (string.IsNullOrEmpty(_noKTP))
+            {
+                pelanggan.password = HashPasswordHelper.HashPassword(TextConfirmPassword.Text.Trim());
                 _pelangganDal.InsertData(pelanggan);
+            }
             else
             {
+                if (_isPasswordReset == true)
+                    pelanggan.password = HashPasswordHelper.HashPassword(TextConfirmPassword.Text.Trim());
+
                 if (_noKTP == TextNoKTP.Text.Trim())
-                    _pelangganDal.UpdateData(pelanggan);
+                    _pelangganDal.UpdateData(pelanggan , _isPasswordReset);
                 else
-                    _pelangganDal.UpdateDataNoKTP(pelanggan, _noKTP);
+                    _pelangganDal.UpdateDataNoKTP(pelanggan, _noKTP, _isPasswordReset);
             }
         }
 
-     
-        #region EVENT
-
-        private void RegisterControlEvent()
+        private void ValidasiInput(TextBox textbox)
         {
-            ButtonBatal.Click += ButtonBatal_Click;
-            ButtonSimpan.Click += ButtonSimpan_Click;
-
-            TextNoKTP.TextChanged += TextInput_TextChanged;
-            TextNomorHP.TextChanged += TextInput_TextChanged;
-            TextEmail.TextChanged += TextInput_TextChanged;
-            TextEmail.TextChanged += TextInput_TextChanged;
-            TextConfirmPassword.TextChanged += TextInput_TextChanged;
-            TextPassword.TextChanged += TextInput_TextChanged;
-            LinkReset.Click += LinkReset_Click;
-        }
-
-        private void LinkReset_Click(object? sender, EventArgs e)
-        {
-            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin mereset password ?"))
-            {
-                TextPassword.Clear();
-                TextConfirmPassword.Clear();
-                _isReset = true;
-            }
-        }
-
-        private async void TextInput_TextChanged(object? sender, EventArgs e)
-        {
-            await Task.Delay(500);
-            TextBox textbox = (TextBox)sender;
-
             if (textbox.Tag == "Email")
             {
                 if (!Regex.IsMatch(TextEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
@@ -192,7 +195,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             if (cekData == 1)
             {
                 RestorePelangganForm restore = new RestorePelangganForm(no_ktp);
-                restore.ShowDialog(this);
+                if (restore.ShowDialog(this) == DialogResult.OK)
+                    this.Close();
             }
             if (cekData == 2)
                 LabelNIK.Visible = true;
@@ -206,6 +210,51 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 LabelEmail.Visible = true;
             else
                 LabelEmail.Visible = false;
+        }
+
+     
+        #region EVENT
+
+        private void RegisterControlEvent()
+        {
+            ButtonBatal.Click += ButtonBatal_Click;
+            ButtonSimpan.Click += ButtonSimpan_Click;
+
+            TextNoKTP.TextChanged += TextInput_TextChanged;
+            TextNomorHP.TextChanged += TextInput_TextChanged;
+            TextEmail.TextChanged += TextInput_TextChanged;
+            TextEmail.TextChanged += TextInput_TextChanged;
+            TextConfirmPassword.TextChanged += TextInput_TextChanged;
+            TextPassword.TextChanged += TextInput_TextChanged;
+            LinkReset.Click += LinkReset_Click;
+        }
+
+        private void LinkReset_Click(object? sender, EventArgs e)
+        {
+            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin mereset password ?"))
+            {
+                TextPassword.Clear();
+                TextConfirmPassword.Clear();
+                _isPasswordReset = true;
+                TextPassword.Focus();
+                BoolReadonlyTextbox(false);
+            }
+        }
+
+        private async void TextInput_TextChanged(object? sender, EventArgs e)
+        {
+            _isUserTyping = true;
+            _lastUserTyping = DateTime.Now;
+
+            await Task.Delay(800);
+
+            if ((DateTime.Now - _lastUserTyping).TotalMilliseconds >= 800 && _isUserTyping)
+            {
+                _isUserTyping = false;
+                TextBox textbox = (TextBox)sender;
+                if (textbox == null) return;
+                ValidasiInput(textbox);
+            }
         }
 
         private void ButtonSimpan_Click(object? sender, EventArgs e)
@@ -222,13 +271,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                     return;
                 }
             SaveData();
-            ShowFormHelper.ShowFormInPanel(new PelangganForm());
-            MesboxHelper.ShowInfo("Data berhasil disimpan");
+            this.DialogResult = DialogResult.OK;
         }
 
         private void ButtonBatal_Click(object? sender, EventArgs e)
         {
-            ShowFormHelper.ShowFormInPanel(new PelangganForm());
+            this.Close();
         }
         #endregion
     }

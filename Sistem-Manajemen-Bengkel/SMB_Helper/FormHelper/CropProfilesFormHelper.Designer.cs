@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
 {
-    partial class CropProfilesForm
+    partial class CropProfilesFormHelper
     {
         /// <summary>
         /// Required designer variable.

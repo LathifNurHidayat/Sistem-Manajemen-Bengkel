@@ -16,69 +16,110 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
     {
         public IEnumerable<PelangganModel> ListData(string filter , string orderBy, object Dp)
         {
-            string sql = @$"SELECT * FROM tb_pelanggan 
-                                WHERE
-                                    deleted_at IS NULL 
-                                    {filter}
-                                ORDER BY 
-                                    {orderBy} 
-                                OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
+            string sql = @$"SELECT 
+                                no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, total_servis FROM tb_pelanggan 
+                            WHERE
+                                deleted_at IS NULL 
+                                {filter}
+                            ORDER BY 
+                                {orderBy} 
+                            OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<PelangganModel>(sql, Dp);
         }
 
         public PelangganModel? GetData(string no_ktp_pelanggan)
         {
-            const string sql = @"SELECT * FROM tb_pelanggan WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
+            const string sql = @"SELECT 
+                                    no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis   
+                                FROM tb_pelanggan WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<PelangganModel>(sql, new { no_ktp_pelanggan });
         }
 
-        public void InsertData(PelangganModel peanggan)
+        public void InsertData(PelangganModel pelanggan)
         {
             const string sql = @"INSERT INTO tb_pelanggan 
-                                    (no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis)
-                                VALUES
-                                    (@no_ktp_pelanggan, @nama_pelanggan, @no_hp, @alamat, @email, @password, 0)";
+                            (no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis)
+                        VALUES
+                            (@no_ktp_pelanggan, @nama_pelanggan, @no_hp, @alamat, @email, @password, 0)";
+
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            Conn.Execute(sql, peanggan);
-        }
-        
-        public void UpdateDataNoKTP(PelangganModel pelanggan, string no_ktp)
-        {
-            const string sql = @"UPDATE tb_pelanggan
-                                SET
-                                    no_ktp_pelanggan = @no_ktp_pelanggan,
-                                    nama_pelanggan = @nama_pelanggan,
-                                    no_hp = @no_hp,
-                                    alamat = @alamat,
-                                    email = @email,
-                                    password = @password,
-                                    total_servis = @total_servis,
-                                    updated_at = GETDATE()
-                                WHERE
-                                    no_ktp_pelanggan = @no_ktp";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            Conn.Execute(sql, new { pelanggan, no_ktp });
+            var Dp = new DynamicParameters();
+
+            Dp.Add("@no_ktp_pelanggan", pelanggan.no_ktp_pelanggan);
+            Dp.Add("@nama_pelanggan", pelanggan.nama_pelanggan);
+            Dp.Add("@no_hp", pelanggan.no_hp);
+            Dp.Add("@alamat", pelanggan.alamat);
+            Dp.Add("@email", pelanggan.email);
+            Dp.Add("@password", pelanggan.password);
+
+            Conn.Execute(sql, Dp);
         }
 
-        public void UpdateData(PelangganModel pelanggan)
-        {
 
-            const string sql = @"UPDATE tb_pelanggan
-                                SET
-                                    nama_pelanggan = @nama_pelanggan,
-                                    no_hp = @no_hp,
-                                    alamat = @alamat,
-                                    email = @email,
-                                    password = @password,
-                                    total_servis = @total_servis,
-                                    updated_at = GETDATE()
-                                WHERE
-                                    no_ktp_pelanggan = @no_ktp_pelanggan";
+        public void UpdateDataNoKTP(PelangganModel pelanggan, string no_ktp, bool isPasswordReset)
+        {
+            string sql = @$"UPDATE tb_pelanggan
+                           SET
+                               no_ktp_pelanggan = @no_ktp_pelanggan,
+                               nama_pelanggan = @nama_pelanggan,
+                               no_hp = @no_hp,
+                               alamat = @alamat,
+                               email = @email,
+                               total_servis = @total_servis,
+                               updated_at = GETDATE()
+                               { (isPasswordReset ? ", password = @password" : "")}
+                            WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
+
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            Conn.Execute(sql, pelanggan);
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@no_ktp_pelanggan", pelanggan.no_ktp_pelanggan);
+            Dp.Add("@nama_pelanggan", pelanggan.nama_pelanggan);
+            Dp.Add("@no_hp", pelanggan.no_hp);
+            Dp.Add("@alamat", pelanggan.alamat);
+            Dp.Add("@email", pelanggan.email);
+            Dp.Add("@total_servis", pelanggan.total_servis);
+            Dp.Add("@no_ktp", no_ktp);
+
+            if (isPasswordReset)
+                Dp.Add("@password", pelanggan.password);
+
+            Conn.Execute(sql, Dp);
         }
+
+
+
+        public void UpdateData(PelangganModel pelanggan, bool isPasswordReset)
+        {
+            string sql = @$"UPDATE tb_pelanggan SET
+                               nama_pelanggan = @nama_pelanggan,
+                               no_hp = @no_hp,
+                               alamat = @alamat,
+                               email = @email,
+                               total_servis = @total_servis,
+                               updated_at = GETDATE()
+                               {(isPasswordReset ? ", password = @password" : "")}
+                            WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@nama_pelanggan", pelanggan.nama_pelanggan);
+            Dp.Add("@no_hp", pelanggan.no_hp);
+            Dp.Add("@alamat", pelanggan.alamat);
+            Dp.Add("@email", pelanggan.email);
+            Dp.Add("@total_servis", pelanggan.total_servis);
+            Dp.Add("@no_ktp_pelanggan", pelanggan.no_ktp_pelanggan);
+
+            if (isPasswordReset)
+                Dp.Add("@password", pelanggan.password);
+
+            Conn.Execute(sql, Dp);
+        }
+
+
 
         public void SoftDeleteData(string no_ktp_pelanggan)
         {
@@ -97,7 +138,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public int CountData(string filter, DynamicParameters dp)
         {
             string sql = @$"
-                SELECT COUNT(*) 
+                SELECT COUNT(no_ktp_pelanggan) 
                 FROM tb_pelanggan 
                 WHERE deleted_at IS NULL 
                 {filter}";
@@ -117,28 +158,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
         public int ValidasiDaftar(string no_ktp_pelanggan, string no_hp, string email)
         {
-            const string cek_RestoreData = "SELECT COUNT(*) FROM tb_pelanggan WHERE no_ktp_pelanggan = @no_ktp_pelanggan AND deleted_at IS NOT NULL";
-            const string cek_NIK = "SELECT COUNT(*) FROM tb_pelanggan WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
-            const string cek_NoTelp = "SELECT COUNT(*) FROM tb_pelanggan WHERE no_hp = @no_hp";
-            const string cek_Email = "SELECT COUNT(*) FROM tb_pelanggan WHERE email = @email";
+            const string sql = @"SELECT CASE 
+                                    WHEN EXISTS (SELECT 1 FROM tb_pelanggan WHERE no_ktp_pelanggan = @no_ktp_pelanggan AND deleted_at IS NOT NULL) THEN 1
+                                    WHEN EXISTS (SELECT 1 FROM tb_pelanggan WHERE no_ktp_pelanggan = @no_ktp_pelanggan) THEN 2
+                                    WHEN EXISTS (SELECT 1 FROM tb_pelanggan WHERE no_hp = @no_hp) THEN 3
+                                    WHEN EXISTS (SELECT 1 FROM tb_pelanggan WHERE email = @email) THEN 4
+                                    ELSE 0
+                                END AS Result";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            var cekRestoreData = Conn.QueryFirstOrDefault<bool>(cek_RestoreData, new { no_ktp_pelanggan });
-            var cekNIK = Conn.QueryFirstOrDefault<bool>(cek_NIK, new { no_ktp_pelanggan });
-            var cekNoTelp = Conn.QueryFirstOrDefault<bool>(cek_NoTelp, new { no_hp });
-            var cekEmail = Conn.QueryFirstOrDefault<bool>(cek_Email, new { email });
-
-            if (cekRestoreData)
-                return 1;
-            if (cekNIK)
-                return 2;
-            else if (cekNoTelp)
-                return 3;
-            else if (cekEmail)
-                return 4;
-            else
-                return 0;
+            return Conn.QueryFirstOrDefault<int>(sql, new { no_ktp_pelanggan, no_hp, email });
         }
+
 
         public PelangganModel? ValidasiLoginPelanggan(string email, string password)
         {

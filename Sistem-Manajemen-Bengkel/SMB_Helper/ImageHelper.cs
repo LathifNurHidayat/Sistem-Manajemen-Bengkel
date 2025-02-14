@@ -74,18 +74,19 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
 
         public static Image GetHighQualityThumbnail(Image image, int width, int height)
         {
-            var destRect = new Rectangle(0, 0, width, height);
-            var destImage = new Bitmap(width, height);
+            if (image == null) return null; 
 
-            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+            var destImage = new Bitmap(width, height);
 
             using (var graphics = Graphics.FromImage(destImage))
             {
-                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingMode = CompositingMode.SourceOver;
                 graphics.CompositingQuality = CompositingQuality.HighQuality;
                 graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 graphics.SmoothingMode = SmoothingMode.HighQuality;
                 graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                var destRect = new Rectangle(0, 0, width, height);
 
                 using (var wrapMode = new ImageAttributes())
                 {
@@ -95,6 +96,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             }
             return destImage;
         }
+
         #endregion
     }
 }
