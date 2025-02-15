@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            LabelJudul = new Label();
+            ButtonSimpan = new SMB_CustomTolbox.LathifButton();
+            ButtonBatal = new SMB_CustomTolbox.LathifButton();
+            panel3 = new Panel();
             label4 = new Label();
+            LabelNoHP = new Label();
             panel7 = new Panel();
             TextAlamat = new TextBox();
-            LabelJudul = new Label();
-            panel4 = new Panel();
             label1 = new Label();
             panel6 = new Panel();
             TextNoHP = new TextBox();
@@ -44,206 +48,60 @@
             TextNamaLengkap = new TextBox();
             panel5 = new Panel();
             TextNoKTP = new TextBox();
-            ButtonSimpan = new SMB_CustomTolbox.LathifButton();
-            ButtonBatal = new SMB_CustomTolbox.LathifButton();
-            panel3 = new Panel();
             PictureProfiles = new SMB_CustomTolbox.RJCircularPictureBox();
             ButtonEditProfiles = new SMB_CustomTolbox.LathifButton();
+            label3 = new Label();
+            panel4 = new Panel();
+            TextSpesialis = new TextBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
             panel7.SuspendLayout();
-            panel4.SuspendLayout();
             panel6.SuspendLayout();
             panel2.SuspendLayout();
             panel5.SuspendLayout();
-            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureProfiles).BeginInit();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(panel7);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(LabelJudul);
-            panel1.Controls.Add(panel4);
             panel1.Controls.Add(ButtonSimpan);
             panel1.Controls.Add(ButtonBatal);
             panel1.Controls.Add(panel3);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1058, 729);
+            panel1.Size = new Size(609, 936);
             panel1.TabIndex = 0;
             // 
-            // label4
+            // pictureBox1
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.WhiteSmoke;
-            label4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(591, 525);
-            label4.Name = "label4";
-            label4.Size = new Size(64, 23);
-            label4.TabIndex = 47;
-            label4.Text = "Alamat";
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.White;
-            panel7.BorderStyle = BorderStyle.FixedSingle;
-            panel7.Controls.Add(TextAlamat);
-            panel7.Location = new Point(591, 551);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(386, 41);
-            panel7.TabIndex = 46;
-            // 
-            // TextAlamat
-            // 
-            TextAlamat.BorderStyle = BorderStyle.None;
-            TextAlamat.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextAlamat.Location = new Point(6, 7);
-            TextAlamat.MaxLength = 13;
-            TextAlamat.Name = "TextAlamat";
-            TextAlamat.Size = new Size(375, 24);
-            TextAlamat.TabIndex = 1;
-            TextAlamat.Tag = "NoHP";
+            pictureBox1.BackgroundImage = Properties.Resources.mechanic;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(36, 26);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(77, 78);
+            pictureBox1.TabIndex = 49;
+            pictureBox1.TabStop = false;
             // 
             // LabelJudul
             // 
             LabelJudul.AutoSize = true;
-            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJudul.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             LabelJudul.ForeColor = Color.Black;
-            LabelJudul.Location = new Point(36, 19);
+            LabelJudul.Location = new Point(119, 46);
             LabelJudul.Name = "LabelJudul";
-            LabelJudul.Size = new Size(201, 38);
+            LabelJudul.Size = new Size(163, 31);
             LabelJudul.TabIndex = 44;
             LabelJudul.Text = "Input Mekanik";
             // 
-            // panel4
-            // 
-            panel4.Anchor = AnchorStyles.None;
-            panel4.BackColor = Color.WhiteSmoke;
-            panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(label1);
-            panel4.Controls.Add(panel6);
-            panel4.Controls.Add(LabelNIK);
-            panel4.Controls.Add(label10);
-            panel4.Controls.Add(label2);
-            panel4.Controls.Add(panel2);
-            panel4.Controls.Add(panel5);
-            panel4.Location = new Point(544, 79);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(480, 561);
-            panel4.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(46, 329);
-            label1.Name = "label1";
-            label1.Size = new Size(65, 23);
-            label1.TabIndex = 45;
-            label1.Text = "No. HP";
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.White;
-            panel6.BorderStyle = BorderStyle.FixedSingle;
-            panel6.Controls.Add(TextNoHP);
-            panel6.Location = new Point(46, 354);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(386, 41);
-            panel6.TabIndex = 44;
-            // 
-            // TextNoHP
-            // 
-            TextNoHP.BorderStyle = BorderStyle.None;
-            TextNoHP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextNoHP.Location = new Point(6, 7);
-            TextNoHP.MaxLength = 13;
-            TextNoHP.Name = "TextNoHP";
-            TextNoHP.Size = new Size(375, 24);
-            TextNoHP.TabIndex = 1;
-            TextNoHP.Tag = "NoHP";
-            // 
-            // LabelNIK
-            // 
-            LabelNIK.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelNIK.ForeColor = Color.Red;
-            LabelNIK.Location = new Point(115, 56);
-            LabelNIK.Name = "LabelNIK";
-            LabelNIK.Size = new Size(317, 23);
-            LabelNIK.TabIndex = 34;
-            LabelNIK.Tag = "NIK";
-            LabelNIK.Text = "No. KTP sudah terdaftar";
-            LabelNIK.TextAlign = ContentAlignment.MiddleRight;
-            LabelNIK.Visible = false;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(46, 56);
-            label10.Name = "label10";
-            label10.Size = new Size(71, 23);
-            label10.TabIndex = 30;
-            label10.Text = "No. KTP";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(46, 187);
-            label2.Name = "label2";
-            label2.Size = new Size(126, 23);
-            label2.TabIndex = 31;
-            label2.Text = "Nama Lengkap";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(TextNamaLengkap);
-            panel2.Location = new Point(46, 218);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(386, 41);
-            panel2.TabIndex = 27;
-            // 
-            // TextNamaLengkap
-            // 
-            TextNamaLengkap.BorderStyle = BorderStyle.None;
-            TextNamaLengkap.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextNamaLengkap.Location = new Point(6, 7);
-            TextNamaLengkap.MaxLength = 13;
-            TextNamaLengkap.Name = "TextNamaLengkap";
-            TextNamaLengkap.Size = new Size(375, 24);
-            TextNamaLengkap.TabIndex = 1;
-            TextNamaLengkap.Tag = "NoHP";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.White;
-            panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(TextNoKTP);
-            panel5.Location = new Point(46, 82);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(386, 41);
-            panel5.TabIndex = 26;
-            // 
-            // TextNoKTP
-            // 
-            TextNoKTP.BorderStyle = BorderStyle.None;
-            TextNoKTP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextNoKTP.Location = new Point(6, 7);
-            TextNoKTP.MaxLength = 16;
-            TextNoKTP.Name = "TextNoKTP";
-            TextNoKTP.Size = new Size(375, 24);
-            TextNoKTP.TabIndex = 1;
-            TextNoKTP.Tag = "NIK";
-            // 
             // ButtonSimpan
             // 
-            ButtonSimpan.Anchor = AnchorStyles.None;
+            ButtonSimpan.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonSimpan.BackColor = Color.ForestGreen;
             ButtonSimpan.BackgroundColor = Color.ForestGreen;
             ButtonSimpan.BorderColor = Color.DarkGray;
@@ -253,17 +111,17 @@
             ButtonSimpan.FlatStyle = FlatStyle.Flat;
             ButtonSimpan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSimpan.ForeColor = Color.White;
-            ButtonSimpan.Location = new Point(889, 654);
+            ButtonSimpan.Location = new Point(440, 872);
             ButtonSimpan.Name = "ButtonSimpan";
             ButtonSimpan.Size = new Size(135, 45);
-            ButtonSimpan.TabIndex = 4;
+            ButtonSimpan.TabIndex = 2;
             ButtonSimpan.Text = "✅ Simpan";
             ButtonSimpan.TextColor = Color.White;
             ButtonSimpan.UseVisualStyleBackColor = false;
             // 
             // ButtonBatal
             // 
-            ButtonBatal.Anchor = AnchorStyles.None;
+            ButtonBatal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonBatal.BackColor = Color.Red;
             ButtonBatal.BackgroundColor = Color.Red;
             ButtonBatal.BorderColor = Color.DarkGray;
@@ -273,7 +131,7 @@
             ButtonBatal.FlatStyle = FlatStyle.Flat;
             ButtonBatal.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBatal.ForeColor = Color.White;
-            ButtonBatal.Location = new Point(729, 654);
+            ButtonBatal.Location = new Point(287, 872);
             ButtonBatal.Name = "ButtonBatal";
             ButtonBatal.Size = new Size(135, 45);
             ButtonBatal.TabIndex = 3;
@@ -283,15 +141,181 @@
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.None;
             panel3.BackColor = Color.WhiteSmoke;
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(panel4);
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(LabelNoHP);
+            panel3.Controls.Add(panel7);
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(panel6);
+            panel3.Controls.Add(LabelNIK);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(panel2);
+            panel3.Controls.Add(panel5);
             panel3.Controls.Add(PictureProfiles);
             panel3.Controls.Add(ButtonEditProfiles);
-            panel3.Location = new Point(36, 79);
+            panel3.Location = new Point(36, 120);
             panel3.Name = "panel3";
-            panel3.Size = new Size(480, 561);
+            panel3.Size = new Size(539, 738);
             panel3.TabIndex = 1;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.WhiteSmoke;
+            label4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(30, 485);
+            label4.Name = "label4";
+            label4.Size = new Size(64, 23);
+            label4.TabIndex = 67;
+            label4.Text = "Alamat";
+            // 
+            // LabelNoHP
+            // 
+            LabelNoHP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelNoHP.ForeColor = Color.Red;
+            LabelNoHP.Location = new Point(206, 486);
+            LabelNoHP.Name = "LabelNoHP";
+            LabelNoHP.Size = new Size(305, 23);
+            LabelNoHP.TabIndex = 66;
+            LabelNoHP.Tag = "NoHP";
+            LabelNoHP.Text = "⚠ No. HP sudah terdaftar";
+            LabelNoHP.TextAlign = ContentAlignment.MiddleRight;
+            LabelNoHP.Visible = false;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.White;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(TextAlamat);
+            panel7.Location = new Point(29, 512);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(482, 41);
+            panel7.TabIndex = 5;
+            // 
+            // TextAlamat
+            // 
+            TextAlamat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextAlamat.BorderStyle = BorderStyle.None;
+            TextAlamat.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextAlamat.Location = new Point(6, 7);
+            TextAlamat.MaxLength = 13;
+            TextAlamat.Name = "TextAlamat";
+            TextAlamat.Size = new Size(471, 24);
+            TextAlamat.TabIndex = 1;
+            TextAlamat.Tag = "NoHP";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(29, 398);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 23);
+            label1.TabIndex = 65;
+            label1.Text = "No. HP";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.White;
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(TextNoHP);
+            panel6.Location = new Point(29, 425);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(482, 41);
+            panel6.TabIndex = 4;
+            // 
+            // TextNoHP
+            // 
+            TextNoHP.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextNoHP.BorderStyle = BorderStyle.None;
+            TextNoHP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNoHP.Location = new Point(6, 7);
+            TextNoHP.MaxLength = 13;
+            TextNoHP.Name = "TextNoHP";
+            TextNoHP.Size = new Size(471, 24);
+            TextNoHP.TabIndex = 1;
+            TextNoHP.Tag = "NoHP";
+            // 
+            // LabelNIK
+            // 
+            LabelNIK.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelNIK.ForeColor = Color.Red;
+            LabelNIK.Location = new Point(206, 225);
+            LabelNIK.Name = "LabelNIK";
+            LabelNIK.Size = new Size(305, 23);
+            LabelNIK.TabIndex = 63;
+            LabelNIK.Tag = "NIK";
+            LabelNIK.Text = "⚠ No. KTP sudah terdaftar";
+            LabelNIK.TextAlign = ContentAlignment.MiddleRight;
+            LabelNIK.Visible = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(29, 224);
+            label10.Name = "label10";
+            label10.Size = new Size(71, 23);
+            label10.TabIndex = 61;
+            label10.Text = "No. KTP";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(29, 311);
+            label2.Name = "label2";
+            label2.Size = new Size(126, 23);
+            label2.TabIndex = 62;
+            label2.Text = "Nama Lengkap";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(TextNamaLengkap);
+            panel2.Location = new Point(29, 338);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(482, 41);
+            panel2.TabIndex = 3;
+            // 
+            // TextNamaLengkap
+            // 
+            TextNamaLengkap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextNamaLengkap.BorderStyle = BorderStyle.None;
+            TextNamaLengkap.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNamaLengkap.Location = new Point(6, 7);
+            TextNamaLengkap.MaxLength = 13;
+            TextNamaLengkap.Name = "TextNamaLengkap";
+            TextNamaLengkap.Size = new Size(471, 24);
+            TextNamaLengkap.TabIndex = 1;
+            TextNamaLengkap.Tag = "NoHP";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.White;
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(TextNoKTP);
+            panel5.Location = new Point(29, 251);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(482, 41);
+            panel5.TabIndex = 2;
+            // 
+            // TextNoKTP
+            // 
+            TextNoKTP.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextNoKTP.BorderStyle = BorderStyle.None;
+            TextNoKTP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNoKTP.Location = new Point(6, 7);
+            TextNoKTP.MaxLength = 16;
+            TextNoKTP.Name = "TextNoKTP";
+            TextNoKTP.Size = new Size(471, 24);
+            TextNoKTP.TabIndex = 1;
+            TextNoKTP.Tag = "NIK";
             // 
             // PictureProfiles
             // 
@@ -304,9 +328,9 @@
             PictureProfiles.BorderSize = 2;
             PictureProfiles.GradientAngle = 50F;
             PictureProfiles.Image = Properties.Resources.user1;
-            PictureProfiles.Location = new Point(138, 107);
+            PictureProfiles.Location = new Point(201, 20);
             PictureProfiles.Name = "PictureProfiles";
-            PictureProfiles.Size = new Size(193, 193);
+            PictureProfiles.Size = new Size(134, 134);
             PictureProfiles.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureProfiles.TabIndex = 38;
             PictureProfiles.TabStop = false;
@@ -323,20 +347,54 @@
             ButtonEditProfiles.FlatStyle = FlatStyle.Flat;
             ButtonEditProfiles.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonEditProfiles.ForeColor = Color.White;
-            ButtonEditProfiles.Location = new Point(164, 354);
+            ButtonEditProfiles.Location = new Point(215, 164);
             ButtonEditProfiles.Name = "ButtonEditProfiles";
-            ButtonEditProfiles.Size = new Size(137, 48);
-            ButtonEditProfiles.TabIndex = 36;
+            ButtonEditProfiles.Size = new Size(107, 37);
+            ButtonEditProfiles.TabIndex = 1;
             ButtonEditProfiles.Text = "🖍 Edit";
             ButtonEditProfiles.TextColor = Color.White;
             ButtonEditProfiles.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.WhiteSmoke;
+            label3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(29, 572);
+            label3.Name = "label3";
+            label3.Size = new Size(73, 23);
+            label3.TabIndex = 69;
+            label3.Text = "Spesialis";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(TextSpesialis);
+            panel4.Location = new Point(28, 599);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(482, 107);
+            panel4.TabIndex = 6;
+            // 
+            // TextSpesialis
+            // 
+            TextSpesialis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextSpesialis.BorderStyle = BorderStyle.None;
+            TextSpesialis.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextSpesialis.Location = new Point(4, 4);
+            TextSpesialis.MaxLength = 13;
+            TextSpesialis.Multiline = true;
+            TextSpesialis.Name = "TextSpesialis";
+            TextSpesialis.Size = new Size(471, 97);
+            TextSpesialis.TabIndex = 1;
+            TextSpesialis.Tag = "NoHP";
             // 
             // InputMekanikForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1082, 753);
+            ClientSize = new Size(633, 960);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
@@ -344,18 +402,20 @@
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PictureProfiles).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -363,25 +423,29 @@
 
         private Panel panel1;
         private Panel panel3;
-        private Panel panel4;
         private SMB_CustomTolbox.LathifButton ButtonSimpan;
         private SMB_CustomTolbox.LathifButton ButtonBatal;
-        private Label LabelNIK;
-        private Label label2;
-        private Label label10;
-        private Panel panel5;
-        private TextBox TextNoKTP;
-        private Panel panel2;
-        private TextBox TextNamaLengkap;
-        private Label label1;
-        private Panel panel6;
-        private TextBox TextNoHP;
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButton3;
         private SMB_CustomTolbox.LathifButton ButtonEditProfiles;
         private SMB_CustomTolbox.RJCircularPictureBox PictureProfiles;
         private Label LabelJudul;
         private Label label4;
+        private Label LabelNoHP;
         private Panel panel7;
         private TextBox TextAlamat;
+        private Label label1;
+        private Panel panel6;
+        private TextBox TextNoHP;
+        private Label LabelNIK;
+        private Label label10;
+        private Label label2;
+        private Panel panel2;
+        private TextBox TextNamaLengkap;
+        private Panel panel5;
+        private TextBox TextNoKTP;
+        private PictureBox pictureBox1;
+        private Label label3;
+        private Panel panel4;
+        private TextBox TextSpesialis;
     }
 }

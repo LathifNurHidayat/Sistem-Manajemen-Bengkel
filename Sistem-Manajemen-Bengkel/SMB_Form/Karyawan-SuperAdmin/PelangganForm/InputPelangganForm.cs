@@ -107,10 +107,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 if (_isPasswordReset == true)
                     pelanggan.password = HashPasswordHelper.HashPassword(TextConfirmPassword.Text.Trim());
 
-                if (_noKTP == TextNoKTP.Text.Trim())
-                    _pelangganDal.UpdateData(pelanggan , _isPasswordReset);
-                else
-                    _pelangganDal.UpdateDataNoKTP(pelanggan, _noKTP, _isPasswordReset);
+                    _pelangganDal.UpdateData(pelanggan, _noKTP, _isPasswordReset);
             }
         }
 
@@ -267,7 +264,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             if (string.IsNullOrEmpty(TextNoKTP.Text) || string.IsNullOrEmpty(TextNamaLengkap.Text) || string.IsNullOrEmpty(TextNomorHP.Text) ||
                 string.IsNullOrEmpty(TextEmail.Text) || string.IsNullOrEmpty(TextPassword.Text) || string.IsNullOrEmpty(TextConfirmPassword.Text))
                 {
-                    MesboxHelper.ShowWarning("Mohon lengkapi data");
+                    MesboxHelper.ShowWarning("Harap lengkapi data yang diperlukan");
                     return;
                 }
             SaveData();
@@ -276,7 +273,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
         private void ButtonBatal_Click(object? sender, EventArgs e)
         {
-            this.Close();
+            if (MesboxHelper.ShowConfirm("Anda yakin ingin membatalkan perubahan ?"))
+                this.Close();
         }
         #endregion
     }

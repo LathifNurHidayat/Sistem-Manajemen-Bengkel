@@ -17,7 +17,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         public static byte[] ImageToByteArray(Image image)
         {
             if (image == null)
-                throw new ArgumentNullException(nameof(image), "Image tidak boleh null");
+                return null;
 
             using (var ms = new MemoryStream())
             {
@@ -46,6 +46,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
 
         public static Image GetCircularImage(Image image)
         {
+            if (image == null)
+                return null;
+
             int diameter = Math.Min(image.Width, image.Height);
 
             Bitmap circularImage = new Bitmap(diameter, diameter, System.Drawing.Imaging.PixelFormat.Format32bppArgb);

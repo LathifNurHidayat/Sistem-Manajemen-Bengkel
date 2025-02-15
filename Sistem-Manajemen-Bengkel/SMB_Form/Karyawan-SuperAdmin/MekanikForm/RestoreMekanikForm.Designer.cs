@@ -1,6 +1,8 @@
-﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
+﻿using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PegawaiForm;
+
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
 {
-    partial class RestorePelangganForm
+    partial class RestoreMekanikForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +32,7 @@
         {
             PanelAntrean = new Panel();
             panel2 = new Panel();
-            LabelEmail = new Label();
+            PictureProfiles = new SMB_CustomTolbox.RJCircularPictureBox();
             LabelAlamat = new Label();
             LabelNoHP = new Label();
             LabelNama = new Label();
@@ -41,13 +43,13 @@
             label2 = new Label();
             label1 = new Label();
             ButtonRestore = new SMB_CustomTolbox.LathifButton();
-            ButtonHapus = new SMB_CustomTolbox.LathifButton();
-            Label = new Label();
             panel1 = new Panel();
             label8 = new Label();
             pictureBox3 = new PictureBox();
+            TextSpesiali = new TextBox();
             PanelAntrean.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PictureProfiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
@@ -56,21 +58,20 @@
             PanelAntrean.BackColor = Color.White;
             PanelAntrean.Controls.Add(panel2);
             PanelAntrean.Controls.Add(ButtonRestore);
-            PanelAntrean.Controls.Add(ButtonHapus);
-            PanelAntrean.Controls.Add(Label);
             PanelAntrean.Controls.Add(panel1);
             PanelAntrean.Controls.Add(label8);
             PanelAntrean.Controls.Add(pictureBox3);
             PanelAntrean.Dock = DockStyle.Fill;
             PanelAntrean.Location = new Point(0, 0);
             PanelAntrean.Name = "PanelAntrean";
-            PanelAntrean.Size = new Size(589, 595);
+            PanelAntrean.Size = new Size(589, 518);
             PanelAntrean.TabIndex = 52;
             // 
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(LabelEmail);
+            panel2.Controls.Add(TextSpesiali);
+            panel2.Controls.Add(PictureProfiles);
             panel2.Controls.Add(LabelAlamat);
             panel2.Controls.Add(LabelNoHP);
             panel2.Controls.Add(LabelNama);
@@ -80,24 +81,31 @@
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(37, 104);
+            panel2.Location = new Point(37, 88);
             panel2.Name = "panel2";
-            panel2.Size = new Size(513, 250);
+            panel2.Size = new Size(513, 332);
             panel2.TabIndex = 25;
             // 
-            // LabelEmail
+            // PictureProfiles
             // 
-            LabelEmail.AutoSize = true;
-            LabelEmail.Location = new Point(127, 197);
-            LabelEmail.Name = "LabelEmail";
-            LabelEmail.Size = new Size(16, 20);
-            LabelEmail.TabIndex = 9;
-            LabelEmail.Text = ": ";
+            PictureProfiles.BackgroundImageLayout = ImageLayout.Stretch;
+            PictureProfiles.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            PictureProfiles.BorderColor = Color.FromArgb(83, 92, 145);
+            PictureProfiles.BorderColor2 = Color.FromArgb(83, 92, 145);
+            PictureProfiles.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            PictureProfiles.BorderSize = 2;
+            PictureProfiles.GradientAngle = 50F;
+            PictureProfiles.Location = new Point(31, 10);
+            PictureProfiles.Name = "PictureProfiles";
+            PictureProfiles.Size = new Size(65, 65);
+            PictureProfiles.SizeMode = PictureBoxSizeMode.Zoom;
+            PictureProfiles.TabIndex = 36;
+            PictureProfiles.TabStop = false;
             // 
             // LabelAlamat
             // 
             LabelAlamat.AutoSize = true;
-            LabelAlamat.Location = new Point(127, 153);
+            LabelAlamat.Location = new Point(112, 219);
             LabelAlamat.Name = "LabelAlamat";
             LabelAlamat.Size = new Size(16, 20);
             LabelAlamat.TabIndex = 8;
@@ -106,7 +114,7 @@
             // LabelNoHP
             // 
             LabelNoHP.AutoSize = true;
-            LabelNoHP.Location = new Point(127, 109);
+            LabelNoHP.Location = new Point(112, 175);
             LabelNoHP.Name = "LabelNoHP";
             LabelNoHP.Size = new Size(16, 20);
             LabelNoHP.TabIndex = 7;
@@ -115,7 +123,7 @@
             // LabelNama
             // 
             LabelNama.AutoSize = true;
-            LabelNama.Location = new Point(127, 65);
+            LabelNama.Location = new Point(112, 131);
             LabelNama.Name = "LabelNama";
             LabelNama.Size = new Size(16, 20);
             LabelNama.TabIndex = 6;
@@ -124,7 +132,7 @@
             // LabelNoKTP
             // 
             LabelNoKTP.AutoSize = true;
-            LabelNoKTP.Location = new Point(127, 21);
+            LabelNoKTP.Location = new Point(112, 87);
             LabelNoKTP.Name = "LabelNoKTP";
             LabelNoKTP.Size = new Size(16, 20);
             LabelNoKTP.TabIndex = 5;
@@ -133,16 +141,16 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(46, 197);
+            label5.Location = new Point(31, 263);
             label5.Name = "label5";
-            label5.Size = new Size(46, 20);
+            label5.Size = new Size(66, 20);
             label5.TabIndex = 4;
-            label5.Text = "Email";
+            label5.Text = "Spesialis";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(46, 153);
+            label3.Location = new Point(31, 219);
             label3.Name = "label3";
             label3.Size = new Size(57, 20);
             label3.TabIndex = 3;
@@ -151,7 +159,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(46, 109);
+            label4.Location = new Point(31, 175);
             label4.Name = "label4";
             label4.Size = new Size(55, 20);
             label4.TabIndex = 2;
@@ -160,7 +168,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(46, 65);
+            label2.Location = new Point(31, 131);
             label2.Name = "label2";
             label2.Size = new Size(53, 20);
             label2.TabIndex = 1;
@@ -169,7 +177,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(46, 21);
+            label1.Location = new Point(31, 87);
             label1.Name = "label1";
             label1.Size = new Size(61, 20);
             label1.TabIndex = 0;
@@ -187,46 +195,13 @@
             ButtonRestore.FlatStyle = FlatStyle.Flat;
             ButtonRestore.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonRestore.ForeColor = Color.White;
-            ButtonRestore.Location = new Point(364, 519);
+            ButtonRestore.Location = new Point(37, 446);
             ButtonRestore.Name = "ButtonRestore";
-            ButtonRestore.Size = new Size(184, 45);
+            ButtonRestore.Size = new Size(513, 45);
             ButtonRestore.TabIndex = 24;
             ButtonRestore.Text = "♻  Pulihkan Data";
             ButtonRestore.TextColor = Color.White;
             ButtonRestore.UseVisualStyleBackColor = false;
-            // 
-            // ButtonHapus
-            // 
-            ButtonHapus.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            ButtonHapus.BackColor = Color.Red;
-            ButtonHapus.BackgroundColor = Color.Red;
-            ButtonHapus.BorderColor = Color.DarkGray;
-            ButtonHapus.BorderRadius = 5;
-            ButtonHapus.BorderSize = 0;
-            ButtonHapus.FlatAppearance.BorderSize = 0;
-            ButtonHapus.FlatStyle = FlatStyle.Flat;
-            ButtonHapus.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonHapus.ForeColor = Color.White;
-            ButtonHapus.Location = new Point(32, 520);
-            ButtonHapus.Name = "ButtonHapus";
-            ButtonHapus.Size = new Size(184, 45);
-            ButtonHapus.TabIndex = 23;
-            ButtonHapus.Text = "❌ Hapus Data";
-            ButtonHapus.TextColor = Color.White;
-            ButtonHapus.UseVisualStyleBackColor = false;
-            // 
-            // Label
-            // 
-            Label.AutoSize = true;
-            Label.BackColor = Color.Transparent;
-            Label.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            Label.ForeColor = Color.DimGray;
-            Label.Location = new Point(83, 397);
-            Label.Name = "Label";
-            Label.Size = new Size(420, 50);
-            Label.TabIndex = 22;
-            Label.Text = "Apakah Anda ingin memulihkannya kembali atau \r\nmenghapusnya secara permanen?";
-            Label.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -251,7 +226,7 @@
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.BackgroundImage = Properties.Resources.Pelanggan;
+            pictureBox3.BackgroundImage = Properties.Resources.mechanic;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox3.Location = new Point(14, 14);
             pictureBox3.Name = "pictureBox3";
@@ -259,19 +234,30 @@
             pictureBox3.TabIndex = 19;
             pictureBox3.TabStop = false;
             // 
-            // RestorePelangganForm
+            // TextSpesiali
+            // 
+            TextSpesiali.BorderStyle = BorderStyle.None;
+            TextSpesiali.Location = new Point(112, 263);
+            TextSpesiali.Multiline = true;
+            TextSpesiali.Name = "TextSpesiali";
+            TextSpesiali.Size = new Size(385, 61);
+            TextSpesiali.TabIndex = 37;
+            TextSpesiali.Text = ": ";
+            // 
+            // RestoreMekanikForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(589, 595);
+            ClientSize = new Size(589, 518);
             Controls.Add(PanelAntrean);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "RestorePelangganForm";
+            Name = "RestoreMekanikForm";
             StartPosition = FormStartPosition.CenterParent;
             PanelAntrean.ResumeLayout(false);
             PanelAntrean.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PictureProfiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
@@ -282,9 +268,7 @@
         private Panel panel1;
         private Label label8;
         private PictureBox pictureBox3;
-        private Label Label;
         private SMB_CustomTolbox.LathifButton ButtonRestore;
-        private SMB_CustomTolbox.LathifButton ButtonHapus;
         private Panel panel2;
         private Label LabelNama;
         private Label LabelNoKTP;
@@ -293,8 +277,10 @@
         private Label label4;
         private Label label2;
         private Label label1;
-        private Label LabelEmail;
+        private Label TextSpesialis;
         private Label LabelAlamat;
         private Label LabelNoHP;
+        private SMB_CustomTolbox.RJCircularPictureBox PictureProfiles;
+        private TextBox TextSpesiali;
     }
 }

@@ -159,10 +159,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
-            InputPegawai input = new InputPegawai(string.Empty);
+            InputPegawaiForm input = new InputPegawaiForm(string.Empty);
             if (input.ShowDialog(this) == DialogResult.OK)
             {
                 LoadData();
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil disimpan");
+                nontifikasiForm.ShowDialog(this);
             }
         }
 

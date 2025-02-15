@@ -266,12 +266,16 @@ VALUES
 
 UPDATE tb_pelanggan
 SET 
-no_ktp_pelanggan = '32011111111111',
+no_ktp_pelanggan = '8787878787878787',
     nama_pelanggan = 'AKUUUU',
     no_hp = '5363636363',
     alamat = 'hgsdgbsdf skjdfbdsfsd',
     email = 'jhsdbfdsmnfsd',
     password = 'gfshdfhbsdf',
-    total_servis = 6,
+    total_servis = 6, 
     created_at = GETDATE()
 WHERE no_ktp_pelanggan = '32011111111111';
+
+select * from tb_pelanggan where  no_ktp_pelanggan = '8787878787878787';
+
+select * from tb_riwayat where  no_ktp_pelanggan = '8787878787878787';

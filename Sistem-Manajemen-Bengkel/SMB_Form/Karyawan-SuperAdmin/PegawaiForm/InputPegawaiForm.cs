@@ -74,7 +74,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
         private void SaveData()
         {
-            Image image = ImageHelper.GetCircularImage(PictureProfiles.Image);
+            Image image = ImageHelper.GetCircularImage(PictureProfiles.Image == ImageDirectoryHelper._defaultProfiles ? null : PictureProfiles.Image);
 
             var pegawai = new PegawaiModel
             {
@@ -97,10 +97,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 if (_isPasswordReset == true)
                     pegawai.password = HashPasswordHelper.HashPassword(TextConfirmPassword.Text.Trim());
 
-                if (_noKTP == TextNoKTP.Text.Trim())
-                    _pegawaiDal.UpdateData(pegawai, _isPasswordReset);
-                else
-                    _pegawaiDal.UpdateDataNoKTP(pegawai, _noKTP, _isPasswordReset);
+                    _pegawaiDal.UpdateData(pegawai, _noKTP, _isPasswordReset);
             }
         }
 
@@ -237,7 +234,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
         private void ButtonBatal_Click(object? sender, EventArgs e) 
         {
-            this.Close();
+            if (MesboxHelper.ShowConfirm("Anda yakin ingin membatalkan perubahan ?"))
+                this.Close();
         }
 
         private async void TextInput_TextChanged(object? sender, EventArgs e)
@@ -267,7 +265,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             if (string.IsNullOrEmpty(TextNoKTP.Text) || string.IsNullOrEmpty(TextNamaLengkap.Text) || string.IsNullOrEmpty(TextNoHP.Text) ||
                 string.IsNullOrEmpty(TextEmail.Text) || string.IsNullOrEmpty(TextPassword.Text) || string.IsNullOrEmpty(TextConfirmPassword.Text))
             {
-                MesboxHelper.ShowWarning("Mohon lengkapi data");
+                MesboxHelper.ShowWarning("Harap lengkapi data yang diperlukan");
                 return;
             }
 

@@ -208,7 +208,7 @@
             ButtonRestore.Name = "ButtonRestore";
             ButtonRestore.Size = new Size(513, 45);
             ButtonRestore.TabIndex = 24;
-            ButtonRestore.Text = "♻  Restore Data";
+            ButtonRestore.Text = "♻  Pulihkan Data";
             ButtonRestore.TextColor = Color.White;
             ButtonRestore.UseVisualStyleBackColor = false;
             // 
@@ -235,7 +235,7 @@
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.BackgroundImage = Properties.Resources.Pelanggan;
+            pictureBox3.BackgroundImage = Properties.Resources.technical_support;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox3.Location = new Point(14, 14);
             pictureBox3.Name = "pictureBox3";

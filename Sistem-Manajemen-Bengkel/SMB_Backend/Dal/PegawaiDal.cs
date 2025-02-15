@@ -55,37 +55,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, Dp);
         }
 
-        public void UpdateData(PegawaiModel pegawaiModel, bool isPasswordReset)
-        {
-            string sql = @$"UPDATE tb_pegawai SET
-                                nama_pegawai = @nama_pegawai,
-                                email = @email,
-                                no_hp = @no_hp,
-                                alamat = @alamat,
-                                role = @role,
-                                image_data = @image_data,
-                                updated_at = GETDATE()
-                                {( isPasswordReset ? ", password = @password" : "")}
-                            WHERE no_ktp_pegawai = @no_ktp_pegawai";
-
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
-
-            var Dp = new DynamicParameters();
-            Dp.Add("@no_ktp_pegawai", pegawaiModel.no_ktp_pegawai);
-            Dp.Add("@nama_pegawai", pegawaiModel.nama_pegawai);
-            Dp.Add("@email", pegawaiModel.email);
-            Dp.Add("@no_hp", pegawaiModel.no_hp);
-            Dp.Add("@alamat", pegawaiModel.alamat);
-            Dp.Add("@role", pegawaiModel.role);
-            Dp.Add("@image_data", pegawaiModel.image_data);
-
-            if (isPasswordReset)
-                Dp.Add("@password", pegawaiModel.password);
-
-            conn.Execute(sql, Dp);
-        }
-
-        public void UpdateDataNoKTP(PegawaiModel pegawai, string no_ktp, bool isPasswordReset)
+        public void UpdateData(PegawaiModel pegawai, string no_ktp, bool isPasswordReset)
         {
             string sql = @$"UPDATE tb_pegawai SET
                                 no_ktp_pegawai = @no_ktp_pegawai,

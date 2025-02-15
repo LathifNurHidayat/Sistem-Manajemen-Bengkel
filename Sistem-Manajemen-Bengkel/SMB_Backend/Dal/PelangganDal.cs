@@ -58,7 +58,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         }
 
 
-        public void UpdateDataNoKTP(PelangganModel pelanggan, string no_ktp, bool isPasswordReset)
+        public void UpdateData(PelangganModel pelanggan, string no_ktp, bool isPasswordReset)
         {
             string sql = @$"UPDATE tb_pelanggan
                            SET
@@ -88,38 +88,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
             Conn.Execute(sql, Dp);
         }
-
-
-
-        public void UpdateData(PelangganModel pelanggan, bool isPasswordReset)
-        {
-            string sql = @$"UPDATE tb_pelanggan SET
-                               nama_pelanggan = @nama_pelanggan,
-                               no_hp = @no_hp,
-                               alamat = @alamat,
-                               email = @email,
-                               total_servis = @total_servis,
-                               updated_at = GETDATE()
-                               {(isPasswordReset ? ", password = @password" : "")}
-                            WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
-
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-
-            var Dp = new DynamicParameters();
-            Dp.Add("@nama_pelanggan", pelanggan.nama_pelanggan);
-            Dp.Add("@no_hp", pelanggan.no_hp);
-            Dp.Add("@alamat", pelanggan.alamat);
-            Dp.Add("@email", pelanggan.email);
-            Dp.Add("@total_servis", pelanggan.total_servis);
-            Dp.Add("@no_ktp_pelanggan", pelanggan.no_ktp_pelanggan);
-
-            if (isPasswordReset)
-                Dp.Add("@password", pelanggan.password);
-
-            Conn.Execute(sql, Dp);
-        }
-
-
 
         public void SoftDeleteData(string no_ktp_pelanggan)
         {

@@ -160,7 +160,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             string no_ktp = GridListData.CurrentRow?.Cells["NoKTP"]?.Value?.ToString() ?? string.Empty;
             if (string.IsNullOrEmpty(no_ktp)) return;
 
-            InputPegawai pegawai = new InputPegawai(no_ktp);
+            InputPegawaiForm pegawai = new InputPegawaiForm(no_ktp);
             if (pegawai.ShowDialog(this) == DialogResult.OK)
                 LoadData();
         }
@@ -177,7 +177,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
-            InputPegawai input = new InputPegawai(string.Empty);
+            InputPegawaiForm input = new InputPegawaiForm(string.Empty);
             if (input.ShowDialog(this) == DialogResult.OK)
             {
                 LoadData();

@@ -193,6 +193,16 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mechanic {
+            get {
+                object obj = ResourceManager.GetObject("mechanic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Menunggu {
             get {
                 object obj = ResourceManager.GetObject("Menunggu", resourceCulture);

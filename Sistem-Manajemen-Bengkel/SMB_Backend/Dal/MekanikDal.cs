@@ -117,5 +117,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
+
+        public int ValidasiData (string no_ktp_mekanik, string no_hp)
+        {
+            const string sql = @"SELECT CASE 
+                                    WHEN EXISTS (SELECT 1 FROM tb_mekanik WHERE no_ktp_mekanik = @no_ktp_mekanik AND deleted_at IS NOT NULL) THEN 1
+                                    WHEN EXISTS (SELECT 1 FROM tb_mekanik WHERE no_ktp_mekanik = @no_ktp_mekanik) THEN 2
+                                    WHEN EXISTS (SELECT 1 FROM tb_mekanik WHERE no_hp = @no_hp ) THEN 3
+                                ELSE 0
+                                END AS Result";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.QueryFirstOrDefault<int>(sql, new { no_ktp_mekanik, no_hp });
+        }
     }
 }
