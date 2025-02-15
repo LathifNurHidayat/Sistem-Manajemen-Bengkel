@@ -28,15 +28,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
         {
             InitializeComponent();
             _mekanikDal = new MekanikDal();
-            _noKTP = no_ktp_mekanik;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
 
             if (!string.IsNullOrEmpty(no_ktp_mekanik))
             {
                 GetData(no_ktp_mekanik);
-                LabelJudul.Text = "Update Data Pegawai";
             }
 
-                RegisterControlEvent();
+            RegisterControlEvent();
         }
 
         private void GetData(string no_ktp)
@@ -46,10 +46,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
             PictureProfiles.Image = ImageHelper.ByteToImage(mekanik.image_data) == null ? ImageDirectoryHelper._defaultProfiles : ImageHelper.ByteToImage(mekanik.image_data);
             TextNoKTP.Text = mekanik.no_ktp_mekanik;
-            LabelNoHP.Text = mekanik.no_hp;
+            TextNoHP.Text = mekanik.no_hp;
             TextNamaLengkap.Text = mekanik.nama_mekanik;
             TextAlamat.Text = mekanik.alamat;
             TextSpesialis.Text = mekanik.spesialis;
+
+            _noKTP = TextNoKTP.Text.Trim();
+            _noHP = TextNoHP.Text.Trim();
         }
 
         private void SaveData()
@@ -109,21 +112,21 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
             int cekValidasiData = _mekanikDal.ValidasiData(no_ktp, no_hp);
             if (cekValidasiData == 0) return;
-
             if (cekValidasiData == 1)
             {
-                RestoreMekanikForm restoreMekanik = new RestoreMekanikForm(no_ktp);
+                using var restoreMekanik = new RestoreMekanikForm(no_ktp);
                 if (restoreMekanik.ShowDialog() == DialogResult.OK)
                 {
-                    NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil dipulihkan");
-                    nontifikasiForm.ShowDialog();
-                    this.Close();
+                    this.DialogResult = DialogResult.OK;
                 }
             }
+
+
             if (cekValidasiData == 2)
                 LabelNIK.Visible = true;
             else
                 LabelNIK.Visible = false;
+
             if (cekValidasiData == 3)
                 LabelNoHP.Visible = true;
             else

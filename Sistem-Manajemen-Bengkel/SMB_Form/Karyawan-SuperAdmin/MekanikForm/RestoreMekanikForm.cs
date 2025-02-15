@@ -37,10 +37,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
 
             PictureProfiles.Image = ImageHelper.ByteToImage(mekanik.image_data);
             LabelNoKTP.Text = mekanik.no_ktp_mekanik;
-            LabelNoHP.Text = mekanik.no_hp;
-            LabelNama.Text = mekanik.nama_mekanik;
-            LabelAlamat.Text = mekanik.alamat;
-            TextSpesiali.Text = mekanik.spesialis;
+            LabelNoHP.Text = $": {mekanik.no_hp}";
+            LabelNama.Text = $": {mekanik.nama_mekanik}";
+            LabelAlamat.Text =  $": {mekanik.alamat}";
+            TextSpesiali.Text =  $": {mekanik.spesialis}";
         }
 
         private void ButtonRestore_Click(object? sender, EventArgs e)

@@ -15,20 +15,25 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
     {
         public IEnumerable<PegawaiModel> ListData(string filter, object Dp)
         {
-            string sql = @$"SELECT * FROM tb_pegawai 
-                                WHERE
-                                    deleted_at IS NULL 
-                                    {filter}
-                                ORDER BY
-                                    created_at ASC
-                                OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
+            string sql = @$"SELECT 
+                                no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_data, created_at, updated_at
+                            FROM 
+                                tb_pegawai 
+                            WHERE
+                                deleted_at IS NULL 
+                                {filter}
+                            ORDER BY
+                                created_at ASC
+                            OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<PegawaiModel>(sql, Dp);
         }
 
         public PegawaiModel? GetData(string no_ktp_pegawai)
         {
-            const string sql = @"SELECT * FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai";
+            const string sql = @"SELECT 
+                                    no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_data, created_at, updated_at
+                                FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<PegawaiModel>(sql, new { no_ktp_pegawai = no_ktp_pegawai });
         }
@@ -36,9 +41,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public void InsertData(PegawaiModel pegawaiModel)
         {
             const string sql = @"INSERT INTO tb_pegawai 
-                            (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_name, image_data)
+                            (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_data)
                          VALUES 
-                            (@no_ktp_pegawai, @nama_pegawai, @email, @password, @no_hp, @alamat, @role, @image_name, @image_data)";
+                            (@no_ktp_pegawai, @nama_pegawai, @email, @password, @no_hp, @alamat, @role, @image_data)";
 
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
 

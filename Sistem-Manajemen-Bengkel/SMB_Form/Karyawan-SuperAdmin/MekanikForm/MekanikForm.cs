@@ -159,7 +159,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
-            InputPegawaiForm input = new InputPegawaiForm(string.Empty);
+            InputMekanikForm input = new InputMekanikForm(string.Empty);
             if (input.ShowDialog(this) == DialogResult.OK)
             {
                 LoadData();

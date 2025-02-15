@@ -17,7 +17,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public IEnumerable<PelangganModel> ListData(string filter , string orderBy, object Dp)
         {
             string sql = @$"SELECT 
-                                no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, total_servis FROM tb_pelanggan 
+                                no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, total_servis 
+                            FROM 
+                                tb_pelanggan 
                             WHERE
                                 deleted_at IS NULL 
                                 {filter}

@@ -14,20 +14,28 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
     {
         public IEnumerable<MekanikModel> ListData(string filter, object Dp)
         {
-            string sql = @$"SELECT * FROM tb_mekanik 
-                                WHERE
-                                    deleted_at IS NULL 
-                                    {filter}
-                                ORDER BY
-                                    created_at ASC
-                                OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
+            string sql = @$"SELECT 
+                                no_ktp_mekanik, nama_mekanik, no_hp, alamat, spesialis, image_data
+                            FROM 
+                                tb_mekanik 
+                            WHERE
+                                deleted_at IS NULL 
+                                {filter}
+                            ORDER BY
+                                created_at ASC
+                            OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<MekanikModel>(sql, Dp);
         }
 
         public MekanikModel? GetData(string no_ktp_mekanik)
         {
-            const string sql = @"SELECT * FROM tb_mekanik WHERE no_ktp_mekanik = @no_ktp_mekanik";
+            const string sql = @"SELECT 
+                                    no_ktp_mekanik, nama_mekanik, no_hp, alamat, spesialis, image_data
+                                FROM 
+                                    tb_mekanik 
+                                WHERE 
+                                    no_ktp_mekanik = @no_ktp_mekanik";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<MekanikModel>(sql, new { no_ktp_mekanik });
         }
@@ -77,8 +85,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
             Conn.Execute(sql, Dp);
         }
-
-
 
         public void SoftDeleteData(string no_ktp_mekanik)
         {

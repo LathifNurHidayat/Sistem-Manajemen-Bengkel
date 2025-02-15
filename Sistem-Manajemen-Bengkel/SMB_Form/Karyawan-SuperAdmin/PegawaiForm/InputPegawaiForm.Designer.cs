@@ -384,6 +384,7 @@
             TextEmail.BorderStyle = BorderStyle.None;
             TextEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextEmail.Location = new Point(6, 7);
+            TextEmail.MaxLength = 50;
             TextEmail.Name = "TextEmail";
             TextEmail.Size = new Size(381, 24);
             TextEmail.TabIndex = 4;
@@ -472,7 +473,7 @@
             TextAlamat.BorderStyle = BorderStyle.None;
             TextAlamat.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextAlamat.Location = new Point(6, 7);
-            TextAlamat.MaxLength = 50;
+            TextAlamat.MaxLength = 100;
             TextAlamat.Name = "TextAlamat";
             TextAlamat.Size = new Size(375, 24);
             TextAlamat.TabIndex = 1;
@@ -590,7 +591,7 @@
             TextNamaLengkap.TabIndex = 1;
             TextNamaLengkap.Tag = "NamaLengkap";
             // 
-            // InputPegawai
+            // InputPegawaiForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -599,7 +600,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "InputPegawai";
+            Name = "InputPegawaiForm";
             StartPosition = FormStartPosition.CenterParent;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
