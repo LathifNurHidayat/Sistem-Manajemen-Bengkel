@@ -279,3 +279,4 @@ WHERE no_ktp_pelanggan = '32011111111111';
 select * from tb_pelanggan where  no_ktp_pelanggan = '8787878787878787';
 
 select * from tb_riwayat where  no_ktp_pelanggan = '8787878787878787';
+select * from tb_jasa_servis 

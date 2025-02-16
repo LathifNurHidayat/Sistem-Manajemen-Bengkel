@@ -9,6 +9,7 @@ using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using System.Data;
 using Sistem_Manajemen_Bengkel.Helper;
 using System.Windows.Media.Animation;
+using System.Runtime.Intrinsics.Arm;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
@@ -29,6 +30,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<PelangganModel>(sql, Dp);
         }
+
 
         public PelangganModel? GetData(string no_ktp_pelanggan)
         {

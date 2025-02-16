@@ -1,3 +1,10 @@
-﻿1. CRUD Pelanggan 
+﻿SUDAH DIKERJAKAN 
+1. CRUD Pelanggan 
 2. CRUD Pegawai
 3. CRUD Mekanik
+4. CRUD Jasa Servis
+
+SEDANG PROSES
+1. 
+
+

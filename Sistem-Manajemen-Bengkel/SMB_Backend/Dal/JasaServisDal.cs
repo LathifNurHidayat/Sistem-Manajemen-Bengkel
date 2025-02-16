@@ -12,7 +12,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
     public class JasaServisDal
     {
-        public IEnumerable<JasaServisModel> ListData(string filter, object Dp)
+        public IEnumerable<JasaServisModel> ListData(string filter, string order, object Dp)
         {
             string sql = @$"SELECT 
                                 id_jasa_servis, jenis_servis, keterangan, biaya
@@ -21,8 +21,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             WHERE
                                 deleted_at IS NULL 
                                 {filter}
-                            ORDER BY
-                                created_at ASC
+                            ORDER BY 
+                                {order}
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<JasaServisModel>(sql, Dp);
@@ -57,7 +57,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, Dp);
         }
 
-        public void UpdateData(JasaServisModel jasaServis, int id_jasa_servis)
+        public void UpdateData(JasaServisModel jasaServis)
         {
             string sql = @$"UPDATE tb_jasa_servis SET
                                 jenis_servis = @jenis_servis,
@@ -115,55 +115,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.ExecuteScalar<int>(sql, dp);
-        }
-
-
-
-
-
-        public IEnumerable<JasaServisModel> ListData()
-        {
-            const string sql = @"SELECT * FROM jasa_servis";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.Query<JasaServisModel>(sql);
-        }
-
-        public JasaServisModel? GetData(int id_jasa_servis)
-        {
-            const string sql = @"SELECT * FROM jasa_servis WHERE id_jasa_servis = @id_jasa_servis";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.QueryFirstOrDefault<JasaServisModel>(sql, new { id_jasa_servis });
-        }
-
-        public void InsertData(JasaServisModel jasaServis)
-        {
-            const string sql = @"INSERT INTO jasa_servis 
-                                    (jenis_servis, keterangan, biaya) 
-                                VALUES 
-                                    (@jenis_servis, @keterangan, @biaya)";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            Conn.Execute(sql, jasaServis);
-        }
-
-        public void UpdateData(JasaServisModel jasaServis)
-        {
-            const string sql = @"UPDATE jasa_servis 
-                                SET 
-                                    jenis_servis = @jenis_servis, 
-                                    keterangan = @keterangan, 
-                                    biaya = @biaya,
-                                    updated_at = GETDATE()      
-                                WHERE 
-                                    id_jasa_servis = @id_jasa_servis";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            Conn.Execute(sql, jasaServis);
-        }
-
-        public void DeleteData(int id_jasa_servis)
-        {
-            const string sql = @"DELETE FROM jasa_servis WHERE id_jasa_servis = @id_jasa_servis";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            Conn.Execute(sql, new { id_jasa_servis });
         }
     }
 }

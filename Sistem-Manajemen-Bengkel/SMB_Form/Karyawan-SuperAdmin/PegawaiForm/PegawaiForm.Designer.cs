@@ -49,6 +49,7 @@
             contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             editToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
+            label3 = new Label();
             PanelBooking.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TextPage).BeginInit();
@@ -62,6 +63,7 @@
             PanelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelBooking.AutoScroll = true;
             PanelBooking.BackColor = Color.White;
+            PanelBooking.Controls.Add(label3);
             PanelBooking.Controls.Add(ComboFilter);
             PanelBooking.Controls.Add(label2);
             PanelBooking.Controls.Add(label1);
@@ -219,7 +221,7 @@
             ButtonSearch.FlatStyle = FlatStyle.Flat;
             ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(795, 169);
+            ButtonSearch.Location = new Point(728, 168);
             ButtonSearch.Name = "ButtonSearch";
             ButtonSearch.Size = new Size(53, 31);
             ButtonSearch.TabIndex = 47;
@@ -237,7 +239,7 @@
             TextSearch.FocusBorderColor = Color.Black;
             TextSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextSearch.ForeColor = Color.Black;
-            TextSearch.Location = new Point(537, 170);
+            TextSearch.Location = new Point(470, 169);
             TextSearch.MinimumSize = new Size(34, 30);
             TextSearch.Name = "TextSearch";
             TextSearch.PlaceholderText = "🔍   Cari";
@@ -335,6 +337,17 @@
             deleteToolStripMenuItem.Size = new Size(145, 32);
             deleteToolStripMenuItem.Text = "Delete";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(812, 172);
+            label3.Name = "label3";
+            label3.Size = new Size(43, 23);
+            label3.TabIndex = 56;
+            label3.Text = "Role";
+            // 
             // PegawaiForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -375,5 +388,6 @@
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ComboBox ComboFilter;
+        private Label label3;
     }
 }
