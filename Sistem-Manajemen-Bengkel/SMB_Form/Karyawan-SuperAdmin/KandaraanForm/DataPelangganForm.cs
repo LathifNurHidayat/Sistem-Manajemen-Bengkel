@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using Dapper;
@@ -70,10 +71,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm
         private void CustomDataGrid()
         {
             GridListData.EnableHeadersVisualStyles = false;
-            GridListData.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGray;
-            GridListData.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             GridListData.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
             GridListData.ColumnHeadersHeight = 50;
+            GridListData.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGray;
+            GridListData.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            GridListData.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.DarkGray;
+            GridListData.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+            GridListData.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
 
             GridListData.DefaultCellStyle.Font = new Font("Arial", 10);
             GridListData.DefaultCellStyle.ForeColor = Color.Black;

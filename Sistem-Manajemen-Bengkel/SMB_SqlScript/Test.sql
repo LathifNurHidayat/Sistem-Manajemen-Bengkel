@@ -1,5 +1,4 @@
-﻿-- Opsional: Kosongkan tabel-tabel (pastikan tidak ada referensi sehingga urutannya benar)
-TRUNCATE TABLE tb_riwayat;
+﻿TRUNCATE TABLE tb_riwayat;
 TRUNCATE TABLE tb_booking;
 TRUNCATE TABLE tb_kendaraan;
 TRUNCATE TABLE tb_sparepart;
@@ -12,10 +11,8 @@ TRUNCATE TABLE tb_pelanggan;
 -- Nilai hash untuk password "User_123"
 -- Misalnya: 352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67
 
--------------------------------------------------
--- 1. Insert 20 Data ke tb_pelanggan
--------------------------------------------------
 
+-- 1. Insert 20 Data ke tb_pelanggan
 INSERT INTO tb_pelanggan 
     (no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis, created_at)
 VALUES
@@ -40,9 +37,8 @@ VALUES
 ('32010110000019', 'Tono Saputra',    '081234567908', 'Jl. Cendana No.13, Semarang',              'tono.saputra@hotmail.com',  '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', 18, '2024-01-02 20:00:00'),
 ('32010110000020', 'Umi Kalsum',      '081298765450', 'Jl. Flamboyan No.6, Yogyakarta',           'umi.kalsum@outlook.com',    '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', 19, '2024-01-02 22:00:00');
 
--------------------------------------------------
+
 -- 2. Insert 20 Data ke tb_pegawai
--------------------------------------------------
 INSERT INTO tb_pegawai 
     (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_data)
 VALUES
@@ -67,9 +63,7 @@ VALUES
 ('32010120000019', 'Rizki Ananda',     'rizki@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345618', 'Jl. Merpati No.11, Yogyakarta',     1, NULL),
 ('32010120000020', 'Nina Pratiwi',     'nina@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345619', 'Jl. Kebon Pisang No.16, Jakarta',   2, NULL);
 
--------------------------------------------------
 -- 3. Insert 20 Data ke tb_mekanik
--------------------------------------------------
 INSERT INTO tb_mekanik 
     (no_ktp_mekanik, nama_mekanik, no_hp, alamat, spesialis, image_data)
 VALUES
@@ -95,9 +89,8 @@ VALUES
 ('32010130000020', 'Doni Prakoso',    '081423456719', 'Jl. Pahlawan No.12, Yogyakarta',  'Kelistrikan',NULL);
 
 
--------------------------------------------------
+
 -- 4. Insert 20 Data ke tb_jasa_servis
--------------------------------------------------
 INSERT INTO tb_jasa_servis 
     (jenis_servis, keterangan, biaya)
 VALUES
@@ -122,9 +115,8 @@ VALUES
 ('Ganti Ban Plus',    'Ganti ban dan perawatan',                   600000),
 ('Service Rutin Plus','Pemeriksaan intensif',                      180000);
 
--------------------------------------------------
+
 -- 5. Insert 20 Data ke tb_batas_booking
--------------------------------------------------
 INSERT INTO tb_batas_booking 
     (tanggal, batas_booking)
 VALUES
@@ -149,9 +141,9 @@ VALUES
 ('2024-01-19', 18),
 ('2024-01-20', 19);
 
--------------------------------------------------
+
+
 -- 6. Insert 20 Data ke tb_sparepart
--------------------------------------------------
 INSERT INTO tb_sparepart 
     (nama_sparepart, harga, stok, stok_minimal, status_stok, image_data)
 VALUES
@@ -177,9 +169,9 @@ VALUES
 ('Brake Fluid Plus',        95000,   70,  7, 'Tersedia', NULL);
 
 
--------------------------------------------------
+
+
 -- 7. Insert 20 Data ke tb_kendaraan
--------------------------------------------------
 INSERT INTO tb_kendaraan 
     (no_ktp_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, tahun)
 VALUES
@@ -205,9 +197,8 @@ VALUES
 ('32010110000020', 'D 3334 YZA', 'Honda Jazz',         2, 1300, 2021);
 
 
--------------------------------------------------
+
 -- 8. Insert 20 Data ke tb_booking
--------------------------------------------------
 INSERT INTO tb_booking 
     (no_ktp_pelanggan, no_ktp_mekanik, id_kendaraan, id_jasa_servis, tanggal, antrean, keluhan, status)
 VALUES
@@ -232,9 +223,10 @@ VALUES
 ('32010110000019', '32010130000019', 19, 19, DATEADD(MINUTE, 19, GETDATE()), 19, 'AC berisik', 'Menunggu'),
 ('32010110000020', '32010130000020', 20, 20, DATEADD(MINUTE, 20, GETDATE()), 20, 'Mesin tidak mau hidup', 'Menunggu');
 
--------------------------------------------------
+
+
+
 -- 9. Insert 20 Data ke tb_riwayat
--------------------------------------------------
 INSERT INTO tb_riwayat 
     (id_jasa_servis, no_ktp_pelanggan, no_ktp_pegawai, no_ktp_mekanik, id_kendaraan, id_riwayat_sparepart, tanggal, keluhan, catatan, total_biaya, status)
 VALUES

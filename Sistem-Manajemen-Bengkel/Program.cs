@@ -24,7 +24,7 @@ namespace Sistem_Manajemen_Bengkel
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new InputKendaraanForm(0));
+            Application.Run(new KendaraanForm());
         }
     }
 }
