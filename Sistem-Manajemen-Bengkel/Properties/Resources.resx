@@ -136,8 +136,14 @@
   <data name="Service" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Service.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Habis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Habis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Puas_Warna" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Puas_Warna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Menipis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Menipis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mechanic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mechanic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,6 +181,9 @@
   <data name="Default Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Default Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Tersedia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tersedia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,6 +205,9 @@
   <data name="Minimize1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimize1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Motor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Motor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Menunggu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Menunggu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -211,7 +223,7 @@
   <data name="Centang" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Centang.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Motor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Motor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

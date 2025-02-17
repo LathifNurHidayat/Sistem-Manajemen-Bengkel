@@ -63,7 +63,7 @@ CREATE TABLE tb_sparepart(
     harga DECIMAL(18,2),
     stok INT,
     stok_minimal INT,
-    status_stok VARCHAR(50),
+    status_stok INT,
     image_data VARBINARY(MAX),
     created_at DATETIME DEFAULT GETDATE(),
     updated_at DATETIME DEFAULT GETDATE(),

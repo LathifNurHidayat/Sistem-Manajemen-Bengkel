@@ -5,8 +5,16 @@
 4. CRUD Jasa Servis
 5. Register
 6. Login
+7. CRUD Kendaraan
+
 
 SEDANG PROSES
-1. CRUD Kendaraan 
+1. Sparepart
 
 
+PR 
+1. Pelanggan UI
+2. Booking
+3. Riwayat
+4. Invoice
+5. Laporan

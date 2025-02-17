@@ -40,8 +40,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="SMB_Form\Karyawan-SuperAdmin\SparepartForm\" />
-  </ItemGroup>
-
 </Project>

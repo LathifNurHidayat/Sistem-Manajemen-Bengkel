@@ -147,26 +147,27 @@ VALUES
 INSERT INTO tb_sparepart 
     (nama_sparepart, harga, stok, stok_minimal, status_stok, image_data)
 VALUES
-('Busi NGK',                50000,  100, 10, 'Tersedia', NULL),
-('Kampas Rem',              120000,  50,  5, 'Tersedia', NULL),
-('Oli Mesin',               80000,   200, 20, 'Tersedia', NULL),
-('Filter Udara',            60000,   150, 15, 'Tersedia', NULL),
-('Filter Oli',              70000,   120, 12, 'Tersedia', NULL),
-('Aki',                     250000,  30,  5, 'Tersedia', NULL),
-('Busi Bosch',              55000,   100, 10, 'Tersedia', NULL),
-('Kampas Rem Premium',      150000,  40,  5, 'Tersedia', NULL),
-('Oli Mesin Synthetic',     80000,   180, 20, 'Tersedia', NULL),
-('Brake Fluid',             90000,   80,  8, 'Tersedia', NULL),
-('Busi NGK Plus',           55000,   90,  9, 'Tersedia', NULL),
-('Kampas Rem Plus',         130000,  60,  6, 'Tersedia', NULL),
-('Oli Mesin Plus',          85000,   170, 17, 'Tersedia', NULL),
-('Filter Udara Plus',       65000,   140, 14, 'Tersedia', NULL),
-('Filter Oli Plus',         75000,   110, 11, 'Tersedia', NULL),
-('Aki Plus',                260000,  25,  5, 'Tersedia', NULL),
-('Busi Bosch Plus',         60000,   95,  9, 'Tersedia', NULL),
-('Kampas Rem Super',        160000,  35,  5, 'Tersedia', NULL),
-('Oli Mesin Ultra',         90000,   150, 15, 'Tersedia', NULL),
-('Brake Fluid Plus',        95000,   70,  7, 'Tersedia', NULL);
+('Busi NGK',                50000,  4, 10, 1, NULL),
+('Kampas Rem',              120000,  0,  5, 0, NULL),
+('Oli Mesin',               80000,   0, 20, 0, NULL),
+('Filter Udara',            60000,   150, 15, 2, NULL),
+('Filter Oli',              70000,   120, 12, 2, NULL),
+('Aki',                     250000,  30,  5, 2, NULL),
+('Busi Bosch',              55000,   100, 10, 2, NULL),
+('Kampas Rem Premium',      150000,  40,  5, 2, NULL),
+('Oli Mesin Synthetic',     80000,   180, 20, 2, NULL),
+('Brake Fluid',             90000,   80,  8, 2, NULL),
+('Busi NGK Plus',           55000,   90,  9, 2, NULL),
+('Kampas Rem Plus',         130000,  60,  6, 2, NULL),
+('Oli Mesin Plus',          85000,   170, 17, 2, NULL),
+('Filter Udara Plus',       65000,   140, 14, 2, NULL),
+('Filter Oli Plus',         75000,   110, 11, 2, NULL),
+('Aki Plus',                260000,  25,  5, 2, NULL),
+('Busi Bosch Plus',         60000,   95,  9, 2, NULL),
+('Kampas Rem Super',        160000,  35,  5, 2, NULL),
+('Oli Mesin Ultra',         90000,   150, 15, 2, NULL),
+('Brake Fluid Plus',        95000,   70,  7, 2, NULL);
+
 
 
 
