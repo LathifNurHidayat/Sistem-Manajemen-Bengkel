@@ -155,7 +155,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             if (inputPelanggan.ShowDialog(this) == DialogResult.OK)
             {
                 LoadData();
-                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil diubah");
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil diperbarui");
                 nontifikasiForm.ShowDialog(this);
             }
         }

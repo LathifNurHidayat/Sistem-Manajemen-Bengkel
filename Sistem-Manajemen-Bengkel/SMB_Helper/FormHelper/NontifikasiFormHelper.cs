@@ -17,8 +17,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         private System.Windows.Forms.Timer fadeInTimer;
         private System.Windows.Forms.Timer fadeOutTimer;
 
-
-
         public NontifikasiFormHelper(string pesan)
         {
             InitializeComponent();
@@ -45,7 +43,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             fadeOutTimer.Tick += FadeOut;
 
             System.Windows.Forms.Timer waitTimer = new System.Windows.Forms.Timer();
-            waitTimer.Interval = 2000; 
+            waitTimer.Interval = 1500; 
             waitTimer.Tick += (s, e) =>
             {
                 waitTimer.Stop();

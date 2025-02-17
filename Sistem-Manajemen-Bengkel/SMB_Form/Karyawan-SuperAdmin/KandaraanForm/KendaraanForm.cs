@@ -151,6 +151,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             {
                 _kendaraanDal.SoftDeleteData(idKendaraan);
                 LoadData();
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil dihapus");
+                nontifikasiForm.ShowDialog(this);
             }
         }
 
@@ -161,7 +163,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
             InputKendaraanForm kendaraan = new InputKendaraanForm(idKendaraan);
             if (kendaraan.ShowDialog(this) == DialogResult.OK)
+            {
                 LoadData();
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil diperbarui");
+                nontifikasiForm.ShowDialog(this);
+            }
         }
 
         private void GridListData_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
@@ -180,6 +186,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             if (kendaraan.ShowDialog(this) == DialogResult.OK)
             {
                 LoadData();
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil ditambahkan");
+                nontifikasiForm.ShowDialog(this);
             }
         }
 

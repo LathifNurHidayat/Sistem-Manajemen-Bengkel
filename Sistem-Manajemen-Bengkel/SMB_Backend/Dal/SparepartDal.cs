@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 using Dapper;
 using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
@@ -11,7 +12,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             string sql = @$"SELECT 
                                 id_sparepart, nama_sparepart, harga, stok, stok_minimal, status_stok, image_data
-,                            FROM 
+                            FROM 
                                 tb_sparepart 
                             WHERE
                                 deleted_at IS NULL 
@@ -43,7 +44,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     (@nama_sparepart, @harga, @stok, @stok_minimal, @image_data,
                                 CASE 
                                     WHEN @stok = 0 THEN 0
-                                    WHEN @stok > 0 AND <= @stok_minimal THEN 1
+                                    WHEN @stok > 0 AND @stok <= @stok_minimal THEN 1
                                     ELSE 2
                                 END)";
 
@@ -66,16 +67,19 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 harga = @harga,
                                 stok = @stok,
                                 stok_minimal = @stok_minimal,
-                                image_data = @image_data,
+                                image_data =    CASE 
+                                                    WHEN @image_data = null THEN NULL
+                                                    ELSE @image_data
+                                                END,
+
                                 status_stok =   CASE 
                                                     WHEN @stok = 0 THEN 0
-                                                    WHEN @stok > 0 AND <= @stok_minimal THEN 1
+                                                    WHEN @stok > 0 AND @stok <= @stok_minimal THEN 1
                                                     ELSE 2
                                                 END,
                                 updated_at = GETDATE()
                             WHERE 
-                                id_sparepart = @id_sparepart
-";
+                                id_sparepart = @id_sparepart";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
 
@@ -85,7 +89,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Dp.Add("@harga", sparepart.harga);
             Dp.Add("@stok", sparepart.stok);
             Dp.Add("@stok_minimal", sparepart.stok_minimal);
-            Dp.Add("@image_data", sparepart.image_data);
+            Dp.Add("@image_data", sparepart.image_data, DbType.Binary);
 
             Conn.Execute(sql, Dp);
         }

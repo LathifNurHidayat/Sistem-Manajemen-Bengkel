@@ -174,6 +174,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                 SaveData();
                 LoadData();
                 ClearForm();
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil disimpan");
+                nontifikasiForm.ShowDialog(this);
             }
         }
 
@@ -200,6 +202,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                 _jasaServisDal.SoftDeleteData(ID);
                 LoadData();
                 ClearForm();
+                NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil dihapus");
+                nontifikasiForm.ShowDialog(this);
             }
         }
 

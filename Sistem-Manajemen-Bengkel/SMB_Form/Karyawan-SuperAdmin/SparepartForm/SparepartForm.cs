@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.SparepartForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
@@ -25,7 +26,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 
             CustomComponent();
             LoadData();
-           // CustomDataGrid(GridListData);
+            CustomDataGrid(GridListData);
 
             RegisterControlEvent();
         }
@@ -39,6 +40,45 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             CustomComponentHelper.CustomDataGrid(GridListData);
             CustomComponentHelper.CustomPanel(PanelBooking);
         }
+
+
+        public static void CustomDataGrid(DataGridView grid)
+        {
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            grid.Columns["Id"].Visible = false;
+            grid.Columns["No"].FillWeight = 5;
+            grid.Columns["Image"].FillWeight = 10;
+            grid.Columns["NamaSparepart"].FillWeight = 25;
+            grid.Columns["Harga"].FillWeight = 15;
+            grid.Columns["Stok"].FillWeight = 10;
+            grid.Columns["StokMinimal"].FillWeight = 10;
+            grid.Columns["StatusStok"].FillWeight = 15;
+
+            foreach (DataGridViewColumn col in grid.Columns)
+            {
+                col.DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            }
+
+            grid.Columns["No"].HeaderText = "No";
+            grid.Columns["Image"].HeaderText = "Gambar";
+            grid.Columns["NamaSparepart"].HeaderText = "Nama Sparepart";
+            grid.Columns["Harga"].HeaderText = "Harga (Rp)";
+            grid.Columns["Stok"].HeaderText = "Stok";
+            grid.Columns["StokMinimal"].HeaderText = "Stok Minimal";
+            grid.Columns["StatusStok"].HeaderText = "Status Stok";
+
+            foreach (string colName in new string[] { "Image", "Stok", "StokMinimal", "StatusStok" })
+            {
+                grid.Columns[colName].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            foreach (string colName in new string[] { "Image", "Stok", "StokMinimal", "StatusStok" })
+            {
+                grid.Columns[colName].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+        }
+
 
 
         int page = 1;
@@ -87,7 +127,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
                             ImageHelper.GetHighQualityThumbnail(Image.FromStream(new MemoryStream(x.image_data)), 40, 40) :
                             ImageDirectoryHelper._sparepartDefault,
                     NamaSparepart = x.nama_sparepart,
-                    Harga = x.harga,
+                    Harga = string.Format(new System.Globalization.CultureInfo("id-ID"), "Rp{0:N0}", x.harga),
                     Stok = x.stok,
                     StokMinimal = x.stok_minimal,
                     StatusStok = x.status_stok == 0 ? ImageDirectoryHelper._sparepartHabis : 
@@ -113,8 +153,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
         }
 
-        //BELUM DIEDIT 
-
         private void DeleteToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             int Id = (int)GridListData.CurrentRow.Cells["Id"].Value;
@@ -124,6 +162,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             {
                 _sparepartDal.SoftDeleteData(Id);
                 LoadData();
+                NontifikasiFormHelper nontifikasi = new NontifikasiFormHelper("Data berhasil dihapus");
+                nontifikasi.ShowDialog();
             }
         }
 
@@ -132,9 +172,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             int Id = (int)GridListData.CurrentRow.Cells["Id"].Value;
             if (Id == 0) return;
 
-        /*    InputPegawaiForm pegawai = new InputPegawaiForm(no_ktp);
-            if (pegawai.ShowDialog(this) == DialogResult.OK)
-                LoadData();*/
+            InputSparepartForm sparepart = new InputSparepartForm(Id);
+            if (sparepart.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadData();
+                NontifikasiFormHelper nontifikasi = new NontifikasiFormHelper("Data berhasil diperbarui");
+                nontifikasi.ShowDialog();
+            }
         }
 
         private void GridListData_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
@@ -149,11 +193,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
-          /*  InputPegawaiForm input = new InputPegawaiForm(string.Empty);
-            if (input.ShowDialog(this) == DialogResult.OK)
+            InputSparepartForm sparepart = new InputSparepartForm(0);
+            if (sparepart.ShowDialog(this) == DialogResult.OK)
             {
                 LoadData();
-            }*/
+                NontifikasiFormHelper nontifikasi = new NontifikasiFormHelper("Data berhasil ditambahkan");
+                nontifikasi.ShowDialog();
+            }
         }
 
         private void ButtonSearch_Click(object? sender, EventArgs e)

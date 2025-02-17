@@ -6,15 +6,13 @@
 5. Register
 6. Login
 7. CRUD Kendaraan
-
+8. CRUD Sparepart
 
 SEDANG PROSES
-1. Sparepart
-
+1. Booking
 
 PR 
-1. Pelanggan UI
-2. Booking
-3. Riwayat
-4. Invoice
-5. Laporan
+1. Riwayat
+2. Invoice
+3. Laporan
+4. Pelanggan UI

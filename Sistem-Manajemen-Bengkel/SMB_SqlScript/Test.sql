@@ -259,5 +259,8 @@ VALUES
 
 
 
-select * from tb_kendaraan;
-update tb_kendaraan set deleted_at = NULL 
+--select * from tb_kendaraan;
+--select * from tb_sparepart;
+--update tb_kendaraan set deleted_at = NULL 
+SELECT * FROM sys.dm_exec_requests;
+EXEC sp_who2;

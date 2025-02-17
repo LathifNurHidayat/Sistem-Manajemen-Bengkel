@@ -29,11 +29,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
 
 
 
-        public static Image _sparepartHabis = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Habis, 80, 40);
+        public static Image _sparepartHabis = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Habis, 148, 40);
 
-        public static Image _sparepartMenipis = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Menipis, 80, 40);
+        public static Image _sparepartMenipis = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Menipis, 148, 40);
 
-        public static Image _sparepartTersedia = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Tersedia, 80, 40);
+        public static Image _sparepartTersedia = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Tersedia, 148, 40);
 
         public static Image _sparepartDefault = ImageHelper.GetHighQualityThumbnail(Properties.Resources.gallery, 40, 40);
     }
