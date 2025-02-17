@@ -122,6 +122,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
         private void RegisterControlEvent()
         {
             TextSearch.KeyDown += TextSearch_KeyDown;
+            TextSearch.TextChanged += TextSearch_TextChanged;
             ButtonSearch.Click += ButtonSearch_Click;
             ButtonTambah.Click += ButtonTambah_Click;
             GridListData.CellMouseClick += GridListData_CellMouseClick;
@@ -175,6 +176,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                 page++;
                 LoadData();
             }
+        }
+
+        private void TextSearch_TextChanged(object? sender, EventArgs e)
+        {
+            if (TextSearch.Text.Length == 0)
+            {
+                page = 1;
+                LoadData();
+            } 
         }
 
         private void TextSearch_KeyDown(object? sender, KeyEventArgs e)

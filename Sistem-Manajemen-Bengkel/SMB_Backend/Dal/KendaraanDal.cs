@@ -21,14 +21,22 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 tb_kendaraan aa
                             LEFT JOIN tb_pelanggan bb ON aa.no_ktp_pelanggan = bb.no_ktp_pelanggan
                             WHERE
-                                deleted_at IS NULL 
+                                aa.deleted_at IS NULL 
                                 {filter}
                             ORDER BY
-                                created_at ASC
+                                aa.created_at ASC
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<KendaraanModel>(sql, Dp);
+        }
+
+        public List<int> ListTahun()
+        {
+            const string sql = @"SELECT DISTINCT tahun FROM tb_kendaraan ORDER BY tahun DESC";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.Query<int>(sql).AsList();
         }
 
         public KendaraanModel? GetData(int id_kendaraan)
@@ -94,53 +102,39 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
         public void SoftDeleteData(int id_kendaraan)
         {
-            const string sql = @"UPDATE tb_pegawai SET
-                             deleted_at = GETDATE()
-                         WHERE no_ktp_pegawai = @no_ktp_pegawai";
+            const string sql = @"UPDATE tb_kendaraan SET
+                                    deleted_at = GETDATE()
+                                WHERE id_kendaraan = @id_kendaraan";
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, new { no_ktp_pegawai = id_kendaraan });
+            conn.Execute(sql, new { id_kendaraan });
         }
 
-
-        public void RestoreData(string no_ktp_pegawai)
+/*        public void RestoreData(string no_ktp_pegawai)
         {
             const string sql = @"UPDATE tb_pegawai SET
                                     deleted_at = NULL
                                 WHERE no_ktp_pegawai = @no_ktp_pegawai";
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
             conn.Execute(sql, new { no_ktp_pegawai = no_ktp_pegawai });
-        }
+        }*/
 
-        public void DeletePermanent(string no_ktp_pegawai)
+        public void DeletePermanent(int id_kendaraan)
         {
-            const string sql = "DELETE FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai";
+            const string sql = "DELETE FROM tb_kendaraan WHERE id_kendaraan = @id_kendaraan";
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, new { no_ktp_pegawai = no_ktp_pegawai });
+            conn.Execute(sql, new { id_kendaraan });
         }
 
         public int CountData(string filter, DynamicParameters dp)
         {
-            string sql = @$"
-                SELECT COUNT(no_ktp_pegawai) 
-                FROM tb_pegawai 
-                WHERE deleted_at IS NULL 
-                {filter}";
+            string sql = @$"SELECT COUNT(*) 
+                                FROM tb_kendaraan 
+                            WHERE deleted_at IS NULL 
+                                {filter}";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
 
-        public PegawaiModel? ValidasiLoginPetugas(string email, string password)
-        {
-            const string sql = @"SELECT
-                                    no_ktp_pegawai, nama_pegawai, role 
-                                FROM 
-                                    tb_pegawai 
-                                WHERE 
-                                    email = @email AND password = @password";
-
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            return conn.QueryFirstOrDefault<PegawaiModel>(sql, new { email, password });
-        }
     }
 }

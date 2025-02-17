@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             LabelJudul = new Label();
             panel4 = new Panel();
-            LabelNoPol = new Label();
-            ComboTransmisi = new Syncfusion.WinForms.ListView.SfComboBox();
+            ComboTransmisi = new ComboBox();
             panel10 = new Panel();
             TextTahun = new TextBox();
             panel11 = new Panel();
@@ -49,7 +49,14 @@
             ButtonSimpan = new SMB_CustomTolbox.LathifButton();
             ButtonBatal = new SMB_CustomTolbox.LathifButton();
             panel3 = new Panel();
+            panel5 = new Panel();
+            TextEmail = new TextBox();
+            panel12 = new Panel();
+            TextAlamat = new TextBox();
+            ButtonShowPelanggan = new SMB_CustomTolbox.LathifButton();
+            label9 = new Label();
             LabelNoKTP = new Label();
+            label10 = new Label();
             panel7 = new Panel();
             TextTelepon = new TextBox();
             panel6 = new Panel();
@@ -59,29 +66,19 @@
             panel2 = new Panel();
             TextNomorKTP = new TextBox();
             label1 = new Label();
-            ButtonSearch = new SMB_CustomTolbox.LathifButton();
-            lathifButton1 = new SMB_CustomTolbox.LathifButton();
-            pictureBox1 = new PictureBox();
-            panel5 = new Panel();
-            TextEmail = new TextBox();
-            panel12 = new Panel();
-            TextAlamat = new TextBox();
-            label9 = new Label();
-            label10 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ComboTransmisi).BeginInit();
             panel10.SuspendLayout();
             panel11.SuspendLayout();
             panel8.SuspendLayout();
             panel9.SuspendLayout();
             panel3.SuspendLayout();
+            panel5.SuspendLayout();
+            panel12.SuspendLayout();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel5.SuspendLayout();
-            panel12.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -100,6 +97,16 @@
             panel1.Size = new Size(987, 709);
             panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.Motor;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(25, 17);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 90);
+            pictureBox1.TabIndex = 50;
+            pictureBox1.TabStop = false;
+            // 
             // LabelJudul
             // 
             LabelJudul.AutoSize = true;
@@ -115,7 +122,6 @@
             // 
             panel4.BackColor = Color.WhiteSmoke;
             panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(LabelNoPol);
             panel4.Controls.Add(ComboTransmisi);
             panel4.Controls.Add(panel10);
             panel4.Controls.Add(panel11);
@@ -131,34 +137,16 @@
             panel4.Size = new Size(444, 514);
             panel4.TabIndex = 2;
             // 
-            // LabelNoPol
-            // 
-            LabelNoPol.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelNoPol.ForeColor = Color.Red;
-            LabelNoPol.Location = new Point(155, 33);
-            LabelNoPol.Name = "LabelNoPol";
-            LabelNoPol.Size = new Size(257, 23);
-            LabelNoPol.TabIndex = 66;
-            LabelNoPol.Text = "⚠ Nomor polisi sudah terdaftar";
-            LabelNoPol.TextAlign = ContentAlignment.MiddleRight;
-            LabelNoPol.Visible = false;
-            // 
             // ComboTransmisi
             // 
-            ComboTransmisi.BackColor = Color.White;
-            ComboTransmisi.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            ComboTransmisi.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDownList;
-            ComboTransmisi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboTransmisi.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboTransmisi.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboTransmisi.FormattingEnabled = true;
+            ComboTransmisi.IntegralHeight = false;
             ComboTransmisi.Location = new Point(29, 241);
             ComboTransmisi.Name = "ComboTransmisi";
-            ComboTransmisi.Size = new Size(383, 44);
-            ComboTransmisi.Style.EditorStyle.BackColor = Color.White;
-            ComboTransmisi.Style.EditorStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            ComboTransmisi.Style.ReadOnlyEditorStyle.BackColor = Color.White;
-            ComboTransmisi.Style.ReadOnlyEditorStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            ComboTransmisi.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
-            ComboTransmisi.Style.TokenStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            ComboTransmisi.TabIndex = 3;
+            ComboTransmisi.Size = new Size(383, 33);
+            ComboTransmisi.TabIndex = 66;
             // 
             // panel10
             // 
@@ -176,6 +164,7 @@
             TextTahun.BorderStyle = BorderStyle.None;
             TextTahun.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextTahun.Location = new Point(4, 10);
+            TextTahun.MaxLength = 4;
             TextTahun.Name = "TextTahun";
             TextTahun.Size = new Size(373, 23);
             TextTahun.TabIndex = 49;
@@ -196,6 +185,7 @@
             TextKapasitasMesin.BorderStyle = BorderStyle.None;
             TextKapasitasMesin.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextKapasitasMesin.Location = new Point(4, 10);
+            TextKapasitasMesin.MaxLength = 6;
             TextKapasitasMesin.Name = "TextKapasitasMesin";
             TextKapasitasMesin.Size = new Size(373, 23);
             TextKapasitasMesin.TabIndex = 49;
@@ -227,6 +217,7 @@
             TextMerek.BorderStyle = BorderStyle.None;
             TextMerek.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextMerek.Location = new Point(4, 10);
+            TextMerek.MaxLength = 50;
             TextMerek.Name = "TextMerek";
             TextMerek.Size = new Size(373, 23);
             TextMerek.TabIndex = 49;
@@ -280,6 +271,7 @@
             TextNoPolisi.BorderStyle = BorderStyle.None;
             TextNoPolisi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextNoPolisi.Location = new Point(4, 10);
+            TextNoPolisi.MaxLength = 10;
             TextNoPolisi.Name = "TextNoPolisi";
             TextNoPolisi.Size = new Size(373, 23);
             TextNoPolisi.TabIndex = 49;
@@ -339,7 +331,7 @@
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel12);
-            panel3.Controls.Add(lathifButton1);
+            panel3.Controls.Add(ButtonShowPelanggan);
             panel3.Controls.Add(label9);
             panel3.Controls.Add(LabelNoKTP);
             panel3.Controls.Add(label10);
@@ -354,6 +346,79 @@
             panel3.Size = new Size(470, 514);
             panel3.TabIndex = 1;
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.White;
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(TextEmail);
+            panel5.Location = new Point(28, 432);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(409, 44);
+            panel5.TabIndex = 6;
+            // 
+            // TextEmail
+            // 
+            TextEmail.BackColor = Color.White;
+            TextEmail.BorderStyle = BorderStyle.None;
+            TextEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextEmail.Location = new Point(4, 10);
+            TextEmail.Name = "TextEmail";
+            TextEmail.ReadOnly = true;
+            TextEmail.Size = new Size(400, 23);
+            TextEmail.TabIndex = 49;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.White;
+            panel12.BorderStyle = BorderStyle.FixedSingle;
+            panel12.Controls.Add(TextAlamat);
+            panel12.Location = new Point(28, 339);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(409, 44);
+            panel12.TabIndex = 5;
+            // 
+            // TextAlamat
+            // 
+            TextAlamat.BackColor = Color.White;
+            TextAlamat.BorderStyle = BorderStyle.None;
+            TextAlamat.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextAlamat.Location = new Point(4, 10);
+            TextAlamat.Name = "TextAlamat";
+            TextAlamat.ReadOnly = true;
+            TextAlamat.Size = new Size(400, 23);
+            TextAlamat.TabIndex = 49;
+            // 
+            // ButtonShowPelanggan
+            // 
+            ButtonShowPelanggan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonShowPelanggan.BackColor = Color.Gray;
+            ButtonShowPelanggan.BackgroundColor = Color.Gray;
+            ButtonShowPelanggan.BorderColor = Color.Black;
+            ButtonShowPelanggan.BorderRadius = 3;
+            ButtonShowPelanggan.BorderSize = 0;
+            ButtonShowPelanggan.FlatAppearance.BorderSize = 0;
+            ButtonShowPelanggan.FlatStyle = FlatStyle.Flat;
+            ButtonShowPelanggan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonShowPelanggan.ForeColor = Color.White;
+            ButtonShowPelanggan.Location = new Point(384, 56);
+            ButtonShowPelanggan.Name = "ButtonShowPelanggan";
+            ButtonShowPelanggan.Size = new Size(53, 44);
+            ButtonShowPelanggan.TabIndex = 2;
+            ButtonShowPelanggan.Text = "...";
+            ButtonShowPelanggan.TextColor = Color.White;
+            ButtonShowPelanggan.UseVisualStyleBackColor = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(28, 404);
+            label9.Name = "label9";
+            label9.Size = new Size(56, 25);
+            label9.TabIndex = 57;
+            label9.Text = "Email";
+            // 
             // LabelNoKTP
             // 
             LabelNoKTP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -365,6 +430,17 @@
             LabelNoKTP.Text = "⚠ Nomor KTP tidak ditemukan";
             LabelNoKTP.TextAlign = ContentAlignment.MiddleRight;
             LabelNoKTP.Visible = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(28, 311);
+            label10.Name = "label10";
+            label10.Size = new Size(70, 25);
+            label10.TabIndex = 56;
+            label10.Text = "Alamat";
             // 
             // panel7
             // 
@@ -435,7 +511,6 @@
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(TextNomorKTP);
-            panel2.Controls.Add(ButtonSearch);
             panel2.Location = new Point(28, 55);
             panel2.Name = "panel2";
             panel2.Size = new Size(350, 44);
@@ -448,9 +523,10 @@
             TextNomorKTP.BorderStyle = BorderStyle.None;
             TextNomorKTP.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextNomorKTP.Location = new Point(4, 10);
+            TextNomorKTP.MaxLength = 16;
             TextNomorKTP.Name = "TextNomorKTP";
             TextNomorKTP.PlaceholderText = "🔍 Cari berdasarkan nomor KTP ";
-            TextNomorKTP.Size = new Size(286, 23);
+            TextNomorKTP.Size = new Size(341, 23);
             TextNomorKTP.TabIndex = 1;
             // 
             // label1
@@ -464,120 +540,6 @@
             label1.TabIndex = 43;
             label1.Text = "No. KTP";
             // 
-            // ButtonSearch
-            // 
-            ButtonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ButtonSearch.BackColor = Color.FromArgb(83, 92, 145);
-            ButtonSearch.BackgroundColor = Color.FromArgb(83, 92, 145);
-            ButtonSearch.BorderColor = Color.Black;
-            ButtonSearch.BorderRadius = 3;
-            ButtonSearch.BorderSize = 0;
-            ButtonSearch.FlatAppearance.BorderSize = 0;
-            ButtonSearch.FlatStyle = FlatStyle.Flat;
-            ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(296, -1);
-            ButtonSearch.Name = "ButtonSearch";
-            ButtonSearch.Size = new Size(53, 44);
-            ButtonSearch.TabIndex = 2;
-            ButtonSearch.Text = "🔍";
-            ButtonSearch.TextColor = Color.White;
-            ButtonSearch.UseVisualStyleBackColor = false;
-            // 
-            // lathifButton1
-            // 
-            lathifButton1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lathifButton1.BackColor = Color.Gray;
-            lathifButton1.BackgroundColor = Color.Gray;
-            lathifButton1.BorderColor = Color.Black;
-            lathifButton1.BorderRadius = 3;
-            lathifButton1.BorderSize = 0;
-            lathifButton1.FlatAppearance.BorderSize = 0;
-            lathifButton1.FlatStyle = FlatStyle.Flat;
-            lathifButton1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lathifButton1.ForeColor = Color.White;
-            lathifButton1.Location = new Point(384, 56);
-            lathifButton1.Name = "lathifButton1";
-            lathifButton1.Size = new Size(53, 44);
-            lathifButton1.TabIndex = 2;
-            lathifButton1.Text = "...";
-            lathifButton1.TextColor = Color.White;
-            lathifButton1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = Properties.Resources.Motor;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(25, 17);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(90, 90);
-            pictureBox1.TabIndex = 50;
-            pictureBox1.TabStop = false;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.White;
-            panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(TextEmail);
-            panel5.Location = new Point(28, 432);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(409, 44);
-            panel5.TabIndex = 6;
-            // 
-            // TextEmail
-            // 
-            TextEmail.BackColor = Color.White;
-            TextEmail.BorderStyle = BorderStyle.None;
-            TextEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            TextEmail.Location = new Point(4, 10);
-            TextEmail.Name = "TextEmail";
-            TextEmail.ReadOnly = true;
-            TextEmail.Size = new Size(400, 23);
-            TextEmail.TabIndex = 49;
-            // 
-            // panel12
-            // 
-            panel12.BackColor = Color.White;
-            panel12.BorderStyle = BorderStyle.FixedSingle;
-            panel12.Controls.Add(TextAlamat);
-            panel12.Location = new Point(28, 339);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(409, 44);
-            panel12.TabIndex = 5;
-            // 
-            // TextAlamat
-            // 
-            TextAlamat.BackColor = Color.White;
-            TextAlamat.BorderStyle = BorderStyle.None;
-            TextAlamat.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            TextAlamat.Location = new Point(4, 10);
-            TextAlamat.Name = "TextAlamat";
-            TextAlamat.ReadOnly = true;
-            TextAlamat.Size = new Size(400, 23);
-            TextAlamat.TabIndex = 49;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.ForeColor = Color.Black;
-            label9.Location = new Point(28, 404);
-            label9.Name = "label9";
-            label9.Size = new Size(56, 25);
-            label9.TabIndex = 57;
-            label9.Text = "Email";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(28, 311);
-            label10.Name = "label10";
-            label10.Size = new Size(70, 25);
-            label10.TabIndex = 56;
-            label10.Text = "Alamat";
-            // 
             // InputKendaraanForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -585,15 +547,15 @@
             BackColor = Color.FromArgb(221, 230, 237);
             ClientSize = new Size(1011, 733);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);
             Name = "InputKendaraanForm";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterParent;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)ComboTransmisi).EndInit();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
             panel11.ResumeLayout(false);
@@ -604,17 +566,16 @@
             panel9.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -648,11 +609,8 @@
         private Panel panel9;
         private TextBox TextNoPolisi;
         private Label label6;
-        private Syncfusion.WinForms.ListView.SfComboBox ComboTransmisi;
-        private Label LabelNoPol;
         private Label LabelJudul;
-        private SMB_CustomTolbox.LathifButton lathifButton1;
-        private SMB_CustomTolbox.LathifButton ButtonSearch;
+        private SMB_CustomTolbox.LathifButton ButtonShowPelanggan;
         private PictureBox pictureBox1;
         private Panel panel5;
         private TextBox TextEmail;
@@ -660,5 +618,6 @@
         private TextBox TextAlamat;
         private Label label9;
         private Label label10;
+        private ComboBox ComboTransmisi;
     }
 }

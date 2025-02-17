@@ -217,6 +217,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             TextPassword.TextChanged += TextInput_TextChanged;
             ButtonBatal.Click += ButtonBatal_Click;
             LinkReset.Click += LinkReset_Click;
+
+            TextNoKTP.KeyPress += TextBox_KeyPress;
+            TextNoHP.KeyPress += TextBox_KeyPress;
+        }
+
+        private void TextBox_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
 
         private void LinkReset_Click(object? sender, EventArgs e)

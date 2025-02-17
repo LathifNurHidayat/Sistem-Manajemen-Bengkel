@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panel2 = new Panel();
+            PictureProfiles = new SMB_CustomTolbox.RJCircularPictureBox();
             ButtonLogout = new Button();
             ButtonLaporan = new Button();
             ButtonSparepart = new Button();
@@ -43,7 +44,6 @@
             LabelUsername = new Label();
             LabelRole = new Label();
             PanelMain = new Panel();
-            PictureProfiles = new SMB_CustomTolbox.RJCircularPictureBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureProfiles).BeginInit();
             SuspendLayout();
@@ -70,6 +70,25 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(319, 1055);
             panel2.TabIndex = 1;
+            // 
+            // PictureProfiles
+            // 
+            PictureProfiles.Anchor = AnchorStyles.Top;
+            PictureProfiles.BackgroundImage = Properties.Resources.User_Hitam;
+            PictureProfiles.BackgroundImageLayout = ImageLayout.Stretch;
+            PictureProfiles.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            PictureProfiles.BorderColor = Color.FromArgb(83, 92, 145);
+            PictureProfiles.BorderColor2 = Color.FromArgb(83, 92, 145);
+            PictureProfiles.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            PictureProfiles.BorderSize = 2;
+            PictureProfiles.GradientAngle = 50F;
+            PictureProfiles.Image = (Image)resources.GetObject("PictureProfiles.Image");
+            PictureProfiles.Location = new Point(109, 48);
+            PictureProfiles.Name = "PictureProfiles";
+            PictureProfiles.Size = new Size(101, 101);
+            PictureProfiles.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureProfiles.TabIndex = 36;
+            PictureProfiles.TabStop = false;
             // 
             // ButtonLogout
             // 
@@ -148,7 +167,7 @@
             ButtonKendaraan.Name = "ButtonKendaraan";
             ButtonKendaraan.Size = new Size(319, 53);
             ButtonKendaraan.TabIndex = 12;
-            ButtonKendaraan.Text = "          🚗     Kendaraan";
+            ButtonKendaraan.Text = "          🏍     Kendaraan";
             ButtonKendaraan.TextAlign = ContentAlignment.MiddleLeft;
             ButtonKendaraan.UseVisualStyleBackColor = false;
             // 
@@ -265,25 +284,6 @@
             PanelMain.Name = "PanelMain";
             PanelMain.Size = new Size(901, 1029);
             PanelMain.TabIndex = 4;
-            // 
-            // PictureProfiles
-            // 
-            PictureProfiles.Anchor = AnchorStyles.Top;
-            PictureProfiles.BackgroundImage = Properties.Resources.User_Hitam;
-            PictureProfiles.BackgroundImageLayout = ImageLayout.Stretch;
-            PictureProfiles.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            PictureProfiles.BorderColor = Color.FromArgb(83, 92, 145);
-            PictureProfiles.BorderColor2 = Color.FromArgb(83, 92, 145);
-            PictureProfiles.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            PictureProfiles.BorderSize = 2;
-            PictureProfiles.GradientAngle = 50F;
-            PictureProfiles.Image = (Image)resources.GetObject("PictureProfiles.Image");
-            PictureProfiles.Location = new Point(109, 48);
-            PictureProfiles.Name = "PictureProfiles";
-            PictureProfiles.Size = new Size(101, 101);
-            PictureProfiles.SizeMode = PictureBoxSizeMode.StretchImage;
-            PictureProfiles.TabIndex = 36;
-            PictureProfiles.TabStop = false;
             // 
             // Dashboard
             // 

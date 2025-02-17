@@ -12,6 +12,7 @@ CREATE TABLE tb_pelanggan (
     deleted_at DATETIME NULL
 );
 
+
 CREATE TABLE tb_pegawai (
     no_ktp_pegawai VARCHAR(20) NOT NULL PRIMARY KEY,
     nama_pegawai VARCHAR(100),
@@ -63,6 +64,7 @@ CREATE TABLE tb_sparepart(
     stok INT,
     stok_minimal INT,
     status_stok VARCHAR(50),
+    image_data VARBINARY(MAX),
     created_at DATETIME DEFAULT GETDATE(),
     updated_at DATETIME DEFAULT GETDATE(),
     deleted_at DATETIME NULL
@@ -74,7 +76,7 @@ CREATE TABLE tb_kendaraan (
     no_ktp_pelanggan VARCHAR(20),
     no_polisi VARCHAR(20),
     merek VARCHAR(50),
-    transmisi VARCHAR(20),
+    transmisi INT,
     kapasitas_mesin INT,
     tahun INT,
     created_at DATETIME DEFAULT GETDATE(),

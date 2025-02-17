@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             PanelBooking = new Panel();
+            label3 = new Label();
             ComboFilter = new ComboBox();
             label2 = new Label();
             label1 = new Label();
@@ -49,7 +50,6 @@
             contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             editToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
-            label3 = new Label();
             PanelBooking.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TextPage).BeginInit();
@@ -81,6 +81,18 @@
             PanelBooking.Name = "PanelBooking";
             PanelBooking.Size = new Size(1058, 679);
             PanelBooking.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(816, 172);
+            label3.Name = "label3";
+            label3.Size = new Size(43, 23);
+            label3.TabIndex = 56;
+            label3.Text = "Role";
             // 
             // ComboFilter
             // 
@@ -336,17 +348,6 @@
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Size = new Size(145, 32);
             deleteToolStripMenuItem.Text = "Delete";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(812, 172);
-            label3.Name = "label3";
-            label3.Size = new Size(43, 23);
-            label3.TabIndex = 56;
-            label3.Text = "Role";
             // 
             // PegawaiForm
             // 

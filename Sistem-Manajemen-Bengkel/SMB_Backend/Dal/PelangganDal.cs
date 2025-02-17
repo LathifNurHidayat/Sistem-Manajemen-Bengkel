@@ -110,7 +110,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public int CountData(string filter, DynamicParameters dp)
         {
             string sql = @$"
-                SELECT COUNT(no_ktp_pelanggan) 
+                SELECT COUNT(*) 
                 FROM tb_pelanggan 
                 WHERE deleted_at IS NULL 
                 {filter}";

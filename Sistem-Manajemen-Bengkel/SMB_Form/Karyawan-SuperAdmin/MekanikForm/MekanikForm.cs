@@ -119,6 +119,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
             ButtonNext.Click += ButtonNext_Click;
             ButtonPreviuos.Click += ButtonPreviuos_Click;
             ButtonSearch.Click += ButtonSearch_Click;
+            TextSearch.TextChanged += TextSearch_TextChanged;
             TextSearch.KeyDown += TextSearch_KeyDown;
             GridListData.CellMouseClick += GridListData_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
@@ -187,6 +188,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
             if (page < totalPage)
             {
                 page++;
+                LoadData();
+            }
+        }
+
+        private void TextSearch_TextChanged(object? sender, EventArgs e)
+        {
+            if (TextSearch.Text.Length == 0)
+            {
+                page = 1;
                 LoadData();
             }
         }

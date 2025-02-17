@@ -123,7 +123,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public int CountData(string filter, DynamicParameters dp)
         {
             string sql = @$"
-                SELECT COUNT(no_ktp_pegawai) 
+                SELECT COUNT(*) 
                 FROM tb_pegawai 
                 WHERE deleted_at IS NULL 
                 {filter}";

@@ -114,11 +114,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
         public int CountData(string filter, DynamicParameters dp)
         {
-            string sql = @$"
-                SELECT COUNT(no_ktp_mekanik) 
-                FROM tb_mekanik
-                WHERE deleted_at IS NULL 
-                {filter}";
+            string sql = @$"SELECT COUNT(*) 
+                            FROM tb_mekanik
+                            WHERE deleted_at IS NULL 
+                            {filter}";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.ExecuteScalar<int>(sql, dp);

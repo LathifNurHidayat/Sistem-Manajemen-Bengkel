@@ -3,8 +3,10 @@
 2. CRUD Pegawai
 3. CRUD Mekanik
 4. CRUD Jasa Servis
+5. Register
+6. Login
 
 SEDANG PROSES
-1. 
+1. CRUD Kendaraan 
 
 

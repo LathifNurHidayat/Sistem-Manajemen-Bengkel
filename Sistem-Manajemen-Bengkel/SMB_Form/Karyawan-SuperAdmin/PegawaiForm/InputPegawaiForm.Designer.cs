@@ -111,11 +111,11 @@
             // LabelJudul
             // 
             LabelJudul.AutoSize = true;
-            LabelJudul.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelJudul.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             LabelJudul.ForeColor = Color.Black;
-            LabelJudul.Location = new Point(120, 39);
+            LabelJudul.Location = new Point(120, 44);
             LabelJudul.Name = "LabelJudul";
-            LabelJudul.Size = new Size(197, 38);
+            LabelJudul.Size = new Size(160, 31);
             LabelJudul.TabIndex = 45;
             LabelJudul.Text = "Input Pegawai";
             // 

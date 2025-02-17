@@ -44,55 +44,56 @@ VALUES
 -- 2. Insert 20 Data ke tb_pegawai
 -------------------------------------------------
 INSERT INTO tb_pegawai 
-    (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_name, image_data)
+    (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_data)
 VALUES
-('32010120000001', 'Siti Rahma',      'siti@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345600', 'Jl. Merdeka No.5, Jakarta',       1, NULL, NULL),
-('32010120000002', 'Agus Salim',       'agus@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345601', 'Jl. Sudirman No.10, Bandung',     2, NULL, NULL),
-('32010120000003', 'Dewi Lestari',     'dewi@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345602', 'Jl. Cempaka No.7, Surabaya',       1, NULL, NULL),
-('32010120000004', 'Rizki Hidayat',    'rizki@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345603', 'Jl. Melati No.3, Jakarta',         2, NULL, NULL),
-('32010120000005', 'Winda Sari',       'winda@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345604', 'Jl. Kebon Jeruk No.15, Bandung',   1, NULL, NULL),
-('32010120000006', 'Fajar Nugroho',    'fajar@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345605', 'Jl. Merpati No.9, Semarang',       2, NULL, NULL),
-('32010120000007', 'Lutfi Maulana',    'lutfi@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345606', 'Jl. Veteran No.20, Yogyakarta',    1, NULL, NULL),
-('32010120000008', 'Rina Puspita',     'rina@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345607', 'Jl. Ahmad Yani No.30, Jakarta',    2, NULL, NULL),
-('32010120000009', 'Budi Prasetyo',    'budi@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345608', 'Jl. Sudirman No.25, Bandung',     1, NULL, NULL),
-('32010120000010', 'Slamet Wijaya',    'slamet@x.com',    '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345609', 'Jl. Cempaka No.12, Surabaya',      2, NULL, NULL),
-('32010120000011', 'Dina Kartika',     'dina@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345610', 'Jl. Mawar No.5, Jakarta',         1, NULL, NULL),
-('32010120000012', 'Aditya Pranata',   'aditya@x.com',    '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345611', 'Jl. Kebon Pisang No.7, Bandung',   2, NULL, NULL),
-('32010120000013', 'Rizka Amalia',     'rizka@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345612', 'Jl. Pahlawan No.8, Semarang',      1, NULL, NULL),
-('32010120000014', 'Feri Saputra',     'feri@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345613', 'Jl. Merdeka No.3, Yogyakarta',     2, NULL, NULL),
-('32010120000015', 'Wahyu Firmansyah', 'wahyu@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345614', 'Jl. Veteran No.10, Jakarta',      1, NULL, NULL),
-('32010120000016', 'Sari Ambarwati',   'sari@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345615', 'Jl. Pahlawan No.15, Bandung',      2, NULL, NULL),
-('32010120000017', 'Anton Rahman',     'anton@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345616', 'Jl. Cempaka No.19, Surabaya',      1, NULL, NULL),
-('32010120000018', 'Lilis Suryani',    'lilis@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345617', 'Jl. Kebon Jeruk No.22, Semarang',  2, NULL, NULL),
-('32010120000019', 'Rizki Ananda',     'rizki@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345618', 'Jl. Merpati No.11, Yogyakarta',     1, NULL, NULL),
-('32010120000020', 'Nina Pratiwi',     'nina@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345619', 'Jl. Kebon Pisang No.16, Jakarta',   2, NULL, NULL);
+('32010120000001', 'Siti Rahma',      'siti@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345600', 'Jl. Merdeka No.5, Jakarta',       1, NULL),
+('32010120000002', 'Agus Salim',       'agus@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345601', 'Jl. Sudirman No.10, Bandung',     2, NULL),
+('32010120000003', 'Dewi Lestari',     'dewi@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345602', 'Jl. Cempaka No.7, Surabaya',       1, NULL),
+('32010120000004', 'Rizki Hidayat',    'rizki@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345603', 'Jl. Melati No.3, Jakarta',         2, NULL),
+('32010120000005', 'Winda Sari',       'winda@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345604', 'Jl. Kebon Jeruk No.15, Bandung',   1, NULL),
+('32010120000006', 'Fajar Nugroho',    'fajar@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345605', 'Jl. Merpati No.9, Semarang',       2, NULL),
+('32010120000007', 'Lutfi Maulana',    'lutfi@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345606', 'Jl. Veteran No.20, Yogyakarta',    1, NULL),
+('32010120000008', 'Rina Puspita',     'rina@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345607', 'Jl. Ahmad Yani No.30, Jakarta',    2, NULL),
+('32010120000009', 'Budi Prasetyo',    'budi@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345608', 'Jl. Sudirman No.25, Bandung',     1, NULL),
+('32010120000010', 'Slamet Wijaya',    'slamet@x.com',    '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345609', 'Jl. Cempaka No.12, Surabaya',      2, NULL),
+('32010120000011', 'Dina Kartika',     'dina@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345610', 'Jl. Mawar No.5, Jakarta',         1, NULL),
+('32010120000012', 'Aditya Pranata',   'aditya@x.com',    '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345611', 'Jl. Kebon Pisang No.7, Bandung',   2, NULL),
+('32010120000013', 'Rizka Amalia',     'rizka@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345612', 'Jl. Pahlawan No.8, Semarang',      1, NULL),
+('32010120000014', 'Feri Saputra',     'feri@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345613', 'Jl. Merdeka No.3, Yogyakarta',     2, NULL),
+('32010120000015', 'Wahyu Firmansyah', 'wahyu@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345614', 'Jl. Veteran No.10, Jakarta',      1, NULL),
+('32010120000016', 'Sari Ambarwati',   'sari@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345615', 'Jl. Pahlawan No.15, Bandung',      2, NULL),
+('32010120000017', 'Anton Rahman',     'anton@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345616', 'Jl. Cempaka No.19, Surabaya',      1, NULL),
+('32010120000018', 'Lilis Suryani',    'lilis@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345617', 'Jl. Kebon Jeruk No.22, Semarang',  2, NULL),
+('32010120000019', 'Rizki Ananda',     'rizki@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345618', 'Jl. Merpati No.11, Yogyakarta',     1, NULL),
+('32010120000020', 'Nina Pratiwi',     'nina@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345619', 'Jl. Kebon Pisang No.16, Jakarta',   2, NULL);
 
 -------------------------------------------------
 -- 3. Insert 20 Data ke tb_mekanik
 -------------------------------------------------
 INSERT INTO tb_mekanik 
-    (no_ktp_mekanik, nama_mekanik, no_hp, alamat, spesialis, image_name, image_data)
+    (no_ktp_mekanik, nama_mekanik, no_hp, alamat, spesialis, image_data)
 VALUES
-('32010130000001', 'Slamet Hidayat',  '081423456700', 'Jl. Merdeka No.2, Bandung',    'Mesin',      NULL, NULL),
-('32010130000002', 'Rina Kurnia',     '081423456701', 'Jl. Diponegoro No.10, Jakarta', 'Kelistrikan',NULL, NULL),
-('32010130000003', 'Dedi Saputra',    '081423456702', 'Jl. Sudirman No.12, Semarang',  'Body & Cat',  NULL, NULL),
-('32010130000004', 'Teguh Prasetyo',  '081423456703', 'Jl. Mawar No.4, Yogyakarta',    'Mesin',      NULL, NULL),
-('32010130000005', 'Dewi Anggraeni',  '081423456704', 'Jl. Kebon Jeruk No.6, Jakarta',  'Kelistrikan',NULL, NULL),
-('32010130000006', 'Agus Pranata',    '081423456705', 'Jl. Veteran No.8, Bandung',     'Body & Cat',  NULL, NULL),
-('32010130000007', 'Siti Aminah',     '081423456706', 'Jl. Pahlawan No.3, Semarang',    'Mesin',      NULL, NULL),
-('32010130000008', 'Budi Gunawan',    '081423456707', 'Jl. Merpati No.9, Yogyakarta',   'Kelistrikan',NULL, NULL),
-('32010130000009', 'Lilis Suryani',   '081423456708', 'Jl. Cempaka No.5, Jakarta',     'Body & Cat',  NULL, NULL),
-('32010130000010', 'Dodi Setiawan',   '081423456709', 'Jl. Cendana No.11, Bandung',     'Mesin',      NULL, NULL),
-('32010130000011', 'Rizki Fajar',     '081423456710', 'Jl. Kenanga No.7, Semarang',     'Kelistrikan',NULL, NULL),
-('32010130000012', 'Wati Lestari',    '081423456711', 'Jl. Anggrek No.8, Yogyakarta',    'Body & Cat',  NULL, NULL),
-('32010130000013', 'Hendra Wijaya',   '081423456712', 'Jl. Melati No.3, Jakarta',       'Mesin',      NULL, NULL),
-('32010130000014', 'Nia Fitria',      '081423456713', 'Jl. Mawar No.14, Bandung',       'Kelistrikan',NULL, NULL),
-('32010130000015', 'Fajar Nugroho',   '081423456714', 'Jl. Siliwangi No.10, Semarang',   'Body & Cat',  NULL, NULL),
-('32010130000016', 'Diana Puspita',   '081423456715', 'Jl. Merdeka No.20, Yogyakarta',   'Mesin',      NULL, NULL),
-('32010130000017', 'Agung Setiawan',  '081423456716', 'Jl. Diponegoro No.7, Jakarta',   'Kelistrikan',NULL, NULL),
-('32010130000018', 'Rizal Hamdani',   '081423456717', 'Jl. Sudirman No.16, Bandung',    'Body & Cat',  NULL, NULL),
-('32010130000019', 'Sari Utami',      '081423456718', 'Jl. Veteran No.4, Semarang',      'Mesin',      NULL, NULL),
-('32010130000020', 'Doni Prakoso',    '081423456719', 'Jl. Pahlawan No.12, Yogyakarta',  'Kelistrikan',NULL, NULL);
+('32010130000001', 'Slamet Hidayat',  '081423456700', 'Jl. Merdeka No.2, Bandung',    'Mesin',      NULL),
+('32010130000002', 'Rina Kurnia',     '081423456701', 'Jl. Diponegoro No.10, Jakarta', 'Kelistrikan',NULL),
+('32010130000003', 'Dedi Saputra',    '081423456702', 'Jl. Sudirman No.12, Semarang',  'Body & Cat',  NULL),
+('32010130000004', 'Teguh Prasetyo',  '081423456703', 'Jl. Mawar No.4, Yogyakarta',    'Mesin',      NULL),
+('32010130000005', 'Dewi Anggraeni',  '081423456704', 'Jl. Kebon Jeruk No.6, Jakarta',  'Kelistrikan',NULL),
+('32010130000006', 'Agus Pranata',    '081423456705', 'Jl. Veteran No.8, Bandung',     'Body & Cat',  NULL),
+('32010130000007', 'Siti Aminah',     '081423456706', 'Jl. Pahlawan No.3, Semarang',    'Mesin',      NULL),
+('32010130000008', 'Budi Gunawan',    '081423456707', 'Jl. Merpati No.9, Yogyakarta',   'Kelistrikan',NULL),
+('32010130000009', 'Lilis Suryani',   '081423456708', 'Jl. Cempaka No.5, Jakarta',     'Body & Cat',  NULL),
+('32010130000010', 'Dodi Setiawan',   '081423456709', 'Jl. Cendana No.11, Bandung',     'Mesin',      NULL),
+('32010130000011', 'Rizki Fajar',     '081423456710', 'Jl. Kenanga No.7, Semarang',     'Kelistrikan',NULL),
+('32010130000012', 'Wati Lestari',    '081423456711', 'Jl. Anggrek No.8, Yogyakarta',    'Body & Cat',  NULL),
+('32010130000013', 'Hendra Wijaya',   '081423456712', 'Jl. Melati No.3, Jakarta',       'Mesin',      NULL),
+('32010130000014', 'Nia Fitria',      '081423456713', 'Jl. Mawar No.14, Bandung',       'Kelistrikan',NULL),
+('32010130000015', 'Fajar Nugroho',   '081423456714', 'Jl. Siliwangi No.10, Semarang',   'Body & Cat',  NULL),
+('32010130000016', 'Diana Puspita',   '081423456715', 'Jl. Merdeka No.20, Yogyakarta',   'Mesin',      NULL),
+('32010130000017', 'Agung Setiawan',  '081423456716', 'Jl. Diponegoro No.7, Jakarta',   'Kelistrikan',NULL),
+('32010130000018', 'Rizal Hamdani',   '081423456717', 'Jl. Sudirman No.16, Bandung',    'Body & Cat',  NULL),
+('32010130000019', 'Sari Utami',      '081423456718', 'Jl. Veteran No.4, Semarang',      'Mesin',      NULL),
+('32010130000020', 'Doni Prakoso',    '081423456719', 'Jl. Pahlawan No.12, Yogyakarta',  'Kelistrikan',NULL);
+
 
 -------------------------------------------------
 -- 4. Insert 20 Data ke tb_jasa_servis
@@ -152,28 +153,29 @@ VALUES
 -- 6. Insert 20 Data ke tb_sparepart
 -------------------------------------------------
 INSERT INTO tb_sparepart 
-    (nama_sparepart, harga, stok, stok_minimal, status_stok)
+    (nama_sparepart, harga, stok, stok_minimal, status_stok, image_data)
 VALUES
-('Busi NGK',                50000,  100, 10, 'Tersedia'),
-('Kampas Rem',              120000,  50,  5, 'Tersedia'),
-('Oli Mesin',               80000,   200, 20, 'Tersedia'),
-('Filter Udara',            60000,   150, 15, 'Tersedia'),
-('Filter Oli',              70000,   120, 12, 'Tersedia'),
-('Aki',                     250000,  30,  5, 'Tersedia'),
-('Busi Bosch',              55000,   100, 10, 'Tersedia'),
-('Kampas Rem Premium',      150000,  40,  5, 'Tersedia'),
-('Oli Mesin Synthetic',     80000,   180, 20, 'Tersedia'),
-('Brake Fluid',             90000,   80,  8, 'Tersedia'),
-('Busi NGK Plus',           55000,   90,  9, 'Tersedia'),
-('Kampas Rem Plus',         130000,  60,  6, 'Tersedia'),
-('Oli Mesin Plus',          85000,   170, 17, 'Tersedia'),
-('Filter Udara Plus',       65000,   140, 14, 'Tersedia'),
-('Filter Oli Plus',         75000,   110, 11, 'Tersedia'),
-('Aki Plus',                260000,  25,  5, 'Tersedia'),
-('Busi Bosch Plus',         60000,   95,  9, 'Tersedia'),
-('Kampas Rem Super',        160000,  35,  5, 'Tersedia'),
-('Oli Mesin Ultra',         90000,   150, 15, 'Tersedia'),
-('Brake Fluid Plus',        95000,   70,  7, 'Tersedia');
+('Busi NGK',                50000,  100, 10, 'Tersedia', NULL),
+('Kampas Rem',              120000,  50,  5, 'Tersedia', NULL),
+('Oli Mesin',               80000,   200, 20, 'Tersedia', NULL),
+('Filter Udara',            60000,   150, 15, 'Tersedia', NULL),
+('Filter Oli',              70000,   120, 12, 'Tersedia', NULL),
+('Aki',                     250000,  30,  5, 'Tersedia', NULL),
+('Busi Bosch',              55000,   100, 10, 'Tersedia', NULL),
+('Kampas Rem Premium',      150000,  40,  5, 'Tersedia', NULL),
+('Oli Mesin Synthetic',     80000,   180, 20, 'Tersedia', NULL),
+('Brake Fluid',             90000,   80,  8, 'Tersedia', NULL),
+('Busi NGK Plus',           55000,   90,  9, 'Tersedia', NULL),
+('Kampas Rem Plus',         130000,  60,  6, 'Tersedia', NULL),
+('Oli Mesin Plus',          85000,   170, 17, 'Tersedia', NULL),
+('Filter Udara Plus',       65000,   140, 14, 'Tersedia', NULL),
+('Filter Oli Plus',         75000,   110, 11, 'Tersedia', NULL),
+('Aki Plus',                260000,  25,  5, 'Tersedia', NULL),
+('Busi Bosch Plus',         60000,   95,  9, 'Tersedia', NULL),
+('Kampas Rem Super',        160000,  35,  5, 'Tersedia', NULL),
+('Oli Mesin Ultra',         90000,   150, 15, 'Tersedia', NULL),
+('Brake Fluid Plus',        95000,   70,  7, 'Tersedia', NULL);
+
 
 -------------------------------------------------
 -- 7. Insert 20 Data ke tb_kendaraan
@@ -181,26 +183,27 @@ VALUES
 INSERT INTO tb_kendaraan 
     (no_ktp_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, tahun)
 VALUES
-('32010110000001', 'B 1234 ABC', 'Toyota Avanza',      'Manual', 1500, 2020),
-('32010110000002', 'D 5678 XYZ', 'Honda Jazz',         'Automatic', 1300, 2018),
-('32010110000003', 'L 9101 PQR', 'Mitsubishi Xpander', 'Automatic', 1500, 2021),
-('32010110000004', 'B 2345 DEF', 'Suzuki Ertiga',      'Manual', 1200, 2019),
-('32010110000005', 'D 6789 UVW', 'Honda Brio',         'Automatic', 1100, 2017),
-('32010110000006', 'L 1011 LMN', 'Toyota Innova',      'Manual', 2000, 2020),
-('32010110000007', 'B 3456 GHI', 'Daihatsu Sigra',     'Automatic', 1300, 2018),
-('32010110000008', 'D 7890 OPQ', 'Honda Mobilio',      'Manual', 1500, 2019),
-('32010110000009', 'L 1121 RST', 'Suzuki Ertiga',      'Automatic', 1200, 2021),
-('32010110000010', 'B 1314 UVW', 'Toyota Avanza',      'Manual', 1500, 2018),
-('32010110000011', 'D 1516 XYZ', 'Honda Jazz',         'Automatic', 1300, 2020),
-('32010110000012', 'L 1718 ABC', 'Mitsubishi Xpander', 'Automatic', 1500, 2017),
-('32010110000013', 'B 1920 DEF', 'Suzuki Ertiga',      'Manual', 1200, 2019),
-('32010110000014', 'D 2122 GHI', 'Honda Brio',         'Automatic', 1100, 2020),
-('32010110000015', 'L 2324 JKL', 'Toyota Innova',      'Manual', 2000, 2021),
-('32010110000016', 'B 2526 MNO', 'Daihatsu Sigra',     'Automatic', 1300, 2018),
-('32010110000017', 'D 2728 PQR', 'Honda Mobilio',      'Manual', 1500, 2019),
-('32010110000018', 'L 2930 STU', 'Suzuki Ertiga',      'Automatic', 1200, 2020),
-('32010110000019', 'B 3132 VWX', 'Toyota Avanza',      'Manual', 1500, 2017),
-('32010110000020', 'D 3334 YZA', 'Honda Jazz',         'Automatic', 1300, 2021);
+('32010110000001', 'B 1234 ABC', 'Toyota Avanza',      1, 1500, 2020),
+('32010110000002', 'D 5678 XYZ', 'Honda Jazz',         2, 1300, 2018),
+('32010110000003', 'L 9101 PQR', 'Mitsubishi Xpander', 2, 1500, 2021),
+('32010110000004', 'B 2345 DEF', 'Suzuki Ertiga',      1, 1200, 2019),
+('32010110000005', 'D 6789 UVW', 'Honda Brio',         2, 1100, 2017),
+('32010110000006', 'L 1011 LMN', 'Toyota Innova',      1, 2000, 2020),
+('32010110000007', 'B 3456 GHI', 'Daihatsu Sigra',     2, 1300, 2018),
+('32010110000008', 'D 7890 OPQ', 'Honda Mobilio',      1, 1500, 2019),
+('32010110000009', 'L 1121 RST', 'Suzuki Ertiga',      2, 1200, 2021),
+('32010110000010', 'B 1314 UVW', 'Toyota Avanza',      1, 1500, 2018),
+('32010110000011', 'D 1516 XYZ', 'Honda Jazz',         2, 1300, 2020),
+('32010110000012', 'L 1718 ABC', 'Mitsubishi Xpander', 2, 1500, 2017),
+('32010110000013', 'B 1920 DEF', 'Suzuki Ertiga',      1, 1200, 2019),
+('32010110000014', 'D 2122 GHI', 'Honda Brio',         2, 1100, 2020),
+('32010110000015', 'L 2324 JKL', 'Toyota Innova',      1, 2000, 2021),
+('32010110000016', 'B 2526 MNO', 'Daihatsu Sigra',     2, 1300, 2018),
+('32010110000017', 'D 2728 PQR', 'Honda Mobilio',      1, 1500, 2019),
+('32010110000018', 'L 2930 STU', 'Suzuki Ertiga',      2, 1200, 2020),
+('32010110000019', 'B 3132 VWX', 'Toyota Avanza',      1, 1500, 2017),
+('32010110000020', 'D 3334 YZA', 'Honda Jazz',         2, 1300, 2021);
+
 
 -------------------------------------------------
 -- 8. Insert 20 Data ke tb_booking
@@ -263,20 +266,5 @@ VALUES
 
 
 
-
-UPDATE tb_pelanggan
-SET 
-no_ktp_pelanggan = '8787878787878787',
-    nama_pelanggan = 'AKUUUU',
-    no_hp = '5363636363',
-    alamat = 'hgsdgbsdf skjdfbdsfsd',
-    email = 'jhsdbfdsmnfsd',
-    password = 'gfshdfhbsdf',
-    total_servis = 6, 
-    created_at = GETDATE()
-WHERE no_ktp_pelanggan = '32011111111111';
-
-select * from tb_pelanggan where  no_ktp_pelanggan = '8787878787878787';
-
-select * from tb_riwayat where  no_ktp_pelanggan = '8787878787878787';
-select * from tb_jasa_servis 
+select * from tb_kendaraan;
+update tb_kendaraan set deleted_at = NULL 

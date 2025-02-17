@@ -137,19 +137,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             ButtonNext.Click += ButtonNext_Click;
             ButtonPreviuos.Click += ButtonPreviuos_Click;
             ButtonSearch.Click += ButtonSearch_Click;
+            TextSearch.TextChanged += TextSearch_TextChanged;
             TextSearch.KeyDown += TextSearch_KeyDown;
             GridListData.CellMouseClick += GridListData_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
-        }
-
-        private void ButtonTambah_Click(object? sender, EventArgs e)
-        {
-            InputPegawaiForm input = new InputPegawaiForm(string.Empty);
-            if (input.ShowDialog(this) == DialogResult.OK)
-            {
-                LoadData();
-            }
         }
 
         private void DeleteToolStripMenuItem_Click(object? sender, EventArgs e)
@@ -183,6 +175,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             }
         }
 
+        private void ButtonTambah_Click(object? sender, EventArgs e)
+        {
+            InputPegawaiForm input = new InputPegawaiForm(string.Empty);
+            if (input.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadData();
+            }
+        }
 
         private void ButtonSearch_Click(object? sender, EventArgs e)
         {
@@ -204,6 +204,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             if (page < totalPage)
             {
                 page++;
+                LoadData();
+            }
+        }
+
+        private void TextSearch_TextChanged(object? sender, EventArgs e)
+        {
+            if (TextSearch.Text.Length == 0)
+            {
+                page = 1;
                 LoadData();
             }
         }

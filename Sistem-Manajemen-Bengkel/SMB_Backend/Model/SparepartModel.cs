@@ -12,6 +12,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public string nama_sparepart { get; set; }
         public decimal harga { get; set; }
         public int stok { get; set; }
+        public byte[] image_data { get; set; }
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
     }
