@@ -15,6 +15,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm.Inpu
         public PelangganBookingForm()
         {
             InitializeComponent();
+            new System.Globalization.CultureInfo("id-ID");
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

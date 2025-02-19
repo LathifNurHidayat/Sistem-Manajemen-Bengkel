@@ -124,31 +124,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                 }).ToList();
 
             GridListData.DataSource = data;
-
-            // Tambahkan kolom link untuk Edit
-            DataGridViewLinkColumn linkEdit = new DataGridViewLinkColumn();
-            linkEdit.HeaderText = "Edit";
-            linkEdit.Name = "Edit";
-            linkEdit.Text = "Edit"; // Teks link
-            linkEdit.UseColumnTextForLinkValue = true;
-            linkEdit.LinkBehavior = LinkBehavior.NeverUnderline; // Hapus underline
-            linkEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            linkEdit.Width = 50; // Sesuaikan ukuran
-            GridListData.Columns.Add(linkEdit);
-
-            // Tambahkan kolom link untuk Delete
-            DataGridViewLinkColumn linkDelete = new DataGridViewLinkColumn();
-            linkDelete.HeaderText = "Delete";
-            linkDelete.Name = "Delete";
-            linkDelete.Text = "Delete"; // Teks link
-            linkDelete.UseColumnTextForLinkValue = true;
-            linkDelete.LinkBehavior = LinkBehavior.NeverUnderline; // Hapus underline
-            linkDelete.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            linkDelete.Width = 50;
-            GridListData.Columns.Add(linkDelete);
-
-
-
         }
 
 

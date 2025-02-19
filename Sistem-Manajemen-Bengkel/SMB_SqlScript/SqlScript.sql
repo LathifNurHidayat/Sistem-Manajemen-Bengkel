@@ -93,6 +93,7 @@ CREATE TABLE tb_booking (
     no_ktp_pelanggan VARCHAR(20),
     no_ktp_mekanik VARCHAR(20),
     id_kendaraan INT,
+    id_jasa_servis INT,
 
     nama_pelanggan VARCHAR(50),
     no_polisi VARCHAR(20),
@@ -100,7 +101,6 @@ CREATE TABLE tb_booking (
     transmisi INT,
     kapasitas_mesin INT,
 
-    id_jasa_servis INT,
     tanggal DATETIME,
     antrean INT,
     keluhan VARCHAR(225),
@@ -136,14 +136,14 @@ CREATE TABLE tb_riwayat(
     no_ktp_pegawai VARCHAR(20),
     no_ktp_mekanik VARCHAR(20),
     id_kendaraan INT,
-    
+    id_riwayat_sparepart INT,
+
     nama_pelanggan VARCHAR(50),
     no_polisi VARCHAR(20),
     merek VARCHAR(50),
     transmisi INT,
     kapasitas_mesin INT,
 
-    id_riwayat_sparepart INT,
     tanggal DATETIME,
     keluhan VARCHAR(225),
     catatan VARCHAR(225),

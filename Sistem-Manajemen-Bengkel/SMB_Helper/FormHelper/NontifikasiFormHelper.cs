@@ -17,7 +17,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         private System.Windows.Forms.Timer fadeInTimer;
         private System.Windows.Forms.Timer fadeOutTimer;
 
-        public NontifikasiFormHelper(string pesan)
+        public  NontifikasiFormHelper(string pesan)
         {
             InitializeComponent();
             this.ControlBox = false;

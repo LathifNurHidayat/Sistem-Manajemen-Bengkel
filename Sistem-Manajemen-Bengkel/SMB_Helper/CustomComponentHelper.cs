@@ -51,29 +51,33 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             grid.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             grid.ForeColor = Color.DimGray;
 
-
-            grid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);
+            grid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(221, 230, 237);
             grid.DefaultCellStyle.SelectionForeColor = grid.DefaultCellStyle.ForeColor;
 
             grid.ColumnHeadersHeight = 40;
             grid.RowTemplate.Height = 55;
-
             grid.RowHeadersVisible = false;
-
             grid.AllowUserToOrderColumns = false;
-
             grid.AllowUserToResizeColumns = true;
-
             grid.AllowUserToResizeRows = false;
-
             grid.AllowUserToAddRows = false;
-
             grid.ColumnHeadersDefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
             grid.ReadOnly = true;
-            
+            grid.MultiSelect = false;
+
+            grid.RowPrePaint += (s, e) =>
+            {
+                if (e.RowIndex % 2 == 0) // Baris genap (putih)
+                {
+                    grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                }
+                else // Baris ganjil (abu-abu)
+                {
+                    grid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(251, 251, 251);
+                }
+            };
         }
-
-
+         
         public static void CustomComboBox(ComboBox comboBox)
         {
             comboBox.FlatStyle = FlatStyle.Flat;

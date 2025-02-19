@@ -173,6 +173,16 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Edit {
+            get {
+                object obj = ResourceManager.GetObject("Edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gallery {
             get {
                 object obj = ResourceManager.GetObject("gallery", resourceCulture);
@@ -196,6 +206,16 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         internal static System.Drawing.Bitmap Habis {
             get {
                 object obj = ResourceManager.GetObject("Habis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hapus {
+            get {
+                object obj = ResourceManager.GetObject("Hapus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
