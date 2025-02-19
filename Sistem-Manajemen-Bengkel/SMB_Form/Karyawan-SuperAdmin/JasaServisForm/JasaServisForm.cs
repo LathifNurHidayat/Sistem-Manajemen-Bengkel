@@ -137,10 +137,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
         {
             var jasaServis = new JasaServisModel
             {
-                id_jasa_servis =  Convert.ToInt32(TextIdJasaServis.Text),
-                jenis_servis = TextJenisServis.Text,
-                keterangan = TextKeterangan.Text,
-                biaya = TextBiaya.DecimalValue
+                id_jasa_servis =  string.IsNullOrEmpty(TextIdJasaServis.Text) ? 0 : Convert.ToInt32(TextIdJasaServis.Text),
+                jenis_servis = TextJenisServis.Text, 
+                keterangan = TextKeterangan.Text, 
+                biaya = (decimal)TextBiaya.DecimalValue,
             };
 
             if (string.IsNullOrEmpty(TextIdJasaServis.Text))
@@ -149,7 +149,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                 _jasaServisDal.UpdateData(jasaServis);
         }
 
-        private void RegisterControlEvent()
+        private void RegisterControlEvent() 
         {
             ComboEntries.SelectedValueChanged += ComboEntries_SelectedValueChanged;
             ComboFilter.SelectedValueChanged += ComboFilter_SelectedIndexChanged;
@@ -171,6 +171,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
         {
             if (MesboxHelper.ShowConfirm("Anda yakin ingin menyimpan data?"))
             {
+                MessageBox.Show(TextBiaya.DecimalValue.ToString());
                 SaveData();
                 LoadData();
                 ClearForm();

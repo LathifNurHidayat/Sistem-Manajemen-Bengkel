@@ -79,7 +79,7 @@
             LabelEmail.Name = "LabelEmail";
             LabelEmail.Size = new Size(205, 23);
             LabelEmail.TabIndex = 27;
-            LabelEmail.Text = "Masukan email yang valid";
+            LabelEmail.Text = "⚠ Masukan email yang valid";
             LabelEmail.TextAlign = ContentAlignment.MiddleRight;
             LabelEmail.Visible = false;
             // 

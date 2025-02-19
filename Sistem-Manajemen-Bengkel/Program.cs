@@ -27,4 +27,4 @@ namespace Sistem_Manajemen_Bengkel
             Application.Run(new Dashboard());
         }
     }
-}
+} 

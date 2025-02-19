@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm
 {
-    partial class DataPelangganForm
+    partial class DataPelangganFormHelper
     {
         /// <summary>
         /// Required designer variable.

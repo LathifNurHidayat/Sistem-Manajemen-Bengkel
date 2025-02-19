@@ -18,6 +18,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
         private readonly PelangganDal _pelangganDal;
         private readonly KendaraanDal _kendaraanDal;
         private int _idKendaraan;
+        private bool _isInputFromBooking = false;
+        public string _noKTP { get; set; }
 
         public InputKendaraanForm(int id_kendaraan)
         {
@@ -136,7 +138,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
         private void ButtonShowPelanggan_Click(object? sender, EventArgs e)
         {
-            DataPelangganForm pelangganForm = new DataPelangganForm();
+            DataPelangganFormHelper pelangganForm = new DataPelangganFormHelper();
             if (pelangganForm.ShowDialog() == DialogResult.OK)
                 TextNomorKTP.Text = pelangganForm._no_ktp_pelanggan;
         }

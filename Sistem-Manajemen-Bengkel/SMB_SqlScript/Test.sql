@@ -201,59 +201,60 @@ VALUES
 
 -- 8. Insert 20 Data ke tb_booking
 INSERT INTO tb_booking 
-    (no_ktp_pelanggan, no_ktp_mekanik, id_kendaraan, id_jasa_servis, tanggal, antrean, keluhan, status)
+    (no_ktp_pelanggan, no_ktp_mekanik, id_kendaraan, id_jasa_servis, 
+     nama_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, 
+     tanggal, antrean, keluhan, status)
 VALUES
-('32010110000001', '32010130000001', 1, 1, DATEADD(MINUTE, 1, GETDATE()), 1, 'Oli bocor', 'Menunggu'),
-('32010110000002', '32010130000002', 2, 2, DATEADD(MINUTE, 2, GETDATE()), 2, 'AC tidak dingin', 'Menunggu'),
-('32010110000003', '32010130000003', 3, 3, DATEADD(MINUTE, 3, GETDATE()), 3, 'Rem blong', 'Menunggu'),
-('32010110000004', '32010130000004', 4, 4, DATEADD(MINUTE, 4, GETDATE()), 4, 'Lampu redup', 'Menunggu'),
-('32010110000005', '32010130000005', 5, 5, DATEADD(MINUTE, 5, GETDATE()), 5, 'Bunyi aneh', 'Menunggu'),
-('32010110000006', '32010130000006', 6, 6, DATEADD(MINUTE, 6, GETDATE()), 6, 'Oli encer', 'Menunggu'),
-('32010110000007', '32010130000007', 7, 7, DATEADD(MINUTE, 7, GETDATE()), 7, 'AC kembung', 'Menunggu'),
-('32010110000008', '32010130000008', 8, 8, DATEADD(MINUTE, 8, GETDATE()), 8, 'Mesin panas', 'Menunggu'),
-('32010110000009', '32010130000009', 9, 9, DATEADD(MINUTE, 9, GETDATE()), 9, 'Klakson tidak berbunyi', 'Menunggu'),
-('32010110000010', '32010130000010', 10, 10, DATEADD(MINUTE, 10, GETDATE()), 10, 'Ban aus', 'Menunggu'),
-('32010110000011', '32010130000011', 11, 11, DATEADD(MINUTE, 11, GETDATE()), 11, 'Lampu mati', 'Menunggu'),
-('32010110000012', '32010130000012', 12, 12, DATEADD(MINUTE, 12, GETDATE()), 12, 'AC bocor', 'Menunggu'),
-('32010110000013', '32010130000013', 13, 13, DATEADD(MINUTE, 13, GETDATE()), 13, 'Klakson rusak', 'Menunggu'),
-('32010110000014', '32010130000014', 14, 14, DATEADD(MINUTE, 14, GETDATE()), 14, 'Mesin bergemuruh', 'Menunggu'),
-('32010110000015', '32010130000015', 15, 15, DATEADD(MINUTE, 15, GETDATE()), 15, 'Oli encer', 'Menunggu'),
-('32010110000016', '32010130000016', 16, 16, DATEADD(MINUTE, 16, GETDATE()), 16, 'Ban kempes', 'Menunggu'),
-('32010110000017', '32010130000017', 17, 17, DATEADD(MINUTE, 17, GETDATE()), 17, 'Rem kurang', 'Menunggu'),
-('32010110000018', '32010130000018', 18, 18, DATEADD(MINUTE, 18, GETDATE()), 18, 'Lampu redup', 'Menunggu'),
-('32010110000019', '32010130000019', 19, 19, DATEADD(MINUTE, 19, GETDATE()), 19, 'AC berisik', 'Menunggu'),
-('32010110000020', '32010130000020', 20, 20, DATEADD(MINUTE, 20, GETDATE()), 20, 'Mesin tidak mau hidup', 'Menunggu');
+('32010110000001', '32010130000001', 1, 1, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 1, GETDATE()), 1, 'Oli bocor', 'Menunggu'),
+('32010110000002', '32010130000002', 2, 2, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 2, GETDATE()), 2, 'AC tidak dingin', 'Menunggu'),
+('32010110000003', '32010130000003', 3, 3, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 3, GETDATE()), 3, 'Rem blong', 'Menunggu'),
+('32010110000004', '32010130000004', 4, 4, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 4, GETDATE()), 4, 'Lampu redup', 'Menunggu'),
+('32010110000005', '32010130000005', 5, 5, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 5, GETDATE()), 5, 'Bunyi aneh', 'Menunggu'),
+('32010110000006', '32010130000006', 6, 6, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 6, GETDATE()), 6, 'Oli encer', 'Menunggu'),
+('32010110000007', '32010130000007', 7, 7, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 7, GETDATE()), 7, 'AC kembung', 'Menunggu'),
+('32010110000008', '32010130000008', 8, 8, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 8, GETDATE()), 8, 'Mesin panas', 'Menunggu'),
+('32010110000009', '32010130000009', 9, 9, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 9, GETDATE()), 9, 'Klakson tidak berbunyi', 'Menunggu'),
+('32010110000010', '32010130000010', 10, 10, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 10, GETDATE()), 10, 'Ban aus', 'Menunggu'),
+('32010110000011', '32010130000011', 11, 11, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 11, GETDATE()), 11, 'Lampu mati', 'Menunggu'),
+('32010110000012', '32010130000012', 12, 12, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 12, GETDATE()), 12, 'AC bocor', 'Menunggu'),
+('32010110000013', '32010130000013', 13, 13, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 13, GETDATE()), 13, 'Klakson rusak', 'Menunggu'),
+('32010110000014', '32010130000014', 14, 14, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 14, GETDATE()), 14, 'Mesin bergemuruh', 'Menunggu'),
+('32010110000015', '32010130000015', 15, 15, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 15, GETDATE()), 15, 'Oli encer', 'Menunggu'),
+('32010110000016', '32010130000016', 16, 16, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 16, GETDATE()), 16, 'Ban kempes', 'Menunggu'),
+('32010110000017', '32010130000017', 17, 17, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 17, GETDATE()), 17, 'Rem kurang', 'Menunggu'),
+('32010110000018', '32010130000018', 18, 18, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 18, GETDATE()), 18, 'Lampu redup', 'Menunggu'),
+('32010110000019', '32010130000019', 19, 19, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 19, GETDATE()), 19, 'AC berisik', 'Menunggu'),
+('32010110000020', '32010130000020', 20, 20, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 20, GETDATE()), 20, 'Mesin tidak mau hidup', 'Menunggu');
+
 
 
 
 
 -- 9. Insert 20 Data ke tb_riwayat
 INSERT INTO tb_riwayat 
-    (id_jasa_servis, no_ktp_pelanggan, no_ktp_pegawai, no_ktp_mekanik, id_kendaraan, id_riwayat_sparepart, tanggal, keluhan, catatan, total_biaya, status)
+    (id_jasa_servis,  nama_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, 
+     no_ktp_pelanggan, no_ktp_pegawai, no_ktp_mekanik, id_kendaraan, id_riwayat_sparepart, tanggal, keluhan, catatan, total_biaya, status)
 VALUES
-(1, '32010110000001', '32010120000001', '32010130000001', 1, NULL, DATEADD(MINUTE, 1, GETDATE()), 'Oli bocor', 'Ganti oli', 150000, 'Selesai'),
-(2, '32010110000002', '32010120000002', '32010130000002', 2, NULL, DATEADD(MINUTE, 2, GETDATE()), 'AC tidak dingin', 'Tambah freon', 250000, 'Selesai'),
-(3, '32010110000003', '32010120000003', '32010130000003', 3, NULL, DATEADD(MINUTE, 3, GETDATE()), 'Rem blong', 'Ganti kampas rem', 200000, 'Selesai'),
-(4, '32010110000004', '32010120000004', '32010130000004', 4, NULL, DATEADD(MINUTE, 4, GETDATE()), 'Lampu redup', 'Perbaikan lampu', 180000, 'Selesai'),
-(5, '32010110000005', '32010120000005', '32010130000005', 5, NULL, DATEADD(MINUTE, 5, GETDATE()), 'Bunyi aneh', 'Periksa sensor', 120000, 'Selesai'),
-(6, '32010110000006', '32010120000006', '32010130000006', 6, NULL, DATEADD(MINUTE, 6, GETDATE()), 'Oli encer', 'Ganti oli', 150000, 'Selesai'),
-(7, '32010110000007', '32010120000007', '32010130000007', 7, NULL, DATEADD(MINUTE, 7, GETDATE()), 'AC kembung', 'Bersihkan AC', 200000, 'Selesai'),
-(8, '32010110000008', '32010120000008', '32010130000008', 8, NULL, DATEADD(MINUTE, 8, GETDATE()), 'Mesin panas', 'Cooling system check', 220000, 'Selesai'),
-(9, '32010110000009', '32010120000009', '32010130000009', 9, NULL, DATEADD(MINUTE, 9, GETDATE()), 'Klakson tidak berbunyi', 'Ganti klakson', 120000, 'Selesai'),
-(10, '32010110000010', '32010120000010', '32010130000010', 10, NULL, DATEADD(MINUTE, 10, GETDATE()), 'Ban aus', 'Ganti ban', 500000, 'Selesai'),
-(11, '32010110000011', '32010120000011', '32010130000011', 11, NULL, DATEADD(MINUTE, 11, GETDATE()), 'Lampu mati', 'Ganti bohlam', 90000, 'Selesai'),
-(12, '32010110000012', '32010120000012', '32010130000012', 12, NULL, DATEADD(MINUTE, 12, GETDATE()), 'AC bocor', 'Perbaikan AC', 200000, 'Selesai'),
-(13, '32010110000013', '32010120000013', '32010130000013', 13, NULL, DATEADD(MINUTE, 13, GETDATE()), 'Klakson rusak', 'Ganti klakson', 150000, 'Selesai'),
-(14, '32010110000014', '32010120000014', '32010130000014', 14, NULL, DATEADD(MINUTE, 14, GETDATE()), 'Mesin bergemuruh', 'Perbaikan mesin', 300000, 'Selesai'),
-(15, '32010110000015', '32010120000015', '32010130000015', 15, NULL, DATEADD(MINUTE, 15, GETDATE()), 'Oli encer', 'Ganti oli', 150000, 'Selesai'),
-(16, '32010110000016', '32010120000016', '32010130000016', 16, NULL, DATEADD(MINUTE, 16, GETDATE()), 'Ban kempes', 'Isi angin ban', 180000, 'Selesai'),
-(17, '32010110000017', '32010120000017', '32010130000017', 17, NULL, DATEADD(MINUTE, 17, GETDATE()), 'Rem kurang', 'Ganti kampas rem', 200000, 'Selesai'),
-(18, '32010110000018', '32010120000018', '32010130000018', 18, NULL, DATEADD(MINUTE, 18, GETDATE()), 'Lampu redup', 'Ganti bohlam', 120000, 'Selesai'),
-(19, '32010110000019', '32010120000019', '32010130000019', 19, NULL, DATEADD(MINUTE, 19, GETDATE()), 'AC berisik', 'Service AC', 220000, 'Selesai'),
-(20, '32010110000020', '32010120000020', '32010130000020', 20, NULL, DATEADD(MINUTE, 20, GETDATE()), 'Mesin tidak mau hidup', 'Perbaikan mesin', 300000, 'Selesai');
-
-
-
+(1,  NULL, NULL, NULL, NULL, NULL, '32010110000001', '32010120000001', '32010130000001', 1, NULL, DATEADD(MINUTE, 1, GETDATE()), 'Oli bocor', 'Ganti oli', 150000, 'Selesai'),
+(2,  NULL, NULL, NULL, NULL, NULL, '32010110000002', '32010120000002', '32010130000002', 2, NULL, DATEADD(MINUTE, 2, GETDATE()), 'AC tidak dingin', 'Tambah freon', 250000, 'Selesai'),
+(3,  NULL, NULL, NULL, NULL, NULL, '32010110000003', '32010120000003', '32010130000003', 3, NULL, DATEADD(MINUTE, 3, GETDATE()), 'Rem blong', 'Ganti kampas rem', 200000, 'Selesai'),
+(4,  NULL, NULL, NULL, NULL, NULL, '32010110000004', '32010120000004', '32010130000004', 4, NULL, DATEADD(MINUTE, 4, GETDATE()), 'Lampu redup', 'Perbaikan lampu', 180000, 'Selesai'),
+(5,  NULL, NULL, NULL, NULL, NULL, '32010110000005', '32010120000005', '32010130000005', 5, NULL, DATEADD(MINUTE, 5, GETDATE()), 'Bunyi aneh', 'Periksa sensor', 120000, 'Selesai'),
+(6,  NULL, NULL, NULL, NULL, NULL, '32010110000006', '32010120000006', '32010130000006', 6, NULL, DATEADD(MINUTE, 6, GETDATE()), 'Oli encer', 'Ganti oli', 150000, 'Selesai'),
+(7,  NULL, NULL, NULL, NULL, NULL, '32010110000007', '32010120000007', '32010130000007', 7, NULL, DATEADD(MINUTE, 7, GETDATE()), 'AC kembung', 'Bersihkan AC', 200000, 'Selesai'),
+(8,  NULL, NULL, NULL, NULL, NULL, '32010110000008', '32010120000008', '32010130000008', 8, NULL, DATEADD(MINUTE, 8, GETDATE()), 'Mesin panas', 'Cooling system check', 220000, 'Selesai'),
+(9,  NULL, NULL, NULL, NULL, NULL, '32010110000009', '32010120000009', '32010130000009', 9, NULL, DATEADD(MINUTE, 9, GETDATE()), 'Klakson tidak berbunyi', 'Ganti klakson', 120000, 'Selesai'),
+(10, NULL, NULL, NULL, NULL, NULL, '32010110000010', '32010120000010', '32010130000010', 10, NULL, DATEADD(MINUTE, 10, GETDATE()), 'Ban aus', 'Ganti ban', 500000, 'Selesai'),
+(11, NULL, NULL, NULL, NULL, NULL, '32010110000011', '32010120000011', '32010130000011', 11, NULL, DATEADD(MINUTE, 11, GETDATE()), 'Lampu mati', 'Ganti bohlam', 90000, 'Selesai'),
+(12, NULL, NULL, NULL, NULL, NULL, '32010110000012', '32010120000012', '32010130000012', 12, NULL, DATEADD(MINUTE, 12, GETDATE()), 'AC bocor', 'Perbaikan AC', 200000, 'Selesai'),
+(13, NULL, NULL, NULL, NULL, NULL, '32010110000013', '32010120000013', '32010130000013', 13, NULL, DATEADD(MINUTE, 13, GETDATE()), 'Klakson rusak', 'Ganti klakson', 150000, 'Selesai'),
+(14, NULL, NULL, NULL, NULL, NULL, '32010110000014', '32010120000014', '32010130000014', 14, NULL, DATEADD(MINUTE, 14, GETDATE()), 'Mesin bergemuruh', 'Perbaikan mesin', 300000, 'Selesai'),
+(15, NULL, NULL, NULL, NULL, NULL, '32010110000015', '32010120000015', '32010130000015', 15, NULL, DATEADD(MINUTE, 15, GETDATE()), 'Oli encer', 'Ganti oli', 150000, 'Selesai'),
+(16, NULL, NULL, NULL, NULL, NULL, '32010110000016', '32010120000016', '32010130000016', 16, NULL, DATEADD(MINUTE, 16, GETDATE()), 'Ban kempes', 'Isi angin ban', 180000, 'Selesai'),
+(17, NULL, NULL, NULL, NULL, NULL, '32010110000017', '32010120000017', '32010130000017', 17, NULL, DATEADD(MINUTE, 17, GETDATE()), 'Rem kurang', 'Ganti kampas rem', 200000, 'Selesai'),
+(18, NULL, NULL, NULL, NULL, NULL, '32010110000018', '32010120000018', '32010130000018', 18, NULL, DATEADD(MINUTE, 18, GETDATE()), 'Lampu redup', 'Ganti bohlam', 120000, 'Selesai'),
+(19, NULL, NULL, NULL, NULL, NULL, '32010110000019', '32010120000019', '32010130000019', 19, NULL, DATEADD(MINUTE, 19, GETDATE()), 'AC berisik', 'Service AC', 220000, 'Selesai'),
+(20, NULL, NULL, NULL, NULL, NULL, '32010110000020', '32010120000020', '32010130000020', 20, NULL, DATEADD(MINUTE, 20, GETDATE()), 'Mesin tidak mau hidup', 'Perbaikan mesin', 300000, 'Selesai');
 
 
 
@@ -262,5 +263,5 @@ VALUES
 --select * from tb_kendaraan;
 --select * from tb_sparepart;
 --update tb_kendaraan set deleted_at = NULL 
-SELECT * FROM sys.dm_exec_requests;
-EXEC sp_who2;
+--SELECT * FROM sys.dm_exec_requests;
+--EXEC sp_who2;

@@ -16,12 +16,12 @@ using static Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm.Pelanggan
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm
 {
-    public partial class DataPelangganForm : Form
+    public partial class DataPelangganFormHelper : Form
     {
         private readonly PelangganDal _pelangganDal;
         public string _no_ktp_pelanggan { get; set; }
 
-        public DataPelangganForm()
+        public DataPelangganFormHelper()
         {
             InitializeComponent();
             _pelangganDal = new PelangganDal();

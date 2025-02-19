@@ -31,12 +31,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
         private void InitializeComponent()
         {
             Label = new Label();
+            PanelData = new SMB_CustomTolbox.LathifPanel();
             PanelBackground = new Panel();
             PanelService = new Panel();
             LabelTotalService = new Label();
             label6 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
+            label7 = new Label();
             PanelAntrean = new Panel();
             LabelTotalBooking = new Label();
             label5 = new Label();
@@ -47,8 +49,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             label1 = new Label();
             LabelTotalPelanggan = new Label();
             pictureBox3 = new PictureBox();
-            label7 = new Label();
-            PanelData = new SMB_CustomTolbox.LathifPanel();
             PanelBackground.SuspendLayout();
             PanelService.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -68,17 +68,31 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             Label.TabIndex = 6;
             Label.Text = " ";
             // 
+            // PanelData
+            // 
+            PanelData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelData.BackColor = Color.White;
+            PanelData.BorderColor = Color.PaleVioletRed;
+            PanelData.BorderRadius = 10;
+            PanelData.BorderSize = 0;
+            PanelData.ForeColor = Color.White;
+            PanelData.Location = new Point(11, 379);
+            PanelData.Name = "PanelData";
+            PanelData.Size = new Size(1057, 310);
+            PanelData.TabIndex = 12;
+            // 
             // PanelBackground
             // 
             PanelBackground.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PanelBackground.BackColor = Color.White;
             PanelBackground.Controls.Add(PanelService);
+            PanelBackground.Controls.Add(label7);
             PanelBackground.Controls.Add(PanelAntrean);
             PanelBackground.Controls.Add(PanelPelanggan);
-            PanelBackground.Location = new Point(12, 12);
+            PanelBackground.Location = new Point(14, 14);
             PanelBackground.Name = "PanelBackground";
             PanelBackground.Size = new Size(1056, 354);
-            PanelBackground.TabIndex = 10;
+            PanelBackground.TabIndex = 13;
             // 
             // PanelService
             // 
@@ -96,12 +110,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             // LabelTotalService
             // 
             LabelTotalService.Anchor = AnchorStyles.None;
-            LabelTotalService.AutoSize = true;
             LabelTotalService.Font = new Font("Microsoft New Tai Lue", 40.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelTotalService.ForeColor = Color.White;
-            LabelTotalService.Location = new Point(108, 107);
+            LabelTotalService.Location = new Point(0, 90);
             LabelTotalService.Name = "LabelTotalService";
-            LabelTotalService.Size = new Size(115, 88);
+            LabelTotalService.Size = new Size(335, 88);
             LabelTotalService.TabIndex = 16;
             LabelTotalService.Text = "56";
             LabelTotalService.TextAlign = ContentAlignment.MiddleCenter;
@@ -121,11 +134,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(113, 25);
+            label3.Location = new Point(90, 15);
             label3.Name = "label3";
-            label3.Size = new Size(134, 46);
+            label3.Size = new Size(111, 38);
             label3.TabIndex = 13;
             label3.Text = "Service";
             // 
@@ -133,11 +146,22 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             // 
             pictureBox1.BackgroundImage = Properties.Resources.Service;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(7, 13);
+            pictureBox1.Location = new Point(10, 10);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(101, 75);
+            pictureBox1.Size = new Size(80, 50);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.White;
+            label7.Font = new Font("Comic Sans MS", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(15, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(211, 39);
+            label7.TabIndex = 11;
+            label7.Text = "🖥  Dashboard";
             // 
             // PanelAntrean
             // 
@@ -155,12 +179,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             // LabelTotalBooking
             // 
             LabelTotalBooking.Anchor = AnchorStyles.None;
-            LabelTotalBooking.AutoSize = true;
             LabelTotalBooking.Font = new Font("Microsoft New Tai Lue", 40.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelTotalBooking.ForeColor = Color.White;
-            LabelTotalBooking.Location = new Point(110, 107);
+            LabelTotalBooking.Location = new Point(0, 90);
             LabelTotalBooking.Name = "LabelTotalBooking";
-            LabelTotalBooking.Size = new Size(115, 88);
+            LabelTotalBooking.Size = new Size(334, 88);
             LabelTotalBooking.TabIndex = 15;
             LabelTotalBooking.Text = "89";
             LabelTotalBooking.TextAlign = ContentAlignment.MiddleCenter;
@@ -180,11 +203,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(113, 25);
+            label2.Location = new Point(90, 15);
             label2.Name = "label2";
-            label2.Size = new Size(155, 46);
+            label2.Size = new Size(127, 38);
             label2.TabIndex = 12;
             label2.Text = "Booking";
             // 
@@ -192,9 +215,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             // 
             pictureBox2.BackgroundImage = Properties.Resources.Booking;
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(7, 13);
+            pictureBox2.Location = new Point(10, 10);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(101, 75);
+            pictureBox2.Size = new Size(80, 50);
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
@@ -226,23 +249,22 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(113, 25);
+            label1.Location = new Point(90, 15);
             label1.Name = "label1";
-            label1.Size = new Size(188, 46);
+            label1.Size = new Size(154, 38);
             label1.TabIndex = 11;
             label1.Text = "Pelanggan";
             // 
             // LabelTotalPelanggan
             // 
             LabelTotalPelanggan.Anchor = AnchorStyles.None;
-            LabelTotalPelanggan.AutoSize = true;
             LabelTotalPelanggan.Font = new Font("Microsoft New Tai Lue", 40.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelTotalPelanggan.ForeColor = Color.White;
-            LabelTotalPelanggan.Location = new Point(106, 107);
+            LabelTotalPelanggan.Location = new Point(0, 90);
             LabelTotalPelanggan.Name = "LabelTotalPelanggan";
-            LabelTotalPelanggan.Size = new Size(115, 88);
+            LabelTotalPelanggan.Size = new Size(335, 88);
             LabelTotalPelanggan.TabIndex = 14;
             LabelTotalPelanggan.Text = "34";
             LabelTotalPelanggan.TextAlign = ContentAlignment.MiddleCenter;
@@ -251,35 +273,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             // 
             pictureBox3.BackgroundImage = Properties.Resources.Pelanggan;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(7, 13);
+            pictureBox3.Location = new Point(10, 10);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(101, 75);
+            pictureBox3.Size = new Size(80, 50);
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.White;
-            label7.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(16, 29);
-            label7.Name = "label7";
-            label7.Size = new Size(226, 42);
-            label7.TabIndex = 11;
-            label7.Text = "🖥  Dashboard";
-            // 
-            // PanelData
-            // 
-            PanelData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            PanelData.BackColor = Color.White;
-            PanelData.BorderColor = Color.PaleVioletRed;
-            PanelData.BorderRadius = 10;
-            PanelData.BorderSize = 0;
-            PanelData.ForeColor = Color.White;
-            PanelData.Location = new Point(11, 379);
-            PanelData.Name = "PanelData";
-            PanelData.Size = new Size(1057, 310);
-            PanelData.TabIndex = 12;
             // 
             // MenuDashboardAdminForm
             // 
@@ -287,13 +285,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
             ClientSize = new Size(1082, 703);
-            Controls.Add(PanelData);
-            Controls.Add(label7);
             Controls.Add(PanelBackground);
+            Controls.Add(PanelData);
             Controls.Add(Label);
             Name = "MenuDashboardAdminForm";
             Text = " ";
             PanelBackground.ResumeLayout(false);
+            PanelBackground.PerformLayout();
             PanelService.ResumeLayout(false);
             PanelService.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -309,23 +307,23 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 
         #endregion
         private Label Label;
+        private SMB_CustomTolbox.LathifPanel PanelData;
         private Panel PanelBackground;
         private Panel PanelService;
+        private Label LabelTotalService;
         private Label label6;
         private Label label3;
         private PictureBox pictureBox1;
+        private Label label7;
         private Panel PanelAntrean;
+        private Label LabelTotalBooking;
         private Label label5;
         private Label label2;
         private PictureBox pictureBox2;
         private Panel PanelPelanggan;
         private Label label4;
         private Label label1;
-        private PictureBox pictureBox3;
-        private Label label7;
-        private Label LabelTotalBooking;
         private Label LabelTotalPelanggan;
-        private Label LabelTotalService;
-        private SMB_CustomTolbox.LathifPanel PanelData;
+        private PictureBox pictureBox3;
     }
 }

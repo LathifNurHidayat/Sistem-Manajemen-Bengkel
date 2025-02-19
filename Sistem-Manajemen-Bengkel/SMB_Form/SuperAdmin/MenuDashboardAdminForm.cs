@@ -8,18 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Syncfusion.Windows.Forms;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
 {
     public partial class MenuDashboardAdminForm : Form
     {
+        private readonly PelangganDal _pelangganDal;
+        private readonly BookingDal _bookingDal;
+
         public MenuDashboardAdminForm()
         {
             InitializeComponent();
+            _pelangganDal = new PelangganDal();
+            _bookingDal = new BookingDal();
             RegisterControlEvent();
-
-             
         }
 
         private void RegisterControlEvent()
@@ -49,9 +54,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             CustomPanel(PanelAntrean);
             CustomPanel(PanelService);
             CustomPanel(PanelBackground);
-             
         }
-
 
         private void CustomPanel(Panel panel)
         {

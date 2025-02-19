@@ -22,7 +22,7 @@ CREATE TABLE tb_pegawai (
     alamat VARCHAR(225),
     role INT,
     image_data VARBINARY(MAX),
-    created_at DATETIME DEFAULT GETDATE(),
+    created_at DATETIME DEFAULT GETDATE(),  
     updated_at DATETIME DEFAULT GETDATE(),
     deleted_at DATETIME NULL
 );
@@ -93,6 +93,13 @@ CREATE TABLE tb_booking (
     no_ktp_pelanggan VARCHAR(20),
     no_ktp_mekanik VARCHAR(20),
     id_kendaraan INT,
+
+    nama_pelanggan VARCHAR(50),
+    no_polisi VARCHAR(20),
+    merek VARCHAR(50),
+    transmisi INT,
+    kapasitas_mesin INT,
+
     id_jasa_servis INT,
     tanggal DATETIME,
     antrean INT,
@@ -129,6 +136,13 @@ CREATE TABLE tb_riwayat(
     no_ktp_pegawai VARCHAR(20),
     no_ktp_mekanik VARCHAR(20),
     id_kendaraan INT,
+    
+    nama_pelanggan VARCHAR(50),
+    no_polisi VARCHAR(20),
+    merek VARCHAR(50),
+    transmisi INT,
+    kapasitas_mesin INT,
+
     id_riwayat_sparepart INT,
     tanggal DATETIME,
     keluhan VARCHAR(225),

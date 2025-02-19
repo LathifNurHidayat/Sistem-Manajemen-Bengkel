@@ -32,6 +32,8 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             PanelBooking = new Panel();
+            LabelJam = new Label();
+            LabelHariTanggal = new Label();
             label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
@@ -58,6 +60,8 @@
             PanelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelBooking.AutoScroll = true;
             PanelBooking.BackColor = Color.White;
+            PanelBooking.Controls.Add(LabelJam);
+            PanelBooking.Controls.Add(LabelHariTanggal);
             PanelBooking.Controls.Add(label2);
             PanelBooking.Controls.Add(label1);
             PanelBooking.Controls.Add(panel1);
@@ -75,6 +79,30 @@
             PanelBooking.Name = "PanelBooking";
             PanelBooking.Size = new Size(1058, 679);
             PanelBooking.TabIndex = 0;
+            // 
+            // LabelJam
+            // 
+            LabelJam.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            LabelJam.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelJam.ForeColor = Color.DimGray;
+            LabelJam.Location = new Point(847, 43);
+            LabelJam.Name = "LabelJam";
+            LabelJam.Size = new Size(188, 24);
+            LabelJam.TabIndex = 57;
+            LabelJam.Text = "00:00:00";
+            LabelJam.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // LabelHariTanggal
+            // 
+            LabelHariTanggal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            LabelHariTanggal.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelHariTanggal.ForeColor = Color.DimGray;
+            LabelHariTanggal.Location = new Point(769, 15);
+            LabelHariTanggal.Name = "LabelHariTanggal";
+            LabelHariTanggal.Size = new Size(266, 28);
+            LabelHariTanggal.TabIndex = 56;
+            LabelHariTanggal.Text = "Selasa, 8 - 8 - 2025";
+            LabelHariTanggal.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -112,7 +140,7 @@
             // 
             TextPage.Anchor = AnchorStyles.None;
             TextPage.BackColor = Color.FromArgb(83, 92, 145);
-            TextPage.BeforeTouchSize = new Size(362, 34);
+            TextPage.BeforeTouchSize = new Size(236, 30);
             TextPage.Border3DStyle = Border3DStyle.Bump;
             TextPage.BorderColor = Color.SlateGray;
             TextPage.BorderStyle = BorderStyle.None;
@@ -225,7 +253,7 @@
             // TextSearch
             // 
             TextSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TextSearch.BeforeTouchSize = new Size(362, 34);
+            TextSearch.BeforeTouchSize = new Size(236, 30);
             TextSearch.Border3DStyle = Border3DStyle.Bump;
             TextSearch.BorderColor = Color.DimGray;
             TextSearch.BorderStyle = BorderStyle.FixedSingle;
@@ -300,7 +328,7 @@
             ButtonTambah.Name = "ButtonTambah";
             ButtonTambah.Size = new Size(124, 39);
             ButtonTambah.TabIndex = 42;
-            ButtonTambah.Text = "➕ Tambah ";
+            ButtonTambah.Text = "➕ Booking";
             ButtonTambah.TextColor = Color.White;
             ButtonTambah.UseVisualStyleBackColor = false;
             // 
@@ -340,5 +368,7 @@
         private DataGridView GridListData;
         private Label label7;
         private SMB_CustomTolbox.LathifButton ButtonTambah;
+        private Label LabelJam;
+        private Label LabelHariTanggal;
     }
 }
