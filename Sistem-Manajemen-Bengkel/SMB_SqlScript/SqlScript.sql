@@ -112,7 +112,7 @@ CREATE TABLE tb_booking (
         ON DELETE CASCADE
         ON UPDATE CASCADE,
 
-    CONSTRAINT fk_booking_pegawai FOREIGN KEY (no_ktp_mekanik) REFERENCES tb_mekanik(no_ktp_mekanik)
+    CONSTRAINT fk_booking_mekanik FOREIGN KEY (no_ktp_mekanik) REFERENCES tb_mekanik(no_ktp_mekanik)
         ON UPDATE CASCADE,
 
     CONSTRAINT fk_booking_kendaraan FOREIGN KEY (id_kendaraan) REFERENCES tb_kendaraan(id_kendaraan),

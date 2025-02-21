@@ -163,7 +163,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
                 _sparepartDal.SoftDeleteData(Id);
                 LoadData();
                 NontifikasiFormHelper nontifikasi = new NontifikasiFormHelper("Data berhasil dihapus");
-                nontifikasi.ShowDialog();
+                nontifikasi.Show();
             }
         }
 
@@ -177,7 +177,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             {
                 LoadData();
                 NontifikasiFormHelper nontifikasi = new NontifikasiFormHelper("Data berhasil diperbarui");
-                nontifikasi.ShowDialog();
+                nontifikasi.Show();
             }
         }
 
@@ -198,7 +198,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
             {
                 LoadData();
                 NontifikasiFormHelper nontifikasi = new NontifikasiFormHelper("Data berhasil ditambahkan");
-                nontifikasi.ShowDialog();
+                nontifikasi.Show();
             }
         }
 

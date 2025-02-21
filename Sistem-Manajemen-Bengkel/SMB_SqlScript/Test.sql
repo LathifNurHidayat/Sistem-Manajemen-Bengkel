@@ -224,7 +224,10 @@ VALUES
 ('32010110000017', '32010130000017', 17, 17, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 17, GETDATE()), 17, 'Rem kurang', 'Menunggu'),
 ('32010110000018', '32010130000018', 18, 18, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 18, GETDATE()), 18, 'Lampu redup', 'Menunggu'),
 ('32010110000019', '32010130000019', 19, 19, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 19, GETDATE()), 19, 'AC berisik', 'Menunggu'),
-('32010110000020', '32010130000020', 20, 20, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 20, GETDATE()), 20, 'Mesin tidak mau hidup', 'Menunggu');
+(null, '32010130000020', null, 20, 'RIno Suprapto', 'AB 1234 rd', 'Honda', 2, 233, DATEADD(MINUTE, 20, GETDATE()), 20, 'Mesin tidak mau hidup', 'Menunggu'),
+(null, '32010130000017', null, 20, 'Suparman', 'AB 3344 rd', 'Suzuki', 2, 233, DATEADD(MINUTE, 20, GETDATE()), 21, 'Mesin tidak mau hidup', 'Menunggu'),
+(null, '32010130000015', null, 20, 'Budi Hermansyah', 'AB 7665 rd', 'Yamaha', 2, 233, DATEADD(MINUTE, 20, GETDATE()), 22, 'Mesin tidak mau hidup', 'Menunggu'),
+(null, '32010130000012', null, 20, 'Bordi Sumanto', 'AB 3233 rd', 'Kawasaki', 2, 233, DATEADD(MINUTE, 20, GETDATE()), 23, 'Mesin tidak mau hidup', 'Menunggu');
 
 
 
@@ -265,3 +268,30 @@ VALUES
 --update tb_kendaraan set deleted_at = NULL 
 --SELECT * FROM sys.dm_exec_requests;
 --EXEC sp_who2;
+    select * from tb_booking
+
+    SELECT 
+        aa.id_booking,
+        COALESCE (bb.nama_pelanggan, aa.nama_pelanggan) AS nama_pelanggan,
+        COALESCE (dd.no_polisi, aa.no_polisi) AS no_polisi,
+                                    
+
+    CASE 
+        WHEN (aa.merek IS NULL  OR aa.merek = '') AND (aa.kapasitas_mesin IS NULL OR aa.kapasitas_mesin = '')
+        THEN CONCAT (dd.merek , ' ' , dd.kapasitas_mesin, 'cc')
+        ELSE CONCAT (aa.merek , ' ' , aa.kapasitas_mesin, 'cc')
+    END AS nama_kendaraan,
+
+
+
+        COALESCE (dd.transmisi, aa.transmisi) AS transmisi,
+        ISNULL (ee.jenis_servis, '') AS jenis_servis,
+        aa.tanggal, aa.antrean, aa.keluhan, aa.status
+    FROM 
+        tb_booking aa
+    LEFT JOIN tb_pelanggan bb ON aa.no_ktp_pelanggan = bb.no_ktp_pelanggan
+        LEFT JOIN tb_kendaraan dd ON aa.id_kendaraan = dd.id_kendaraan
+        LEFT JOIN tb_jasa_servis ee ON aa.id_jasa_servis = ee.id_jasa_servis
+
+
+

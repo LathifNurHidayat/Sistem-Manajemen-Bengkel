@@ -10,6 +10,7 @@ using Syncfusion.WinForms.DataGrid.Enums;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 using System.Globalization;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 {
@@ -47,7 +48,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
-           // ShowFormHelper.ShowFormInPanel(new InputBookingForm());
+            PilihForm main = new PilihForm(this);
+            main.ShowDialog();
         }
     }
 }

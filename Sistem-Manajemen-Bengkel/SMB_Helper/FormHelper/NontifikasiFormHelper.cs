@@ -24,6 +24,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             this.ShowInTaskbar = false;
             this.Opacity = 0;
             this.StartPosition = FormStartPosition.Manual;
+            this.TopMost = true;
 
             label1.Text = pesan;
             this.TransparencyKey = Color.Black;

@@ -12,30 +12,38 @@ using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 {
-    public partial class MainInputForm : Form
+    public partial class PilihForm : Form
     {
-        public MainInputForm()
+        private Form _bookingForm;
+
+        public PilihForm(Form form)
         {
             InitializeComponent();
+            _bookingForm = form;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
             RegisterControlEvent();
-            ShowFormHelper.SetPanel(PanelMain);
-            PelangganToolStripMenuItem.PerformClick();
+       
         }
 
         private void RegisterControlEvent()
         {
-            PelangganToolStripMenuItem.Click += PelangganToolStripMenuItem_Click;
-            TamuToolStripMenuItem.Click += TamuToolStripMenuItem_Click;
+            ButtonPelanggan.Click += ButtonPelanggan_Click;
+            ButtonTamu.Click += ButtonTamu_Click;
         }
 
-        private void TamuToolStripMenuItem_Click(object? sender, EventArgs e)
+        private void ButtonTamu_Click(object? sender, EventArgs e)
         {
-            ShowFormHelper.ShowFormInPanel(new TamuBookingForm());
+            TamuBookingForm tamu = new TamuBookingForm();
+            tamu.ShowDialog(_bookingForm);
+            this.Close();
         }
 
-        private void PelangganToolStripMenuItem_Click(object? sender, EventArgs e)
+        private void ButtonPelanggan_Click(object? sender, EventArgs e)
         {
             ShowFormHelper.ShowFormInPanel(new PelangganBookingForm());
+            this.Close();
         }
     }
 }

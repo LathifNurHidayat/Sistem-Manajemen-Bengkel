@@ -135,7 +135,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
                 _mekanikDal.SoftDeleteData(no_ktp);
                 LoadData();
                 NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil dihapus");
-                nontifikasiForm.ShowDialog(this);
+                nontifikasiForm.Show();
             }
         }
 
@@ -149,7 +149,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
             {
                 LoadData();
                 NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil diperbarui");
-                nontifikasiForm.ShowDialog(this);
+                nontifikasiForm.Show();
             }
         }
 
@@ -170,7 +170,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
             {
                 LoadData();
                 NontifikasiFormHelper nontifikasiForm = new NontifikasiFormHelper("Data berhasil ditambahkan");
-                nontifikasiForm.ShowDialog(this);
+                nontifikasiForm.Show();
             }
         }
 
