@@ -19,6 +19,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public int id_jasa_servis { get; set; } //ee
 
         public string nama_pelanggan { get; set; }
+        public string no_hp { get; set; }
         public string no_polisi { get; set; }
         public string merek {  get; set; }
         public int transmisi { get; set; }
@@ -29,8 +30,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public DateTime tanggal { get; set; }
         public int antrean { get; set; }
         public string keluhan { get; set; }
-        public int status { get; set; }
+        public int status { get; set; } //menunggu=1, dikerjakan=2, selesai=3, dibatalkan=4
         public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
     }
 }

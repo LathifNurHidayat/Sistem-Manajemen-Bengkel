@@ -93,16 +93,6 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arrow__2_ {
-            get {
-                object obj = ResourceManager.GetObject("arrow (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Booking {
             get {
                 object obj = ResourceManager.GetObject("Booking", resourceCulture);
@@ -223,16 +213,6 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap log_out {
-            get {
-                object obj = ResourceManager.GetObject("log-out", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap mechanic {
             get {
                 object obj = ResourceManager.GetObject("mechanic", resourceCulture);
@@ -256,26 +236,6 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         internal static System.Drawing.Bitmap Menunggu {
             get {
                 object obj = ResourceManager.GetObject("Menunggu", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Minimize {
-            get {
-                object obj = ResourceManager.GetObject("Minimize", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Minimize1 {
-            get {
-                object obj = ResourceManager.GetObject("Minimize1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,16 +296,6 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         internal static System.Drawing.Bitmap profile_picture {
             get {
                 object obj = ResourceManager.GetObject("profile-picture", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Puas_Warna {
-            get {
-                object obj = ResourceManager.GetObject("Puas_Warna", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -436,16 +386,6 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         internal static System.Drawing.Bitmap user1 {
             get {
                 object obj = ResourceManager.GetObject("user1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap X_Button {
-            get {
-                object obj = ResourceManager.GetObject("X_Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

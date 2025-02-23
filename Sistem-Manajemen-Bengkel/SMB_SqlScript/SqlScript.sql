@@ -51,10 +51,7 @@ CREATE TABLE tb_jasa_servis (
 
 CREATE TABLE tb_batas_booking(
     id_batas_booking INT IDENTITY(1,1) PRIMARY KEY,
-    tanggal DATETIME,
     batas_booking INT,
-    created_at DATETIME DEFAULT GETDATE(),
-    updated_at DATETIME DEFAULT GETDATE()
 );
 
 CREATE TABLE tb_sparepart(
@@ -104,9 +101,8 @@ CREATE TABLE tb_booking (
     tanggal DATETIME,
     antrean INT,
     keluhan VARCHAR(225),
-    status VARCHAR(50),
+    status INT,
     created_at DATETIME DEFAULT GETDATE(),
-    updated_at DATETIME DEFAULT GETDATE(),
     
     CONSTRAINT fk_booking_pelanggan FOREIGN KEY (no_ktp_pelanggan) REFERENCES tb_pelanggan(no_ktp_pelanggan)
         ON DELETE CASCADE
@@ -150,7 +146,6 @@ CREATE TABLE tb_riwayat(
     total_biaya DECIMAL(18,2),
     status VARCHAR(50),
     created_at DATETIME DEFAULT GETDATE(),
-    updated_at DATETIME DEFAULT GETDATE(),
 
     CONSTRAINT fk_riwayat_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis),
     CONSTRAINT fk_riwayat_pelanggan FOREIGN KEY (no_ktp_pelanggan) REFERENCES tb_pelanggan(no_ktp_pelanggan)

@@ -105,10 +105,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, new { id_jasa_servis });
         }
 
-        public int CountData(string filter, DynamicParameters dp)
+        public int CountData(string filter, object dp)
         {
             string sql = @$"
-                SELECT COUNT(id_jasa_servis) 
+                SELECT COUNT(*) 
                 FROM tb_jasa_servis
                 WHERE deleted_at IS NULL 
                 {filter}";

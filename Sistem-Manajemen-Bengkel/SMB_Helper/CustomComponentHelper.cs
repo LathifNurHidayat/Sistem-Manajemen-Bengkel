@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,6 +31,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
 
         public static void CustomDataGrid(DataGridView grid) 
         {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+              BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+              null, grid, new object[] { true });
+
             grid.BackgroundColor = Color.White;
 
             grid.EnableHeadersVisualStyles = false;

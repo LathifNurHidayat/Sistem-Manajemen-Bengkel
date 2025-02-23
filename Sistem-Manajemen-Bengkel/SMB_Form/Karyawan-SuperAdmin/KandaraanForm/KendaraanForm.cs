@@ -60,7 +60,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             grid.Columns["NoPolisi"].HeaderText = "No. Polisi";
             grid.Columns["Merek"].HeaderText = "Merek";
             grid.Columns["Transmisi"].HeaderText = "Transmisi";
-            grid.Columns["KapasitasMesin"].HeaderText = "Kapasitas Mesin (cc)";
+            grid.Columns["KapasitasMesin"].HeaderText = "Kapasitas Mesin";
             grid.Columns["Tahun"].HeaderText = "Tahun";
 
             grid.Columns["No"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -119,7 +119,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                     NoPolisi = x.no_polisi,
                     Merek = x.merek,
                     Transmisi = x.transmisi == 1 ? "Otomatis" : "Manual",
-                    KapasitasMesin = x.kapasitas_mesin,
+                    KapasitasMesin = $"{x.kapasitas_mesin} cc",
                     Tahun = x.tahun,
                 }).ToList();
 

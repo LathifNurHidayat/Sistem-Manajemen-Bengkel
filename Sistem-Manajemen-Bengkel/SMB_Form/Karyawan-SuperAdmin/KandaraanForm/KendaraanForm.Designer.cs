@@ -226,6 +226,7 @@
             ButtonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ButtonSearch.BackColor = Color.FromArgb(83, 92, 145);
             ButtonSearch.BackgroundColor = Color.FromArgb(83, 92, 145);
+            ButtonSearch.BackgroundImage = Properties.Resources.User_Hitam;
             ButtonSearch.BorderColor = Color.Black;
             ButtonSearch.BorderRadius = 3;
             ButtonSearch.BorderSize = 0;
