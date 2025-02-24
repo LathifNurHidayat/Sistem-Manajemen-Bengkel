@@ -29,8 +29,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
 
         public DateTime tanggal { get; set; }
         public int antrean { get; set; }
-        public string keluhan { get; set; }
+        public string keluhan { get; set; } 
         public int status { get; set; } //menunggu=1, dikerjakan=2, selesai=3, dibatalkan=4
         public DateTime created_at { get; set; }
     }
 }
+ 

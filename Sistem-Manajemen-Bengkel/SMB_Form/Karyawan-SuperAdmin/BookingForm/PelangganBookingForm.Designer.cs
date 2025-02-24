@@ -1,4 +1,4 @@
-﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm.InputForm
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 {
     partial class PelangganBookingForm
     {
@@ -104,7 +104,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(470, 628);
             panel3.TabIndex = 0;
-            panel3.Paint += panel3_Paint;
             // 
             // label3
             // 
@@ -345,7 +344,6 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(381, 628);
             panel4.TabIndex = 1;
-            panel4.Paint += panel4_Paint;
             // 
             // panel13
             // 
@@ -400,7 +398,7 @@
             panel10.Location = new Point(28, 548);
             panel10.Name = "panel10";
             panel10.Size = new Size(320, 44);
-            panel10.TabIndex = 69;
+            panel10.TabIndex = 6;
             // 
             // TextTahun
             // 
@@ -563,11 +561,12 @@
             PickerBookingTanggal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             PickerBookingTanggal.Format = "dddd, dd-MM-yyyy";
             PickerBookingTanggal.Location = new Point(28, 109);
+            PickerBookingTanggal.MinDateTime = new DateTime(2025, 2, 24, 7, 58, 7, 0);
             PickerBookingTanggal.Name = "PickerBookingTanggal";
             PickerBookingTanggal.Size = new Size(409, 44);
             PickerBookingTanggal.TabIndex = 1;
             PickerBookingTanggal.ToolTipText = "";
-            PickerBookingTanggal.Value = new DateTime(2025, 2, 1, 0, 0, 0, 0);
+            PickerBookingTanggal.Value = new DateTime(2025, 2, 24, 7, 58, 7, 0);
             // 
             // label12
             // 
@@ -638,7 +637,6 @@
             Controls.Add(ButtonBatal);
             Name = "PelangganBookingForm";
             Text = "PelangganBookingForm";
-            Load += PelangganBookingForm_Load;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel6.ResumeLayout(false);

@@ -29,22 +29,17 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            label1 = new Label();
             ButtonSimpan = new SMB_CustomTolbox.LathifButton();
-            ButtonBatal = new SMB_CustomTolbox.LathifButton();
+            ButtonClose = new SMB_CustomTolbox.LathifButton();
             TextBatas = new Syncfusion.Windows.Forms.Tools.IntegerTextBox();
+            GridListData = new DataGridView();
+            PickerBookingTanggal = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            ButtonBaru = new SMB_CustomTolbox.LathifButton();
+            label1 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)TextBatas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(30, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(257, 36);
-            label1.TabIndex = 6;
-            label1.Text = "Edit Batas Booking Harian";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ButtonSimpan
             // 
@@ -52,67 +47,137 @@
             ButtonSimpan.BackColor = Color.LimeGreen;
             ButtonSimpan.BackgroundColor = Color.LimeGreen;
             ButtonSimpan.BorderColor = Color.DarkGray;
-            ButtonSimpan.BorderRadius = 5;
+            ButtonSimpan.BorderRadius = 3;
             ButtonSimpan.BorderSize = 0;
             ButtonSimpan.FlatAppearance.BorderSize = 0;
             ButtonSimpan.FlatStyle = FlatStyle.Flat;
-            ButtonSimpan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonSimpan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonSimpan.ForeColor = Color.White;
-            ButtonSimpan.Location = new Point(161, 148);
+            ButtonSimpan.Location = new Point(306, 116);
             ButtonSimpan.Name = "ButtonSimpan";
-            ButtonSimpan.Size = new Size(135, 45);
-            ButtonSimpan.TabIndex = 79;
+            ButtonSimpan.Size = new Size(110, 35);
+            ButtonSimpan.TabIndex = 5;
             ButtonSimpan.Text = "✅ Simpan";
             ButtonSimpan.TextColor = Color.White;
             ButtonSimpan.UseVisualStyleBackColor = false;
             // 
-            // ButtonBatal
+            // ButtonClose
             // 
-            ButtonBatal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            ButtonBatal.BackColor = Color.Red;
-            ButtonBatal.BackgroundColor = Color.Red;
-            ButtonBatal.BorderColor = Color.DarkGray;
-            ButtonBatal.BorderRadius = 5;
-            ButtonBatal.BorderSize = 0;
-            ButtonBatal.FlatAppearance.BorderSize = 0;
-            ButtonBatal.FlatStyle = FlatStyle.Flat;
-            ButtonBatal.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonBatal.ForeColor = Color.White;
-            ButtonBatal.Location = new Point(20, 148);
-            ButtonBatal.Name = "ButtonBatal";
-            ButtonBatal.Size = new Size(135, 45);
-            ButtonBatal.TabIndex = 80;
-            ButtonBatal.Text = "❌ Batal";
-            ButtonBatal.TextColor = Color.White;
-            ButtonBatal.UseVisualStyleBackColor = false;
+            ButtonClose.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ButtonClose.BackColor = Color.FromArgb(83, 92, 145);
+            ButtonClose.BackgroundColor = Color.FromArgb(83, 92, 145);
+            ButtonClose.BorderColor = Color.DarkGray;
+            ButtonClose.BorderRadius = 5;
+            ButtonClose.BorderSize = 0;
+            ButtonClose.FlatAppearance.BorderSize = 0;
+            ButtonClose.FlatStyle = FlatStyle.Flat;
+            ButtonClose.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonClose.ForeColor = Color.White;
+            ButtonClose.Location = new Point(296, 396);
+            ButtonClose.Name = "ButtonClose";
+            ButtonClose.Size = new Size(120, 40);
+            ButtonClose.TabIndex = 1;
+            ButtonClose.Text = "❌ Close";
+            ButtonClose.TextColor = Color.White;
+            ButtonClose.UseVisualStyleBackColor = false;
             // 
             // TextBatas
             // 
             TextBatas.AccessibilityEnabled = true;
-            TextBatas.BeforeTouchSize = new Size(125, 34);
-            TextBatas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TextBatas.IntegerValue = 1L;
-            TextBatas.Location = new Point(96, 84);
+            TextBatas.BeforeTouchSize = new Size(175, 37);
+            TextBatas.BorderStyle = BorderStyle.FixedSingle;
+            TextBatas.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextBatas.IntegerValue = 0L;
+            TextBatas.Location = new Point(241, 54);
+            TextBatas.Multiline = true;
             TextBatas.Name = "TextBatas";
-            TextBatas.Size = new Size(125, 34);
+            TextBatas.Size = new Size(175, 37);
             TextBatas.TabIndex = 81;
-            TextBatas.Text = "1";
+            TextBatas.Text = "0";
             TextBatas.TextAlign = HorizontalAlignment.Center;
+            // 
+            // GridListData
+            // 
+            GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GridListData.Location = new Point(12, 174);
+            GridListData.Name = "GridListData";
+            GridListData.RowHeadersWidth = 51;
+            GridListData.RowTemplate.Height = 29;
+            GridListData.Size = new Size(404, 212);
+            GridListData.TabIndex = 0;
+            // 
+            // PickerBookingTanggal
+            // 
+            PickerBookingTanggal.DateTimeIcon = null;
+            PickerBookingTanggal.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
+            PickerBookingTanggal.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PickerBookingTanggal.Format = "dddd, dd MMMM yyyy";
+            PickerBookingTanggal.Location = new Point(12, 54);
+            PickerBookingTanggal.Name = "PickerBookingTanggal";
+            PickerBookingTanggal.Size = new Size(223, 37);
+            PickerBookingTanggal.TabIndex = 3;
+            PickerBookingTanggal.ToolTipText = "";
+            PickerBookingTanggal.Value = new DateTime(2025, 2, 24, 7, 58, 7, 0);
+            // 
+            // ButtonBaru
+            // 
+            ButtonBaru.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonBaru.BackColor = Color.SandyBrown;
+            ButtonBaru.BackgroundColor = Color.SandyBrown;
+            ButtonBaru.BorderColor = Color.DarkGray;
+            ButtonBaru.BorderRadius = 3;
+            ButtonBaru.BorderSize = 0;
+            ButtonBaru.FlatAppearance.BorderSize = 0;
+            ButtonBaru.FlatStyle = FlatStyle.Flat;
+            ButtonBaru.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonBaru.ForeColor = Color.White;
+            ButtonBaru.Location = new Point(190, 116);
+            ButtonBaru.Name = "ButtonBaru";
+            ButtonBaru.Size = new Size(110, 35);
+            ButtonBaru.TabIndex = 2;
+            ButtonBaru.Text = "➕ Baru";
+            ButtonBaru.TextColor = Color.White;
+            ButtonBaru.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(12, 28);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 23);
+            label1.TabIndex = 85;
+            label1.Text = "Tanggal";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(241, 28);
+            label2.Name = "label2";
+            label2.Size = new Size(118, 23);
+            label2.TabIndex = 86;
+            label2.Text = "Batas Booking";
             // 
             // EditBatasBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(317, 214);
+            ClientSize = new Size(428, 448);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(ButtonBaru);
+            Controls.Add(PickerBookingTanggal);
+            Controls.Add(GridListData);
             Controls.Add(TextBatas);
             Controls.Add(ButtonSimpan);
-            Controls.Add(ButtonBatal);
-            Controls.Add(label1);
+            Controls.Add(ButtonClose);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "EditBatasBookingForm";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)TextBatas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,9 +191,13 @@
         private ToolStripMenuItem dataIndukSiswaToolStripMenuItem;
         private ToolStripMenuItem kelasSiswaToolStripMenuItem;
         private ToolStripMenuItem absensiToolStripMenuItem;
-        private Label label1;
         private SMB_CustomTolbox.LathifButton ButtonSimpan;
-        private SMB_CustomTolbox.LathifButton ButtonBatal;
+        private SMB_CustomTolbox.LathifButton ButtonClose;
         private Syncfusion.Windows.Forms.Tools.IntegerTextBox TextBatas;
+        private DataGridView GridListData;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit PickerBookingTanggal;
+        private SMB_CustomTolbox.LathifButton ButtonBaru;
+        private Label label1;
+        private Label label2;
     }
 }

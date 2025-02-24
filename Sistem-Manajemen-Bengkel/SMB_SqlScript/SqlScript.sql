@@ -51,7 +51,9 @@ CREATE TABLE tb_jasa_servis (
 
 CREATE TABLE tb_batas_booking(
     id_batas_booking INT IDENTITY(1,1) PRIMARY KEY,
+    tanggal DATETIME,
     batas_booking INT,
+    created_at DATETIME DEFAULT GETDATE()
 );
 
 CREATE TABLE tb_sparepart(

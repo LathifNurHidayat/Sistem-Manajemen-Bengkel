@@ -1,4 +1,4 @@
-﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 {
     partial class BookingForm
     {

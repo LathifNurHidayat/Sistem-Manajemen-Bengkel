@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.KaryawanForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
@@ -22,6 +23,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private long _id;
         private string _username;
         private string _role;
+        private readonly List<Button> _listButton = new List<Button>();
 
         public Dashboard(/*long id, string username, string role*/)
         {
@@ -31,8 +33,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             /*       _id = id;
                  LabelUsername.Text = username;
                   LabelRole.Text = role;*/
-            CekRole();
+            // CekRole();
 
+            InitialButton();
             RegisterControlEvent();
             ShowFormHelper.SetPanel(PanelMain);
         }
@@ -51,15 +54,25 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             }
         }
 
+        private void InitialButton()
+        {
+            _listButton.AddRange(new[] 
+             {
+                ButtonDashboard, ButtonBooking, ButtonServis,
+                ButtonRiwayat, ButtonPelanggan, ButtonKendaraan,
+                ButtonKaryawan, ButtonSparepart, ButtonLaporan, ButtonLogout
+             });
+
+            foreach  (var btn in _listButton)
+            {
+                btn.Tag = "NoClick";
+            }
+        }
+
+
         private void StyleButton(Button button)
         {
-            List<Button> menu = new List<Button>()
-            {
-                ButtonDashboard, ButtonBooking, ButtonServis, ButtonRiwayat, ButtonPelanggan,
-                ButtonKendaraan, ButtonKaryawan, ButtonSparepart, ButtonLaporan, ButtonLogout
-            };
-
-            foreach (Button coloringButton in menu)
+            foreach (Button coloringButton in _listButton)
             {
                 if (coloringButton == button)
                 {
@@ -74,7 +87,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             }
         }
 
-      
 
         private void RegisterControlEvent()
         {

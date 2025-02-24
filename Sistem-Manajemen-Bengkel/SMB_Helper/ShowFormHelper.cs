@@ -14,7 +14,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         {
             _panelMain = panel;
         }
-
+         
         public static void ShowFormInPanel(Form form)
         {
             if (_panelMain.Controls.Count > 0)

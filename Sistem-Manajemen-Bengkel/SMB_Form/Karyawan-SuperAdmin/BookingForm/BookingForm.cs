@@ -14,17 +14,19 @@ using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
 using Dapper;
 using System.Reflection;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 {
     public partial class BookingForm : Form
     {
         private readonly BookingDal _bookingDal;
+        private readonly BatasBookingDal _batasBookingDal;
         private Timer _timer;
 
         public BookingForm()
         {
             InitializeComponent();
             _bookingDal = new BookingDal();
+            _batasBookingDal = new BatasBookingDal();
 
             InitialTimer();
             CustomComponent();
@@ -53,6 +55,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             ComboEntries.DataSource = entries;
             CustomComponentHelper.CustomDataGrid(GridListData);
             CustomComponentHelper.CustomPanel(PanelBooking);
+            TextBatasBooking.Text = _batasBookingDal.LoadBatasBooking().ToString();
         }
 
         public static void CustomDataGrid(DataGridView grid)
@@ -151,11 +154,23 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             ButtonSearch.Click += ButtonSearch_Click;
             TextSearch.TextChanged += TextSearch_TextChanged;
             TextSearch.KeyDown += TextSearch_KeyDown;
+            ButtonUbahBatasBooking.Click += ButtonUbahBatasBooking_Click;
+        }
+
+        private void ButtonUbahBatasBooking_Click(object? sender, EventArgs e)
+        {
+            EditBatasBookingForm editBatasBookingForm = new EditBatasBookingForm();
+            if (editBatasBookingForm.ShowDialog(this) == DialogResult.OK)
+            {
+                TextBatasBooking.Text = _batasBookingDal.LoadBatasBooking().ToString();
+                NontifikasiFormHelper nontifikasiFormHelper = new NontifikasiFormHelper("Perubahan berhasil disimpan");
+                nontifikasiFormHelper.Show();
+            }
         }
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
-            PilihForm pilihForm = new PilihForm(this);
+            PilihForm pilihForm = new PilihForm();
             pilihForm.ShowDialog();
         }
 

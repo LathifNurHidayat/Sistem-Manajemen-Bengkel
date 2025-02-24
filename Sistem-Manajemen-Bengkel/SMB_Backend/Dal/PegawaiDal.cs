@@ -148,12 +148,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public int ValidasiDaftar(string no_ktp_pegawai, string no_hp, string email)
         {
             const string sql = @"SELECT CASE 
-                                        WHEN EXISTS (SELECT 1 FRON tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai AND deleted_at IS NULL) THEN 1
-                                        WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai) THEN 2
-                                        WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_hp = @no_hp) THEN 3
-                                        WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE email = @email) THEN 4
-                                        ELSE 0
-                                END AS Result";
+                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai AND deleted_at IS NULL) THEN 1
+                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai) THEN 2
+                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_hp = @no_hp) THEN 3
+                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE email = @email) THEN 4
+                                           ELSE 0
+                                       END AS Result";
+
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<int>(sql, new { no_ktp_pegawai, no_hp, email });

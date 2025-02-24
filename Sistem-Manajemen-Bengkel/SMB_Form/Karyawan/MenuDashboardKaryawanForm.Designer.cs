@@ -272,7 +272,7 @@
             // 
             // 
             chartControl1.Legend.Location = new Point(619, 81);
-            chartControl1.Location = new Point(34, 42);
+            chartControl1.Location = new Point(223, 67);
             chartControl1.Name = "chartControl1";
             chartControl1.PrimaryXAxis.LogLabelsDisplayMode = Syncfusion.Windows.Forms.Chart.LogLabelsDisplayMode.Default;
             chartControl1.PrimaryXAxis.Margin = true;

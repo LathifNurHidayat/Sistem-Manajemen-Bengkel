@@ -223,9 +223,9 @@
             Label.ForeColor = Color.DimGray;
             Label.Location = new Point(83, 397);
             Label.Name = "Label";
-            Label.Size = new Size(420, 50);
+            Label.Size = new Size(387, 25);
             Label.TabIndex = 22;
-            Label.Text = "Apakah Anda ingin memulihkannya kembali atau \r\nmenghapusnya secara permanen?";
+            Label.Text = "Apakah Anda ingin memulihkannya kembali ?";
             Label.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1

@@ -118,9 +118,15 @@ VALUES
 
 -- 5. Insert 20 Data ke tb_batas_booking
 INSERT INTO tb_batas_booking 
-    (batas_booking)
+    (tanggal, batas_booking)
 VALUES
-(10);
+(NULL, 10),
+('2024-01-02', 11),
+('2024-01-03', 12),
+('2024-01-04', 13),
+('2024-01-05', 14),
+('2024-01-06', 15),
+('2024-01-07', 16);
 
 
 -- 6. Insert 20 Data ke tb_sparepart

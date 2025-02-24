@@ -39,7 +39,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
                 MesboxHelper.ShowInfo("Data berhasil dipulihkan");
                 ShowFormHelper.ShowFormInPanel(new PelangganForm());
                 this.DialogResult = DialogResult.OK;
-            }
+            } 
         }
 
         private void ButtonHapus_Click(object? sender, EventArgs e)
