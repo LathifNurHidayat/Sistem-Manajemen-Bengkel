@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             ButtonSimpan = new SMB_CustomTolbox.LathifButton();
             ButtonClose = new SMB_CustomTolbox.LathifButton();
             TextBatas = new Syncfusion.Windows.Forms.Tools.IntegerTextBox();
@@ -37,8 +36,11 @@
             ButtonBaru = new SMB_CustomTolbox.LathifButton();
             label1 = new Label();
             label2 = new Label();
+            contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)TextBatas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
+            contextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // ButtonSimpan
@@ -53,7 +55,7 @@
             ButtonSimpan.FlatStyle = FlatStyle.Flat;
             ButtonSimpan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonSimpan.ForeColor = Color.White;
-            ButtonSimpan.Location = new Point(306, 116);
+            ButtonSimpan.Location = new Point(344, 116);
             ButtonSimpan.Name = "ButtonSimpan";
             ButtonSimpan.Size = new Size(110, 35);
             ButtonSimpan.TabIndex = 5;
@@ -73,7 +75,7 @@
             ButtonClose.FlatStyle = FlatStyle.Flat;
             ButtonClose.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonClose.ForeColor = Color.White;
-            ButtonClose.Location = new Point(296, 396);
+            ButtonClose.Location = new Point(334, 396);
             ButtonClose.Name = "ButtonClose";
             ButtonClose.Size = new Size(120, 40);
             ButtonClose.TabIndex = 1;
@@ -84,16 +86,19 @@
             // TextBatas
             // 
             TextBatas.AccessibilityEnabled = true;
-            TextBatas.BeforeTouchSize = new Size(175, 37);
+            TextBatas.BackGroundColor = Color.White;
+            TextBatas.BeforeTouchSize = new Size(166, 37);
             TextBatas.BorderStyle = BorderStyle.FixedSingle;
             TextBatas.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TextBatas.ForeColor = SystemColors.WindowText;
             TextBatas.IntegerValue = 0L;
-            TextBatas.Location = new Point(241, 54);
+            TextBatas.Location = new Point(288, 54);
+            TextBatas.Metrocolor = Color.White;
             TextBatas.Multiline = true;
             TextBatas.Name = "TextBatas";
-            TextBatas.Size = new Size(175, 37);
+            TextBatas.ReadOnlyBackColor = Color.WhiteSmoke;
+            TextBatas.Size = new Size(166, 37);
             TextBatas.TabIndex = 81;
-            TextBatas.Text = "0";
             TextBatas.TextAlign = HorizontalAlignment.Center;
             // 
             // GridListData
@@ -103,18 +108,19 @@
             GridListData.Name = "GridListData";
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(404, 212);
+            GridListData.Size = new Size(442, 212);
             GridListData.TabIndex = 0;
             // 
             // PickerBookingTanggal
             // 
+            PickerBookingTanggal.BackColor = Color.White;
             PickerBookingTanggal.DateTimeIcon = null;
             PickerBookingTanggal.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
             PickerBookingTanggal.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            PickerBookingTanggal.Format = "dddd, dd MMMM yyyy";
+            PickerBookingTanggal.Format = "dddd,  dd MMMM yyyy";
             PickerBookingTanggal.Location = new Point(12, 54);
             PickerBookingTanggal.Name = "PickerBookingTanggal";
-            PickerBookingTanggal.Size = new Size(223, 37);
+            PickerBookingTanggal.Size = new Size(270, 37);
             PickerBookingTanggal.TabIndex = 3;
             PickerBookingTanggal.ToolTipText = "";
             PickerBookingTanggal.Value = new DateTime(2025, 2, 24, 7, 58, 7, 0);
@@ -131,7 +137,7 @@
             ButtonBaru.FlatStyle = FlatStyle.Flat;
             ButtonBaru.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBaru.ForeColor = Color.White;
-            ButtonBaru.Location = new Point(190, 116);
+            ButtonBaru.Location = new Point(228, 116);
             ButtonBaru.Name = "ButtonBaru";
             ButtonBaru.Size = new Size(110, 35);
             ButtonBaru.TabIndex = 2;
@@ -153,17 +159,34 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(241, 28);
+            label2.Location = new Point(288, 28);
             label2.Name = "label2";
             label2.Size = new Size(118, 23);
             label2.TabIndex = 86;
             label2.Text = "Batas Booking";
             // 
+            // contextMenuStrip
+            // 
+            contextMenuStrip.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            contextMenuStrip.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem });
+            contextMenuStrip.MetroColor = Color.FromArgb(204, 236, 249);
+            contextMenuStrip.Name = "contextMenuStrip";
+            contextMenuStrip.Size = new Size(146, 36);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteToolStripMenuItem.Image = Properties.Resources.delete__1_;
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(145, 32);
+            deleteToolStripMenuItem.Text = "Delete";
+            // 
             // EditBatasBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(428, 448);
+            ClientSize = new Size(466, 448);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(ButtonBaru);
@@ -178,6 +201,7 @@
             StartPosition = FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)TextBatas).EndInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
+            contextMenuStrip.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -199,5 +223,7 @@
         private SMB_CustomTolbox.LathifButton ButtonBaru;
         private Label label1;
         private Label label2;
+        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
+        private ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

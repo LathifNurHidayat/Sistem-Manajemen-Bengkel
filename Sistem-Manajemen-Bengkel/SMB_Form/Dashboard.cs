@@ -69,7 +69,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             }
         }
 
-
         private void StyleButton(Button button)
         {
             foreach (Button coloringButton in _listButton)
@@ -79,7 +78,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
                     coloringButton.ForeColor = Color.Black;
                     coloringButton.BackColor = Color.WhiteSmoke;
                 }
-                else
+                else if (coloringButton.Tag == "Click")
                 {
                     coloringButton.ForeColor = Color.Gray;
                     coloringButton.BackColor = Color.Transparent;
@@ -117,18 +116,24 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private void ButtonLogout_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             ShowFormHelper.ShowFormInPanel(new InvoiceForm());
         }
 
         private void ButtonLaporan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             ShowFormHelper.ShowFormInPanel(new LaporanForm());
         }
 
         private void ButtonSparepart_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             ShowFormHelper.ShowFormInPanel(new SparepartForm());
 
         }
@@ -136,42 +141,56 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private void ButtonKaryawan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             ShowFormHelper.ShowFormInPanel(new SuperAdminForm.PegawaiForm());
         }
 
         private void ButtonKendaraan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             ShowFormHelper.ShowFormInPanel(new KendaraanForm());
         }
 
         private void ButtonPelanggan_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             ShowFormHelper.ShowFormInPanel(new PelangganForm());
         }
 
         private void ButtonRiwayat_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             ShowFormHelper.ShowFormInPanel(new RiwayatForm());
         }
 
         private void ButtonServis_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             ShowFormHelper.ShowFormInPanel(new JasaServisForm());
         }
 
         private void ButtonBooking_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             ShowFormHelper.ShowFormInPanel(new BookingForm());
         }
 
         private void ButtonDashboard_Click(object? sender, EventArgs e)
         {
             StyleButton(sender as Button);
+            if (sender is Button button) button.Tag = "Click";
+
             if (_role == "Super Admin")
                 ShowFormHelper.ShowFormInPanel(new MenuDashboardAdminForm());
             else if (_role == "Karyawan")

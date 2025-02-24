@@ -12,7 +12,6 @@ TRUNCATE TABLE tb_pelanggan;
 -- Misalnya: 352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67
 
 
--- 1. Insert 20 Data ke tb_pelanggan
 INSERT INTO tb_pelanggan 
     (no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis, created_at)
 VALUES
@@ -38,7 +37,6 @@ VALUES
 ('32010110000020', 'Umi Kalsum',      '081298765450', 'Jl. Flamboyan No.6, Yogyakarta',           'umi.kalsum@outlook.com',    '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', 19, '2024-01-02 22:00:00');
 
 
--- 2. Insert 20 Data ke tb_pegawai
 INSERT INTO tb_pegawai 
     (no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_data)
 VALUES
@@ -63,7 +61,6 @@ VALUES
 ('32010120000019', 'Rizki Ananda',     'rizki@x.com',     '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345618', 'Jl. Merpati No.11, Yogyakarta',     1, NULL),
 ('32010120000020', 'Nina Pratiwi',     'nina@x.com',      '352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67', '081312345619', 'Jl. Kebon Pisang No.16, Jakarta',   2, NULL);
 
--- 3. Insert 20 Data ke tb_mekanik
 INSERT INTO tb_mekanik 
     (no_ktp_mekanik, nama_mekanik, no_hp, alamat, spesialis, image_data)
 VALUES
@@ -90,7 +87,6 @@ VALUES
 
 
 
--- 4. Insert 20 Data ke tb_jasa_servis
 INSERT INTO tb_jasa_servis 
     (jenis_servis, keterangan, biaya)
 VALUES
@@ -116,20 +112,16 @@ VALUES
 ('Service Rutin Plus','Pemeriksaan intensif',                      180000);
 
 
--- 5. Insert 20 Data ke tb_batas_booking
 INSERT INTO tb_batas_booking 
     (tanggal, batas_booking)
 VALUES
 (NULL, 10),
-('2024-01-02', 11),
-('2024-01-03', 12),
-('2024-01-04', 13),
-('2024-01-05', 14),
-('2024-01-06', 15),
-('2024-01-07', 16);
+('2025-03-09', 15),
+('2025-04-10', 10),
+('2025-05-12', 5),
+('2025-03-06', 16);
 
 
--- 6. Insert 20 Data ke tb_sparepart
 INSERT INTO tb_sparepart 
     (nama_sparepart, harga, stok, stok_minimal, status_stok, image_data)
 VALUES
@@ -158,7 +150,6 @@ VALUES
 
 
 
--- 7. Insert 20 Data ke tb_kendaraan
 INSERT INTO tb_kendaraan 
     (no_ktp_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, tahun)
 VALUES
@@ -185,7 +176,6 @@ VALUES
 
 
 
--- 8. Insert 20 Data ke tb_booking
 INSERT INTO tb_booking 
     (no_ktp_pelanggan, no_ktp_mekanik, id_kendaraan, id_jasa_servis, 
      nama_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, 
@@ -219,7 +209,6 @@ VALUES
 
 
 
--- 9. Insert 20 Data ke tb_riwayat
 INSERT INTO tb_riwayat 
     (id_jasa_servis,  nama_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, 
      no_ktp_pelanggan, no_ktp_pegawai, no_ktp_mekanik, id_kendaraan, id_riwayat_sparepart, tanggal, keluhan, catatan, total_biaya, status)
@@ -279,5 +268,4 @@ VALUES
         LEFT JOIN tb_kendaraan dd ON aa.id_kendaraan = dd.id_kendaraan
         LEFT JOIN tb_jasa_servis ee ON aa.id_jasa_servis = ee.id_jasa_servis
 
-
-
+        select * from tb_batas_booking

@@ -121,7 +121,7 @@
             // 
             // panel5
             // 
-            panel5.BackColor = Color.White;
+            panel5.BackColor = Color.WhiteSmoke;
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(TextIdJasaServis);
             panel5.Location = new Point(40, 123);
@@ -132,7 +132,7 @@
             // TextIdJasaServis
             // 
             TextIdJasaServis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TextIdJasaServis.BackColor = Color.White;
+            TextIdJasaServis.BackColor = Color.WhiteSmoke;
             TextIdJasaServis.BorderStyle = BorderStyle.None;
             TextIdJasaServis.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextIdJasaServis.Location = new Point(8, 8);

@@ -63,7 +63,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             grid.Columns["KapasitasMesin"].HeaderText = "Kapasitas Mesin";
             grid.Columns["Tahun"].HeaderText = "Tahun";
 
-            grid.Columns["No"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
          
             foreach (DataGridViewColumn col in grid.Columns)
             {

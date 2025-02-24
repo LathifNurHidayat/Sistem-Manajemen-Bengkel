@@ -163,15 +163,19 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             GridListData.CellDoubleClick += GridListData_CellContentDoubleClick;
             ButtonBaru.Click += ButtonBaru_Click;
             ButtonSimpan.Click += ButtonSimpan_Click;
-
-
         }
 
         private void ButtonSimpan_Click(object? sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(TextIdJasaServis.Text) || string.IsNullOrEmpty(TextJenisServis.Text) &&
+                string.IsNullOrEmpty(TextBiaya.Text) && string.IsNullOrEmpty(TextKeterangan.Text))
+            {
+                MesboxHelper.ShowWarning("Semua data harus diisi!");
+                return;
+            }
+
             if (MesboxHelper.ShowConfirm("Anda yakin ingin menyimpan data?"))
             {
-                MessageBox.Show(TextBiaya.DecimalValue.ToString());
                 SaveData();
                 LoadData();
                 ClearForm();
