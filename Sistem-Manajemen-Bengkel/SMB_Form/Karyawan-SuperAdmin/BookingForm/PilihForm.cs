@@ -22,7 +22,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             this.MinimizeBox = false;
 
             RegisterControlEvent();
-       
         }
 
         private void RegisterControlEvent()
