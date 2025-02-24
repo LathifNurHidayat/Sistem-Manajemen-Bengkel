@@ -32,6 +32,9 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             PanelBooking = new Panel();
+            TextBatasBooking = new TextBox();
+            label3 = new Label();
+            ButtonUbahBatasBooking = new SMB_CustomTolbox.LathifButton();
             LabelJam = new Label();
             LabelHariTanggal = new Label();
             label2 = new Label();
@@ -48,9 +51,6 @@
             GridListData = new DataGridView();
             label7 = new Label();
             ButtonTambah = new SMB_CustomTolbox.LathifButton();
-            ButtonUbahBatasBooking = new SMB_CustomTolbox.LathifButton();
-            label3 = new Label();
-            TextBatasBooking = new TextBox();
             PanelBooking.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TextPage).BeginInit();
@@ -85,6 +85,51 @@
             PanelBooking.Name = "PanelBooking";
             PanelBooking.Size = new Size(1058, 679);
             PanelBooking.TabIndex = 0;
+            // 
+            // TextBatasBooking
+            // 
+            TextBatasBooking.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            TextBatasBooking.BorderStyle = BorderStyle.FixedSingle;
+            TextBatasBooking.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextBatasBooking.Location = new Point(906, 132);
+            TextBatasBooking.Name = "TextBatasBooking";
+            TextBatasBooking.ReadOnly = true;
+            TextBatasBooking.Size = new Size(40, 30);
+            TextBatasBooking.TabIndex = 61;
+            TextBatasBooking.Text = "1";
+            TextBatasBooking.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(719, 135);
+            label3.Name = "label3";
+            label3.Size = new Size(184, 23);
+            label3.TabIndex = 60;
+            label3.Text = "Batas booking hari ini :";
+            // 
+            // ButtonUbahBatasBooking
+            // 
+            ButtonUbahBatasBooking.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonUbahBatasBooking.BackColor = Color.Gray;
+            ButtonUbahBatasBooking.BackgroundColor = Color.Gray;
+            ButtonUbahBatasBooking.BorderColor = Color.DarkGray;
+            ButtonUbahBatasBooking.BorderRadius = 3;
+            ButtonUbahBatasBooking.BorderSize = 0;
+            ButtonUbahBatasBooking.FlatAppearance.BorderSize = 0;
+            ButtonUbahBatasBooking.FlatStyle = FlatStyle.Flat;
+            ButtonUbahBatasBooking.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonUbahBatasBooking.ForeColor = Color.White;
+            ButtonUbahBatasBooking.Location = new Point(952, 131);
+            ButtonUbahBatasBooking.Name = "ButtonUbahBatasBooking";
+            ButtonUbahBatasBooking.Size = new Size(83, 32);
+            ButtonUbahBatasBooking.TabIndex = 59;
+            ButtonUbahBatasBooking.Text = "Ubah";
+            ButtonUbahBatasBooking.TextColor = Color.White;
+            ButtonUbahBatasBooking.UseVisualStyleBackColor = false;
             // 
             // LabelJam
             // 
@@ -146,7 +191,7 @@
             // 
             TextPage.Anchor = AnchorStyles.None;
             TextPage.BackColor = Color.FromArgb(83, 92, 145);
-            TextPage.BeforeTouchSize = new Size(60, 24);
+            TextPage.BeforeTouchSize = new Size(236, 30);
             TextPage.Border3DStyle = Border3DStyle.Bump;
             TextPage.BorderColor = Color.SlateGray;
             TextPage.BorderStyle = BorderStyle.None;
@@ -259,7 +304,7 @@
             // TextSearch
             // 
             TextSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TextSearch.BeforeTouchSize = new Size(60, 24);
+            TextSearch.BeforeTouchSize = new Size(236, 30);
             TextSearch.Border3DStyle = Border3DStyle.Bump;
             TextSearch.BorderColor = Color.DimGray;
             TextSearch.BorderStyle = BorderStyle.FixedSingle;
@@ -337,50 +382,6 @@
             ButtonTambah.Text = "➕ Booking";
             ButtonTambah.TextColor = Color.White;
             ButtonTambah.UseVisualStyleBackColor = false;
-            // 
-            // ButtonUbahBatasBooking
-            // 
-            ButtonUbahBatasBooking.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ButtonUbahBatasBooking.BackColor = Color.Gray;
-            ButtonUbahBatasBooking.BackgroundColor = Color.Gray;
-            ButtonUbahBatasBooking.BorderColor = Color.DarkGray;
-            ButtonUbahBatasBooking.BorderRadius = 3;
-            ButtonUbahBatasBooking.BorderSize = 0;
-            ButtonUbahBatasBooking.FlatAppearance.BorderSize = 0;
-            ButtonUbahBatasBooking.FlatStyle = FlatStyle.Flat;
-            ButtonUbahBatasBooking.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonUbahBatasBooking.ForeColor = Color.White;
-            ButtonUbahBatasBooking.Location = new Point(952, 131);
-            ButtonUbahBatasBooking.Name = "ButtonUbahBatasBooking";
-            ButtonUbahBatasBooking.Size = new Size(83, 32);
-            ButtonUbahBatasBooking.TabIndex = 59;
-            ButtonUbahBatasBooking.Text = "Ubah";
-            ButtonUbahBatasBooking.TextColor = Color.White;
-            ButtonUbahBatasBooking.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(719, 135);
-            label3.Name = "label3";
-            label3.Size = new Size(184, 23);
-            label3.TabIndex = 60;
-            label3.Text = "Batas booking hari ini :";
-            // 
-            // TextBatasBooking
-            // 
-            TextBatasBooking.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TextBatasBooking.BorderStyle = BorderStyle.FixedSingle;
-            TextBatasBooking.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            TextBatasBooking.Location = new Point(906, 132);
-            TextBatasBooking.Name = "TextBatasBooking";
-            TextBatasBooking.Size = new Size(40, 30);
-            TextBatasBooking.TabIndex = 61;
-            TextBatasBooking.Text = "1";
-            TextBatasBooking.TextAlign = HorizontalAlignment.Center;
             // 
             // BookingForm
             // 

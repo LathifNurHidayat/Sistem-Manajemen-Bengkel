@@ -122,6 +122,7 @@ VALUES
 ('2025-03-06', 16);
 
 
+
 INSERT INTO tb_sparepart 
     (nama_sparepart, harga, stok, stok_minimal, status_stok, image_data)
 VALUES

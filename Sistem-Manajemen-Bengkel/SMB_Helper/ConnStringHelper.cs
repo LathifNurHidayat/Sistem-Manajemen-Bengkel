@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistem_Manajemen_Bengkel.Helper
 {
-    public class ConnStringHelper
+    public class ConnStringHelper 
     {
         public static string GetConn()
         {

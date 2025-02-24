@@ -55,7 +55,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             ComboEntries.DataSource = entries;
             CustomComponentHelper.CustomDataGrid(GridListData);
             CustomComponentHelper.CustomPanel(PanelBooking);
-            TextBatasBooking.Text = _batasBookingDal.LoadBatasBooking().ToString();
+
+            var tanggal = DateTime.Today.Date;
+            TextBatasBooking.Text = _batasBookingDal.ShowBatasBooking(tanggal).ToString();
         }
 
         public static void CustomDataGrid(DataGridView grid)
@@ -160,12 +162,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         private void ButtonUbahBatasBooking_Click(object? sender, EventArgs e)
         {
             EditBatasBookingForm editBatasBookingForm = new EditBatasBookingForm();
-            if (editBatasBookingForm.ShowDialog(this) == DialogResult.OK)
-            {
-                TextBatasBooking.Text = _batasBookingDal.LoadBatasBooking().ToString();
-                NontifikasiFormHelper nontifikasiFormHelper = new NontifikasiFormHelper("Perubahan berhasil disimpan");
-                nontifikasiFormHelper.Show();
-            }
+            editBatasBookingForm.ShowDialog(this);
+            
+            var tanggal = DateTime.Today.Date;
+            TextBatasBooking.Text = _batasBookingDal.ShowBatasBooking(tanggal).ToString();
         }
 
         private void ButtonTambah_Click(object? sender, EventArgs e)

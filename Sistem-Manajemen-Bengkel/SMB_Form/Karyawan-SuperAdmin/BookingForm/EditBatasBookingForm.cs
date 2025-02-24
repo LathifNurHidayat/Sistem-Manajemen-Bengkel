@@ -19,6 +19,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
     {
         private readonly BatasBookingDal _batasBookingDal;
         private int _idBatasBooking = 0;
+        private bool _isDefault = false;
 
         public EditBatasBookingForm( )
         {
@@ -103,7 +104,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             var data = new BatasBookingModel
             {
                 id_batas_booking = _idBatasBooking,
-                tanggal = PickerBookingTanggal.Value,
+                tanggal = _isDefault ? null : PickerBookingTanggal.Value,
                 batas_booking = Convert.ToInt32(TextBatas.Text)
             };
 
@@ -164,12 +165,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             {
                 PickerBookingTanggal.Enabled = false;
                 PickerBookingTanggal.Format = " ";
+                _isDefault = true;
             }
             else
             {
                 PickerBookingTanggal.Enabled = true;
                 PickerBookingTanggal.Format = "dddd,  dd-MM-yyyy";
                 PickerBookingTanggal.Value = data.tanggal;
+                _isDefault = false;
             }
 
             TextBatas.Text = data.batas_booking.ToString();

@@ -19,15 +19,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             return Conn.Query<BatasBookingModel>(sql);
         }
 
-        public int ShowBatasBooking(DateTime tanggal)
+        public int? ShowBatasBooking(DateTime tanggal)
         {
             const string sql = @"SELECT 
                                     batas_booking 
+                                FROM 
+                                    tb_batas_booking
                                 WHERE
-                                    tanggal = COALESCE(
-                                                (SELECT tanggal FROM tb_batas_booking WHERE tanggal = @tanggal),
-                                                (SELECT tanggal FROM tb_batas_booking WHERE tanggal IS NULL)
-                                )";
+                                    CAST(tanggal AS DATE) = CAST(@tanggal AS DATE) OR
+                                    tanggal IS NULL
+                                ";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<int>(sql, new {tanggal});
