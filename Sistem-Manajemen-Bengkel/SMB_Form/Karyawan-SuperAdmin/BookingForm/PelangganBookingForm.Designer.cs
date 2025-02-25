@@ -69,6 +69,7 @@
             TextKeluhan = new TextBox();
             label16 = new Label();
             label17 = new Label();
+            label9 = new Label();
             panel3.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
@@ -98,9 +99,9 @@
             panel3.Controls.Add(label7);
             panel3.Controls.Add(panel9);
             panel3.Controls.Add(label8);
-            panel3.Location = new Point(40, 40);
+            panel3.Location = new Point(40, 150);
             panel3.Name = "panel3";
-            panel3.Size = new Size(470, 628);
+            panel3.Size = new Size(470, 518);
             panel3.TabIndex = 0;
             // 
             // label3
@@ -326,9 +327,9 @@
             panel4.Controls.Add(label10);
             panel4.Controls.Add(label13);
             panel4.Controls.Add(label11);
-            panel4.Location = new Point(540, 40);
+            panel4.Location = new Point(540, 150);
             panel4.Name = "panel4";
-            panel4.Size = new Size(381, 628);
+            panel4.Size = new Size(381, 518);
             panel4.TabIndex = 1;
             // 
             // panel13
@@ -351,6 +352,7 @@
             TextTransmisi.Location = new Point(4, 10);
             TextTransmisi.MaxLength = 100;
             TextTransmisi.Name = "TextTransmisi";
+            TextTransmisi.ReadOnly = true;
             TextTransmisi.Size = new Size(311, 23);
             TextTransmisi.TabIndex = 49;
             TextTransmisi.TabStop = false;
@@ -395,6 +397,7 @@
             TextTahun.Location = new Point(4, 10);
             TextTahun.MaxLength = 100;
             TextTahun.Name = "TextTahun";
+            TextTahun.ReadOnly = true;
             TextTahun.Size = new Size(311, 23);
             TextTahun.TabIndex = 49;
             TextTahun.TabStop = false;
@@ -431,6 +434,7 @@
             TextKapasitasMesin.Location = new Point(4, 10);
             TextKapasitasMesin.MaxLength = 100;
             TextKapasitasMesin.Name = "TextKapasitasMesin";
+            TextKapasitasMesin.ReadOnly = true;
             TextKapasitasMesin.Size = new Size(311, 23);
             TextKapasitasMesin.TabIndex = 49;
             TextKapasitasMesin.TabStop = false;
@@ -477,6 +481,7 @@
             TextMerek.Location = new Point(4, 10);
             TextMerek.MaxLength = 100;
             TextMerek.Name = "TextMerek";
+            TextMerek.ReadOnly = true;
             TextMerek.Size = new Size(311, 23);
             TextMerek.TabIndex = 49;
             TextMerek.TabStop = false;
@@ -535,9 +540,9 @@
             panel2.Controls.Add(panel18);
             panel2.Controls.Add(label16);
             panel2.Controls.Add(label17);
-            panel2.Location = new Point(953, 40);
+            panel2.Location = new Point(953, 150);
             panel2.Name = "panel2";
-            panel2.Size = new Size(470, 628);
+            panel2.Size = new Size(470, 518);
             panel2.TabIndex = 2;
             // 
             // PickerBookingTanggal
@@ -610,12 +615,24 @@
             label17.TabIndex = 70;
             label17.Text = "Keluhan";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(40, 30);
+            label9.Name = "label9";
+            label9.Size = new Size(208, 31);
+            label9.TabIndex = 44;
+            label9.Text = "📆  Input Booking";
+            // 
             // PelangganBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1458, 784);
+            Controls.Add(label9);
             Controls.Add(panel2);
             Controls.Add(panel4);
             Controls.Add(panel3);
@@ -648,6 +665,7 @@
             panel18.ResumeLayout(false);
             panel18.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -694,5 +712,6 @@
         private Label label16;
         private Label label17;
         private Syncfusion.WinForms.Input.SfDateTimeEdit PickerBookingTanggal;
+        private Label label9;
     }
 }

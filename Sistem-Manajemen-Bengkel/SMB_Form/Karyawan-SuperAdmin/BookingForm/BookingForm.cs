@@ -57,7 +57,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             CustomComponentHelper.CustomPanel(PanelBooking);
 
             var tanggal = DateTime.Today.Date;
-            MessageBox.Show(tanggal.ToString());
             TextBatasBooking.Text = _batasBookingDal.ShowBatasBooking(tanggal).ToString();
         }
 

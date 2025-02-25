@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
@@ -29,6 +30,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<KendaraanModel>(sql, Dp);
+        }
+
+        public IEnumerable<KendaraanModel> LoadNamaKendaraan(string no_ktp_pelanggan)
+        {
+            string sql = "SELECT id_kendaraan, merek, kapasitas_mesin FROM tb_kendaraan WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.Query<KendaraanModel>(sql, new { no_ktp_pelanggan });
         }
 
         public List<int> ListTahun()

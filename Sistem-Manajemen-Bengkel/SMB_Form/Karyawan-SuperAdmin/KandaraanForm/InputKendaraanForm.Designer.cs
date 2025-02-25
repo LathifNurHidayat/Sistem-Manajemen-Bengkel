@@ -55,7 +55,6 @@
             TextAlamat = new TextBox();
             ButtonShowPelanggan = new SMB_CustomTolbox.LathifButton();
             label9 = new Label();
-            LabelNoKTP = new Label();
             label10 = new Label();
             panel7 = new Panel();
             TextTelepon = new TextBox();
@@ -333,7 +332,6 @@
             panel3.Controls.Add(panel12);
             panel3.Controls.Add(ButtonShowPelanggan);
             panel3.Controls.Add(label9);
-            panel3.Controls.Add(LabelNoKTP);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(panel7);
             panel3.Controls.Add(panel6);
@@ -418,18 +416,6 @@
             label9.Size = new Size(56, 25);
             label9.TabIndex = 57;
             label9.Text = "Email";
-            // 
-            // LabelNoKTP
-            // 
-            LabelNoKTP.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelNoKTP.ForeColor = Color.Red;
-            LabelNoKTP.Location = new Point(148, 29);
-            LabelNoKTP.Name = "LabelNoKTP";
-            LabelNoKTP.Size = new Size(230, 23);
-            LabelNoKTP.TabIndex = 56;
-            LabelNoKTP.Text = "⚠ Nomor KTP tidak ditemukan";
-            LabelNoKTP.TextAlign = ContentAlignment.MiddleRight;
-            LabelNoKTP.Visible = false;
             // 
             // label10
             // 
@@ -525,7 +511,7 @@
             TextNomorKTP.Location = new Point(4, 10);
             TextNomorKTP.MaxLength = 16;
             TextNomorKTP.Name = "TextNomorKTP";
-            TextNomorKTP.PlaceholderText = "🔍 Cari berdasarkan nomor KTP ";
+            TextNomorKTP.ReadOnly = true;
             TextNomorKTP.Size = new Size(341, 23);
             TextNomorKTP.TabIndex = 1;
             // 
@@ -595,7 +581,6 @@
         private TextBox TextTelepon;
         private Panel panel6;
         private TextBox TextNama;
-        private Label LabelNoKTP;
         private Panel panel10;
         private TextBox TextTahun;
         private Panel panel11;

@@ -45,12 +45,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
         private void GetDataPelanggan(string no_ktp)
         {
             var pelanggan = _pelangganDal.GetData(no_ktp);
-            if (pelanggan == null)
-            {
-                LabelNoKTP.Visible = true;
-                return;
-            }
-            LabelNoKTP.Visible = false;
+            if (pelanggan == null) return;
+
             TextNomorKTP.Text = pelanggan.no_ktp_pelanggan;
             TextNama.Text = pelanggan.nama_pelanggan;
             TextTelepon.Text = pelanggan.no_hp;
@@ -97,7 +93,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
         private void RegisterControlEvent()
         {
-            TextNomorKTP.TextChanged += TextNomorKTP_TextChanged;
             ButtonShowPelanggan.Click += ButtonShowPelanggan_Click;
             ButtonSimpan.Click += ButtonSimpan_Click;
             ButtonBatal.Click += ButtonBatal_Click;
@@ -123,15 +118,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 string.IsNullOrWhiteSpace(TextEmail.Text) || string.IsNullOrWhiteSpace(TextNoPolisi.Text) || string.IsNullOrWhiteSpace(TextMerek.Text) ||
                 string.IsNullOrWhiteSpace(TextKapasitasMesin.Text) || string.IsNullOrWhiteSpace(TextTahun.Text))
             {
-                MesboxHelper.ShowWarning("Semua data wajib diisi");
+                MesboxHelper.ShowWarning("Mohon lengkapi semua data yang dibutuhkan");
                 return;
             }
 
-            if (LabelNoKTP.Visible)
-            {
-                MesboxHelper.ShowWarning("Nomor KTP sudah terdaftar");
-                return;
-            }
             SaveData();
             this.DialogResult = DialogResult.OK;
         }
@@ -141,14 +131,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             DataPelangganFormHelper pelangganForm = new DataPelangganFormHelper();
             if (pelangganForm.ShowDialog() == DialogResult.OK)
                 TextNomorKTP.Text = pelangganForm._no_ktp_pelanggan;
-        }
-
-        private void TextNomorKTP_TextChanged(object? sender, EventArgs e)
-        {
-            if (TextNomorKTP.Text.Length > 10)
-                GetDataPelanggan(TextNomorKTP.Text);
-            else if (TextNomorKTP.Text.Length == 0)
-                LabelNoKTP.Visible = false;
         }
     }
 }

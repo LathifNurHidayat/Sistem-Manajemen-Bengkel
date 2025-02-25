@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
@@ -17,26 +18,45 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
     {
 
         private readonly BookingDal _bookingDal;
+        private readonly PelangganDal _pelangganDal;
+        private readonly KendaraanDal _kendaraanDal;
+        private string _no_ktp;
 
         public PelangganBookingForm()
         {
             InitializeComponent();
             _bookingDal = new BookingDal();
+            _pelangganDal = new PelangganDal();
+            _kendaraanDal = new KendaraanDal();
+
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
 
             new System.Globalization.CultureInfo("id-ID");
-            InitialComponent();
+            PickerBookingTanggal.MinDateTime = DateTime.Today;
 
+            InitialDataKendaraan();
             RegisterControlEvent();
         }
 
-        private void InitialComponent()
+        private void InitialDataKendaraan()
         {
-            PickerBookingTanggal.MinDateTime = DateTime.Today;
+            var data = _kendaraanDal.LoadNamaKendaraan(_no_ktp).Select(x => new
+            {
+                Id = x.id_kendaraan,
+                NamaKendaraan = $"{x.merek} {x.kapasitas_mesin} cc"
+            }).ToList();
+
+            data.Insert(0, new { Id = 0, NamaKendaraan = "Pilih Kendaraan" });
+
+            ComboKendaraan.DataSource = data;
+            ComboKendaraan.ValueMember = "Id";
+            ComboKendaraan.DisplayMember = "NamaKendaraan";
         }
 
         private  void SaveData()
         {
-            var booking = new BookingModel
+            /*var booking = new BookingModel
             {
                 no_ktp_pelanggan = TextNomorKTP.Text.Trim(),
                 id_kendaraan = (int)ComboKendaraan.SelectedValue,
@@ -44,7 +64,37 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 keluhan = TextKeluhan.Text.Trim(),
                 antrean = 
                 status = 1
-            };
+            };*/
+        }
+
+        private void ClearKendaraanForm()
+        {
+            TextMerek.Clear();
+            TextTransmisi.Clear();
+            TextKapasitasMesin.Clear();
+            TextTahun.Clear();
+        }
+
+        private void GetDataKendaraan(int id_kendaraan)
+        {
+            var kendaraan = _kendaraanDal.GetData(id_kendaraan);
+            if (kendaraan == null) return;
+
+            TextMerek.Text = kendaraan.merek;
+            TextTransmisi.Text = kendaraan.transmisi == 1 ? "Transmisi Otomatis" : "Transmisi Manual";
+            TextKapasitasMesin.Text = $"{kendaraan.kapasitas_mesin.ToString()} cc";
+            TextTahun.Text = kendaraan.tahun.ToString();
+        }
+
+        private void GetDataPelanggan(string no_ktp)
+        {
+            var pelanggan = _pelangganDal.GetData(no_ktp);
+            if (pelanggan == null) return;
+
+            TextNomorKTP.Text = pelanggan.no_ktp_pelanggan;
+            TextNama.Text = pelanggan.nama_pelanggan;
+            TextTelepon.Text = pelanggan.no_hp;
+            TextAlamat.Text = pelanggan.alamat;
         }
 
         private void RegisterControlEvent()
@@ -53,11 +103,30 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             ButtonTambahKendaraan.Click += ButtonTambahKendaraan_Click;
             ButtonBatal.Click += ButtonBatal_Click;
             ButtonCekKetersediaan.Click += ButtonCekKetersediaan_Click;
+            ComboKendaraan.SelectedValueChanged += ComboKendaraan_SelectedValueChanged;
+        }
+
+        private void ComboKendaraan_SelectedValueChanged(object? sender, EventArgs e)
+        {
+            int value = Convert.ToInt32(ComboKendaraan.SelectedValue);
+            if (value == 0)
+            {
+                ClearKendaraanForm();
+                return;
+            }
+
+            GetDataKendaraan(value);
         }
 
         private void ButtonCekKetersediaan_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(TextNomorKTP.Text) || ComboKendaraan.SelectedIndex == 0 || string.IsNullOrEmpty(TextKeluhan.Text))
+            {
+                MesboxHelper.ShowWarning("Mohon lengkapi semua data yang dibutuhkan");
+                return;
+            }
+            
+
         }
 
         private void ButtonBatal_Click(object? sender, EventArgs e)
@@ -67,12 +136,28 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
         private void ButtonTambahKendaraan_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(_no_ktp))
+            {
+                MesboxHelper.ShowWarning("Masukan data pelanggan terlebih dahulu!");
+                return;
+            }
+
+            TambahKendaraanForm tambahKendaraanForm = new TambahKendaraanForm(_no_ktp);
+            if (tambahKendaraanForm.ShowDialog() == DialogResult.OK)
+            {
+                InitialDataKendaraan();
+            }
         }
 
         private void ButtonShowPelanggan_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            DataPelangganFormHelper dataPelangganFormHelper = new DataPelangganFormHelper();
+            if (dataPelangganFormHelper.ShowDialog() == DialogResult.OK)
+            {
+                _no_ktp = dataPelangganFormHelper._no_ktp_pelanggan;
+                GetDataPelanggan(_no_ktp);
+                InitialDataKendaraan();
+            }
         }
     }
 }
