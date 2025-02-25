@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Syncfusion.WinForms.Input.Enums;
 using Syncfusion.WinForms.Input;
+using System.Windows.Controls;
 
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
@@ -18,6 +19,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
     public partial class EditBatasBookingForm : Form
     {
         private readonly BatasBookingDal _batasBookingDal;
+        private List<DateTime> _tanggalList;
+
         private int _idBatasBooking = 0;
         private bool _isDefault = false;
 
@@ -25,6 +28,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         {
             InitializeComponent();
             _batasBookingDal = new BatasBookingDal();
+            _tanggalList = new ();
+
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             InitialComponent();
@@ -35,26 +40,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             RegisterControlEvent();
         }
 
-        private void LoadData()
-        {
-            var data = _batasBookingDal.LoadBatasBooking().Select((x, index )=> new
-            {
-                No = index + 1,
-                Id = x.id_batas_booking,
-                Tanggal = x.tanggal?.ToString("dddd, dd-MM-yyyy", new System.Globalization.CultureInfo("id_ID")) ?? "Default",
-                BatasBooking = x.batas_booking
-            }).ToList();
-
-            GridListData.DataSource = data;
-        }
 
         private void InitialComponent()
         {
             PickerBookingTanggal.Culture = new CultureInfo("id-ID");
-            PickerBookingTanggal.Value = DateTime.Now; 
             PickerBookingTanggal.ReadOnly = true;
             PickerBookingTanggal.Enabled = true;
             PickerBookingTanggal.MinDateTime = DateTime.Today;
+            PickerBookingTanggal.Format = " ";
         }
 
         private void CustomDataGrid()
@@ -79,7 +72,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             GridListData.MultiSelect = false;
             GridListData.AllowUserToResizeRows = false;
             GridListData.AllowUserToOrderColumns = false;
-            GridListData.RowTemplate.Height = 50;
+            GridListData.RowTemplate.Height = 40;
 
             GridListData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             GridListData.Columns["No"].FillWeight = 15;
@@ -89,6 +82,52 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
             GridListData.Columns["BatasBooking"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             GridListData.Columns["Id"].Visible = false;
+            GridListData.Columns["tgl"].Visible = false;
+        }
+
+        private void LoadData()
+        {
+            var data = _batasBookingDal.LoadBatasBooking().Select((x, index ) => new
+            {
+                No = index + 1,
+                Id = x.id_batas_booking,
+                tgl = x.tanggal,
+                Tanggal = x.tanggal?.ToString("dddd, dd-MM-yyyy", new System.Globalization.CultureInfo("id_ID")) ?? "Default",
+                BatasBooking = x.batas_booking
+            }).ToList();
+
+            GridListData.DataSource = data;
+
+            _tanggalList.Clear();
+            foreach ( var item in data )
+            {
+                if (item.Tanggal != "Default")
+                {
+                    _tanggalList.Add(item?.tgl?? DateTime.Today);
+                }
+            }
+        }
+
+        private void GetData(string tanggal)
+        {
+            var data = _batasBookingDal.GetDataBatasBooking(_idBatasBooking);
+            if (data == null) return;
+
+            if (tanggal == "Default")
+            {
+                PickerBookingTanggal.Enabled = false;
+                PickerBookingTanggal.Format = " ";
+                _isDefault = true;
+            }
+            else
+            {
+                PickerBookingTanggal.Enabled = true;
+                PickerBookingTanggal.Format = "dddd,  dd-MM-yyyy";
+                PickerBookingTanggal.Value = data.tanggal;
+                _isDefault = false;
+            }
+
+            TextBatas.Text = data.batas_booking.ToString();
         }
 
         private void ClearData()
@@ -97,6 +136,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             PickerBookingTanggal.Value = new DateTime(2000, 01, 01);
             PickerBookingTanggal.Enabled = true;
             PickerBookingTanggal.Format = "dddd,  dd-MM-yyyy";
+            _idBatasBooking = 0;
         }
 
         private void SaveData()
@@ -123,6 +163,23 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             GridListData.CellDoubleClick += GridListData_CellDoubleClick;
             GridListData.CellMouseClick += GridListData_CellMouseClick;
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
+            PickerBookingTanggal.ValueChanged += PickerBookingTanggal_ValueChanged;
+        }
+
+        private DateTime? _datetime = DateTime.Today;
+
+        private void PickerBookingTanggal_ValueChanged(object sender, Syncfusion.WinForms.Input.Events.DateTimeValueChangedEventArgs e)
+        {
+            foreach (DateTime date in _tanggalList)
+            {
+                if (PickerBookingTanggal.Value == date)
+                {
+                    MesboxHelper.ShowInfo("Tanggal ini sudah terinsert. Silakan pilih tanggal lain");
+                    PickerBookingTanggal.Value = _datetime;
+                    return;
+                }
+            }
+            _datetime = PickerBookingTanggal.Value;
         }
 
         private void DeleteToolStripMenuItem_Click(object? sender, EventArgs e)
@@ -134,8 +191,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             {
                 MesboxHelper.ShowWarning("Anda tidak bisa menghapus nilai default!");
                 return;
-            }   
-            
+
+            }               
             if (MesboxHelper.ShowConfirm("Anda yakin ingin menghapus data?"))
             {
                 _batasBookingDal.DeleteBatasBooking(id);
@@ -157,25 +214,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         {
             string tanggal = GridListData.CurrentRow.Cells["Tanggal"].Value?.ToString() ?? "Default";
             _idBatasBooking = Convert.ToInt32(GridListData.CurrentRow.Cells["Id"].Value);
-
-            var data = _batasBookingDal.GetDataBatasBooking(_idBatasBooking);
-            if (data == null) return;
-
-            if (tanggal == "Default")
-            {
-                PickerBookingTanggal.Enabled = false;
-                PickerBookingTanggal.Format = " ";
-                _isDefault = true;
-            }
-            else
-            {
-                PickerBookingTanggal.Enabled = true;
-                PickerBookingTanggal.Format = "dddd,  dd-MM-yyyy";
-                PickerBookingTanggal.Value = data.tanggal;
-                _isDefault = false;
-            }
-
-            TextBatas.Text = data.batas_booking.ToString();
+            GetData(tanggal);
         }
 
         private void ButtonClose_Click(object? sender, EventArgs e)

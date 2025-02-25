@@ -27,7 +27,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
             _noKTP = no_ktp;
             GetData(no_ktp);
 
-            ButtonHapus.Click += ButtonHapus_Click;
             ButtonRestore.Click += ButtonRestore_Click;
         }
 
@@ -40,15 +39,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm
                 ShowFormHelper.ShowFormInPanel(new PelangganForm());
                 this.DialogResult = DialogResult.OK;
             } 
-        }
-
-        private void ButtonHapus_Click(object? sender, EventArgs e)
-        {
-            if (MesboxHelper.ShowConfirm(" Anda yakin ingin menghapus data ini secara permanen?"))
-            {
-                _pelangganDal.DeleteDataPermanent(_noKTP);
-                this.Close();
-            }
         }
 
         private void GetData(string no_ktp_pelanggan)

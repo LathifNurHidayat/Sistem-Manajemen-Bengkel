@@ -41,7 +41,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 no_ktp_pelanggan = TextNomorKTP.Text.Trim(),
                 id_kendaraan = (int)ComboKendaraan.SelectedValue,
                 tanggal = PickerBookingTanggal.Value ?? DateTime.Now,
-                
+                keluhan = TextKeluhan.Text.Trim(),
+                antrean = 
+                status = 1
             };
         }
 

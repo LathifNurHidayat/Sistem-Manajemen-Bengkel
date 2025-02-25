@@ -28,7 +28,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 WHERE
                                     CAST(tanggal AS DATE) = CAST(@tanggal AS DATE) OR
                                     tanggal IS NULL
-                                ";
+                                ORDER BY CASE 
+                                    WHEN  CAST(tanggal AS DATE) = CAST(@tanggal AS DATE) THEN 0
+                                    ELSE 1
+                                    END ";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<int>(sql, new {tanggal});
@@ -40,6 +43,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     (tanggal, batas_booking)
                                 VALUES 
                                     (@tanggal, @batas_booking)";
+
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             
             var Dp = new DynamicParameters();
@@ -56,6 +60,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     batas_booking = @batas_booking
                                 WHERE 
                                     id_batas_booking = @id_batas_booking";
+
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
           
             var Dp = new DynamicParameters();

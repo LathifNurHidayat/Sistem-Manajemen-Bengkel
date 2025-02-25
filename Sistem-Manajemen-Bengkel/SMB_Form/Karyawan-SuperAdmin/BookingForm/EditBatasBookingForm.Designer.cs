@@ -113,6 +113,7 @@
             // 
             // PickerBookingTanggal
             // 
+            PickerBookingTanggal.AllowNull = true;
             PickerBookingTanggal.BackColor = Color.White;
             PickerBookingTanggal.DateTimeIcon = null;
             PickerBookingTanggal.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;

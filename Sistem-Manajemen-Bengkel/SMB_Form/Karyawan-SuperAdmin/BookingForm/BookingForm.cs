@@ -57,6 +57,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             CustomComponentHelper.CustomPanel(PanelBooking);
 
             var tanggal = DateTime.Today.Date;
+            MessageBox.Show(tanggal.ToString());
             TextBatasBooking.Text = _batasBookingDal.ShowBatasBooking(tanggal).ToString();
         }
 
@@ -128,7 +129,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
             LabelShowEntries.Text = $"Showing {inRowPage + 1} to {inRowPage + rowPerPage} of {totalEntries} entries";
 
-            var data = _bookingDal.ListData(filters,dp)
+            var data = _bookingDal.ListData(filters, dp)
                 .Select((x, index) => new
                 {
                     No = inRowPage + index + 1,
@@ -138,7 +139,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                     Kendaraan = x.nama_kendaraan,
                     Keluhan = x.keluhan,
                     Antrean = $"Ke - {x.antrean}",
-                    Status = x.status == 1 ? 
+                    Status = x.status == 1 ?
                             ImageDirectoryHelper._statusMenunggu : x.status == 2 ?
                             ImageDirectoryHelper._statusDikerjakan : x.status == 3 ?
                             ImageDirectoryHelper._statusSelesai : ImageDirectoryHelper._statusDibatalkan
@@ -163,7 +164,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         {
             EditBatasBookingForm editBatasBookingForm = new EditBatasBookingForm();
             editBatasBookingForm.ShowDialog(this);
-            
+
             var tanggal = DateTime.Today.Date;
             TextBatasBooking.Text = _batasBookingDal.ShowBatasBooking(tanggal).ToString();
         }

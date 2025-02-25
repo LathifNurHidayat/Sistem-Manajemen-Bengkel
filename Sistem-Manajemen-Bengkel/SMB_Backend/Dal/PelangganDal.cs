@@ -99,13 +99,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             Conn.Execute(sql, new { no_ktp_pelanggan });
         }
-        
-        public void DeleteDataPermanent(string no_ktp_pelanggan)
-        {
-            const string sql = @"DELETE FROM tb_pelanggan WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            Conn.Execute(sql, new { no_ktp_pelanggan });
-        }
 
         public int CountData(string filter, DynamicParameters dp)
         {

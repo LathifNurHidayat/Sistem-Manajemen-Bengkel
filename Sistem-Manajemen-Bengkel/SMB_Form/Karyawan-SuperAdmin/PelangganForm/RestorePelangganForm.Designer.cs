@@ -41,8 +41,6 @@
             label2 = new Label();
             label1 = new Label();
             ButtonRestore = new SMB_CustomTolbox.LathifButton();
-            ButtonHapus = new SMB_CustomTolbox.LathifButton();
-            Label = new Label();
             panel1 = new Panel();
             label8 = new Label();
             pictureBox3 = new PictureBox();
@@ -56,15 +54,13 @@
             PanelAntrean.BackColor = Color.White;
             PanelAntrean.Controls.Add(panel2);
             PanelAntrean.Controls.Add(ButtonRestore);
-            PanelAntrean.Controls.Add(ButtonHapus);
-            PanelAntrean.Controls.Add(Label);
             PanelAntrean.Controls.Add(panel1);
             PanelAntrean.Controls.Add(label8);
             PanelAntrean.Controls.Add(pictureBox3);
             PanelAntrean.Dock = DockStyle.Fill;
             PanelAntrean.Location = new Point(0, 0);
             PanelAntrean.Name = "PanelAntrean";
-            PanelAntrean.Size = new Size(589, 595);
+            PanelAntrean.Size = new Size(589, 443);
             PanelAntrean.TabIndex = 52;
             // 
             // panel2
@@ -187,46 +183,13 @@
             ButtonRestore.FlatStyle = FlatStyle.Flat;
             ButtonRestore.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonRestore.ForeColor = Color.White;
-            ButtonRestore.Location = new Point(364, 519);
+            ButtonRestore.Location = new Point(37, 374);
             ButtonRestore.Name = "ButtonRestore";
-            ButtonRestore.Size = new Size(184, 45);
+            ButtonRestore.Size = new Size(511, 45);
             ButtonRestore.TabIndex = 24;
             ButtonRestore.Text = "♻  Pulihkan Data";
             ButtonRestore.TextColor = Color.White;
             ButtonRestore.UseVisualStyleBackColor = false;
-            // 
-            // ButtonHapus
-            // 
-            ButtonHapus.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            ButtonHapus.BackColor = Color.Red;
-            ButtonHapus.BackgroundColor = Color.Red;
-            ButtonHapus.BorderColor = Color.DarkGray;
-            ButtonHapus.BorderRadius = 5;
-            ButtonHapus.BorderSize = 0;
-            ButtonHapus.FlatAppearance.BorderSize = 0;
-            ButtonHapus.FlatStyle = FlatStyle.Flat;
-            ButtonHapus.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonHapus.ForeColor = Color.White;
-            ButtonHapus.Location = new Point(32, 520);
-            ButtonHapus.Name = "ButtonHapus";
-            ButtonHapus.Size = new Size(184, 45);
-            ButtonHapus.TabIndex = 23;
-            ButtonHapus.Text = "❌ Hapus Data";
-            ButtonHapus.TextColor = Color.White;
-            ButtonHapus.UseVisualStyleBackColor = false;
-            // 
-            // Label
-            // 
-            Label.AutoSize = true;
-            Label.BackColor = Color.Transparent;
-            Label.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            Label.ForeColor = Color.DimGray;
-            Label.Location = new Point(83, 397);
-            Label.Name = "Label";
-            Label.Size = new Size(387, 25);
-            Label.TabIndex = 22;
-            Label.Text = "Apakah Anda ingin memulihkannya kembali ?";
-            Label.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -263,7 +226,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(589, 595);
+            ClientSize = new Size(589, 443);
             Controls.Add(PanelAntrean);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "RestorePelangganForm";
@@ -282,9 +245,7 @@
         private Panel panel1;
         private Label label8;
         private PictureBox pictureBox3;
-        private Label Label;
         private SMB_CustomTolbox.LathifButton ButtonRestore;
-        private SMB_CustomTolbox.LathifButton ButtonHapus;
         private Panel panel2;
         private Label LabelNama;
         private Label LabelNoKTP;

@@ -105,13 +105,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, new { no_ktp_mekanik });
         }
 
-        public void DeletePermanent(string no_ktp_mekanik)
-        {
-            const string sql = "DELETE FROM tb_mekanik WHERE no_ktp_mekanik = @no_ktp_mekanik";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, new { no_ktp_mekanik });
-        }
-
         public int CountData(string filter, DynamicParameters dp)
         {
             string sql = @$"SELECT COUNT(*) 

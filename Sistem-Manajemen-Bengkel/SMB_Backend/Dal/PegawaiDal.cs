@@ -113,13 +113,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, new { no_ktp_pegawai = no_ktp_pegawai});
         }
 
-        public void DeletePermanent(string no_ktp_pegawai)
-        {
-            const string sql = "DELETE FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, new { no_ktp_pegawai = no_ktp_pegawai });
-        }
-
         public int CountData(string filter, DynamicParameters dp)
         {
             string sql = @$"
