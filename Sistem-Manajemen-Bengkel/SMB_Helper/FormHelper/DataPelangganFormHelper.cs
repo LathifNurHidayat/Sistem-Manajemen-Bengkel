@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
+using Syncfusion.WinForms.DataGrid;
 using static Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm.PelangganForm;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm
@@ -70,33 +71,23 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm
 
         private void CustomDataGrid()
         {
-            GridListData.EnableHeadersVisualStyles = false;
-            GridListData.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
-            GridListData.ColumnHeadersHeight = 50;
-            GridListData.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGray;
-            GridListData.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            GridListData.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.DarkGray;
-            GridListData.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
-            GridListData.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-
-            GridListData.DefaultCellStyle.Font = new Font("Arial", 10);
-            GridListData.DefaultCellStyle.ForeColor = Color.Black;
-            GridListData.DefaultCellStyle.SelectionBackColor = Color.Gainsboro;
-            GridListData.DefaultCellStyle.SelectionForeColor = Color.Black;
-            GridListData.DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
-            GridListData.RowHeadersVisible = false;
-            GridListData.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            GridListData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            GridListData.MultiSelect = false;
-            
+            CustomComponentHelper.CustomDataGrid(GridListData);
             GridListData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            GridListData.Columns["No"].FillWeight = 10;
-            GridListData.Columns["Nomor_KTP"].FillWeight = 35;
-            GridListData.Columns["Nama_Pelanggan"].FillWeight = 55;
 
+            GridListData.Columns["No"].FillWeight = 15;
+            GridListData.Columns["Nomor_KTP"].FillWeight = 35;
             GridListData.Columns["Nomor_KTP"].HeaderText = "Nomor KTP";
+            GridListData.Columns["Nama_Pelanggan"].FillWeight = 55;
             GridListData.Columns["Nama_Pelanggan"].HeaderText = "Nama Pelanggan";
+            
+            foreach(DataGridViewColumn col in GridListData.Columns)
+            {
+                col.DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            }
+
+            GridListData.ResumeLayout();
         }
+
 
         private void RegisterControlEvent()
         {

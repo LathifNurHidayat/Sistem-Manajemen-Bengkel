@@ -16,7 +16,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public string no_ktp_pelanggan { get; set; } //bb
         public string no_ktp_mekanik { get; set; }  //cc
         public int id_kendaraan { get; set; } //dd
-        public int id_jasa_servis { get; set; } //ee
+        public int? id_jasa_servis { get; set; } //ee
 
         public string nama_pelanggan { get; set; }
         public string no_hp { get; set; }

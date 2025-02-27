@@ -13,6 +13,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
     public class BookingDal
     {
+
+
         public IEnumerable<BookingModel> ListData(string filter,object Dp)
         {
             string sql = @$"SELECT 
@@ -125,5 +127,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
+
+        public (int AntreanBaru, int AntreanDikerjakan) CekKuotaBooking(DateTime tanggal)
+        {
+            const string sql = "SELECT * FROM dbo.CekKuotaBooking(@tanggal)";
+
+            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            var result = conn.QueryFirstOrDefault(sql, new { tanggal });
+
+            return (AntreanBaru: result.AntreanBaru, AntreanDikerjakan: result.AntreanDikerjakan);
+        }
+
+
     }
 }

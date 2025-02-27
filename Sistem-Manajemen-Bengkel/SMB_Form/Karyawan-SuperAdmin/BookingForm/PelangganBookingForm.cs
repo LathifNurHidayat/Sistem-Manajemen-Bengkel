@@ -11,6 +11,7 @@ using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
+using Syncfusion.WinForms.Input.Enums;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 {
@@ -35,6 +36,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             new System.Globalization.CultureInfo("id-ID");
             PickerBookingTanggal.MinDateTime = DateTime.Today;
 
+            CustomComponentHelper.CustomPanel(panel1);
+
             InitialDataKendaraan();
             RegisterControlEvent();
         }
@@ -54,17 +57,40 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             ComboKendaraan.DisplayMember = "NamaKendaraan";
         }
 
-        private  void SaveData()
+        private void SaveData(int antrean)
         {
-            /*var booking = new BookingModel
+            var booking = new BookingModel
             {
                 no_ktp_pelanggan = TextNomorKTP.Text.Trim(),
                 id_kendaraan = (int)ComboKendaraan.SelectedValue,
+                id_jasa_servis = null,
                 tanggal = PickerBookingTanggal.Value ?? DateTime.Now,
                 keluhan = TextKeluhan.Text.Trim(),
-                antrean = 
+                antrean = antrean,
                 status = 1
-            };*/
+            };
+
+            _bookingDal.InsertData(booking);
+        }
+
+        private void CekKetersediaan(DateTime tanggal)
+        {
+            var booking = _bookingDal.CekKuotaBooking(tanggal);
+
+            if (booking.AntreanBaru == -1)
+            {
+                MesboxHelper.ShowInfo($"Mohon Maaf \nKuota booking pada \"{tanggal.ToString("dddd, dd-MM-yyyy", new System.Globalization.CultureInfo("id-ID"))}\" sudah penuh. \n Silahkan pilih hari lain");
+                return;
+            }
+
+            AntreanForm antreanForm = new AntreanForm(booking.AntreanBaru, booking.AntreanDikerjakan);
+            if (antreanForm.ShowDialog()== DialogResult.OK )
+            {
+                SaveData(booking.AntreanBaru);
+                NontifikasiFormHelper nontifikasi = new NontifikasiFormHelper("Booking berhasil");
+                nontifikasi.Show();
+                ShowFormHelper.ShowFormInPanel(new BookingForm());
+            }
         }
 
         private void ClearKendaraanForm()
@@ -125,8 +151,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 MesboxHelper.ShowWarning("Mohon lengkapi semua data yang dibutuhkan");
                 return;
             }
-            
 
+            DateTime date = DateTime.Today;
+            CekKetersediaan(date);
         }
 
         private void ButtonBatal_Click(object? sender, EventArgs e)
@@ -158,6 +185,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 GetDataPelanggan(_no_ktp);
                 InitialDataKendaraan();
             }
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -44,11 +44,11 @@
             GridListData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListData.BackgroundColor = Color.Gainsboro;
             GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridListData.Location = new Point(12, 94);
+            GridListData.Location = new Point(25, 94);
             GridListData.Name = "GridListData";
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(597, 232);
+            GridListData.Size = new Size(572, 271);
             GridListData.TabIndex = 0;
             // 
             // label2
@@ -57,7 +57,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(144, 345);
+            label2.Location = new Point(157, 390);
             label2.Name = "label2";
             label2.Size = new Size(61, 23);
             label2.TabIndex = 59;
@@ -69,7 +69,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(12, 345);
+            label1.Location = new Point(25, 390);
             label1.Name = "label1";
             label1.Size = new Size(51, 23);
             label1.TabIndex = 58;
@@ -82,7 +82,7 @@
             ComboEntries.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboEntries.ForeColor = Color.Black;
             ComboEntries.FormattingEnabled = true;
-            ComboEntries.Location = new Point(69, 342);
+            ComboEntries.Location = new Point(82, 387);
             ComboEntries.Name = "ComboEntries";
             ComboEntries.Size = new Size(69, 31);
             ComboEntries.TabIndex = 57;
@@ -98,7 +98,7 @@
             ButtonSearch.FlatStyle = FlatStyle.Flat;
             ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(263, 38);
+            ButtonSearch.Location = new Point(276, 34);
             ButtonSearch.Name = "ButtonSearch";
             ButtonSearch.Size = new Size(53, 31);
             ButtonSearch.TabIndex = 56;
@@ -115,7 +115,7 @@
             TextSearch.FocusBorderColor = Color.Black;
             TextSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextSearch.ForeColor = Color.Black;
-            TextSearch.Location = new Point(12, 39);
+            TextSearch.Location = new Point(25, 35);
             TextSearch.MinimumSize = new Size(34, 30);
             TextSearch.Name = "TextSearch";
             TextSearch.PlaceholderText = "🔍   Cari";
@@ -134,7 +134,7 @@
             ButtonPilih.FlatStyle = FlatStyle.Flat;
             ButtonPilih.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonPilih.ForeColor = Color.White;
-            ButtonPilih.Location = new Point(489, 336);
+            ButtonPilih.Location = new Point(477, 381);
             ButtonPilih.Name = "ButtonPilih";
             ButtonPilih.Size = new Size(120, 40);
             ButtonPilih.TabIndex = 60;
@@ -142,12 +142,12 @@
             ButtonPilih.TextColor = Color.White;
             ButtonPilih.UseVisualStyleBackColor = false;
             // 
-            // DataPelangganForm
+            // DataPelangganFormHelper
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(621, 389);
+            ClientSize = new Size(621, 442);
             Controls.Add(ButtonPilih);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -156,7 +156,7 @@
             Controls.Add(TextSearch);
             Controls.Add(GridListData);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "DataPelangganForm";
+            Name = "DataPelangganFormHelper";
             StartPosition = FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
             ((System.ComponentModel.ISupportInitialize)TextSearch).EndInit();

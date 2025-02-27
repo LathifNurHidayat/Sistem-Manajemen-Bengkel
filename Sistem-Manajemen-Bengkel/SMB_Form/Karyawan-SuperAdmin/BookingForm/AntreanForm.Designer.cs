@@ -66,7 +66,6 @@
             PanelAntrean.Name = "PanelAntrean";
             PanelAntrean.Size = new Size(445, 510);
             PanelAntrean.TabIndex = 52;
-            PanelAntrean.Paint += PanelAntrean_Paint;
             // 
             // gradientPanelExt2
             // 
@@ -150,13 +149,13 @@
             // LabelAntreanDikerjakan
             // 
             LabelAntreanDikerjakan.Anchor = AnchorStyles.None;
-            LabelAntreanDikerjakan.Font = new Font("Segoe UI Semibold", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelAntreanDikerjakan.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             LabelAntreanDikerjakan.ForeColor = Color.FromArgb(217, 131, 36);
             LabelAntreanDikerjakan.Location = new Point(9, 73);
             LabelAntreanDikerjakan.Name = "LabelAntreanDikerjakan";
             LabelAntreanDikerjakan.Size = new Size(171, 98);
             LabelAntreanDikerjakan.TabIndex = 20;
-            LabelAntreanDikerjakan.Text = "00";
+            LabelAntreanDikerjakan.Text = "Belum ada";
             LabelAntreanDikerjakan.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
