@@ -34,8 +34,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             this.MinimizeBox = false;
             InitialComponent();
 
+            DeleteUsingTanggal();
             LoadData();
-            ClearData();
             CustomDataGrid();
             RegisterControlEvent();
         }
@@ -47,7 +47,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             PickerBookingTanggal.ReadOnly = true;
             PickerBookingTanggal.Enabled = true;
             PickerBookingTanggal.MinDateTime = DateTime.Today;
-            PickerBookingTanggal.Format = " ";
         }
 
         private void CustomDataGrid()
@@ -85,6 +84,21 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             GridListData.Columns["tgl"].Visible = false;
         }
 
+        private void DeleteUsingTanggal()
+        {
+            var data = _batasBookingDal.LoadBatasBooking().Select((x => new { Tanggal = x.tanggal }));
+           
+            foreach (var item in data)
+            {
+                if (item.Tanggal == null ) continue;
+
+                if (item.Tanggal < DateTime.Today)
+                {
+                    _batasBookingDal.DeleteUsingTanggal((DateTime)item.Tanggal);
+                }
+            }
+        }
+
         private void LoadData()
         {
             var data = _batasBookingDal.LoadBatasBooking().Select((x, index ) => new
@@ -103,7 +117,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             {
                 if (item.Tanggal != "Default")
                 {
-                    _tanggalList.Add(item?.tgl?? DateTime.Today);
+                    _tanggalList.Add((DateTime)item.tgl);
                 }
             }
         }
@@ -163,16 +177,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             GridListData.CellDoubleClick += GridListData_CellDoubleClick;
             GridListData.CellMouseClick += GridListData_CellMouseClick;
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
-            PickerBookingTanggal.ValueChanged += PickerBookingTanggal_ValueChanged;
+            PickerBookingTanggal.DropDownClosed += PickerBookingTanggal_DropDownClosed;
         }
 
         private DateTime? _datetime = DateTime.Today;
 
-        private void PickerBookingTanggal_ValueChanged(object sender, Syncfusion.WinForms.Input.Events.DateTimeValueChangedEventArgs e)
+        private void PickerBookingTanggal_DropDownClosed(object? sender, EventArgs e)
         {
+
             foreach (DateTime date in _tanggalList)
             {
-                if (PickerBookingTanggal.Value == date)
+                if (PickerBookingTanggal.Value == date )
                 {
                     MesboxHelper.ShowInfo("Tanggal ini sudah terinsert. Silakan pilih tanggal lain");
                     PickerBookingTanggal.Value = _datetime;
@@ -181,6 +196,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             }
             _datetime = PickerBookingTanggal.Value;
         }
+
 
         private void DeleteToolStripMenuItem_Click(object? sender, EventArgs e)
         {

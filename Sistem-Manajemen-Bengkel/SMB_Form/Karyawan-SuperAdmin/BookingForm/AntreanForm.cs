@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+        }
+
+        private void PanelAntrean_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -65,7 +65,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
           
             var Dp = new DynamicParameters();
             Dp.Add("@id_batas_booking", batas.id_batas_booking);
-            Dp.Add("@tanggal", batas.tanggal);
+            Dp.Add("@tanggal", batas.tanggal); 
             Dp.Add("@batas_booking", batas.batas_booking);
 
             Conn.Execute(sql, Dp);
@@ -75,7 +75,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = @"DELETE FROM tb_batas_booking WHERE id_batas_booking = @id_batas_booking";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            Conn.Execute(sql, new { id_batas_booking });
+            Conn.Execute(sql, new { id_batas_booking});
+        }
+        
+        public void DeleteUsingTanggal(DateTime tanggal)
+        {
+            const string sql = @"DELETE FROM tb_batas_booking WHERE tanggal = @tanggal";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            Conn.Execute(sql, new { tanggal});
         }
 
         public BatasBookingModel? GetDataBatasBooking (int id_batas_booking)
