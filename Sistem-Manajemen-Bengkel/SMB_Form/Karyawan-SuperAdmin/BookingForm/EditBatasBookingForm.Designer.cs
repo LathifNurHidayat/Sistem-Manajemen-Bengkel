@@ -76,7 +76,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(466, 460);
+            panel1.Size = new Size(466, 561);
             panel1.TabIndex = 1;
             // 
             // label2
@@ -141,7 +141,7 @@
             GridListData.Name = "GridListData";
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(416, 212);
+            GridListData.Size = new Size(416, 309);
             GridListData.TabIndex = 87;
             // 
             // TextBatas
@@ -164,7 +164,6 @@
             // 
             // ButtonSimpan
             // 
-            ButtonSimpan.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             ButtonSimpan.BackColor = Color.LimeGreen;
             ButtonSimpan.BackgroundColor = Color.LimeGreen;
             ButtonSimpan.BorderColor = Color.DarkGray;
@@ -194,7 +193,7 @@
             ButtonClose.FlatStyle = FlatStyle.Flat;
             ButtonClose.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonClose.ForeColor = Color.White;
-            ButtonClose.Location = new Point(320, 396);
+            ButtonClose.Location = new Point(320, 497);
             ButtonClose.Name = "ButtonClose";
             ButtonClose.Size = new Size(120, 40);
             ButtonClose.TabIndex = 88;
@@ -206,7 +205,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(466, 460);
+            ClientSize = new Size(466, 561);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "EditBatasBookingForm";

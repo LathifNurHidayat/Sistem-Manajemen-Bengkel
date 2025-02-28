@@ -8,8 +8,8 @@ TRUNCATE TABLE tb_mekanik;
 TRUNCATE TABLE tb_pegawai;
 TRUNCATE TABLE tb_pelanggan;
 
--- Nilai hash untuk password "User_123"
--- Misalnya: 352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67
+-- hash untuk password "User_123"
+-- 352ba3603bde1f9b3b6f8ad5142a8814f86a52f0f2a6190f938d848f122b1a67
 
 
 INSERT INTO tb_pelanggan 

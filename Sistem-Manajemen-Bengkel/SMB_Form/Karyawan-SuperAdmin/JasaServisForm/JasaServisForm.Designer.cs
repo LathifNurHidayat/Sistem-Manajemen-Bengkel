@@ -144,6 +144,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
@@ -156,7 +157,7 @@
             // TextSearch
             // 
             TextSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TextSearch.BeforeTouchSize = new Size(60, 24);
+            TextSearch.BeforeTouchSize = new Size(152, 37);
             TextSearch.Border3DStyle = Border3DStyle.Bump;
             TextSearch.BorderColor = Color.DimGray;
             TextSearch.BorderStyle = BorderStyle.FixedSingle;
@@ -236,7 +237,7 @@
             // TextBiaya
             // 
             TextBiaya.AccessibilityEnabled = true;
-            TextBiaya.BeforeTouchSize = new Size(60, 24);
+            TextBiaya.BeforeTouchSize = new Size(152, 37);
             TextBiaya.BorderStyle = BorderStyle.None;
             TextBiaya.DecimalValue = new decimal(new int[] { 0, 0, 0, 131072 });
             TextBiaya.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -342,7 +343,7 @@
             // 
             TextPage.Anchor = AnchorStyles.None;
             TextPage.BackColor = Color.FromArgb(83, 92, 145);
-            TextPage.BeforeTouchSize = new Size(60, 24);
+            TextPage.BeforeTouchSize = new Size(152, 37);
             TextPage.Border3DStyle = Border3DStyle.Bump;
             TextPage.BorderColor = Color.SlateGray;
             TextPage.BorderStyle = BorderStyle.None;

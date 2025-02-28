@@ -152,7 +152,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 return;
             }
 
-            DateTime date = DateTime.Today;
+            DateTime date = (DateTime)PickerBookingTanggal.Value;
             CekKetersediaan(date);
         }
 
@@ -185,11 +185,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 GetDataPelanggan(_no_ktp);
                 InitialDataKendaraan();
             }
-        }
-
-        private void panel11_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

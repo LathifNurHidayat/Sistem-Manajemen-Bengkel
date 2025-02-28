@@ -95,6 +95,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 if (item.Tanggal < DateTime.Today)
                 {
                     _batasBookingDal.DeleteUsingTanggal((DateTime)item.Tanggal);
+                    ClearData();
                 }
             }
         }

@@ -1,4 +1,6 @@
-﻿CREATE FUNCTION CekKuotaBooking(@tanggal DATE)
+﻿
+--fungasi Cek Kuota Booking -- Cek ketersediaan kuota booking
+CREATE FUNCTION CekKuotaBooking(@tanggal DATE)
 RETURNS @Result TABLE
 (
     AntreanBaru INT,
@@ -19,15 +21,12 @@ BEGIN
         SET @antreanBaru = @booking_count + 1;
     ELSE 
         SET @antreanBaru = -1;
-    
 
     DECLARE @antreanDikerjakan INT = COALESCE(
         (SELECT TOP 1 antrean 
             FROM tb_booking 
             WHERE tanggal = @tanggal AND status IN (2, 3, 4)
-            ORDER BY antrean DESC),
-        -1 );
-
+            ORDER BY antrean DESC), -1 );
     
     INSERT INTO @Result (AntreanBaru, AntreanDikerjakan)
     VALUES (@antreanBaru, @antreanDikerjakan);
@@ -35,4 +34,6 @@ BEGIN
     RETURN;
 END;
 GO
+
+
 
