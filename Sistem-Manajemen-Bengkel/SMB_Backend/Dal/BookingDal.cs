@@ -63,6 +63,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
                                     COALESCE (dd.transmisi, aa.transmisi) AS transmisi,
                                     ISNULL (ee.jenis_servis, '') AS jenis_servis,
+                                    
+                                    ff.id_sparepart 
                                     aa.tanggal, aa.antrean, aa.keluhan, aa.status
                                 FROM 
                                     tb_booking aa

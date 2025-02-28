@@ -87,12 +87,23 @@ CREATE TABLE tb_kendaraan (
         ON UPDATE CASCADE
 );
 
+
+
+CREATE  TABLE tb_penggunaan_sparepart (
+    id_penggunaan_sparepart INT IDENTITY(1,1) PRIMARY KEY,
+    id_sparepart INT,
+    jumlah INT,
+    harga Decimal(18,2),
+    CONSTRAINT fk_penggunaan_sparepart_sparepart FOREIGN KEY (id_sparepart) REFERENCES tb_sparepart(id_sparepart),
+);
+
 CREATE TABLE tb_booking (
     id_booking INT IDENTITY(1,1) PRIMARY KEY,
     no_ktp_pelanggan VARCHAR(20),
     no_ktp_mekanik VARCHAR(20),
     id_kendaraan INT,
     id_jasa_servis INT,
+    id_penggunaan_sparepart INT,
 
     nama_pelanggan VARCHAR(50),
     no_polisi VARCHAR(20),
@@ -115,17 +126,11 @@ CREATE TABLE tb_booking (
 
     CONSTRAINT fk_booking_kendaraan FOREIGN KEY (id_kendaraan) REFERENCES tb_kendaraan(id_kendaraan),
 
-    CONSTRAINT fk_booking_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis)
+    CONSTRAINT fk_booking_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis),
+
+    CONSTRAINT fk_booking_penggunaan_sparepart FOREIGN KEY (id_penggunaan_sparepart) REFERENCES tb_penggunaan_sparepart (id_penggunaan_sparepart)
 );
 
-
-CREATE  TABLE tb_riwayat_sparepart (
-    id_riwayat_sparepart INT IDENTITY(1,1) PRIMARY KEY,
-    id_sparepart INT,
-    jumlah INT,
-    harga Decimal(18,2),
-    CONSTRAINT fk_riwayat_sparepart_sparepart FOREIGN KEY (id_sparepart) REFERENCES tb_sparepart(id_sparepart),
-);
 
 CREATE TABLE tb_riwayat(
     id_riwayat INT IDENTITY(1,1) PRIMARY KEY,
@@ -134,7 +139,7 @@ CREATE TABLE tb_riwayat(
     no_ktp_pegawai VARCHAR(20),
     no_ktp_mekanik VARCHAR(20),
     id_kendaraan INT,
-    id_riwayat_sparepart INT,
+    id_penggunaan_sparepart INT,
 
     nama_pelanggan VARCHAR(50),
     no_polisi VARCHAR(20),
@@ -161,7 +166,7 @@ CREATE TABLE tb_riwayat(
         ON UPDATE CASCADE, 
 
     CONSTRAINT fk_riwayat_kendaraan FOREIGN KEY (id_kendaraan) REFERENCES tb_kendaraan(id_kendaraan),
-    CONSTRAINT fk_riwayat_riwayat_sparepart FOREIGN KEY (id_riwayat_sparepart) REFERENCES tb_riwayat_sparepart(id_riwayat_sparepart)
+    CONSTRAINT fk_riwayat_penggunaan_sparepart FOREIGN KEY (id_penggunaan_sparepart) REFERENCES tb_penggunaan_sparepart(id_penggunaan_sparepart)
 );
 
 
