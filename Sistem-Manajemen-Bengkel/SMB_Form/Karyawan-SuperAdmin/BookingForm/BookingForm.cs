@@ -66,6 +66,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
             grid.ScrollBars = ScrollBars.Both;
+            grid.Columns["Id"].Visible = false;
 
             grid.Columns["No"].Width = 100;
             grid.Columns["Tanggal"].Width = 150;
@@ -131,6 +132,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             var data = _bookingDal.ListData(filters, dp)
                 .Select((x, index) => new
                 {
+                    Id = x.id_booking,
                     No = inRowPage + index + 1,
                     Tanggal = x.tanggal.ToString("dd/MM/yyyy"),
                     Pelanggan = x.nama_pelanggan,
@@ -157,6 +159,33 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             TextSearch.TextChanged += TextSearch_TextChanged;
             TextSearch.KeyDown += TextSearch_KeyDown;
             ButtonUbahBatasBooking.Click += ButtonUbahBatasBooking_Click;
+            GridListData.CellMouseClick += GridListData_CellMouseClick;
+            editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
+            GridListData.CellDoubleClick += GridListData_CellDoubleClick;
+        }
+
+        private void GridListData_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)GridListData.CurrentRow.Cells["Id"].Value;
+            if (id == 0) return;
+            ShowFormHelper.ShowFormInPanel(new DetailBookingForm(id));
+        }
+
+        private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            int id = (int)GridListData.CurrentRow.Cells["Id"].Value;
+            if (id == 0) return;
+            ShowFormHelper.ShowFormInPanel(new DetailBookingForm(id));
+        }
+
+        private void GridListData_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                GridListData.ClearSelection();
+                GridListData.CurrentCell = GridListData[e.ColumnIndex, e.RowIndex];
+                contextMenuStrip.Show(Cursor.Position);
+            }
         }
 
         private void ButtonUbahBatasBooking_Click(object? sender, EventArgs e)
@@ -171,13 +200,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
             PilihForm pilihForm = new PilihForm();
-            pilihForm.ShowDialog();
+            if (pilihForm.ShowDialog()== DialogResult.OK)
+            {
+                LoadData();
+            }
         }
 
         private void ButtonSearch_Click(object? sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TextSearch.Text)) return;
-            LoadData();
+            LoadData(); 
         }
 
         private void ButtonPreviuos_Click(object? sender, EventArgs e)

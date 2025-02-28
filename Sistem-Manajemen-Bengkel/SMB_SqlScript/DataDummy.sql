@@ -175,63 +175,63 @@ VALUES
 
 
 
+
 INSERT INTO tb_booking 
     (no_ktp_pelanggan, no_ktp_mekanik, id_kendaraan, id_jasa_servis, 
      nama_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, 
      tanggal, antrean, keluhan, status)
 VALUES
-('32010110000001', '32010130000001', 1, 1, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 1, GETDATE()), 1, 'Oli bocor', '1'),
-('32010110000002', '32010130000002', 2, 2, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 2, GETDATE()), 2, 'AC tidak dingin', '1'),
-('32010110000003', '32010130000003', 3, 3, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 3, GETDATE()), 3, 'Rem blong', '1'),
-('32010110000004', '32010130000004', 4, 4, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 4, GETDATE()), 4, 'Lampu redup', '1'),
-('32010110000005', '32010130000005', 5, 5, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 5, GETDATE()), 5, 'Bunyi aneh', '1'),
-('32010110000006', '32010130000006', 6, 6, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 6, GETDATE()), 6, 'Oli encer', '2'),
-('32010110000007', '32010130000007', 7, 7, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 7, GETDATE()), 7, 'AC kembung', '3'),
-('32010110000008', '32010130000008', 8, 8, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 8, GETDATE()), 8, 'Mesin panas', '1'),
-('32010110000009', '32010130000009', 9, 9, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 9, GETDATE()), 9, 'Klakson tidak berbunyi', '2'),
-('32010110000010', '32010130000010', 10, 10, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 10, GETDATE()), 10, 'Ban aus', '2'),
-('32010110000011', '32010130000011', 11, 11, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 11, GETDATE()), 11, 'Lampu mati', '1'),
-('32010110000012', '32010130000012', 12, 12, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 12, GETDATE()), 12, 'AC bocor', '2'),
-('32010110000013', '32010130000013', 13, 13, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 13, GETDATE()), 13, 'Klakson rusak', '2'),
-('32010110000014', '32010130000014', 14, 14, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 14, GETDATE()), 14, 'Mesin bergemuruh', '1'),
-('32010110000015', '32010130000015', 15, 15, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 15, GETDATE()), 15, 'Oli encer', '2'),
-('32010110000016', '32010130000016', 16, 16, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 16, GETDATE()), 16, 'Ban kempes', '1'),
-('32010110000017', '32010130000017', 17, 17, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 17, GETDATE()), 17, 'Rem kurang', '1'),
-('32010110000018', '32010130000018', 18, 18, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 18, GETDATE()), 18, 'Lampu redup', '2'),
-('32010110000019', '32010130000019', 19, 19, NULL, NULL, NULL, NULL, NULL, DATEADD(MINUTE, 19, GETDATE()), 19, 'AC berisik', '2'),
-(null, '32010130000020', null, 20, 'RIno Suprapto', 'AB 1234 rd', 'Honda', 2, 233, DATEADD(MINUTE, 20, GETDATE()), 20, 'Mesin tidak mau hidup', '2'),
-(null, '32010130000017', null, 20, 'Suparman', 'AB 3344 rd', 'Suzuki', 2, 233, DATEADD(MINUTE, 20, GETDATE()), 21, 'Mesin tidak mau hidup', '2'),
-(null, '32010130000015', null, 20, 'Budi Hermansyah', 'AB 7665 rd', 'Yamaha', 2, 233, DATEADD(MINUTE, 20, GETDATE()), 22, 'Mesin tidak mau hidup', '2'),
-(null, '32010130000012', null, 20, 'Bordi Sumanto', 'AB 3233 rd', 'Kawasaki', 2, 233, DATEADD(MINUTE, 20, GETDATE()), 23, 'Mesin tidak mau hidup', '2');
-
-
+('32010110000001', '32010130000001', 1, 1, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 1, 'Oli bocor', '1'),
+('32010110000002', '32010130000002', 2, 2, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 2, 'AC tidak dingin', '1'),
+('32010110000003', '32010130000003', 3, 3, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 3, 'Rem blong', '1'),
+('32010110000004', '32010130000004', 4, 4, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 4, 'Lampu redup', '1'),
+('32010110000005', '32010130000005', 5, 5, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 5, 'Bunyi aneh', '1'),
+('32010110000006', '32010130000006', 6, 6, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 6, 'Oli encer', '2'),
+('32010110000007', '32010130000007', 7, 7, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 7, 'AC kembung', '3'),
+('32010110000008', '32010130000008', 8, 8, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 8, 'Mesin panas', '1'),
+('32010110000009', '32010130000009', 9, 9, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 9, 'Klakson tidak berbunyi', '2'),
+('32010110000010', '32010130000010', 10, 10, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 10, 'Ban aus', '2'),
+('32010110000011', '32010130000011', 11, 11, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 11, 'Lampu mati', '1'),
+('32010110000012', '32010130000012', 12, 12, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 12, 'AC bocor', '2'),
+('32010110000013', '32010130000013', 13, 13, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 13, 'Klakson rusak', '2'),
+('32010110000014', '32010130000014', 14, 14, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 14, 'Mesin bergemuruh', '1'),
+('32010110000015', '32010130000015', 15, 15, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 15, 'Oli encer', '2'),
+('32010110000016', '32010130000016', 16, 16, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 16, 'Ban kempes', '1'),
+('32010110000017', '32010130000017', 17, 17, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 17, 'Rem kurang', '1'),
+('32010110000018', '32010130000018', 18, 18, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 18, 'Lampu redup', '2'),
+('32010110000019', '32010130000019', 19, 19, NULL, NULL, NULL, NULL, NULL, CAST(GETDATE() AS DATE), 19, 'AC berisik', '2'),
+('32010110000020', '32010130000020', null, 20, 'RIno Suprapto', 'AB 1234 rd', 'Honda', 2, 233, CAST(GETDATE() AS DATE), 20, 'Mesin tidak mau hidup', '2'),
+('32010110000017', '32010130000017', null, 20, 'Suparman', 'AB 3344 rd', 'Suzuki', 2, 233, CAST(GETDATE() AS DATE), 21, 'Mesin tidak mau hidup', '2'),
+('32010110000015', '32010130000015', null, 20, 'Budi Hermansyah', 'AB 7665 rd', 'Yamaha', 2, 233, CAST(GETDATE() AS DATE), 22, 'Mesin tidak mau hidup', '2'),
+('32010110000012', '32010130000012', null, 20, 'Bordi Sumanto', 'AB 3233 rd', 'Kawasaki', 2, 233, CAST(GETDATE() AS DATE), 23, 'Mesin tidak mau hidup', '2');
 
 
 
 INSERT INTO tb_riwayat 
-    (id_jasa_servis,  nama_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, 
+    (id_jasa_servis, nama_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, 
      no_ktp_pelanggan, no_ktp_pegawai, no_ktp_mekanik, id_kendaraan, id_penggunaan_sparepart, tanggal, keluhan, catatan, total_biaya, status)
 VALUES
-(1,  NULL, NULL, NULL, NULL, NULL, '32010110000001', '32010120000001', '32010130000001', 1, NULL, DATEADD(MINUTE, 1, GETDATE()), 'Oli bocor', 'Ganti oli', 150000, 'Selesai'),
-(2,  NULL, NULL, NULL, NULL, NULL, '32010110000002', '32010120000002', '32010130000002', 2, NULL, DATEADD(MINUTE, 2, GETDATE()), 'AC tidak dingin', 'Tambah freon', 250000, 'Selesai'),
-(3,  NULL, NULL, NULL, NULL, NULL, '32010110000003', '32010120000003', '32010130000003', 3, NULL, DATEADD(MINUTE, 3, GETDATE()), 'Rem blong', 'Ganti kampas rem', 200000, 'Selesai'),
-(4,  NULL, NULL, NULL, NULL, NULL, '32010110000004', '32010120000004', '32010130000004', 4, NULL, DATEADD(MINUTE, 4, GETDATE()), 'Lampu redup', 'Perbaikan lampu', 180000, 'Selesai'),
-(5,  NULL, NULL, NULL, NULL, NULL, '32010110000005', '32010120000005', '32010130000005', 5, NULL, DATEADD(MINUTE, 5, GETDATE()), 'Bunyi aneh', 'Periksa sensor', 120000, 'Selesai'),
-(6,  NULL, NULL, NULL, NULL, NULL, '32010110000006', '32010120000006', '32010130000006', 6, NULL, DATEADD(MINUTE, 6, GETDATE()), 'Oli encer', 'Ganti oli', 150000, 'Selesai'),
-(7,  NULL, NULL, NULL, NULL, NULL, '32010110000007', '32010120000007', '32010130000007', 7, NULL, DATEADD(MINUTE, 7, GETDATE()), 'AC kembung', 'Bersihkan AC', 200000, 'Selesai'),
-(8,  NULL, NULL, NULL, NULL, NULL, '32010110000008', '32010120000008', '32010130000008', 8, NULL, DATEADD(MINUTE, 8, GETDATE()), 'Mesin panas', 'Cooling system check', 220000, 'Selesai'),
-(9,  NULL, NULL, NULL, NULL, NULL, '32010110000009', '32010120000009', '32010130000009', 9, NULL, DATEADD(MINUTE, 9, GETDATE()), 'Klakson tidak berbunyi', 'Ganti klakson', 120000, 'Selesai'),
-(10, NULL, NULL, NULL, NULL, NULL, '32010110000010', '32010120000010', '32010130000010', 10, NULL, DATEADD(MINUTE, 10, GETDATE()), 'Ban aus', 'Ganti ban', 500000, 'Selesai'),
-(11, NULL, NULL, NULL, NULL, NULL, '32010110000011', '32010120000011', '32010130000011', 11, NULL, DATEADD(MINUTE, 11, GETDATE()), 'Lampu mati', 'Ganti bohlam', 90000, 'Selesai'),
-(12, NULL, NULL, NULL, NULL, NULL, '32010110000012', '32010120000012', '32010130000012', 12, NULL, DATEADD(MINUTE, 12, GETDATE()), 'AC bocor', 'Perbaikan AC', 200000, 'Selesai'),
-(13, NULL, NULL, NULL, NULL, NULL, '32010110000013', '32010120000013', '32010130000013', 13, NULL, DATEADD(MINUTE, 13, GETDATE()), 'Klakson rusak', 'Ganti klakson', 150000, 'Selesai'),
-(14, NULL, NULL, NULL, NULL, NULL, '32010110000014', '32010120000014', '32010130000014', 14, NULL, DATEADD(MINUTE, 14, GETDATE()), 'Mesin bergemuruh', 'Perbaikan mesin', 300000, 'Selesai'),
-(15, NULL, NULL, NULL, NULL, NULL, '32010110000015', '32010120000015', '32010130000015', 15, NULL, DATEADD(MINUTE, 15, GETDATE()), 'Oli encer', 'Ganti oli', 150000, 'Selesai'),
-(16, NULL, NULL, NULL, NULL, NULL, '32010110000016', '32010120000016', '32010130000016', 16, NULL, DATEADD(MINUTE, 16, GETDATE()), 'Ban kempes', 'Isi angin ban', 180000, 'Selesai'),
-(17, NULL, NULL, NULL, NULL, NULL, '32010110000017', '32010120000017', '32010130000017', 17, NULL, DATEADD(MINUTE, 17, GETDATE()), 'Rem kurang', 'Ganti kampas rem', 200000, 'Selesai'),
-(18, NULL, NULL, NULL, NULL, NULL, '32010110000018', '32010120000018', '32010130000018', 18, NULL, DATEADD(MINUTE, 18, GETDATE()), 'Lampu redup', 'Ganti bohlam', 120000, 'Selesai'),
-(19, NULL, NULL, NULL, NULL, NULL, '32010110000019', '32010120000019', '32010130000019', 19, NULL, DATEADD(MINUTE, 19, GETDATE()), 'AC berisik', 'Service AC', 220000, 'Selesai'),
-(20, NULL, NULL, NULL, NULL, NULL, '32010110000020', '32010120000020', '32010130000020', 20, NULL, DATEADD(MINUTE, 20, GETDATE()), 'Mesin tidak mau hidup', 'Perbaikan mesin', 300000, 'Selesai');
+(1,  NULL, NULL, NULL, NULL, NULL, '32010110000001', '32010120000001', '32010130000001', 1, NULL, CAST(GETDATE() AS DATE), 'Oli bocor', 'Ganti oli', 150000, 'Selesai'),
+(2,  NULL, NULL, NULL, NULL, NULL, '32010110000002', '32010120000002', '32010130000002', 2, NULL, CAST(GETDATE() AS DATE), 'AC tidak dingin', 'Tambah freon', 250000, 'Selesai'),
+(3,  NULL, NULL, NULL, NULL, NULL, '32010110000003', '32010120000003', '32010130000003', 3, NULL, CAST(GETDATE() AS DATE), 'Rem blong', 'Ganti kampas rem', 200000, 'Selesai'),
+(4,  NULL, NULL, NULL, NULL, NULL, '32010110000004', '32010120000004', '32010130000004', 4, NULL, CAST(GETDATE() AS DATE), 'Lampu redup', 'Perbaikan lampu', 180000, 'Selesai'),
+(5,  NULL, NULL, NULL, NULL, NULL, '32010110000005', '32010120000005', '32010130000005', 5, NULL, CAST(GETDATE() AS DATE), 'Bunyi aneh', 'Periksa sensor', 120000, 'Selesai'),
+(6,  NULL, NULL, NULL, NULL, NULL, '32010110000006', '32010120000006', '32010130000006', 6, NULL, CAST(GETDATE() AS DATE), 'Oli encer', 'Ganti oli', 150000, 'Selesai'),
+(7,  NULL, NULL, NULL, NULL, NULL, '32010110000007', '32010120000007', '32010130000007', 7, NULL, CAST(GETDATE() AS DATE), 'AC kembung', 'Bersihkan AC', 200000, 'Selesai'),
+(8,  NULL, NULL, NULL, NULL, NULL, '32010110000008', '32010120000008', '32010130000008', 8, NULL, CAST(GETDATE() AS DATE), 'Mesin panas', 'Cooling system check', 220000, 'Selesai'),
+(9,  NULL, NULL, NULL, NULL, NULL, '32010110000009', '32010120000009', '32010130000009', 9, NULL, CAST(GETDATE() AS DATE), 'Klakson tidak berbunyi', 'Ganti klakson', 120000, 'Selesai'),
+(10, NULL, NULL, NULL, NULL, NULL, '32010110000010', '32010120000010', '32010130000010', 10, NULL, CAST(GETDATE() AS DATE), 'Ban aus', 'Ganti ban', 500000, 'Selesai'),
+(11, NULL, NULL, NULL, NULL, NULL, '32010110000011', '32010120000011', '32010130000011', 11, NULL, CAST(GETDATE() AS DATE), 'Lampu mati', 'Ganti bohlam', 90000, 'Selesai'),
+(12, NULL, NULL, NULL, NULL, NULL, '32010110000012', '32010120000012', '32010130000012', 12, NULL, CAST(GETDATE() AS DATE), 'AC bocor', 'Perbaikan AC', 200000, 'Selesai'),
+(13, NULL, NULL, NULL, NULL, NULL, '32010110000013', '32010120000013', '32010130000013', 13, NULL, CAST(GETDATE() AS DATE), 'Klakson rusak', 'Ganti klakson', 150000, 'Selesai'),
+(14, NULL, NULL, NULL, NULL, NULL, '32010110000014', '32010120000014', '32010130000014', 14, NULL, CAST(GETDATE() AS DATE), 'Mesin bergemuruh', 'Perbaikan mesin', 300000, 'Selesai'),
+(15, NULL, NULL, NULL, NULL, NULL, '32010110000015', '32010120000015', '32010130000015', 15, NULL, CAST(GETDATE() AS DATE), 'Oli encer', 'Ganti oli', 150000, 'Selesai'),
+(16, NULL, NULL, NULL, NULL, NULL, '32010110000016', '32010120000016', '32010130000016', 16, NULL, CAST(GETDATE() AS DATE), 'Ban kempes', 'Isi angin ban', 180000, 'Selesai'),
+(17, NULL, NULL, NULL, NULL, NULL, '32010110000017', '32010120000017', '32010130000017', 17, NULL, CAST(GETDATE() AS DATE), 'Rem kurang', 'Ganti kampas rem', 200000, 'Selesai'),
+(18, NULL, NULL, NULL, NULL, NULL, '32010110000018', '32010120000018', '32010130000018', 18, NULL, CAST(GETDATE() AS DATE), 'Lampu redup', 'Ganti bohlam', 120000, 'Selesai'),
+(19, NULL, NULL, NULL, NULL, NULL, '32010110000019', '32010120000019', '32010130000019', 19, NULL, CAST(GETDATE() AS DATE), 'AC berisik', 'Service AC', 220000, 'Selesai'),
+(20, NULL, NULL, NULL, NULL, NULL, '32010110000020', '32010120000020', '32010130000020', 20, NULL, CAST(GETDATE() AS DATE), 'Mesin tidak mau hidup', 'Perbaikan mesin', 300000, 'Selesai');
+
 
 
 
@@ -267,4 +267,59 @@ VALUES
         LEFT JOIN tb_kendaraan dd ON aa.id_kendaraan = dd.id_kendaraan
         LEFT JOIN tb_jasa_servis ee ON aa.id_jasa_servis = ee.id_jasa_servis
 
-        select * from tb_batas_booking
+        select * from tb_booking
+
+
+
+
+
+
+
+        SELECT 
+                                    aa.id_booking,
+                                    COALESCE (bb.nama_pelanggan, aa.nama_pelanggan) AS nama_pelanggan,
+                                    COALESCE (dd.no_polisi, aa.no_polisi) AS no_polisi,
+
+                                CASE
+                                    WHEN (aa.merek IS NULL  OR aa.merek = '') AND (aa.kapasitas_mesin IS NULL OR aa.kapasitas_mesin = '')
+                                    THEN CONCAT (dd.merek , ' ' , dd.kapasitas_mesin, 'cc')
+                                    ELSE CONCAT (aa.merek , ' ' , aa.kapasitas_mesin, 'cc')
+                                END AS nama_kendaraan,
+
+                                    COALESCE (dd.transmisi, aa.transmisi) AS transmisi,
+                                    ISNULL (ee.jenis_servis, '') AS jenis_servis,
+                                    
+                                    STRING_AGG(gg.nama_sparepart, ', ') AS nama_sparepart,
+
+                                    aa.tanggal, aa.antrean, aa.keluhan, aa.status
+                                FROM 
+                                    tb_booking aa
+
+LEFT JOIN tb_penggunaan_sparepart ff
+    ON aa.id_penggunaan_sparepart = ff.id_penggunaan_sparepart
+LEFT JOIN tb_sparepart gg
+    ON ff.id_sparepart = gg.id_sparepart
+
+
+                                LEFT JOIN tb_pelanggan bb 
+                                    ON aa.no_ktp_pelanggan = bb.no_ktp_pelanggan
+                                LEFT JOIN tb_kendaraan dd 
+                                    ON aa.id_kendaraan = dd.id_kendaraan
+                                LEFT JOIN tb_jasa_servis ee 
+                                    ON aa.id_jasa_servis = ee.id_jasa_servis
+                                WHERE aa.id_booking = 6
+                                GROUP BY
+                                    aa.id_booking,
+                                    COALESCE(bb.nama_pelanggan, aa.nama_pelanggan),
+                                    COALESCE(dd.no_polisi, aa.no_polisi),
+                                    CASE
+                                        WHEN (aa.merek IS NULL OR aa.merek = '') AND (aa.kapasitas_mesin IS NULL OR aa.kapasitas_mesin = '')
+                                            THEN CONCAT(dd.merek, ' ', dd.kapasitas_mesin, 'cc')
+                                        ELSE CONCAT(aa.merek, ' ', aa.kapasitas_mesin, 'cc')
+                                    END,
+                                    COALESCE(dd.transmisi, aa.transmisi),
+                                    ISNULL(ee.jenis_servis, ''),
+                                    aa.tanggal,
+                                    aa.antrean,
+                                    aa.keluhan,
+                                    aa.status;

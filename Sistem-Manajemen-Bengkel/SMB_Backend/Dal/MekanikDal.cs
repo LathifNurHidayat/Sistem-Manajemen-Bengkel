@@ -127,5 +127,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<int>(sql, new { no_ktp_mekanik, no_hp });
         }
+
+        public IEnumerable<(string no_ktp_mekanik, string nama_mekanik)> ListMekanik()
+        {
+            const string sql = "SELECT no_ktp_mekanik, nama_mekanik FROM tb_mekanik";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.Query<(string no_ktp_mekanik, string nama_mekanik)>(sql);
+        }
     }
 }

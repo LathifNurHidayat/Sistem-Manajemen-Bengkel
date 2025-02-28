@@ -60,7 +60,7 @@
             label1 = new Label();
             LabelAntreanAnda = new Label();
             pictureBox3 = new PictureBox();
-            panel6 = new Panel();
+            progres2 = new Panel();
             progresSelesai = new SMB_CustomTolbox.RJCircularPictureBox();
             progresDikerjakan = new SMB_CustomTolbox.RJCircularPictureBox();
             rjCircularPictureBox1 = new SMB_CustomTolbox.RJCircularPictureBox();
@@ -100,7 +100,7 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(gradientPanelExt4);
             panel1.Controls.Add(gradientPanelExt1);
-            panel1.Controls.Add(panel6);
+            panel1.Controls.Add(progres2);
             panel1.Controls.Add(progresSelesai);
             panel1.Controls.Add(progresDikerjakan);
             panel1.Controls.Add(rjCircularPictureBox1);
@@ -494,14 +494,14 @@
             pictureBox3.TabIndex = 19;
             pictureBox3.TabStop = false;
             // 
-            // panel6
+            // progres2
             // 
-            panel6.Anchor = AnchorStyles.None;
-            panel6.BackColor = Color.Silver;
-            panel6.Location = new Point(973, 306);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(320, 3);
-            panel6.TabIndex = 76;
+            progres2.Anchor = AnchorStyles.None;
+            progres2.BackColor = Color.Silver;
+            progres2.Location = new Point(973, 306);
+            progres2.Name = "progres2";
+            progres2.Size = new Size(320, 3);
+            progres2.TabIndex = 76;
             // 
             // progresSelesai
             // 
@@ -568,7 +568,7 @@
             lathifButton1.Name = "lathifButton1";
             lathifButton1.Size = new Size(135, 45);
             lathifButton1.TabIndex = 5;
-            lathifButton1.Text = "✅ Selesai";
+            lathifButton1.Text = "Selesai";
             lathifButton1.TextColor = Color.White;
             lathifButton1.UseVisualStyleBackColor = false;
             // 
@@ -590,7 +590,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(917, 256);
+            label5.Location = new Point(908, 256);
             label5.Name = "label5";
             label5.Size = new Size(99, 25);
             label5.TabIndex = 77;
@@ -624,7 +624,7 @@
             ButtonKerjakan.Name = "ButtonKerjakan";
             ButtonKerjakan.Size = new Size(135, 45);
             ButtonKerjakan.TabIndex = 1;
-            ButtonKerjakan.Text = "🛠️ Kerjakan";
+            ButtonKerjakan.Text = "Kerjakan";
             ButtonKerjakan.TextColor = Color.White;
             ButtonKerjakan.UseVisualStyleBackColor = false;
             // 
@@ -776,7 +776,7 @@
         private SMB_CustomTolbox.LathifButton lathifButton1;
         private SMB_CustomTolbox.RJCircularPictureBox progresDikerjakan;
         private SMB_CustomTolbox.RJCircularPictureBox progresSelesai;
-        private Panel panel6;
+        private Panel progres2;
         private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt1;
         private Label LabelKeluhan;
         private Label LabelTanggal;

@@ -21,6 +21,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm
         {
             InitializeComponent();
             _kendaraanDal = new KendaraanDal();
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
 
             _no_ktp_pelanggan = no_ktp_pelanggan;
 

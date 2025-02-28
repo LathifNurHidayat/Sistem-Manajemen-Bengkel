@@ -98,7 +98,7 @@
             panel1.Controls.Add(ButtonBatal);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1434, 760);
+            panel1.Size = new Size(1434, 882);
             panel1.TabIndex = 0;
             // 
             // label9
@@ -124,7 +124,7 @@
             panel2.Controls.Add(label17);
             panel2.Location = new Point(939, 140);
             panel2.Name = "panel2";
-            panel2.Size = new Size(470, 518);
+            panel2.Size = new Size(470, 640);
             panel2.TabIndex = 47;
             // 
             // PickerBookingTanggal
@@ -216,7 +216,7 @@
             panel4.Controls.Add(label11);
             panel4.Location = new Point(526, 140);
             panel4.Name = "panel4";
-            panel4.Size = new Size(381, 518);
+            panel4.Size = new Size(381, 640);
             panel4.TabIndex = 46;
             // 
             // panel13
@@ -272,7 +272,7 @@
             panel10.Controls.Add(TextTahun);
             panel10.Location = new Point(28, 548);
             panel10.Name = "panel10";
-            panel10.Size = new Size(185, 44);
+            panel10.Size = new Size(322, 44);
             panel10.TabIndex = 6;
             // 
             // TextTahun
@@ -285,7 +285,7 @@
             TextTahun.MaxLength = 100;
             TextTahun.Name = "TextTahun";
             TextTahun.ReadOnly = true;
-            TextTahun.Size = new Size(0, 23);
+            TextTahun.Size = new Size(137, 23);
             TextTahun.TabIndex = 49;
             TextTahun.TabStop = false;
             // 
@@ -303,7 +303,6 @@
             // 
             // panel11
             // 
-            panel11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel11.BackColor = Color.White;
             panel11.BorderStyle = BorderStyle.FixedSingle;
             panel11.Controls.Add(TextKapasitasMesin);
@@ -434,7 +433,7 @@
             panel3.Controls.Add(label8);
             panel3.Location = new Point(26, 140);
             panel3.Name = "panel3";
-            panel3.Size = new Size(470, 518);
+            panel3.Size = new Size(470, 640);
             panel3.TabIndex = 45;
             // 
             // label3
@@ -615,7 +614,7 @@
             ButtonCekKetersediaan.FlatStyle = FlatStyle.Flat;
             ButtonCekKetersediaan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonCekKetersediaan.ForeColor = Color.White;
-            ButtonCekKetersediaan.Location = new Point(1191, 695);
+            ButtonCekKetersediaan.Location = new Point(1191, 817);
             ButtonCekKetersediaan.Name = "ButtonCekKetersediaan";
             ButtonCekKetersediaan.Size = new Size(218, 45);
             ButtonCekKetersediaan.TabIndex = 48;
@@ -635,7 +634,7 @@
             ButtonBatal.FlatStyle = FlatStyle.Flat;
             ButtonBatal.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBatal.ForeColor = Color.White;
-            ButtonBatal.Location = new Point(1029, 695);
+            ButtonBatal.Location = new Point(1029, 817);
             ButtonBatal.Name = "ButtonBatal";
             ButtonBatal.Size = new Size(135, 45);
             ButtonBatal.TabIndex = 49;
@@ -648,7 +647,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1458, 784);
+            ClientSize = new Size(1458, 906);
             Controls.Add(panel1);
             Name = "PelangganBookingForm";
             Text = "PelangganBookingForm";

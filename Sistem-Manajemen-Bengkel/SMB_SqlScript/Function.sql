@@ -12,7 +12,7 @@ BEGIN
     DECLARE @booking_count INT = (SELECT COUNT(*) FROM tb_booking WHERE tanggal = @tanggal);
     
     DECLARE @batas_booking INT = COALESCE(
-                                    (SELECT batas_booking FROM tb_batas_booking WHERE tanggal = @tanggal),
+                                    (SELECT batas_booking FROM tb_batas_booking WHERE tanggal  = @tanggal),
                                     (SELECT batas_booking FROM tb_batas_booking WHERE tanggal IS NULL));
     
     DECLARE @antreanBaru INT;
@@ -34,6 +34,5 @@ BEGIN
     RETURN;
 END;
 GO
-
 
 

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel13 = new Panel();
-            TextTransmisi = new TextBox();
             panel11 = new Panel();
             TextKapasitasMesin = new TextBox();
             panel12 = new Panel();
@@ -46,13 +44,15 @@
             label3 = new Label();
             label1 = new Label();
             panel3 = new Panel();
+            label4 = new Label();
+            PickerBookingTanggal = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            ComboTransmisi = new ComboBox();
             ButtonCekKetersediaan = new SMB_CustomTolbox.LathifButton();
             ButtonBatal = new SMB_CustomTolbox.LathifButton();
             label2 = new Label();
             panel10 = new Panel();
             TextNoPolisi = new TextBox();
             label5 = new Label();
-            panel13.SuspendLayout();
             panel11.SuspendLayout();
             panel12.SuspendLayout();
             panel18.SuspendLayout();
@@ -61,37 +61,13 @@
             panel10.SuspendLayout();
             SuspendLayout();
             // 
-            // panel13
-            // 
-            panel13.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel13.BackColor = Color.White;
-            panel13.BorderStyle = BorderStyle.FixedSingle;
-            panel13.Controls.Add(TextTransmisi);
-            panel13.Location = new Point(46, 369);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(467, 44);
-            panel13.TabIndex = 4;
-            // 
-            // TextTransmisi
-            // 
-            TextTransmisi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TextTransmisi.BackColor = Color.White;
-            TextTransmisi.BorderStyle = BorderStyle.None;
-            TextTransmisi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            TextTransmisi.Location = new Point(4, 10);
-            TextTransmisi.MaxLength = 100;
-            TextTransmisi.Name = "TextTransmisi";
-            TextTransmisi.Size = new Size(458, 23);
-            TextTransmisi.TabIndex = 49;
-            TextTransmisi.TabStop = false;
-            // 
             // panel11
             // 
             panel11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel11.BackColor = Color.White;
             panel11.BorderStyle = BorderStyle.FixedSingle;
             panel11.Controls.Add(TextKapasitasMesin);
-            panel11.Location = new Point(46, 456);
+            panel11.Location = new Point(46, 439);
             panel11.Name = "panel11";
             panel11.Size = new Size(467, 44);
             panel11.TabIndex = 5;
@@ -115,7 +91,7 @@
             panel12.BackColor = Color.White;
             panel12.BorderStyle = BorderStyle.FixedSingle;
             panel12.Controls.Add(TextMerek);
-            panel12.Location = new Point(46, 282);
+            panel12.Location = new Point(46, 279);
             panel12.Name = "panel12";
             panel12.Size = new Size(467, 44);
             panel12.TabIndex = 3;
@@ -138,7 +114,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(46, 428);
+            label6.Location = new Point(46, 410);
             label6.Name = "label6";
             label6.Size = new Size(178, 25);
             label6.TabIndex = 72;
@@ -149,7 +125,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(46, 341);
+            label10.Location = new Point(46, 331);
             label10.Name = "label10";
             label10.Size = new Size(90, 25);
             label10.TabIndex = 71;
@@ -160,7 +136,7 @@
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label11.ForeColor = Color.Black;
-            label11.Location = new Point(46, 254);
+            label11.Location = new Point(46, 248);
             label11.Name = "label11";
             label11.Size = new Size(65, 25);
             label11.TabIndex = 70;
@@ -171,7 +147,7 @@
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label17.ForeColor = Color.Black;
-            label17.Location = new Point(46, 556);
+            label17.Location = new Point(46, 626);
             label17.Name = "label17";
             label17.Size = new Size(79, 25);
             label17.TabIndex = 70;
@@ -194,10 +170,10 @@
             panel18.BackColor = Color.White;
             panel18.BorderStyle = BorderStyle.FixedSingle;
             panel18.Controls.Add(TextKeluhan);
-            panel18.Location = new Point(46, 584);
+            panel18.Location = new Point(46, 654);
             panel18.Name = "panel18";
-            panel18.Size = new Size(467, 90);
-            panel18.TabIndex = 6;
+            panel18.Size = new Size(467, 71);
+            panel18.TabIndex = 7;
             // 
             // TextKeluhan
             // 
@@ -209,7 +185,7 @@
             TextKeluhan.MaxLength = 100;
             TextKeluhan.Multiline = true;
             TextKeluhan.Name = "TextKeluhan";
-            TextKeluhan.Size = new Size(455, 75);
+            TextKeluhan.Size = new Size(455, 59);
             TextKeluhan.TabIndex = 49;
             // 
             // panel8
@@ -232,7 +208,6 @@
             TextNama.Location = new Point(4, 10);
             TextNama.MaxLength = 100;
             TextNama.Name = "TextNama";
-            TextNama.ReadOnly = true;
             TextNama.Size = new Size(458, 23);
             TextNama.TabIndex = 49;
             TextNama.TabStop = false;
@@ -264,12 +239,14 @@
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.WhiteSmoke;
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(PickerBookingTanggal);
+            panel3.Controls.Add(ComboTransmisi);
             panel3.Controls.Add(ButtonCekKetersediaan);
             panel3.Controls.Add(ButtonBatal);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(panel10);
             panel3.Controls.Add(label5);
-            panel3.Controls.Add(panel13);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(panel8);
@@ -283,8 +260,44 @@
             panel3.Controls.Add(label6);
             panel3.Location = new Point(12, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(553, 762);
+            panel3.Size = new Size(553, 815);
             panel3.TabIndex = 0;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(46, 540);
+            label4.Name = "label4";
+            label4.Size = new Size(76, 25);
+            label4.TabIndex = 80;
+            label4.Text = "Tanggal";
+            // 
+            // PickerBookingTanggal
+            // 
+            PickerBookingTanggal.DateTimeIcon = null;
+            PickerBookingTanggal.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
+            PickerBookingTanggal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            PickerBookingTanggal.Format = "dddd, dd-MM-yyyy";
+            PickerBookingTanggal.Location = new Point(46, 568);
+            PickerBookingTanggal.MinDateTime = new DateTime(2025, 2, 24, 7, 58, 7, 0);
+            PickerBookingTanggal.Name = "PickerBookingTanggal";
+            PickerBookingTanggal.Size = new Size(467, 44);
+            PickerBookingTanggal.TabIndex = 6;
+            PickerBookingTanggal.ToolTipText = "";
+            PickerBookingTanggal.Value = new DateTime(2025, 2, 24, 7, 58, 7, 0);
+            // 
+            // ComboTransmisi
+            // 
+            ComboTransmisi.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboTransmisi.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboTransmisi.FormattingEnabled = true;
+            ComboTransmisi.IntegralHeight = false;
+            ComboTransmisi.Location = new Point(46, 363);
+            ComboTransmisi.Name = "ComboTransmisi";
+            ComboTransmisi.Size = new Size(467, 36);
+            ComboTransmisi.TabIndex = 4;
             // 
             // ButtonCekKetersediaan
             // 
@@ -298,7 +311,7 @@
             ButtonCekKetersediaan.FlatStyle = FlatStyle.Flat;
             ButtonCekKetersediaan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonCekKetersediaan.ForeColor = Color.White;
-            ButtonCekKetersediaan.Location = new Point(295, 694);
+            ButtonCekKetersediaan.Location = new Point(295, 750);
             ButtonCekKetersediaan.Name = "ButtonCekKetersediaan";
             ButtonCekKetersediaan.Size = new Size(218, 45);
             ButtonCekKetersediaan.TabIndex = 77;
@@ -318,7 +331,7 @@
             ButtonBatal.FlatStyle = FlatStyle.Flat;
             ButtonBatal.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBatal.ForeColor = Color.White;
-            ButtonBatal.Location = new Point(154, 694);
+            ButtonBatal.Location = new Point(154, 750);
             ButtonBatal.Name = "ButtonBatal";
             ButtonBatal.Size = new Size(135, 45);
             ButtonBatal.TabIndex = 78;
@@ -331,11 +344,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(14, 521);
+            label2.Location = new Point(14, 504);
             label2.Name = "label2";
-            label2.Size = new Size(92, 28);
+            label2.Size = new Size(113, 28);
             label2.TabIndex = 76;
-            label2.Text = "C. Servis";
+            label2.Text = "C. Booking";
             // 
             // panel10
             // 
@@ -377,13 +390,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(577, 786);
+            ClientSize = new Size(577, 839);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "TamuBookingForm";
             StartPosition = FormStartPosition.CenterScreen;
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
             panel11.ResumeLayout(false);
             panel11.PerformLayout();
             panel12.ResumeLayout(false);
@@ -404,9 +415,7 @@
         private Panel panel11;
         private Label label10;
         private Panel panel12;
-        private Panel panel13;
         private Label label11;
-        private TextBox TextTransmisi;
         private TextBox TextKapasitasMesin;
         private TextBox TextMerek;
         private Label label6;
@@ -425,5 +434,8 @@
         private Label label2;
         private SMB_CustomTolbox.LathifButton ButtonCekKetersediaan;
         private SMB_CustomTolbox.LathifButton ButtonBatal;
+        private ComboBox ComboTransmisi;
+        private Label label4;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit PickerBookingTanggal;
     }
 }

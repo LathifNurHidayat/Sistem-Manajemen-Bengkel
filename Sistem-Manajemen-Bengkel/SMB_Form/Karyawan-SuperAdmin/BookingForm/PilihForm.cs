@@ -33,8 +33,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         private void ButtonTamu_Click(object? sender, EventArgs e)
         {
             TamuBookingForm tamu = new TamuBookingForm();
-            tamu.ShowDialog();
-            this.Close();
+            if (tamu.ShowDialog()== DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
         private void ButtonPelanggan_Click(object? sender, EventArgs e)

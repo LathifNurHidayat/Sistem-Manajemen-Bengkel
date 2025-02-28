@@ -116,5 +116,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
+
+        public IEnumerable<(int id_jasa_servis, string jenis_servis)> ListJasaServis()
+        {
+            const string sql = "SELECT id_jasa_servis, jenis_servis  FROM tb_jasa_servis";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.Query<(int id_jasa_servis, string jenis_servis)>(sql);
+        }
     }
 }

@@ -114,6 +114,7 @@ CREATE TABLE tb_booking (
     tanggal DATETIME,
     antrean INT,
     keluhan VARCHAR(225),
+    catatan VARCHAR(225),
     status INT,
     created_at DATETIME DEFAULT GETDATE(),
     
