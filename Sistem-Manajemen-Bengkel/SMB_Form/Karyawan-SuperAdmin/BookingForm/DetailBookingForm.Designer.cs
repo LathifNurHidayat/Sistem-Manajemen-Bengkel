@@ -116,7 +116,7 @@
             panel1.Controls.Add(ButtonClose);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1434, 833);
+            panel1.Size = new Size(1434, 915);
             panel1.TabIndex = 0;
             // 
             // label16
@@ -148,11 +148,12 @@
             gradientPanelExt4.Controls.Add(ComboMekanik);
             gradientPanelExt4.Location = new Point(555, 481);
             gradientPanelExt4.Name = "gradientPanelExt4";
-            gradientPanelExt4.Size = new Size(854, 256);
+            gradientPanelExt4.Size = new Size(854, 338);
             gradientPanelExt4.TabIndex = 2;
             // 
             // ButtonSparepart
             // 
+            ButtonSparepart.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             ButtonSparepart.BackColor = Color.Gray;
             ButtonSparepart.BackgroundColor = Color.Gray;
             ButtonSparepart.BorderColor = Color.DimGray;
@@ -160,13 +161,15 @@
             ButtonSparepart.BorderSize = 0;
             ButtonSparepart.FlatAppearance.BorderSize = 0;
             ButtonSparepart.FlatStyle = FlatStyle.Flat;
-            ButtonSparepart.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonSparepart.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonSparepart.ForeColor = Color.White;
-            ButtonSparepart.Location = new Point(344, 196);
+            ButtonSparepart.ImageAlign = ContentAlignment.TopCenter;
+            ButtonSparepart.Location = new Point(322, 280);
             ButtonSparepart.Name = "ButtonSparepart";
-            ButtonSparepart.Size = new Size(44, 31);
+            ButtonSparepart.Size = new Size(66, 29);
             ButtonSparepart.TabIndex = 3;
-            ButtonSparepart.Text = "...";
+            ButtonSparepart.Text = "Pilih";
+            ButtonSparepart.TextAlign = ContentAlignment.TopCenter;
             ButtonSparepart.TextColor = Color.White;
             ButtonSparepart.UseVisualStyleBackColor = false;
             // 
@@ -183,12 +186,14 @@
             // 
             // TextSparepart
             // 
+            TextSparepart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             TextSparepart.BorderStyle = BorderStyle.FixedSingle;
             TextSparepart.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextSparepart.Location = new Point(38, 196);
+            TextSparepart.Multiline = true;
             TextSparepart.Name = "TextSparepart";
             TextSparepart.ReadOnly = true;
-            TextSparepart.Size = new Size(300, 31);
+            TextSparepart.Size = new Size(350, 78);
             TextSparepart.TabIndex = 110;
             TextSparepart.TabStop = false;
             // 
@@ -210,9 +215,9 @@
             label13.ForeColor = Color.Black;
             label13.Location = new Point(38, 96);
             label13.Name = "label13";
-            label13.Size = new Size(108, 25);
+            label13.Size = new Size(116, 25);
             label13.TabIndex = 108;
-            label13.Text = "Jenis Servis";
+            label13.Text = "Jenis Servis*";
             // 
             // ComboJenisServis
             // 
@@ -227,12 +232,12 @@
             // 
             // TextCatatan
             // 
-            TextCatatan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextCatatan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TextCatatan.BorderStyle = BorderStyle.FixedSingle;
             TextCatatan.Location = new Point(431, 52);
             TextCatatan.Multiline = true;
             TextCatatan.Name = "TextCatatan";
-            TextCatatan.Size = new Size(392, 175);
+            TextCatatan.Size = new Size(392, 257);
             TextCatatan.TabIndex = 4;
             // 
             // label12
@@ -242,9 +247,9 @@
             label12.ForeColor = Color.Black;
             label12.Location = new Point(38, 24);
             label12.Name = "label12";
-            label12.Size = new Size(82, 25);
+            label12.Size = new Size(90, 25);
             label12.TabIndex = 105;
-            label12.Text = "Mekanik";
+            label12.Text = "Mekanik*";
             // 
             // ComboMekanik
             // 
@@ -282,7 +287,7 @@
             gradientPanelExt1.Controls.Add(gradientPanelExt2);
             gradientPanelExt1.Location = new Point(26, 135);
             gradientPanelExt1.Name = "gradientPanelExt1";
-            gradientPanelExt1.Size = new Size(482, 602);
+            gradientPanelExt1.Size = new Size(482, 684);
             gradientPanelExt1.TabIndex = 83;
             gradientPanelExt1.TabStop = true;
             // 
@@ -507,7 +512,7 @@
             // 
             progres2.Anchor = AnchorStyles.None;
             progres2.BackColor = Color.Silver;
-            progres2.Location = new Point(973, 366);
+            progres2.Location = new Point(973, 407);
             progres2.Name = "progres2";
             progres2.Size = new Size(320, 3);
             progres2.TabIndex = 76;
@@ -521,7 +526,7 @@
             progresSelesai.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             progresSelesai.BorderSize = 2;
             progresSelesai.GradientAngle = 50F;
-            progresSelesai.Location = new Point(1293, 353);
+            progresSelesai.Location = new Point(1293, 394);
             progresSelesai.Name = "progresSelesai";
             progresSelesai.Size = new Size(29, 29);
             progresSelesai.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -537,7 +542,7 @@
             progresDikerjakan.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             progresDikerjakan.BorderSize = 2;
             progresDikerjakan.GradientAngle = 50F;
-            progresDikerjakan.Location = new Point(943, 353);
+            progresDikerjakan.Location = new Point(943, 394);
             progresDikerjakan.Name = "progresDikerjakan";
             progresDikerjakan.Size = new Size(29, 29);
             progresDikerjakan.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -554,7 +559,7 @@
             rjCircularPictureBox1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             rjCircularPictureBox1.BorderSize = 2;
             rjCircularPictureBox1.GradientAngle = 50F;
-            rjCircularPictureBox1.Location = new Point(593, 353);
+            rjCircularPictureBox1.Location = new Point(593, 394);
             rjCircularPictureBox1.Name = "rjCircularPictureBox1";
             rjCircularPictureBox1.Size = new Size(29, 29);
             rjCircularPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -567,7 +572,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(1273, 316);
+            label6.Location = new Point(1273, 357);
             label6.Name = "label6";
             label6.Size = new Size(69, 25);
             label6.TabIndex = 78;
@@ -579,7 +584,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(908, 316);
+            label5.Location = new Point(908, 357);
             label5.Name = "label5";
             label5.Size = new Size(99, 25);
             label5.TabIndex = 77;
@@ -591,7 +596,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(555, 316);
+            label3.Location = new Point(555, 357);
             label3.Name = "label3";
             label3.Size = new Size(105, 25);
             label3.TabIndex = 71;
@@ -601,16 +606,16 @@
             // 
             progres1.Anchor = AnchorStyles.None;
             progres1.BackColor = Color.Silver;
-            progres1.Location = new Point(623, 366);
+            progres1.Location = new Point(623, 407);
             progres1.Name = "progres1";
-            progres1.Size = new Size(320, 3);
+            progres1.Size = new Size(320, 4);
             progres1.TabIndex = 75;
             // 
             // pictureBox4
             // 
             pictureBox4.Anchor = AnchorStyles.None;
             pictureBox4.Image = Properties.Resources.Centang;
-            pictureBox4.Location = new Point(1277, 253);
+            pictureBox4.Location = new Point(1277, 294);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(60, 60);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -621,7 +626,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(927, 253);
+            pictureBox2.Location = new Point(927, 294);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(60, 60);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -632,7 +637,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(577, 253);
+            pictureBox1.Location = new Point(577, 294);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(60, 60);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -662,7 +667,7 @@
             ButtonAksi.FlatStyle = FlatStyle.Flat;
             ButtonAksi.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonAksi.ForeColor = Color.White;
-            ButtonAksi.Location = new Point(1253, 757);
+            ButtonAksi.Location = new Point(1253, 839);
             ButtonAksi.Name = "ButtonAksi";
             ButtonAksi.Size = new Size(156, 45);
             ButtonAksi.TabIndex = 6;
@@ -682,7 +687,7 @@
             ButtonClose.FlatStyle = FlatStyle.Flat;
             ButtonClose.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonClose.ForeColor = Color.White;
-            ButtonClose.Location = new Point(1098, 757);
+            ButtonClose.Location = new Point(1098, 839);
             ButtonClose.Name = "ButtonClose";
             ButtonClose.Size = new Size(135, 45);
             ButtonClose.TabIndex = 7;
@@ -695,7 +700,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1458, 857);
+            ClientSize = new Size(1458, 939);
             Controls.Add(panel1);
             Name = "DetailBookingForm";
             Text = "PelangganBookingForm";

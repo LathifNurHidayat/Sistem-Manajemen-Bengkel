@@ -28,8 +28,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.SparepartForm
             this.MinimizeBox = false;
             _idSparepart = id_sparepart;
 
+
             if (_idSparepart != 0)
                 GetData(_idSparepart);
+            else
+                PictureSparepart.Image = ImageHelper.GetHighQualityThumbnail(ImageDirectoryHelper._sparepartDefault, 200, 200);
 
             RegisterControlEvent();
         }

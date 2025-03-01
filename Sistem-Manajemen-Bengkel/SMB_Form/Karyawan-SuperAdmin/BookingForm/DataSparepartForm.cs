@@ -14,7 +14,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
     public partial class DataSparepartForm : Form
     {
         private readonly SparepartDal _sparepartDal;
-        private readonly BookingSparepartDal _bookingSparepartDal;
+        private readonly PenggunaanSparepartDal _bookingSparepartDal;
+        private readonly BookingDal _bookingDal;
 
         private BindingList<SparepartDto> _sparepartAll;
         private BindingList<SparepartDto> _sparepartRequired;
@@ -28,7 +29,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         {
             InitializeComponent();
             _sparepartDal = new SparepartDal();
-            _bookingSparepartDal = new BookingSparepartDal();
+            _bookingSparepartDal = new PenggunaanSparepartDal();
+            _bookingDal = new BookingDal();
 
             _sparepartAll = new BindingList<SparepartDto>();
             _sparepartRequired = new BindingList<SparepartDto>();
@@ -154,9 +156,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
         private void GetData(int id_booking_sparepart)
         {
+            _sparepartRequired.Clear();
+
             var data = _bookingSparepartDal.GetData(id_booking_sparepart).Select(x => new SparepartDto
             {
-                IdBookingSparepart = x.id_booking_sparepart,
+                IdBookingSparepart = x.id_penggunaan_sparepart,
                 IdSparepart = x.id_sparepart,
                 NamaSparepart = x.nama_sparepart,
                 Stok = x.stok,
@@ -177,13 +181,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
             foreach (var item in _sparepartRequired)
             {
-                var bookingSparepart = new BookingSparepartModel
+                var bookingSparepart = new PenggunaanSparepartModel
                 {
-                    id_booking_sparepart = _idBooking,
+                    id_penggunaan_sparepart = _idBooking,
                     id_sparepart = item.IdSparepart,
                     jumlah = item.Jumlah,
                     total_harga = item.TotalHarga
                 };
+                if (bookingSparepart == null) return;
 
                 _bookingSparepartDal.InsertData(bookingSparepart);
             }
@@ -206,15 +211,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         }
 
 
-        private void ButtonSimpan_Click(object? sender, EventArgs e)
+        private async void ButtonSimpan_Click(object? sender, EventArgs e)
         {
-            if (_sparepartRequired == null || _sparepartRequired.Count == 0)
-            {
-                MesboxHelper.ShowError("Tidak ada sparepart yang dipilih untuk booking.");
-                return;
-            }
             SaveData();
-
             this.DialogResult = DialogResult.OK;
         }
 

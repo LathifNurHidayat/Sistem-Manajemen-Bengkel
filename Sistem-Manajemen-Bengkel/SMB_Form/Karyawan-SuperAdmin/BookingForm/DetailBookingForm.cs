@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Syncfusion.Windows.Forms.Tools;
 
@@ -19,6 +20,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         private readonly BookingDal _bookingDal;
         private readonly JasaServisDal _jasaServisDal;
         private readonly MekanikDal _mekanikDal;
+        private readonly PenggunaanSparepartDal _penggunaanSparepartDal;
 
         private int _statusBooking;
         private int _idBooking;
@@ -29,6 +31,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             _bookingDal = new BookingDal();
             _jasaServisDal = new JasaServisDal();
             _mekanikDal = new MekanikDal();
+            _penggunaanSparepartDal = new PenggunaanSparepartDal();
+
             _idBooking = id_booking;
 
             InitialComboBox();
@@ -76,7 +80,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             ComboMekanik.SelectedValue = string.IsNullOrEmpty(data.no_ktp_mekanik) ? "" : data.no_ktp_mekanik;
             ComboJenisServis.SelectedValue = data.id_jasa_servis ?? 0;
             TextSparepart.Text = data.nama_sparepart;
-            TextCatatan.Text = data.catatan;
+            MesboxHelper.ShowWarning(data.nama_sparepart);
+            TextCatatan.Text = data.catatan ;
 
             if (data.status == 2)
             {
@@ -96,7 +101,36 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
                 ButtonAksi.Visible = false;
                 ButtonClose.Location = ButtonAksi.Location;
+
+                ComboMekanik.Enabled = false;
+                ComboJenisServis.Enabled = false;
+
+                ButtonSparepart.Enabled = false;
+                TextCatatan.ReadOnly = true;
             }
+        }
+
+        private void RefreshSparepart(int id)
+        {
+            var sparepartList = _penggunaanSparepartDal.GetSparepart(id);
+
+            if (sparepartList == null) return;
+                TextSparepart.Text = sparepartList.nama_sparepart;
+        }
+
+
+        private void SaveData()
+        {
+            var booking = new BookingModel
+            {
+                id_booking = _idBooking,
+                no_ktp_mekanik = (string)ComboMekanik.SelectedValue ?? "",
+                id_jasa_servis = (int)ComboJenisServis.SelectedValue == 0 ? 0 : (int)ComboJenisServis.SelectedValue,
+                id_penggunaan_sparepart =  _idBooking,
+                catatan = TextCatatan.Text,
+                status = _statusBooking + 1
+            };
+            _bookingDal.UpdateData(booking);
         }
 
         private void RegisterControlEvent()
@@ -106,23 +140,44 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             ButtonAksi.Click += ButtonAksi_Click;
         }
 
+
         private void ButtonAksi_Click(object? sender, EventArgs e)
         {
             if (_statusBooking == 1)
             {
-                if (MesboxHelper.ShowConfirm("Apakah Anda yakin ingin memproses booking dari pelanggan ini?"))
+                if (MesboxHelper.ShowConfirm("Apakah Anda yakin ingin memproses pelanggan ini? \nPerubahan ini tidak dapat dibatalkan."))
                 {
-                     
+                    SaveData();
+                    NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Status booking berhasil diperbarui.");
+                    notifikasi.Show();
+                    GetData(_idBooking);
+                }
+            }
+            else if (_statusBooking == 2)
+            {
+                if (ComboMekanik.SelectedIndex == 0 || ComboJenisServis.SelectedIndex == 0)
+                {
+                    MesboxHelper.ShowWarning("Harap pilih mekanik dan jenis servis terlebih dahulu.");
+                    return;
+                }
+
+                if (MesboxHelper.ShowConfirm("Apakah Anda yakin ingin menyelesaikan proses ini? \nPerubahan ini tidak dapat dibatalkan."))
+                {
+                    SaveData();
+                    NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Status booking berhasil diperbarui.");
+                    notifikasi.Show();
+                    GetData(_idBooking);
                 }
             }
         }
 
+
         private void ButtonSparepart_Click(object? sender, EventArgs e)
         {
             DataSparepartForm dataSparepartForm = new DataSparepartForm(_idBooking);
-            if (dataSparepartForm.ShowDialog(this) == DialogResult.OK)
+            if (dataSparepartForm.ShowDialog() == DialogResult.OK)
             {
-                GetData(_idBooking);
+                RefreshSparepart(_idBooking);
             }
         }
 
@@ -130,5 +185,5 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         {
             ShowFormHelper.ShowFormInPanel(new BookingForm());
         }
-    } 
+    }
 }

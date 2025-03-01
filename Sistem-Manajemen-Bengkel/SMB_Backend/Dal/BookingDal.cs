@@ -47,11 +47,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             return Conn.Query<BookingModel>(sql, Dp);
         }
 
-
         public BookingModel? GetData(int id_booking)
         {
             const string sql = @"SELECT 
                                     aa.id_booking,
+                                    ISNULL (aa.no_ktp_mekanik, '') AS no_ktp_mekanik,
+                                    ISNULL (aa.id_jasa_servis, 0) AS id_jasa_servis,
                                     ISNULL (aa.no_ktp_pelanggan, '') AS no_ktp_pelanggan,
                                     COALESCE (bb.nama_pelanggan, aa.nama_pelanggan) AS nama_pelanggan,
                                     COALESCE (dd.no_polisi, aa.no_polisi) AS no_polisi,
@@ -67,12 +68,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     
                                     STRING_AGG(gg.nama_sparepart, ', ') AS nama_sparepart,
 
-                                    aa.tanggal, aa.antrean, aa.keluhan, aa.status
+                                    aa.catatan, aa.tanggal, aa.antrean, aa.keluhan, aa.status
                                 FROM 
                                     tb_booking aa
 
-                                LEFT JOIN tb_booking_sparepart ff
-                                    ON aa.id_booking_sparepart = ff.id_booking_sparepart
+                                LEFT JOIN tb_penggunaan_sparepart ff
+                                    ON aa.id_booking = ff.id_penggunaan_sparepart
                                 LEFT JOIN tb_sparepart gg
                                     ON ff.id_sparepart = gg.id_sparepart
 
@@ -85,6 +86,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 WHERE aa.id_booking = @id_booking
                                 GROUP BY
                                     aa.id_booking,
+                                    ISNULL (aa.no_ktp_mekanik, ''),
+                                    ISNULL (aa.id_jasa_servis, 0) ,
                                     ISNULL (aa.no_ktp_pelanggan, '') ,
                                     COALESCE(bb.nama_pelanggan, aa.nama_pelanggan),
                                     COALESCE(dd.no_polisi, aa.no_polisi),
@@ -95,6 +98,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     END,
                                     COALESCE(dd.transmisi, aa.transmisi),
                                     ISNULL(ee.jenis_servis, ''),
+                                    aa.catatan,
                                     aa.tanggal,
                                     aa.antrean,
                                     aa.keluhan,
@@ -135,6 +139,26 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, Dp);
         }
 
+        public void UpdateData(BookingModel booking)
+        {
+            const string sql = @"UPDATE tb_booking 
+                            SET 
+                                no_ktp_mekanik = @no_ktp_mekanik,
+                                id_jasa_servis = @id_jasa_servis,
+                                catatan = @catatan,
+                                status = @status
+                            WHERE id_booking = @id_booking";
+
+            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            var Dp = new DynamicParameters();
+            Dp.Add("@no_ktp_mekanik", booking.no_ktp_mekanik);
+            Dp.Add("@id_jasa_servis", booking.id_jasa_servis);
+            Dp.Add("@catatan", booking.catatan);
+            Dp.Add("@status", booking.status);
+            Dp.Add("@id_booking", booking.id_booking);
+            conn.Execute(sql, Dp);
+        }
+
         public void DeletePermanent(int id_booking)
         {
             const string sql = "DELETE FROM tb_booking WHERE id_booking = @id_booking";
@@ -156,7 +180,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
         public (int AntreanBaru, int AntreanDikerjakan) CekKuotaBooking(DateTime tanggal)
         {
-            const string sql = "SELECT * FROM dbo.CekKuotaBooking(@tanggal)";
+            const string sql = "SELECT * FROM dbo.fnc_ValidasiKuotaBooking(@tanggal)";
 
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
             var result = conn.QueryFirstOrDefault(sql, new { tanggal });

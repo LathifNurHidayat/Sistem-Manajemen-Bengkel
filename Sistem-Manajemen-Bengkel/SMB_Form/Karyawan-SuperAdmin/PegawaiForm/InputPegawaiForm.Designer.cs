@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputPegawaiForm));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             LabelJudul = new Label();
@@ -508,7 +507,7 @@
             PictureProfiles.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             PictureProfiles.BorderSize = 2;
             PictureProfiles.GradientAngle = 50F;
-            PictureProfiles.Image = (Image)resources.GetObject("PictureProfiles.Image");
+            PictureProfiles.Image = Properties.Resources.user;
             PictureProfiles.Location = new Point(152, 44);
             PictureProfiles.Name = "PictureProfiles";
             PictureProfiles.Size = new Size(125, 125);

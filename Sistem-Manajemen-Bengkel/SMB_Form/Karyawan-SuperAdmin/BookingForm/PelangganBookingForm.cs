@@ -55,7 +55,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             ComboKendaraan.DataSource = data;
             ComboKendaraan.ValueMember = "Id";
             ComboKendaraan.DisplayMember = "NamaKendaraan";
-        }
+        } 
 
         private void SaveData(int antrean)
         {
