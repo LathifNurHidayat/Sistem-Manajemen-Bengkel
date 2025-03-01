@@ -209,7 +209,7 @@ VALUES
 
 INSERT INTO tb_riwayat 
     (id_jasa_servis, nama_pelanggan, no_polisi, merek, transmisi, kapasitas_mesin, 
-     no_ktp_pelanggan, no_ktp_pegawai, no_ktp_mekanik, id_kendaraan, id_booking_sparepart, tanggal, keluhan, catatan, total_biaya, status)
+     no_ktp_pelanggan, no_ktp_pegawai, no_ktp_mekanik, id_kendaraan, id_penggunaan_sparepart, tanggal, keluhan, catatan, total_biaya, status)
 VALUES
 (1,  NULL, NULL, NULL, NULL, NULL, '32010110000001', '32010120000001', '32010130000001', 1, NULL, CAST(GETDATE() AS DATE), 'Oli bocor', 'Ganti oli', 150000, 'Selesai'),
 (2,  NULL, NULL, NULL, NULL, NULL, '32010110000002', '32010120000002', '32010130000002', 2, NULL, CAST(GETDATE() AS DATE), 'AC tidak dingin', 'Tambah freon', 250000, 'Selesai'),

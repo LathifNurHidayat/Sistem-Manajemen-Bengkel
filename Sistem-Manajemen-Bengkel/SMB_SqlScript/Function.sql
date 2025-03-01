@@ -1,6 +1,6 @@
 ﻿
 --fungasi Cek Kuota Booking -- Cek ketersediaan kuota booking
-CREATE FUNCTION CekKuotaBooking(@tanggal DATE)
+CREATE FUNCTION fnc_ValidasiKuotaBooking(@tanggal DATE)
 RETURNS @Result TABLE
 (
     AntreanBaru INT,
