@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
+using Syncfusion.Windows.Forms.Tools;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 {
@@ -20,6 +21,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         private readonly MekanikDal _mekanikDal;
 
         private int _statusBooking;
+        private int _idBooking;
 
         public DetailBookingForm(int id_booking)
         {
@@ -27,10 +29,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             _bookingDal = new BookingDal();
             _jasaServisDal = new JasaServisDal();
             _mekanikDal = new MekanikDal();
+            _idBooking = id_booking;
 
             InitialComboBox();
             GetData(id_booking);
-
+            CustomComponentHelper.CustomPanel(panel1);
             RegisterControlEvent();
         }
 
@@ -58,6 +61,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             var data = _bookingDal.GetData(id_booking);
             if (data == null) return;
 
+            _statusBooking = data.status;
+
             LabelAntreanAnda.Text = data.antrean.ToString();
             LabelIdBooking.Text = data.id_booking.ToString();
             LabelNama.Text = $": {data.nama_pelanggan}";
@@ -77,6 +82,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             {
                 progres1.BackColor = System.Drawing.Color.LimeGreen;
                 progresDikerjakan.BackColor = System.Drawing.Color.LimeGreen;
+
+                ButtonAksi.BackColor = System.Drawing.Color.Green;
+                ButtonAksi.Text = "Selesai";
             }
             else if (data.status == 3)
             {
@@ -85,13 +93,37 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
                 progres2.BackColor = System.Drawing.Color.LimeGreen;
                 progresSelesai.BackColor = System.Drawing.Color.LimeGreen;
+
+                ButtonAksi.Visible = false;
+                ButtonClose.Location = ButtonAksi.Location;
             }
         }
 
         private void RegisterControlEvent()
         {
-            ButtonBatal.Click += ButtonBatal_Click;
+            ButtonClose.Click += ButtonBatal_Click;
+            ButtonSparepart.Click += ButtonSparepart_Click;
+            ButtonAksi.Click += ButtonAksi_Click;
+        }
 
+        private void ButtonAksi_Click(object? sender, EventArgs e)
+        {
+            if (_statusBooking == 1)
+            {
+                if (MesboxHelper.ShowConfirm("Apakah Anda yakin ingin memproses booking dari pelanggan ini?"))
+                {
+                     
+                }
+            }
+        }
+
+        private void ButtonSparepart_Click(object? sender, EventArgs e)
+        {
+            DataSparepartForm dataSparepartForm = new DataSparepartForm(_idBooking);
+            if (dataSparepartForm.ShowDialog(this) == DialogResult.OK)
+            {
+                GetData(_idBooking);
+            }
         }
 
         private void ButtonBatal_Click(object? sender, EventArgs e)

@@ -44,7 +44,7 @@
             GridListData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListData.BackgroundColor = Color.Gainsboro;
             GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridListData.Location = new Point(25, 94);
+            GridListData.Location = new Point(17, 94);
             GridListData.Name = "GridListData";
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
@@ -82,7 +82,7 @@
             ComboEntries.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboEntries.ForeColor = Color.Black;
             ComboEntries.FormattingEnabled = true;
-            ComboEntries.Location = new Point(82, 387);
+            ComboEntries.Location = new Point(74, 387);
             ComboEntries.Name = "ComboEntries";
             ComboEntries.Size = new Size(69, 31);
             ComboEntries.TabIndex = 57;
@@ -98,7 +98,7 @@
             ButtonSearch.FlatStyle = FlatStyle.Flat;
             ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(276, 34);
+            ButtonSearch.Location = new Point(268, 34);
             ButtonSearch.Name = "ButtonSearch";
             ButtonSearch.Size = new Size(53, 31);
             ButtonSearch.TabIndex = 56;
@@ -115,7 +115,7 @@
             TextSearch.FocusBorderColor = Color.Black;
             TextSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextSearch.ForeColor = Color.Black;
-            TextSearch.Location = new Point(25, 35);
+            TextSearch.Location = new Point(17, 35);
             TextSearch.MinimumSize = new Size(34, 30);
             TextSearch.Name = "TextSearch";
             TextSearch.PlaceholderText = "🔍   Cari";
@@ -134,7 +134,7 @@
             ButtonPilih.FlatStyle = FlatStyle.Flat;
             ButtonPilih.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonPilih.ForeColor = Color.White;
-            ButtonPilih.Location = new Point(477, 381);
+            ButtonPilih.Location = new Point(469, 381);
             ButtonPilih.Name = "ButtonPilih";
             ButtonPilih.Size = new Size(120, 40);
             ButtonPilih.TabIndex = 60;

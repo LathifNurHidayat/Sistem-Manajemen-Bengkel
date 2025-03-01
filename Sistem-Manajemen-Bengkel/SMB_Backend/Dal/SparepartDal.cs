@@ -130,5 +130,24 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
+
+        public IEnumerable<SparepartModel> ListSparepart(string filter)
+        {
+            string sql = @"SELECT id_sparepart, nama_sparepart, stok, harga FROM tb_sparepart ";
+
+            if (!string.IsNullOrEmpty(filter))
+            {
+                sql += "WHERE (nama_sparepart LIKE @Filter OR CAST(stok AS VARCHAR(50)) LIKE @Filter OR CAST(harga AS VARCHAR(50)) LIKE @Filter)";
+            }
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            
+            var Dp = new DynamicParameters();
+            
+            Dp.Add("@Filter", $"%{filter}%");
+            return Conn.Query<SparepartModel>(sql, Dp);
+        }
+
+
     }
 }

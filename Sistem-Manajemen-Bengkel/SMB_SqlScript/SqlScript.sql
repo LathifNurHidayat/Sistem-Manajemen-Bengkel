@@ -89,21 +89,13 @@ CREATE TABLE tb_kendaraan (
 
 
 
-CREATE  TABLE tb_penggunaan_sparepart (
-    id_penggunaan_sparepart INT IDENTITY(1,1) PRIMARY KEY,
-    id_sparepart INT,
-    jumlah INT,
-    harga Decimal(18,2),
-    CONSTRAINT fk_penggunaan_sparepart_sparepart FOREIGN KEY (id_sparepart) REFERENCES tb_sparepart(id_sparepart),
-);
-
 CREATE TABLE tb_booking (
     id_booking INT IDENTITY(1,1) PRIMARY KEY,
     no_ktp_pelanggan VARCHAR(20),
     no_ktp_mekanik VARCHAR(20),
     id_kendaraan INT,
     id_jasa_servis INT,
-    id_penggunaan_sparepart INT,
+    id_booking_sparepart INT,
 
     nama_pelanggan VARCHAR(50),
     no_polisi VARCHAR(20),
@@ -128,8 +120,16 @@ CREATE TABLE tb_booking (
     CONSTRAINT fk_booking_kendaraan FOREIGN KEY (id_kendaraan) REFERENCES tb_kendaraan(id_kendaraan),
 
     CONSTRAINT fk_booking_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis),
+);
 
-    CONSTRAINT fk_booking_penggunaan_sparepart FOREIGN KEY (id_penggunaan_sparepart) REFERENCES tb_penggunaan_sparepart (id_penggunaan_sparepart)
+
+CREATE  TABLE tb_booking_sparepart (
+    id_booking_sparepart INT,
+    id_sparepart INT,
+    jumlah INT,
+    harga Decimal(18,2),
+    CONSTRAINT fk_booking_sparepart_booking FOREIGN KEY (id_booking_sparepart) REFERENCES tb_booking (id_booking),
+    CONSTRAINT fk_booking_sparepart_sparepart FOREIGN KEY (id_sparepart) REFERENCES tb_sparepart(id_sparepart),
 );
 
 
@@ -140,7 +140,7 @@ CREATE TABLE tb_riwayat(
     no_ktp_pegawai VARCHAR(20),
     no_ktp_mekanik VARCHAR(20),
     id_kendaraan INT,
-    id_penggunaan_sparepart INT,
+    id_booking_sparepart INT,
 
     nama_pelanggan VARCHAR(50),
     no_polisi VARCHAR(20),
@@ -167,7 +167,6 @@ CREATE TABLE tb_riwayat(
         ON UPDATE CASCADE, 
 
     CONSTRAINT fk_riwayat_kendaraan FOREIGN KEY (id_kendaraan) REFERENCES tb_kendaraan(id_kendaraan),
-    CONSTRAINT fk_riwayat_penggunaan_sparepart FOREIGN KEY (id_penggunaan_sparepart) REFERENCES tb_penggunaan_sparepart(id_penggunaan_sparepart)
 );
 
 

@@ -12,7 +12,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public int id_jasa_servis { get; set; }
         public string no_ktp { get; set; }
         public int id_kendaraan { get; set; }
-        public int id_penggunaan_sparepart { get; set; }
+        public int id_booking_sparepart { get; set; }
         public int id_petugas { get; set; }
         public DateTime tanggal { get; set; }
         public string keluhan { get; set; }

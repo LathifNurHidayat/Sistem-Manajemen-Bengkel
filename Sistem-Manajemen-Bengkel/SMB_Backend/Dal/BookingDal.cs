@@ -71,8 +71,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 FROM 
                                     tb_booking aa
 
-                                LEFT JOIN tb_penggunaan_sparepart ff
-                                    ON aa.id_penggunaan_sparepart = ff.id_penggunaan_sparepart
+                                LEFT JOIN tb_booking_sparepart ff
+                                    ON aa.id_booking_sparepart = ff.id_booking_sparepart
                                 LEFT JOIN tb_sparepart gg
                                     ON ff.id_sparepart = gg.id_sparepart
 
