@@ -100,7 +100,26 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 progresSelesai.BackColor = System.Drawing.Color.LimeGreen;
 
                 ButtonAksi.Visible = false;
-                ButtonClose.Location = ButtonAksi.Location;
+                ButtonBack.Location = ButtonAksi.Location;
+
+                ComboMekanik.Enabled = false;
+                ComboJenisServis.Enabled = false;
+
+                ButtonSparepart.Enabled = false;
+                TextCatatan.ReadOnly = true;
+            }
+            else if (data.status == 4)
+            {
+                PictureSelesai.Image = Properties.Resources.cancelled;
+                LabelSelesai.Text = "Dibatalkan";
+                progres1.BackColor = System.Drawing.Color.Red;
+                progresDikerjakan.BackColor = System.Drawing.Color.Red;
+
+                progres2.BackColor = System.Drawing.Color.Red;
+                progresSelesai.BackColor = System.Drawing.Color.Red;
+
+                ButtonAksi.Visible = false;
+                ButtonBack.Location = ButtonAksi.Location;
 
                 ComboMekanik.Enabled = false;
                 ComboJenisServis.Enabled = false;
@@ -114,7 +133,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         {
             var sparepartList = _penggunaanSparepartDal.GetSparepart(id);
 
-            if (sparepartList == null) return;
+            if (sparepartList == null)
+            {
+                TextSparepart.Clear();
+                return;
+            }
                 TextSparepart.Text = sparepartList.nama_sparepart;
         }
 
@@ -135,7 +158,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
         private void RegisterControlEvent()
         {
-            ButtonClose.Click += ButtonBatal_Click;
+            ButtonBack.Click += ButtonBatal_Click;
             ButtonSparepart.Click += ButtonSparepart_Click;
             ButtonAksi.Click += ButtonAksi_Click;
         }
@@ -148,7 +171,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 if (MesboxHelper.ShowConfirm("Apakah Anda yakin ingin memproses pelanggan ini? \nPerubahan ini tidak dapat dibatalkan."))
                 {
                     SaveData();
-                    NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Status booking berhasil diperbarui.");
+                    NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Booking diproses");
                     notifikasi.Show();
                     GetData(_idBooking);
                 }
@@ -164,7 +187,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 if (MesboxHelper.ShowConfirm("Apakah Anda yakin ingin menyelesaikan proses ini? \nPerubahan ini tidak dapat dibatalkan."))
                 {
                     SaveData();
-                    NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Status booking berhasil diperbarui.");
+                    NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Selesai");
                     notifikasi.Show();
                     GetData(_idBooking);
                 }

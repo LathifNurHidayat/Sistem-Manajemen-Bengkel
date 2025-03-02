@@ -55,7 +55,7 @@
             label10 = new Label();
             label4 = new Label();
             label7 = new Label();
-            label2 = new Label();
+            lbl = new Label();
             label8 = new Label();
             gradientPanelExt2 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
             label1 = new Label();
@@ -65,16 +65,16 @@
             progresSelesai = new SMB_CustomTolbox.RJCircularPictureBox();
             progresDikerjakan = new SMB_CustomTolbox.RJCircularPictureBox();
             rjCircularPictureBox1 = new SMB_CustomTolbox.RJCircularPictureBox();
-            label6 = new Label();
+            LabelSelesai = new Label();
             label5 = new Label();
             label3 = new Label();
             progres1 = new Panel();
-            pictureBox4 = new PictureBox();
+            PictureSelesai = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             label9 = new Label();
             ButtonAksi = new SMB_CustomTolbox.LathifButton();
-            ButtonClose = new SMB_CustomTolbox.LathifButton();
+            ButtonBack = new SMB_CustomTolbox.LathifButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt4).BeginInit();
             gradientPanelExt4.SuspendLayout();
@@ -88,7 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)progresSelesai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)progresDikerjakan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PictureSelesai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -104,16 +104,16 @@
             panel1.Controls.Add(progresSelesai);
             panel1.Controls.Add(progresDikerjakan);
             panel1.Controls.Add(rjCircularPictureBox1);
-            panel1.Controls.Add(label6);
+            panel1.Controls.Add(LabelSelesai);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(progres1);
-            panel1.Controls.Add(pictureBox4);
+            panel1.Controls.Add(PictureSelesai);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(ButtonAksi);
-            panel1.Controls.Add(ButtonClose);
+            panel1.Controls.Add(ButtonBack);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(1434, 915);
@@ -133,7 +133,7 @@
             // gradientPanelExt4
             // 
             gradientPanelExt4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gradientPanelExt4.BackColor = Color.Transparent;
+            gradientPanelExt4.BackColor = Color.WhiteSmoke;
             gradientPanelExt4.Border = new Padding(2);
             gradientPanelExt4.BorderGap = 2;
             gradientPanelExt4.BorderStyle = BorderStyle.None;
@@ -282,7 +282,7 @@
             gradientPanelExt1.Controls.Add(label10);
             gradientPanelExt1.Controls.Add(label4);
             gradientPanelExt1.Controls.Add(label7);
-            gradientPanelExt1.Controls.Add(label2);
+            gradientPanelExt1.Controls.Add(lbl);
             gradientPanelExt1.Controls.Add(label8);
             gradientPanelExt1.Controls.Add(gradientPanelExt2);
             gradientPanelExt1.Location = new Point(26, 135);
@@ -435,16 +435,16 @@
             label7.TabIndex = 100;
             label7.Text = "Nama";
             // 
-            // label2
+            // lbl
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(24, 380);
-            label2.Name = "label2";
-            label2.Size = new Size(100, 25);
-            label2.TabIndex = 101;
-            label2.Text = "Kendaraan";
+            lbl.AutoSize = true;
+            lbl.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl.ForeColor = Color.Black;
+            lbl.Location = new Point(24, 380);
+            lbl.Name = "lbl";
+            lbl.Size = new Size(100, 25);
+            lbl.TabIndex = 101;
+            lbl.Text = "Kendaraan";
             // 
             // label8
             // 
@@ -566,17 +566,17 @@
             rjCircularPictureBox1.TabIndex = 80;
             rjCircularPictureBox1.TabStop = false;
             // 
-            // label6
+            // LabelSelesai
             // 
-            label6.Anchor = AnchorStyles.None;
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(1273, 357);
-            label6.Name = "label6";
-            label6.Size = new Size(69, 25);
-            label6.TabIndex = 78;
-            label6.Text = "Selesai";
+            LabelSelesai.Anchor = AnchorStyles.None;
+            LabelSelesai.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelSelesai.ForeColor = Color.Black;
+            LabelSelesai.Location = new Point(1246, 357);
+            LabelSelesai.Name = "LabelSelesai";
+            LabelSelesai.Size = new Size(123, 25);
+            LabelSelesai.TabIndex = 78;
+            LabelSelesai.Text = "Selesai";
+            LabelSelesai.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -611,16 +611,16 @@
             progres1.Size = new Size(320, 4);
             progres1.TabIndex = 75;
             // 
-            // pictureBox4
+            // PictureSelesai
             // 
-            pictureBox4.Anchor = AnchorStyles.None;
-            pictureBox4.Image = Properties.Resources.Centang;
-            pictureBox4.Location = new Point(1277, 294);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(60, 60);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 74;
-            pictureBox4.TabStop = false;
+            PictureSelesai.Anchor = AnchorStyles.None;
+            PictureSelesai.Image = Properties.Resources.Centang;
+            PictureSelesai.Location = new Point(1277, 294);
+            PictureSelesai.Name = "PictureSelesai";
+            PictureSelesai.Size = new Size(60, 60);
+            PictureSelesai.SizeMode = PictureBoxSizeMode.Zoom;
+            PictureSelesai.TabIndex = 74;
+            PictureSelesai.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -675,25 +675,28 @@
             ButtonAksi.TextColor = Color.White;
             ButtonAksi.UseVisualStyleBackColor = false;
             // 
-            // ButtonClose
+            // ButtonBack
             // 
-            ButtonClose.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonClose.BackColor = Color.Red;
-            ButtonClose.BackgroundColor = Color.Red;
-            ButtonClose.BorderColor = Color.DarkGray;
-            ButtonClose.BorderRadius = 5;
-            ButtonClose.BorderSize = 0;
-            ButtonClose.FlatAppearance.BorderSize = 0;
-            ButtonClose.FlatStyle = FlatStyle.Flat;
-            ButtonClose.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonClose.ForeColor = Color.White;
-            ButtonClose.Location = new Point(1098, 839);
-            ButtonClose.Name = "ButtonClose";
-            ButtonClose.Size = new Size(135, 45);
-            ButtonClose.TabIndex = 7;
-            ButtonClose.Text = "❌ Close";
-            ButtonClose.TextColor = Color.White;
-            ButtonClose.UseVisualStyleBackColor = false;
+            ButtonBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonBack.BackColor = Color.Red;
+            ButtonBack.BackgroundColor = Color.Red;
+            ButtonBack.BorderColor = Color.DarkGray;
+            ButtonBack.BorderRadius = 5;
+            ButtonBack.BorderSize = 0;
+            ButtonBack.FlatAppearance.BorderSize = 0;
+            ButtonBack.FlatStyle = FlatStyle.Flat;
+            ButtonBack.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonBack.ForeColor = Color.White;
+            ButtonBack.Image = (Image)resources.GetObject("ButtonBack.Image");
+            ButtonBack.Location = new Point(1098, 839);
+            ButtonBack.Name = "ButtonBack";
+            ButtonBack.Size = new Size(135, 45);
+            ButtonBack.TabIndex = 7;
+            ButtonBack.Text = "Back";
+            ButtonBack.TextAlign = ContentAlignment.MiddleRight;
+            ButtonBack.TextColor = Color.White;
+            ButtonBack.TextImageRelation = TextImageRelation.ImageBeforeText;
+            ButtonBack.UseVisualStyleBackColor = false;
             // 
             // DetailBookingForm
             // 
@@ -721,7 +724,7 @@
             ((System.ComponentModel.ISupportInitialize)progresSelesai).EndInit();
             ((System.ComponentModel.ISupportInitialize)progresDikerjakan).EndInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PictureSelesai).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -734,16 +737,16 @@
         private ComboBox ComboMekanik;
         private Label label3;
         private SMB_CustomTolbox.LathifButton ButtonAksi;
-        private SMB_CustomTolbox.LathifButton ButtonClose;
+        private SMB_CustomTolbox.LathifButton ButtonBack;
         private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt2;
         private Label label1;
         private Label LabelAntreanAnda;
         private PictureBox pictureBox3;
         private Panel progres1;
-        private PictureBox pictureBox4;
+        private PictureBox PictureSelesai;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
-        private Label label6;
+        private Label LabelSelesai;
         private Label label5;
         private SMB_CustomTolbox.RJCircularPictureBox rjCircularPictureBox1;
         private SMB_CustomTolbox.RJCircularPictureBox progresDikerjakan;
@@ -762,7 +765,7 @@
         private Label label10;
         private Label label4;
         private Label label7;
-        private Label label2;
+        private Label lbl;
         private Label label8;
         private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt3;
         private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt4;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -151,8 +152,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
             var Dp = new DynamicParameters();
-            Dp.Add("@no_ktp_mekanik", booking.no_ktp_mekanik);
-            Dp.Add("@id_jasa_servis", booking.id_jasa_servis);
+            if (string.IsNullOrEmpty(booking.no_ktp_mekanik))
+                Dp.Add("@no_ktp_mekanik", DBNull.Value, DbType.String);
+            else
+                Dp.Add("@no_ktp_mekanik", booking.no_ktp_mekanik); 
+            
+            if (booking.id_jasa_servis == 0)
+                Dp.Add("@id_jasa_servis", DBNull.Value, DbType.Int32);
+            else
+                Dp.Add("@id_jasa_servis", booking.id_jasa_servis);
+
             Dp.Add("@catatan", booking.catatan);
             Dp.Add("@status", booking.status);
             Dp.Add("@id_booking", booking.id_booking);
@@ -188,6 +197,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             return (AntreanBaru: result.AntreanBaru, AntreanDikerjakan: result.AntreanDikerjakan);
         }
 
+
+        public List<DateTime> GetDataTanggal()
+        {
+            const string sql = @"SELECT DISTINCT tanggal 
+                                FROM tb_booking 
+                                WHERE CAST(tanggal AS DATE) <> CAST(GETDATE() AS DATE) 
+                                ORDER BY tanggal ASC";
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+
+            return Conn.Query<DateTime>(sql).AsList();   
+        }
 
     }
 }

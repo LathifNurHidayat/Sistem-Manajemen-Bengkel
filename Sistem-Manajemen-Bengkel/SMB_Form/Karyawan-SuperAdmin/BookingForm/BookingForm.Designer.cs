@@ -31,6 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingForm));
             PanelBooking = new Panel();
             TextBatasBooking = new TextBox();
             label3 = new Label();
@@ -284,7 +285,7 @@
             ButtonSearch.FlatStyle = FlatStyle.Flat;
             ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(847, 171);
+            ButtonSearch.Location = new Point(784, 171);
             ButtonSearch.Name = "ButtonSearch";
             ButtonSearch.Size = new Size(53, 31);
             ButtonSearch.TabIndex = 47;
@@ -299,9 +300,9 @@
             ComboFilter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboFilter.ForeColor = Color.Black;
             ComboFilter.FormattingEnabled = true;
-            ComboFilter.Location = new Point(906, 171);
+            ComboFilter.Location = new Point(864, 171);
             ComboFilter.Name = "ComboFilter";
-            ComboFilter.Size = new Size(129, 31);
+            ComboFilter.Size = new Size(171, 31);
             ComboFilter.TabIndex = 46;
             // 
             // TextSearch
@@ -314,7 +315,7 @@
             TextSearch.FocusBorderColor = Color.Black;
             TextSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextSearch.ForeColor = Color.Black;
-            TextSearch.Location = new Point(605, 172);
+            TextSearch.Location = new Point(542, 172);
             TextSearch.MinimumSize = new Size(34, 30);
             TextSearch.Name = "TextSearch";
             TextSearch.PlaceholderText = "🔍   Cari";
@@ -393,15 +394,15 @@
             contextMenuStrip.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem });
             contextMenuStrip.MetroColor = Color.FromArgb(204, 236, 249);
             contextMenuStrip.Name = "contextMenuStrip";
-            contextMenuStrip.Size = new Size(121, 36);
+            contextMenuStrip.Size = new Size(238, 36);
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            editToolStripMenuItem.Image = Properties.Resources.pencil;
+            editToolStripMenuItem.Image = (Image)resources.GetObject("editToolStripMenuItem.Image");
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(120, 32);
-            editToolStripMenuItem.Text = "Edit";
+            editToolStripMenuItem.Size = new Size(237, 32);
+            editToolStripMenuItem.Text = "Lihat lebih detail";
             // 
             // BookingForm
             // 

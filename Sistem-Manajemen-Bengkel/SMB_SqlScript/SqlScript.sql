@@ -151,7 +151,7 @@ CREATE TABLE tb_riwayat(
     keluhan VARCHAR(225),
     catatan VARCHAR(225),
     total_biaya DECIMAL(18,2),
-    status VARCHAR(50),
+    status INT,
     created_at DATETIME DEFAULT GETDATE(),
 
     CONSTRAINT fk_riwayat_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis),

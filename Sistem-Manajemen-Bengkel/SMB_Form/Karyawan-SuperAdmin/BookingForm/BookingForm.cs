@@ -53,6 +53,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         {
             List<int> entries = new() { 10, 25, 50, 100 };
             ComboEntries.DataSource = entries;
+
+            List<string> filter = new() { "Hari ini", "Semua (All)"};
+            var dataTanggal = _bookingDal.GetDataTanggal();
+            filter.AddRange(dataTanggal.Select(x => x.ToString("dd/MM/yyyy")).ToList());
+            ComboFilter.DataSource = filter;
+
             CustomComponentHelper.CustomDataGrid(GridListData);
             CustomComponentHelper.CustomPanel(PanelBooking);
 
@@ -103,26 +109,40 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             TextPage.Text = page.ToString();
             string search = TextSearch.Text.Trim();
             int rowPerPage = (int)ComboEntries.SelectedValue;
+            string filterTanggal = ComboFilter.SelectedIndex == 0 ? DateTime.Today.ToString() : 
+                                   ComboFilter.SelectedIndex == 1 ? string.Empty :
+                                   ComboFilter.SelectedItem.ToString();
             int inRowPage = (page - 1) * rowPerPage;
             var dp = new DynamicParameters();
             string filters = string.Empty;
 
+            if (!string.IsNullOrEmpty(filterTanggal))
+            {
+                filters += " WHERE aa.tanggal = CAST(@tanggal AS DATE)";
+                dp.Add("@tanggal", DateTime.Parse(filterTanggal));
+            }
+
             if (!string.IsNullOrEmpty(search))
             {
+                if (!string.IsNullOrEmpty(filters))
+                    filters += " AND";
+                else
+                    filters += " WHERE";
+
+                filters += @" (bb.no_hp LIKE @Search OR
+                       LOWER(COALESCE(bb.nama_pelanggan, aa.nama_pelanggan)) LIKE LOWER(@Search) OR
+                       LOWER( CASE 
+                               WHEN (aa.merek IS NULL OR aa.merek = '') AND (aa.kapasitas_mesin IS NULL OR aa.kapasitas_mesin = '')
+                               THEN CONCAT(COALESCE(dd.merek, ''), ' ', COALESCE(dd.kapasitas_mesin, ''), 'cc')
+                               ELSE CONCAT(COALESCE(aa.merek, ''), ' ', COALESCE(aa.kapasitas_mesin, ''), 'cc')
+                             END 
+                       ) LIKE LOWER(@Search))";
+
                 dp.Add("@Search", $"%{search}%");
-                filters = @"   WHERE 
-                                bb.no_hp LIKE @Search OR
-                                LOWER( COALESCE(bb.nama_pelanggan, aa.nama_pelanggan)) LIKE LOWER ('%'+@Search+'%') OR
-                                LOWER(  CASE 
-                                            WHEN (aa.merek IS NULL OR aa.merek = '') AND (aa.kapasitas_mesin IS NULL OR aa.kapasitas_mesin = '')
-                                            THEN CONCAT ( COALESCE(dd.merek, ''), ' ' , COALESCE(dd.kapasitas_mesin, ''), 'cc')
-                                            ELSE CONCAT ( COALESCE(aa.merek, ''), ' ' , COALESCE(aa.kapasitas_mesin, ''), 'cc')
-                                        END 
-                                    ) LIKE LOWER ('%'+@Search+'%') ";
             }
+
             dp.Add("@offset", inRowPage);
             dp.Add("@fetch", rowPerPage);
-
 
             int totalEntries = _bookingDal.CountData(filters, dp);
             totalPage = (int)Math.Ceiling((double)totalEntries / rowPerPage);
@@ -162,6 +182,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             GridListData.CellMouseClick += GridListData_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             GridListData.CellDoubleClick += GridListData_CellDoubleClick;
+            ComboFilter.SelectedIndexChanged += ComboFilter_SelectedIndexChanged;
+        }
+
+        private void ComboFilter_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void GridListData_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
@@ -200,7 +226,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {
             PilihForm pilihForm = new PilihForm();
-            if (pilihForm.ShowDialog()== DialogResult.OK)
+            if (pilihForm.ShowDialog() == DialogResult.OK)
             {
                 LoadData();
             }
@@ -209,7 +235,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         private void ButtonSearch_Click(object? sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TextSearch.Text)) return;
-            LoadData(); 
+            LoadData();
         }
 
         private void ButtonPreviuos_Click(object? sender, EventArgs e)

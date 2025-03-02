@@ -44,7 +44,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             fadeOutTimer.Tick += FadeOut;
 
             System.Windows.Forms.Timer waitTimer = new System.Windows.Forms.Timer();
-            waitTimer.Interval = 1500; 
+            waitTimer.Interval = 2000; 
             waitTimer.Tick += (s, e) =>
             {
                 waitTimer.Stop();
