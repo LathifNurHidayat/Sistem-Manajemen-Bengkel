@@ -303,6 +303,7 @@
             // 
             // panel11
             // 
+            panel11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel11.BackColor = Color.White;
             panel11.BorderStyle = BorderStyle.FixedSingle;
             panel11.Controls.Add(TextKapasitasMesin);

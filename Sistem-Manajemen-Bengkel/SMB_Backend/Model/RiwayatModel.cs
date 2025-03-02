@@ -10,10 +10,19 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
     {
         public int id_riwayat { get; set; }
         public int id_jasa_servis { get; set; }
-        public string no_ktp { get; set; }
+        public string no_ktp_pelanggan { get; set; }
+        public string no_ktp_pegawai { get; set; }
+        public string no_ktp_mekanik { get; set; }
         public int id_kendaraan { get; set; }
-        public int id_booking_sparepart { get; set; }
-        public int id_petugas { get; set; }
+        public int id_penggunaan_sparepart { get; set; }
+
+        public string nama_pelanggan { get; set; }
+        public string no_polisi { get; set; }
+        public string merek { get; set; }
+        public int transmisi { get; set; }
+        public int kapasitas_mesin { get; set; }
+        public string nama_kendaraan { get; set; }
+
         public DateTime tanggal { get; set; }
         public string keluhan { get; set; }
         public string catatan { get; set; }
