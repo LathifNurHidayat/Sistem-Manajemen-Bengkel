@@ -32,7 +32,9 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             PanelBooking = new Panel();
-            label3 = new Label();
+            panel2 = new Panel();
+            PickerFilter1 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            PickerFilter2 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             ComboFilter = new ComboBox();
             label2 = new Label();
             label1 = new Label();
@@ -46,7 +48,7 @@
             TextSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             GridListData = new DataGridView();
             label7 = new Label();
-            ButtonTambah = new SMB_CustomTolbox.LathifButton();
+            ButtonEksport = new SMB_CustomTolbox.LathifButton();
             contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             editToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
@@ -63,7 +65,9 @@
             PanelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelBooking.AutoScroll = true;
             PanelBooking.BackColor = Color.White;
-            PanelBooking.Controls.Add(label3);
+            PanelBooking.Controls.Add(panel2);
+            PanelBooking.Controls.Add(PickerFilter1);
+            PanelBooking.Controls.Add(PickerFilter2);
             PanelBooking.Controls.Add(ComboFilter);
             PanelBooking.Controls.Add(label2);
             PanelBooking.Controls.Add(label1);
@@ -76,23 +80,52 @@
             PanelBooking.Controls.Add(TextSearch);
             PanelBooking.Controls.Add(GridListData);
             PanelBooking.Controls.Add(label7);
-            PanelBooking.Controls.Add(ButtonTambah);
+            PanelBooking.Controls.Add(ButtonEksport);
             PanelBooking.Location = new Point(12, 12);
             PanelBooking.Name = "PanelBooking";
-            PanelBooking.Size = new Size(1058, 679);
+            PanelBooking.Size = new Size(1350, 679);
             PanelBooking.TabIndex = 0;
             // 
-            // label3
+            // panel2
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(791, 175);
-            label3.Name = "label3";
-            label3.Size = new Size(64, 23);
-            label3.TabIndex = 56;
-            label3.Text = "Sort by";
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel2.BackColor = Color.Black;
+            panel2.Location = new Point(947, 185);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(13, 3);
+            panel2.TabIndex = 93;
+            // 
+            // PickerFilter1
+            // 
+            PickerFilter1.AllowNull = true;
+            PickerFilter1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            PickerFilter1.BackColor = Color.White;
+            PickerFilter1.DateTimeIcon = null;
+            PickerFilter1.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
+            PickerFilter1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            PickerFilter1.Format = "dd MMMM yyyy";
+            PickerFilter1.Location = new Point(768, 169);
+            PickerFilter1.Name = "PickerFilter1";
+            PickerFilter1.Size = new Size(176, 31);
+            PickerFilter1.TabIndex = 92;
+            PickerFilter1.ToolTipText = "";
+            PickerFilter1.Value = new DateTime(2025, 2, 24, 7, 58, 7, 0);
+            // 
+            // PickerFilter2
+            // 
+            PickerFilter2.AllowNull = true;
+            PickerFilter2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            PickerFilter2.BackColor = Color.White;
+            PickerFilter2.DateTimeIcon = null;
+            PickerFilter2.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
+            PickerFilter2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            PickerFilter2.Format = "dd MMMM yyyy";
+            PickerFilter2.Location = new Point(963, 169);
+            PickerFilter2.Name = "PickerFilter2";
+            PickerFilter2.Size = new Size(176, 31);
+            PickerFilter2.TabIndex = 91;
+            PickerFilter2.ToolTipText = "";
+            PickerFilter2.Value = new DateTime(2025, 2, 24, 7, 58, 7, 0);
             // 
             // ComboFilter
             // 
@@ -101,7 +134,7 @@
             ComboFilter.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ComboFilter.ForeColor = Color.Black;
             ComboFilter.FormattingEnabled = true;
-            ComboFilter.Location = new Point(861, 169);
+            ComboFilter.Location = new Point(1153, 169);
             ComboFilter.Name = "ComboFilter";
             ComboFilter.Size = new Size(165, 31);
             ComboFilter.TabIndex = 55;
@@ -133,7 +166,7 @@
             panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(83, 92, 145);
             panel1.Controls.Add(TextPage);
-            panel1.Location = new Point(861, 624);
+            panel1.Location = new Point(1153, 624);
             panel1.Name = "panel1";
             panel1.Size = new Size(66, 35);
             panel1.TabIndex = 52;
@@ -142,7 +175,7 @@
             // 
             TextPage.Anchor = AnchorStyles.None;
             TextPage.BackColor = Color.FromArgb(83, 92, 145);
-            TextPage.BeforeTouchSize = new Size(236, 30);
+            TextPage.BeforeTouchSize = new Size(245, 30);
             TextPage.Border3DStyle = Border3DStyle.Bump;
             TextPage.BorderColor = Color.SlateGray;
             TextPage.BorderStyle = BorderStyle.None;
@@ -170,7 +203,7 @@
             ButtonNext.FlatStyle = FlatStyle.Flat;
             ButtonNext.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonNext.ForeColor = Color.DimGray;
-            ButtonNext.Location = new Point(927, 624);
+            ButtonNext.Location = new Point(1219, 624);
             ButtonNext.Name = "ButtonNext";
             ButtonNext.Size = new Size(108, 35);
             ButtonNext.TabIndex = 51;
@@ -190,7 +223,7 @@
             ButtonPreviuos.FlatStyle = FlatStyle.Flat;
             ButtonPreviuos.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonPreviuos.ForeColor = Color.DimGray;
-            ButtonPreviuos.Location = new Point(753, 624);
+            ButtonPreviuos.Location = new Point(1045, 624);
             ButtonPreviuos.Name = "ButtonPreviuos";
             ButtonPreviuos.Size = new Size(108, 35);
             ButtonPreviuos.TabIndex = 50;
@@ -233,7 +266,7 @@
             ButtonSearch.FlatStyle = FlatStyle.Flat;
             ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(693, 169);
+            ButtonSearch.Location = new Point(699, 169);
             ButtonSearch.Name = "ButtonSearch";
             ButtonSearch.Size = new Size(53, 31);
             ButtonSearch.TabIndex = 47;
@@ -244,14 +277,14 @@
             // TextSearch
             // 
             TextSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TextSearch.BeforeTouchSize = new Size(236, 30);
+            TextSearch.BeforeTouchSize = new Size(245, 30);
             TextSearch.Border3DStyle = Border3DStyle.Bump;
             TextSearch.BorderColor = Color.DimGray;
             TextSearch.BorderStyle = BorderStyle.FixedSingle;
             TextSearch.FocusBorderColor = Color.Black;
             TextSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             TextSearch.ForeColor = Color.Black;
-            TextSearch.Location = new Point(435, 170);
+            TextSearch.Location = new Point(441, 170);
             TextSearch.MinimumSize = new Size(34, 30);
             TextSearch.Name = "TextSearch";
             TextSearch.PlaceholderText = "🔍   Cari";
@@ -291,7 +324,7 @@
             GridListData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(1008, 358);
+            GridListData.Size = new Size(1300, 358);
             GridListData.TabIndex = 44;
             // 
             // label7
@@ -305,24 +338,24 @@
             label7.TabIndex = 43;
             label7.Text = "🗒️  Riwayat";
             // 
-            // ButtonTambah
+            // ButtonEksport
             // 
-            ButtonTambah.BackColor = Color.FromArgb(83, 92, 145);
-            ButtonTambah.BackgroundColor = Color.FromArgb(83, 92, 145);
-            ButtonTambah.BorderColor = Color.DarkGray;
-            ButtonTambah.BorderRadius = 3;
-            ButtonTambah.BorderSize = 0;
-            ButtonTambah.FlatAppearance.BorderSize = 0;
-            ButtonTambah.FlatStyle = FlatStyle.Flat;
-            ButtonTambah.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonTambah.ForeColor = Color.White;
-            ButtonTambah.Location = new Point(27, 115);
-            ButtonTambah.Name = "ButtonTambah";
-            ButtonTambah.Size = new Size(124, 39);
-            ButtonTambah.TabIndex = 42;
-            ButtonTambah.Text = "➕ Tambah ";
-            ButtonTambah.TextColor = Color.White;
-            ButtonTambah.UseVisualStyleBackColor = false;
+            ButtonEksport.BackColor = Color.Goldenrod;
+            ButtonEksport.BackgroundColor = Color.Goldenrod;
+            ButtonEksport.BorderColor = Color.DarkGray;
+            ButtonEksport.BorderRadius = 3;
+            ButtonEksport.BorderSize = 0;
+            ButtonEksport.FlatAppearance.BorderSize = 0;
+            ButtonEksport.FlatStyle = FlatStyle.Flat;
+            ButtonEksport.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonEksport.ForeColor = Color.White;
+            ButtonEksport.Location = new Point(27, 113);
+            ButtonEksport.Name = "ButtonEksport";
+            ButtonEksport.Size = new Size(127, 39);
+            ButtonEksport.TabIndex = 42;
+            ButtonEksport.Text = "📤 Eksport";
+            ButtonEksport.TextColor = Color.White;
+            ButtonEksport.UseVisualStyleBackColor = false;
             // 
             // contextMenuStrip
             // 
@@ -354,7 +387,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1082, 703);
+            ClientSize = new Size(1374, 703);
             Controls.Add(PanelBooking);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "RiwayatForm";
@@ -384,11 +417,13 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt TextSearch;
         private DataGridView GridListData;
         private Label label7;
-        private SMB_CustomTolbox.LathifButton ButtonTambah;
+        private SMB_CustomTolbox.LathifButton ButtonEksport;
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem;
-        private Label label3;
         private ComboBox ComboFilter;
+        private Panel panel2;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit PickerFilter1;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit PickerFilter2;
     }
 }
