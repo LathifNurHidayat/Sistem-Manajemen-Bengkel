@@ -5,17 +5,15 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- Ambil no_ktp_pegawai dari SESSION_CONTEXT
+    --  no_ktp_pegawai dari SESSION_CONTEXT
     DECLARE @no_ktp_pegawai VARCHAR(20);
     SELECT @no_ktp_pegawai = CAST(SESSION_CONTEXT(N'no_ktp_pegawai') AS VARCHAR(20));
 
-    -- Kurangi stok sparepart
     UPDATE tb_sparepart
     SET stok = stok - i.jumlah
     FROM tb_sparepart s
     INNER JOIN inserted i ON s.id_sparepart = i.id_sparepart;
 
-    -- Log perubahan stok
     INSERT INTO tb_log_sparepart (no_ktp_pegawai, id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
     SELECT 
         @no_ktp_pegawai, 
@@ -166,7 +164,6 @@ END;
 GO;
 
 
-select * from tb_riwayat
 
 CREATE TRIGGER trg_InsertRiwayat
 ON tb_booking
@@ -174,6 +171,9 @@ AFTER UPDATE
 AS
 BEGIN
     SET NOCOUNT ON;
+
+    DECLARE @no_ktp_pegawai VARCHAR(20);
+    SELECT @no_ktp_pegawai = CAST(SESSION_CONTEXT(N'no_ktp_pegawai') AS VARCHAR(20));
 
     -- Cek apakah ada perubahan status menjadi 3 atau 4
     IF NOT EXISTS (SELECT 1 FROM inserted i INNER JOIN deleted d ON i.id_booking = d.id_booking WHERE i.status IN (3,4) AND i.status <> d.status)
@@ -183,6 +183,7 @@ BEGIN
     INSERT INTO tb_riwayat (
         id_jasa_servis,
         no_ktp_pelanggan,
+        no_ktp_pegawai,
         no_ktp_mekanik,
         id_kendaraan,
         id_penggunaan_sparepart,
@@ -201,6 +202,7 @@ BEGIN
     SELECT 
         i.id_jasa_servis,
         i.no_ktp_pelanggan,
+        @no_ktp_pegawai,
         i.no_ktp_mekanik,
         i.id_kendaraan,
         ps.id_penggunaan_sparepart,  -- Menggunakan ID dari tabel `tb_penggunaan_sparepart`
@@ -209,7 +211,7 @@ BEGIN
         i.merek,
         i.transmisi,
         i.kapasitas_mesin,
-        i.tanggal,
+        CAST(GETDATE() AS DATE),
         i.keluhan,
         i.catatan,
         CASE 
