@@ -74,16 +74,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
         private void SaveData()
         {
-            Image image = ImageHelper.GetCircularImage(PictureProfiles.Image == ImageDirectoryHelper._defaultProfiles ? null : PictureProfiles.Image);
+            Image? image = PictureProfiles.Image == ImageDirectoryHelper._defaultProfiles ? null : ImageHelper.GetCircularImage(PictureProfiles.Image);
 
             var pegawai = new PegawaiModel
             {
                 image_data = ImageHelper.ImageToByteArray(image),
                 no_ktp_pegawai = TextNoKTP.Text,
                 no_hp = TextNoHP.Text,
-                alamat =  TextAlamat.Text,
+                alamat = TextAlamat.Text,
                 nama_pegawai = TextNamaLengkap.Text,
                 email = TextEmail.Text,
+                password = TextConfirmPassword.Text.Trim(),
                 role = RadioKaryawan.Checked ? 2 : RadioSuperAdmin.Checked ? 1 : 0
             };
 

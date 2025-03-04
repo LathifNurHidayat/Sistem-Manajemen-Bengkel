@@ -80,7 +80,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             ComboMekanik.SelectedValue = string.IsNullOrEmpty(data.no_ktp_mekanik) ? "" : data.no_ktp_mekanik;
             ComboJenisServis.SelectedValue = data.id_jasa_servis ?? 0;
             TextSparepart.Text = data.nama_sparepart;
-            MesboxHelper.ShowWarning(data.nama_sparepart);
             TextCatatan.Text = data.catatan ;
 
             if (data.status == 2)
@@ -99,8 +98,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 progres2.BackColor = System.Drawing.Color.LimeGreen;
                 progresSelesai.BackColor = System.Drawing.Color.LimeGreen;
 
-                ButtonAksi.Visible = false;
-                ButtonBack.Location = ButtonAksi.Location;
+                ButtonAksi.BackColor = System.Drawing.Color.Goldenrod;
+                ButtonAksi.Text = "📤 Invoice";
 
                 ComboMekanik.Enabled = false;
                 ComboJenisServis.Enabled = false;

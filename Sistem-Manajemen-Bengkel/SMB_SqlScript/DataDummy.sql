@@ -233,7 +233,10 @@ VALUES
 (20, NULL, NULL, NULL, NULL, NULL, '32010110000020', '32010120000020', '32010130000020', 20, NULL, CAST(GETDATE() AS DATE), 'Mesin tidak mau hidup', 'Perbaikan mesin', 300000, 1);
 
 
-
+INSERT INTO tb_informasi_bengkel 
+    (nama_bengkel, alamat, email, no_telp)
+VALUES
+    ('Bengkel Maju Jaya', 'Jl. Merdeka No.1, Bandung', 'bengkelmaju@gmail.com', '087877654738');
 
 
 

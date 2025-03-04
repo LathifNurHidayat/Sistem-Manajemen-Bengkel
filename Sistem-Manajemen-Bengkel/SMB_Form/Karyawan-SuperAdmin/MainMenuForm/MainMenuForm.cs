@@ -11,29 +11,28 @@ using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
-using Sistem_Manajemen_Bengkel.SMB_Form.KaryawanForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.SparepartForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
 {
-    public partial class Dashboard : Form
+    public partial class MainMenuForm : Form
     {
-        private Form _mainForm;
-        private long _id;
-        private string _username;
         private string _role;
         private readonly List<Button> _listButton = new List<Button>();
 
-        public Dashboard(/*long id, string username, string role*/)
+        public MainMenuForm(string username, string role, byte[] profile)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            /*       _id = id;
-                 LabelUsername.Text = username;
-                  LabelRole.Text = role;*/
-            // CekRole();
+
+            LabelUsername.Text = username;
+            LabelRole.Text = role;
+            PictureProfiles.Image = profile != null ? ImageHelper.ByteToImage(profile) : ImageDirectoryHelper._defaultProfiles;
+
 
             InitialButton();
             RegisterControlEvent();
@@ -41,19 +40,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         }
 
 
-        private void CekRole()
-        {
-            if (_role == "Super Admin")
-            {
-                ButtonKaryawan.Visible = true;
-                ButtonLaporan.Visible = true;
-            }
-            else
-            {
-                ButtonKaryawan.Visible = false;
-                ButtonLaporan.Visible = false;
-            }
-        }
+
 
         private void InitialButton()
         {
@@ -135,7 +122,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             StyleButton(sender as Button);
             if (sender is Button button) button.Tag = "Click";
 
-            ShowFormHelper.ShowFormInPanel(new SparepartForm());
+            ShowFormHelper.ShowFormInPanel(new SMB_Form.Karyawan_SuperAdmin.SparepartForm.SparepartForm());
 
         }
 
@@ -184,7 +171,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             StyleButton(sender as Button);
             if (sender is Button button) button.Tag = "Click";
 
-            ShowFormHelper.ShowFormInPanel(new BookingForm());
+            ShowFormHelper.ShowFormInPanel(new Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm.BookingForm());
         }
 
         private void ButtonDashboard_Click(object? sender, EventArgs e)
@@ -192,10 +179,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             StyleButton(sender as Button);
             if (sender is Button button) button.Tag = "Click";
 
-            if (_role == "Super Admin")
-                ShowFormHelper.ShowFormInPanel(new MenuDashboardAdminForm());
-            else if (_role == "Karyawan")
-                ShowFormHelper.ShowFormInPanel(new MenuDashboardKaryawanForm());
+            ShowFormHelper.ShowFormInPanel(new SMB_Form.Karyawan_SuperAdmin.DashboardForm.DashboardForm());
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.SparepartForm
 {
     partial class SparepartForm
     {

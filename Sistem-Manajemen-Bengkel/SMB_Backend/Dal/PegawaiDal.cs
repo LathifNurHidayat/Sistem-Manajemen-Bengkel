@@ -51,11 +51,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Dp.Add("@no_ktp_pegawai", pegawaiModel.no_ktp_pegawai);
             Dp.Add("@nama_pegawai", pegawaiModel.nama_pegawai);
             Dp.Add("@email", pegawaiModel.email);
-            Dp.Add("@password", pegawaiModel.password);
+            Dp.Add("@password", pegawaiModel.password);  
             Dp.Add("@no_hp", pegawaiModel.no_hp);
             Dp.Add("@alamat", pegawaiModel.alamat);
             Dp.Add("@role", pegawaiModel.role);
-            Dp.Add("@image_data", pegawaiModel.image_data);
+            Dp.Add("@image_data", pegawaiModel.image_data, DbType.Binary);
 
             conn.Execute(sql, Dp);
         }
@@ -83,7 +83,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Dp.Add("@no_hp", pegawai.no_hp);
             Dp.Add("@alamat", pegawai.alamat);
             Dp.Add("@role", pegawai.role);
-            Dp.Add("@image_data", pegawai.image_data);
+            Dp.Add("@image_data", pegawai.image_data, DbType.Binary);
             Dp.Add("@no_ktp", no_ktp);
 
             if (isPasswordReset)
@@ -128,11 +128,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public PegawaiModel? ValidasiLoginPetugas(string email, string password)
         {
             const string sql = @"SELECT
-                                    no_ktp_pegawai, nama_pegawai, role 
+                                    no_ktp_pegawai, nama_pegawai, role , image_data
                                 FROM 
                                     tb_pegawai 
                                 WHERE 
-                                    email = @email AND password = @password";
+                                    email = @email AND password = @password AND deleted_at IS NULL";
 
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
             return conn.QueryFirstOrDefault<PegawaiModel>(sql, new { email, password });

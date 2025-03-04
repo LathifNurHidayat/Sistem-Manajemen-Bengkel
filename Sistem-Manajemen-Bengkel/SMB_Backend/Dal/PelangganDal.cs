@@ -138,7 +138,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
         public PelangganModel? ValidasiLoginPelanggan(string email, string password)
         {
-            const string sql = "SELECT no_ktp_pelanggan, nama_pelanggan FROM tb_pelanggan WHERE email = @email AND password = @password";
+            const string sql = "SELECT no_ktp_pelanggan, nama_pelanggan FROM tb_pelanggan WHERE email = @email AND password = @password AND deleted_at IS NULL";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<PelangganModel>(sql, new { email, password });
         }

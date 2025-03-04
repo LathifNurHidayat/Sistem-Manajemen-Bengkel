@@ -13,7 +13,7 @@ using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.SparepartForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.SparepartForm
 {
     public partial class SparepartForm : Form
     {

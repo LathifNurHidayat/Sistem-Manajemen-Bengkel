@@ -118,7 +118,7 @@ CREATE TABLE tb_booking (
 
     CONSTRAINT fk_booking_kendaraan FOREIGN KEY (id_kendaraan) REFERENCES tb_kendaraan(id_kendaraan),
 
-    CONSTRAINT fk_booking_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis),
+    CONSTRAINT fk_booking_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis)
 );
 
 
@@ -128,7 +128,7 @@ CREATE  TABLE tb_penggunaan_sparepart (
     jumlah INT,
     harga Decimal(18,2),
     CONSTRAINT fk_booking_sparepart_booking FOREIGN KEY (id_penggunaan_sparepart) REFERENCES tb_booking (id_booking),
-    CONSTRAINT fk_booking_sparepart_sparepart FOREIGN KEY (id_sparepart) REFERENCES tb_sparepart(id_sparepart),
+    CONSTRAINT fk_booking_sparepart_sparepart FOREIGN KEY (id_sparepart) REFERENCES tb_sparepart(id_sparepart)
 ) 
 
 
@@ -165,7 +165,7 @@ CREATE TABLE tb_riwayat(
     CONSTRAINT fk_riwayat_mekanik FOREIGN KEY (no_ktp_mekanik) REFERENCES tb_mekanik(no_ktp_mekanik)
         ON UPDATE CASCADE, 
 
-    CONSTRAINT fk_riwayat_kendaraan FOREIGN KEY (id_kendaraan) REFERENCES tb_kendaraan(id_kendaraan),
+    CONSTRAINT fk_riwayat_kendaraan FOREIGN KEY (id_kendaraan) REFERENCES tb_kendaraan(id_kendaraan)
 );
 
 
@@ -179,9 +179,20 @@ CREATE TABLE tb_log_sparepart (
     stok_akhir INT,
     tanggal DATETIME,
 
-    CONSTRAINT dk_log_sparepart_pegawai FOREIGN KEY (no_ktp_pegawai) REFERENCES tb_pegawai(no_ktp_pegawai),
+    CONSTRAINT fk_log_sparepart_pegawai FOREIGN KEY (no_ktp_pegawai) REFERENCES tb_pegawai(no_ktp_pegawai)
 );
 
 
+CREATE TABLE tb_informasi_bengkel(
+    id_informasi_bengkel INT IDENTITY(1,1) PRIMARY KEY,
+    nama_bengkel VARCHAR(50),
+    alamat VARCHAR(100),
+    email VARCHAR(50),
+    no_telp VARCHAR(20),
+)
 
-
+CREATE TABLE tb_jadwal_libur (
+    id_jadwal_libur INT IDENTITY(1,1) PRIMARY KEY,
+    tanggal_libur DATE,
+    keterangan VARCHAR(255),
+);

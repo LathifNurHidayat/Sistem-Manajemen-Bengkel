@@ -11,7 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
@@ -21,6 +23,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
     {
         private readonly PelangganDal _pelangganDal;
         private readonly PegawaiDal _petugasDal;
+        private readonly SessionLoginDal _sessionLoginDal;
         public LoginForm()
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
             _pelangganDal = new PelangganDal();
             _petugasDal = new PegawaiDal();
+            _sessionLoginDal = new SessionLoginDal();
 
             CustomComponentHelper.CustomPanel(panel1);
             RegisterControlEvent();
@@ -72,7 +76,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
                 return;
             } 
             var dataPelanggan = _pelangganDal.ValidasiLoginPelanggan(email, HashPasswordHelper.HashPassword(password));
-            var dataPetugas = _petugasDal.ValidasiLoginPetugas(email, HashPasswordHelper.HashPassword(password));
+            var dataPetugas = _petugasDal.ValidasiLoginPetugas(email, password);
 
             if (dataPelanggan == null && dataPetugas == null)
             {
@@ -82,12 +86,29 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
                 return;
             }
 
+
+            if (dataPetugas != null)
+            { 
+                string no_ktp_pegawai = dataPetugas.no_ktp_pegawai;
+
+                _sessionLoginDal.GetSessionLogin(no_ktp_pegawai);
+                _sessionLoginDal.ClearSessionLogin();
+                MessageBox.Show(no_ktp_pegawai);
+            }
+
+
             string role = dataPelanggan != null ? "Pelanggan" : dataPetugas?.role == 1 ? "Super Admin" : "Petugas";
             string username = dataPelanggan?.nama_pelanggan != null ? dataPelanggan.nama_pelanggan : dataPetugas?.nama_pegawai ?? "";
-           // string no_ktp = dataPelanggan?.no_ktp_pelanggan != null ? dataPelanggan?.no_ktp_pelanggan : dataPelanggan?.no_ktp_pelanggan ?? string.Empty;
+            byte[]? profile = null;
+ 
+            if (role == "Super Admin" || role == "Petugas")
+            {
+                profile = dataPetugas?.image_data ?? null;
+            }
 
             ClearForm();
-            new Dashboard(/*id, username, role*/).Show();
+            MainMenuForm main =  new MainMenuForm(username, role, profile);
+            main.Show();
             this.Hide();
         }
 

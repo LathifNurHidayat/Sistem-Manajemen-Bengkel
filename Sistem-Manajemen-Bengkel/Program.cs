@@ -1,13 +1,12 @@
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Form;
-using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
-using Sistem_Manajemen_Bengkel.SMB_Form.KaryawanForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
 
@@ -25,7 +24,7 @@ namespace Sistem_Manajemen_Bengkel
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Dashboard());
+            Application.Run(new LoginForm());
         }
     }
 } 

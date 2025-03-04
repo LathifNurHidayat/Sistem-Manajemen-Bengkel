@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -13,22 +14,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin
     {
         public void GetSessionLogin(string no_ktp_pegawai)
         {
-            const string sql = @"EXEC sp_set_session_context @key=N'no_ktp_pegawai', @value=@no_ktp_pegawai";
-
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-
-            Conn.Execute(sql, new { no_ktp_pegawai });
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnSession());
+            var Dp = new DynamicParameters();
+            Dp.Add("@no_ktp_pegawai", no_ktp_pegawai, DbType.String, ParameterDirection.Input);
+            Conn.Execute("prd_GetSessionLogin", Dp, commandType: CommandType.StoredProcedure);
         }
-        
-        
-        
+
         public void ClearSessionLogin()
         {
-            const string sql = @"EXEC sp_set_session_context @key=N'no_ktp_pegawai', @value=NULL";
-
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-
-            Conn.Execute(sql);
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnSession());
+            Conn.Execute("prd_ClearSessionLogin", commandType: CommandType.StoredProcedure);
         }
+
     }
 }

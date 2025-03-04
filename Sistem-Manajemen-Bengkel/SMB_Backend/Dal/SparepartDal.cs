@@ -55,7 +55,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Dp.Add("@harga", sparepart.harga);
             Dp.Add("@stok", sparepart.stok);
             Dp.Add("@stok_minimal", sparepart.stok_minimal);
-            Dp.Add("@image_data", sparepart.image_data);
+            Dp.Add("@image_data", sparepart.image_data, DbType.Binary);
 
             conn.Execute(sql, Dp);
         }

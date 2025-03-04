@@ -143,7 +143,7 @@
             label3.Name = "label3";
             label3.Size = new Size(143, 25);
             label3.TabIndex = 28;
-            label3.Text = "Sedang dilayani";
+            label3.Text = "Antrean saat ini";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // LabelAntreanDikerjakan

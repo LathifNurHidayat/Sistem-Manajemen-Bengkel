@@ -17,6 +17,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
     public partial class RiwayatForm : Form
     {
         private readonly RiwayatDal _riwayatDal;
+        private bool _isCustomShow = false;
         public RiwayatForm()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         private void CustomComponent()
         {
-            List<string> tanggal = new() {"Hari ini", "Semua (All)", "7 hari terakhir", "30 hari terakhir" };
+            List<string> tanggal = new() {"Hari ini", "Semua (All)", "7 hari terakhir", "30 hari terakhir" , "Custom"};
             ComboFilter.DataSource = tanggal;
 
             List<int> entries = new() { 10, 25, 50, 100 };
@@ -51,25 +52,20 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         public static void CustomDataGrid(DataGridView grid)
         {
-            // Matikan mode AutoSize agar lebar kolom bisa diatur secara manual
-
-            // Atur lebar kolom sesuai ukuran yang diinginkan (dalam piksel)
-            // Pastikan mode auto size dimatikan agar pengaturan manual berlaku
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
-            // Atur lebar kolom dengan nilai yang lebih besar
             grid.Columns["No"].Width = 70;
             grid.Columns["Tanggal"].Width = 150;
-            grid.Columns["NoKTP"].Width = 120;
+            grid.Columns["NoKTP"].Width = 150;
             grid.Columns["Pelanggan"].Width = 200;
             grid.Columns["Petugas"].Width = 150;
             grid.Columns["Mekanik"].Width = 150;
             grid.Columns["NoPolisi"].Width = 120;
-            grid.Columns["Kendaraan"].Width = 180;
-            grid.Columns["Keluhan"].Width = 200;
-            grid.Columns["Catatan"].Width = 200;
+            grid.Columns["Kendaraan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            grid.Columns["Keluhan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            grid.Columns["Catatan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             grid.Columns["TotalBiaya"].Width = 150;
-            grid.Columns["Status"].Width = 150;
+            grid.Columns["Status"].Width = 200;
 
 
 
@@ -83,7 +79,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             grid.Columns["NoPolisi"].HeaderText = "No Polisi";
             grid.Columns["TotalBiaya"].HeaderText = "Total Biaya";
 
-           // grid.Columns["Status"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
 
@@ -136,7 +131,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                 }
             }
 
-            if (tanggal_1.Date != DateTime.Today.Date || tanggal_2.Date != DateTime.Today.Date)
+            if (_isCustomShow)
             {
                 if (!string.IsNullOrEmpty(filters))
                     filters += " AND";
@@ -208,6 +203,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             TextSearch.TextChanged += TextSearch_TextChanged;
             TextSearch.KeyDown += TextSearch_KeyDown;
             GridListData.CellMouseClick += GridListData_CellMouseClick;
+            PickerFilter1.ValueChanged += PickerFilter_ValueChanged;
+            PickerFilter2.ValueChanged += PickerFilter_ValueChanged;
+        }
+
+        private void PickerFilter_ValueChanged(object sender, Syncfusion.WinForms.Input.Events.DateTimeValueChangedEventArgs e)
+        {
+            ComboFilter.SelectedItem = "Custom";
+            _isCustomShow = true;
+            page = 1;
+            LoadData();
         }
 
         private void GridListData_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
@@ -275,6 +280,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
 
         private void ComboFilter_SelectedIndexChanged(object? sender, EventArgs e)
         {
+            if (ComboFilter.SelectedItem == "Custom")
+                _isCustomShow = true;
+            else
+                _isCustomShow = false;
+
             page = 1;
             LoadData();
         }

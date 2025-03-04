@@ -25,7 +25,7 @@ BEGIN
     DECLARE @antreanDikerjakan INT = COALESCE(
         (SELECT TOP 1 antrean 
             FROM tb_booking 
-            WHERE tanggal = @tanggal AND status IN (2, 3, 4)
+            WHERE tanggal = @tanggal AND status IN (2, 3)
             ORDER BY antrean DESC), -1 );
     
     INSERT INTO @Result (AntreanBaru, AntreanDikerjakan)
@@ -34,5 +34,3 @@ BEGIN
     RETURN;
 END;
 GO
-
-

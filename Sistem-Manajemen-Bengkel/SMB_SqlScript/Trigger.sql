@@ -175,11 +175,9 @@ BEGIN
     DECLARE @no_ktp_pegawai VARCHAR(20);
     SELECT @no_ktp_pegawai = CAST(SESSION_CONTEXT(N'no_ktp_pegawai') AS VARCHAR(20));
 
-    -- Cek apakah ada perubahan status menjadi 3 atau 4
     IF NOT EXISTS (SELECT 1 FROM inserted i INNER JOIN deleted d ON i.id_booking = d.id_booking WHERE i.status IN (3,4) AND i.status <> d.status)
         RETURN;
 
-    -- Insert ke tb_riwayat jika status booking berubah menjadi 3 atau 4
     INSERT INTO tb_riwayat (
         id_jasa_servis,
         no_ktp_pelanggan,
@@ -205,7 +203,7 @@ BEGIN
         @no_ktp_pegawai,
         i.no_ktp_mekanik,
         i.id_kendaraan,
-        ps.id_penggunaan_sparepart,  -- Menggunakan ID dari tabel `tb_penggunaan_sparepart`
+        ps.id_penggunaan_sparepart,  
         i.nama_pelanggan,
         i.no_polisi,
         i.merek,
@@ -218,13 +216,13 @@ BEGIN
             WHEN i.status = 3 THEN 1
             ELSE 2
         END,
-        ISNULL(SUM(ps.harga), 0) + ISNULL(js.biaya, 0) AS total_biaya, -- Hitung total biaya per baris
+        ISNULL(SUM(ps.harga), 0) + ISNULL(js.biaya, 0) AS total_biaya,
         GETDATE()
     FROM inserted i
     INNER JOIN deleted d ON i.id_booking = d.id_booking
     LEFT JOIN tb_penggunaan_sparepart ps ON ps.id_penggunaan_sparepart = i.id_booking
     LEFT JOIN tb_jasa_servis js ON i.id_jasa_servis = js.id_jasa_servis
-    WHERE i.status IN (3,4) AND d.status <> i.status  -- Pastikan status benar-benar berubah
+    WHERE i.status IN (3,4) AND d.status <> i.status  
     GROUP BY 
         i.id_jasa_servis, i.no_ktp_pelanggan, i.no_ktp_mekanik, i.id_kendaraan, 
         ps.id_penggunaan_sparepart, i.nama_pelanggan, i.no_polisi, i.merek, 
