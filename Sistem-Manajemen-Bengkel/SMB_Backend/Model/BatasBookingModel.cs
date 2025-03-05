@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
 {
-    internal class LogSparepartModel
+    public class BatasBookingModel
     {
+        public int id_batas_booking { get; set; }
+        public DateTime? tanggal { get; set; }
+        public int batas_booking { get; set; }
     }
 }

@@ -12,6 +12,7 @@ using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Syncfusion.WinForms.Input.Enums;
 using Syncfusion.WinForms.Input;
 using System.Windows.Controls;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm

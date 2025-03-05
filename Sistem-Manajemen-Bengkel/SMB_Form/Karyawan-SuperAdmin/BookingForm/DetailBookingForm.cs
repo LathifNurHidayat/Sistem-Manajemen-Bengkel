@@ -191,6 +191,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                     GetData(_idBooking);
                 }
             }
+            else if (_statusBooking == 3)
+            {
+                var data = _bookingDal.GetData(_idBooking);
+                if (data != null)
+                {
+                    InvoicePrinter invoice = new InvoicePrinter(data);
+                    invoice.PrintInvoice();
+                }
+
+            }
         }
 
 

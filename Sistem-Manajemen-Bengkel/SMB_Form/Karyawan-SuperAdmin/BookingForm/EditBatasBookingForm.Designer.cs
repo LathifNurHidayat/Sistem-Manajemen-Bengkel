@@ -73,17 +73,16 @@
             panel1.Controls.Add(TextBatas);
             panel1.Controls.Add(ButtonSimpan);
             panel1.Controls.Add(ButtonClose);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(466, 561);
+            panel1.Size = new Size(442, 537);
             panel1.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(288, 26);
+            label2.Location = new Point(269, 26);
             label2.Name = "label2";
             label2.Size = new Size(118, 23);
             label2.TabIndex = 94;
@@ -111,7 +110,7 @@
             ButtonBaru.FlatStyle = FlatStyle.Flat;
             ButtonBaru.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBaru.ForeColor = Color.White;
-            ButtonBaru.Location = new Point(198, 112);
+            ButtonBaru.Location = new Point(195, 112);
             ButtonBaru.Name = "ButtonBaru";
             ButtonBaru.Size = new Size(110, 35);
             ButtonBaru.TabIndex = 89;
@@ -129,7 +128,7 @@
             PickerBookingTanggal.Format = "dddd,  dd MMMM yyyy";
             PickerBookingTanggal.Location = new Point(24, 52);
             PickerBookingTanggal.Name = "PickerBookingTanggal";
-            PickerBookingTanggal.Size = new Size(258, 37);
+            PickerBookingTanggal.Size = new Size(226, 37);
             PickerBookingTanggal.TabIndex = 90;
             PickerBookingTanggal.ToolTipText = "";
             PickerBookingTanggal.Value = new DateTime(2025, 2, 24, 7, 58, 7, 0);
@@ -141,19 +140,19 @@
             GridListData.Name = "GridListData";
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(416, 309);
+            GridListData.Size = new Size(397, 283);
             GridListData.TabIndex = 87;
             // 
             // TextBatas
             // 
             TextBatas.AccessibilityEnabled = true;
             TextBatas.BackGroundColor = Color.White;
-            TextBatas.BeforeTouchSize = new Size(152, 37);
+            TextBatas.BeforeTouchSize = new Size(100, 27);
             TextBatas.BorderStyle = BorderStyle.FixedSingle;
             TextBatas.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextBatas.ForeColor = SystemColors.WindowText;
             TextBatas.IntegerValue = 0L;
-            TextBatas.Location = new Point(288, 52);
+            TextBatas.Location = new Point(269, 52);
             TextBatas.Metrocolor = Color.White;
             TextBatas.Multiline = true;
             TextBatas.Name = "TextBatas";
@@ -173,7 +172,7 @@
             ButtonSimpan.FlatStyle = FlatStyle.Flat;
             ButtonSimpan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonSimpan.ForeColor = Color.White;
-            ButtonSimpan.Location = new Point(330, 112);
+            ButtonSimpan.Location = new Point(311, 112);
             ButtonSimpan.Name = "ButtonSimpan";
             ButtonSimpan.Size = new Size(110, 35);
             ButtonSimpan.TabIndex = 91;
@@ -193,7 +192,7 @@
             ButtonClose.FlatStyle = FlatStyle.Flat;
             ButtonClose.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonClose.ForeColor = Color.White;
-            ButtonClose.Location = new Point(320, 497);
+            ButtonClose.Location = new Point(301, 473);
             ButtonClose.Name = "ButtonClose";
             ButtonClose.Size = new Size(120, 40);
             ButtonClose.TabIndex = 88;
@@ -205,6 +204,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(221, 230, 237);
             ClientSize = new Size(466, 561);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;

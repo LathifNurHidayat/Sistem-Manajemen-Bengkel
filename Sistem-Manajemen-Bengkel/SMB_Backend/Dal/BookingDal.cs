@@ -198,6 +198,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         }
 
 
+        public string CekOperasionalBengkel(DateTime tanggal)
+        {
+            const string sql = "SELECT dbo.fnc_CekOperasionalBengkel(@tanggal, @jamBooking)";
+
+            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            var result = conn.QueryFirstOrDefault<string>(sql, new { tanggal , jamBooking = DateTime.Now.TimeOfDay});
+            MessageBox.Show(DateTime.Now.TimeOfDay.ToString());
+            return result?? "";
+        }
+
+
         public List<DateTime> GetDataTanggal()
         {
             const string sql = @"SELECT DISTINCT tanggal 

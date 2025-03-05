@@ -9,6 +9,7 @@ using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm;
 
 namespace Sistem_Manajemen_Bengkel
 {

@@ -32,10 +32,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
         {
             Label = new Label();
             PanelData = new SMB_CustomTolbox.LathifPanel();
+            ButtonJadwalLibur = new SMB_CustomTolbox.LathifButton();
             label10 = new Label();
             gradientPanelExt2 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
             label8 = new Label();
-            dataGridView1 = new DataGridView();
+            GridListPeringkatSparepart = new DataGridView();
             LabelPendapatan = new Label();
             gradientPanelExt1 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
             label9 = new Label();
@@ -58,10 +59,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             label1 = new Label();
             LabelTotalPelanggan = new Label();
             pictureBox3 = new PictureBox();
+            ButtonJamKerja = new SMB_CustomTolbox.LathifButton();
             PanelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt2).BeginInit();
             gradientPanelExt2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GridListPeringkatSparepart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).BeginInit();
             gradientPanelExt1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListPeringkatServis).BeginInit();
@@ -91,6 +93,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             PanelData.BorderColor = Color.PaleVioletRed;
             PanelData.BorderRadius = 10;
             PanelData.BorderSize = 0;
+            PanelData.Controls.Add(ButtonJamKerja);
+            PanelData.Controls.Add(ButtonJadwalLibur);
             PanelData.Controls.Add(label10);
             PanelData.Controls.Add(gradientPanelExt2);
             PanelData.Controls.Add(LabelPendapatan);
@@ -102,13 +106,33 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             PanelData.Size = new Size(1057, 301);
             PanelData.TabIndex = 12;
             // 
+            // ButtonJadwalLibur
+            // 
+            ButtonJadwalLibur.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonJadwalLibur.BackColor = Color.Red;
+            ButtonJadwalLibur.BackgroundColor = Color.Red;
+            ButtonJadwalLibur.BorderColor = Color.DarkGray;
+            ButtonJadwalLibur.BorderRadius = 5;
+            ButtonJadwalLibur.BorderSize = 0;
+            ButtonJadwalLibur.FlatAppearance.BorderSize = 0;
+            ButtonJadwalLibur.FlatStyle = FlatStyle.Flat;
+            ButtonJadwalLibur.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonJadwalLibur.ForeColor = Color.White;
+            ButtonJadwalLibur.Location = new Point(717, 27);
+            ButtonJadwalLibur.Name = "ButtonJadwalLibur";
+            ButtonJadwalLibur.Size = new Size(155, 45);
+            ButtonJadwalLibur.TabIndex = 19;
+            ButtonJadwalLibur.Text = "🖍 Jadwal Libur";
+            ButtonJadwalLibur.TextColor = Color.White;
+            ButtonJadwalLibur.UseVisualStyleBackColor = false;
+            // 
             // label10
             // 
             label10.AutoSize = true;
             label10.BackColor = Color.White;
             label10.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(15, 16);
+            label10.Location = new Point(21, 24);
             label10.Name = "label10";
             label10.Size = new Size(167, 25);
             label10.TabIndex = 18;
@@ -122,7 +146,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             gradientPanelExt2.BorderGap = 2;
             gradientPanelExt2.BorderStyle = BorderStyle.None;
             gradientPanelExt2.Controls.Add(label8);
-            gradientPanelExt2.Controls.Add(dataGridView1);
+            gradientPanelExt2.Controls.Add(GridListPeringkatSparepart);
             gradientPanelExt2.CornerRadius = 10;
             gradientPanelExt2.Location = new Point(21, 106);
             gradientPanelExt2.Name = "gradientPanelExt2";
@@ -133,32 +157,32 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.White;
-            label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.DimGray;
-            label8.Location = new Point(9, 11);
+            label8.Location = new Point(20, 20);
             label8.Name = "label8";
-            label8.Size = new Size(165, 28);
+            label8.Size = new Size(238, 25);
             label8.TabIndex = 17;
-            label8.Text = "Sparepart Terjual";
+            label8.Text = "Peringkat Sparepart Terjual";
             // 
-            // dataGridView1
+            // GridListPeringkatSparepart
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(22, 60);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(475, 88);
-            dataGridView1.TabIndex = 14;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            GridListPeringkatSparepart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GridListPeringkatSparepart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GridListPeringkatSparepart.Location = new Point(22, 60);
+            GridListPeringkatSparepart.Name = "GridListPeringkatSparepart";
+            GridListPeringkatSparepart.RowHeadersWidth = 51;
+            GridListPeringkatSparepart.RowTemplate.Height = 29;
+            GridListPeringkatSparepart.Size = new Size(475, 88);
+            GridListPeringkatSparepart.TabIndex = 14;
+            GridListPeringkatSparepart.CellContentClick += dataGridView1_CellContentClick;
             // 
             // LabelPendapatan
             // 
             LabelPendapatan.BackColor = Color.White;
             LabelPendapatan.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             LabelPendapatan.ForeColor = Color.DimGray;
-            LabelPendapatan.Location = new Point(10, 38);
+            LabelPendapatan.Location = new Point(16, 46);
             LabelPendapatan.Name = "LabelPendapatan";
             LabelPendapatan.Size = new Size(412, 51);
             LabelPendapatan.TabIndex = 12;
@@ -184,13 +208,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             // 
             label9.AutoSize = true;
             label9.BackColor = Color.White;
-            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.DimGray;
-            label9.Location = new Point(15, 11);
+            label9.Location = new Point(17, 20);
             label9.Name = "label9";
-            label9.Size = new Size(164, 28);
+            label9.Size = new Size(146, 25);
             label9.TabIndex = 18;
-            label9.Text = "Servis Terbanyak";
+            label9.Text = "Peringkat Servis";
             label9.Click += label9_Click;
             // 
             // GridListPeringkatServis
@@ -216,7 +240,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             ButtonProfilBengkel.FlatStyle = FlatStyle.Flat;
             ButtonProfilBengkel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonProfilBengkel.ForeColor = Color.White;
-            ButtonProfilBengkel.Location = new Point(888, 16);
+            ButtonProfilBengkel.Location = new Point(879, 27);
             ButtonProfilBengkel.Name = "ButtonProfilBengkel";
             ButtonProfilBengkel.Size = new Size(155, 45);
             ButtonProfilBengkel.TabIndex = 12;
@@ -422,6 +446,26 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
+            // ButtonJamKerja
+            // 
+            ButtonJamKerja.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonJamKerja.BackColor = Color.LightSlateGray;
+            ButtonJamKerja.BackgroundColor = Color.LightSlateGray;
+            ButtonJamKerja.BorderColor = Color.DarkGray;
+            ButtonJamKerja.BorderRadius = 5;
+            ButtonJamKerja.BorderSize = 0;
+            ButtonJamKerja.FlatAppearance.BorderSize = 0;
+            ButtonJamKerja.FlatStyle = FlatStyle.Flat;
+            ButtonJamKerja.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonJamKerja.ForeColor = Color.White;
+            ButtonJamKerja.Location = new Point(555, 27);
+            ButtonJamKerja.Name = "ButtonJamKerja";
+            ButtonJamKerja.Size = new Size(155, 45);
+            ButtonJamKerja.TabIndex = 20;
+            ButtonJamKerja.Text = "🖍 Jam Kerja";
+            ButtonJamKerja.TextColor = Color.White;
+            ButtonJamKerja.UseVisualStyleBackColor = false;
+            // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -438,7 +482,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt2).EndInit();
             gradientPanelExt2.ResumeLayout(false);
             gradientPanelExt2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)GridListPeringkatSparepart).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).EndInit();
             gradientPanelExt1.ResumeLayout(false);
             gradientPanelExt1.PerformLayout();
@@ -483,9 +527,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
         private Label LabelPendapatan;
         private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt1;
         private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt2;
-        private DataGridView dataGridView1;
+        private DataGridView GridListPeringkatSparepart;
         private Label label8;
         private Label label9;
         private Label label10;
+        private SMB_CustomTolbox.LathifButton ButtonJadwalLibur;
+        private SMB_CustomTolbox.LathifButton ButtonJamKerja;
     }
 }

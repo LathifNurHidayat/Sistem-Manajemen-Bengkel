@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls.Ribbon;
 using Dapper;
 using Sistem_Manajemen_Bengkel.Helper;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
@@ -94,10 +95,5 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
     }
 
-    public class BatasBookingModel
-    {
-        public int id_batas_booking { get; set; }
-        public DateTime? tanggal { get; set; }
-        public int batas_booking { get; set; }
-    }
+   
 }

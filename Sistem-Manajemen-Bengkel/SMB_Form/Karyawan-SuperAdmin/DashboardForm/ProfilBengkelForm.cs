@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 {
@@ -39,7 +40,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 
         public void SaveData()
         {
-            var data = new InformasiBengkelDal.InformasiBengkelModel
+            var data = new InformasiBengkelModel
             {
                 nama_bengkel = TextNamaBengkel.Text,
                 alamat = TextAlamatBengkel.Text,
@@ -77,7 +78,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             }
 
             SaveData();
-            this.Close();
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

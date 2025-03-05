@@ -38,6 +38,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
         private void CekKetersediaan(DateTime tanggal)
         {
+            var validasiOperasionalBengkel = _bookingDal.CekOperasionalBengkel(tanggal);
+            if (validasiOperasionalBengkel != "")
+            {
+                MesboxHelper.ShowInfo(validasiOperasionalBengkel);
+                return;
+            }
+
             var booking = _bookingDal.CekKuotaBooking(tanggal);
 
             if (booking.AntreanBaru == -1)

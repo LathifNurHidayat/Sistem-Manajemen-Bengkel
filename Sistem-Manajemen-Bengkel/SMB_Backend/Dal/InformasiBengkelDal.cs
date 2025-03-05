@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dapper;
 using System.Data.SqlClient;
 using Sistem_Manajemen_Bengkel.Helper;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
@@ -27,8 +28,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     alamat = @alamat, 
                                     email = @email, 
                                     no_telp = @no_telp";
-            
-            
+
+
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             var Dp = new DynamicParameters();
             Dp.Add("@nama_bengkel", bengkel.nama_bengkel);
@@ -39,13 +40,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Conn.Execute(sql, Dp);
         }
 
-
-        public class InformasiBengkelModel
-        {
-            public string nama_bengkel { get; set; }
-            public string alamat { get; set; }
-            public string email { get; set; }
-            public string no_telp { get; set; }
-        }
     }
+
 }

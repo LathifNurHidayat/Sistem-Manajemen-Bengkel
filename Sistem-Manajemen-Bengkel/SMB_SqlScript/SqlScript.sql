@@ -191,8 +191,20 @@ CREATE TABLE tb_informasi_bengkel(
     no_telp VARCHAR(20),
 )
 
+
+CREATE TABLE tb_jam_kerja (
+    id_jam_kerja INT IDENTITY(1,1) PRIMARY KEY,
+    hari VARCHAR(20),
+    jam_buka TIME,
+    jam_tutup TIME
+);
+
+
 CREATE TABLE tb_jadwal_libur (
     id_jadwal_libur INT IDENTITY(1,1) PRIMARY KEY,
     tanggal_libur DATE,
-    keterangan VARCHAR(255),
+    hari VARCHAR(20),
+    is_libur INT
 );
+
+select * from tb_jadwal_libur

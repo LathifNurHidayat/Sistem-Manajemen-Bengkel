@@ -13,3 +13,4 @@ BEGIN
 	EXEC sp_set_session_context @key=N'no_ktp_pegawai', @value=NULL
 END;
 GO
+

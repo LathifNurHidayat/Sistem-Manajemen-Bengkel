@@ -240,6 +240,40 @@ VALUES
 
 
 
+
+INSERT INTO tb_jam_kerja
+(hari, jam_buka, jam_tutup)
+VALUES 
+('Senin', '08:00:00', '17:00:00'),
+('Selasa', '08:00:00', '17:00:00'),
+('Rabu', '08:00:00', '17:00:00'),
+('Kamis', '08:00:00', '17:00:00'),
+('Jumat', '08:00:00', '17:00:00'),
+('Sabtu', '08:00:00', '17:00:00'),
+('Minggu', '08:00:00', '17:00:00');
+
+
+
+
+INSERT INTO tb_jadwal_libur
+(tanggal_libur, hari, is_libur)
+VALUES 
+(null , 'Senin', 0),
+(null , 'Selasa', 0),
+(null , 'Rabu', 0),
+(null , 'Kamis', 0),
+(null , 'Jumat', 0),
+(null , 'Sabtu', 0),
+(null , 'Minggu', 1),
+('2025-12-25', null, 1),
+('2025-12-26', null, 1),
+('2025-12-27', null, 1),
+('2025-12-28', null, 1),
+('2025-12-29', null, 1);
+
+
+
+
 select * from tb_riwayat
 --select * from tb_sparepart;
 --update tb_kendaraan set deleted_at = NULL 

@@ -5,7 +5,6 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    --  no_ktp_pegawai dari SESSION_CONTEXT
     DECLARE @no_ktp_pegawai VARCHAR(20);
     SELECT @no_ktp_pegawai = CAST(SESSION_CONTEXT(N'no_ktp_pegawai') AS VARCHAR(20));
 
@@ -20,8 +19,8 @@ BEGIN
         i.id_sparepart,
         s.nama_sparepart,
         'Penggunaan',
-        s.stok + i.jumlah,  -- Stok sebelum dikurangi
-        s.stok,  -- Stok setelah dikurangi
+        s.stok + i.jumlah, 
+        s.stok,  
         GETDATE()
     FROM inserted i
     INNER JOIN tb_sparepart s ON i.id_sparepart = s.id_sparepart;
@@ -231,3 +230,5 @@ BEGIN
 
 END;
 GO
+
+
