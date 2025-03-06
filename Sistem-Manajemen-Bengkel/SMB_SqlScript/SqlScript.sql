@@ -207,4 +207,3 @@ CREATE TABLE tb_jadwal_libur (
     is_libur INT
 );
 
-select * from tb_jadwal_libur

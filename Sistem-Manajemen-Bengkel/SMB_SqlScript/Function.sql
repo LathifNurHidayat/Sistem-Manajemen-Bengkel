@@ -10,7 +10,6 @@ BEGIN
     DECLARE @hari VARCHAR(20) = '';
     DECLARE @waktu_booking TIME = @waktu;
 
-    -- Konversi hari ke bahasa Indonesia
     SET @hari = 
         CASE @hariInggris
             WHEN 'Sunday' THEN 'Minggu'
@@ -102,3 +101,103 @@ GO
 
 
 
+--function hitung total pendapatan hari ini
+CREATE FUNCTION fnc_TotalPendapatanHariIni(@tanggal DATE)
+RETURNS DECIMAL(18, 0)
+AS 
+BEGIN    
+    DECLARE @total DECIMAL(18, 0) = 0;
+    
+        SELECT @total = COALESCE(SUM(total_biaya), 0) 
+        FROM tb_riwayat 
+        WHERE CAST(tanggal AS DATE) = @tanggal AND status = 1;
+    RETURN @total;
+END;
+GO  
+
+
+
+
+--function total booking hari ini
+CREATE FUNCTION fnc_TotalBookingHariIni(@tanggal DATE)
+RETURNS INT
+AS 
+BEGIN
+    DECLARE @total INT = 0;
+    
+    SELECT @total = COUNT(*) 
+    FROM tb_booking
+    WHERE CAST(tanggal AS DATE) = @tanggal;
+    
+    RETURN @total;
+END;
+GO
+
+
+
+--function  total selesai servis hari ini 
+CREATE FUNCTION fnc_TotalSelesaiServisHariIni(@tanggal DATE)
+RETURNS INT
+AS 
+BEGIN 
+    DECLARE @total INT = 0;
+    
+    SELECT @total = COUNT(*) 
+    FROM tb_booking
+    WHERE CAST(tanggal AS DATE) = @tanggal AND status = 3;
+    
+    RETURN @total;
+END;
+GO
+
+
+
+--function total data pelanggan 
+CREATE FUNCTION fnc_TotalDataPelanggan()
+RETURNS INT 
+AS 
+BEGIN
+    DECLARE @total INT;
+
+    SELECT @total = COUNT(*) FROM tb_pelanggan;
+
+    RETURN @total;
+END;
+GO
+
+
+
+
+--function total servis tiap pelanggan
+CREATE FUNCTION fnc_TotalServisPelanggan()
+RETURNS @result TABLE 
+(
+    nama_pelanggan VARCHAR(50),
+    total_servis INT
+)
+AS 
+BEGIN     
+    INSERT INTO @result (nama_pelanggan, total_servis)
+    SELECT TOP 10 nama_pelanggan, total_servis 
+    FROM tb_pelanggan 
+    ORDER BY total_servis DESC;
+
+    RETURN;
+END;
+
+
+
+
+CREATE FUNCTION fnc_ListPeringkatSparepartTerjual()
+RETURNS @result TABLE 
+(
+    nama_sparepart VARCHAR(50),
+    jumlah_terjual INT
+)
+
+AS 
+BEGIN
+    INSERT INTO @result (nama_sparepart, jumlah_terjual)
+    (SELECT DISTINCT nama_sparepart, SUM(jumlah) FROM tb_penggunaan_sparepart) 
+    RETURN @result;
+END 
