@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm
 {
-    partial class RiwayatForm
+    partial class RiwayatPelanggan
     {
         /// <summary>
         /// Required designer variable.

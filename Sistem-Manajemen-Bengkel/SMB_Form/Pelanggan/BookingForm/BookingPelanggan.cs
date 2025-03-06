@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.BookingForm
 {
-    public partial class MainMenuForm : Form
+    public partial class BookingPelanggan : Form
     {
-        public MainMenuForm()
+        public BookingPelanggan()
         {
             InitializeComponent();
         }

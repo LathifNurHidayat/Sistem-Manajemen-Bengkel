@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.KendaraanForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Dashboard
 {
-    public partial class KendaraanForm : Form
+    public partial class DashboardPelanggan : Form
     {
-        public KendaraanForm()
+        public DashboardPelanggan()
         {
             InitializeComponent();
         }

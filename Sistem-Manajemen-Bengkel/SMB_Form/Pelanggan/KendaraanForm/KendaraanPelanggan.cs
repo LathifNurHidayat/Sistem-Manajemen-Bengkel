@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.KendaraanForm
 {
-    public partial class RiwayatForm : Form
+    public partial class KendaraanPelanggan : Form
     {
-        public RiwayatForm()
+        public KendaraanPelanggan()
         {
             InitializeComponent();
         }
