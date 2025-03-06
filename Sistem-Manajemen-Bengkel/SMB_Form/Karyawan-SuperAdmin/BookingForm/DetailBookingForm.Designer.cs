@@ -154,22 +154,20 @@
             // ButtonSparepart
             // 
             ButtonSparepart.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            ButtonSparepart.BackColor = Color.Gray;
-            ButtonSparepart.BackgroundColor = Color.Gray;
+            ButtonSparepart.BackColor = Color.DarkKhaki;
+            ButtonSparepart.BackgroundColor = Color.DarkKhaki;
             ButtonSparepart.BorderColor = Color.DimGray;
             ButtonSparepart.BorderRadius = 5;
             ButtonSparepart.BorderSize = 0;
             ButtonSparepart.FlatAppearance.BorderSize = 0;
             ButtonSparepart.FlatStyle = FlatStyle.Flat;
-            ButtonSparepart.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ButtonSparepart.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSparepart.ForeColor = Color.White;
-            ButtonSparepart.ImageAlign = ContentAlignment.TopCenter;
-            ButtonSparepart.Location = new Point(322, 280);
+            ButtonSparepart.Location = new Point(303, 269);
             ButtonSparepart.Name = "ButtonSparepart";
-            ButtonSparepart.Size = new Size(66, 29);
+            ButtonSparepart.Size = new Size(85, 40);
             ButtonSparepart.TabIndex = 3;
             ButtonSparepart.Text = "Pilih";
-            ButtonSparepart.TextAlign = ContentAlignment.TopCenter;
             ButtonSparepart.TextColor = Color.White;
             ButtonSparepart.UseVisualStyleBackColor = false;
             // 
@@ -193,7 +191,7 @@
             TextSparepart.Multiline = true;
             TextSparepart.Name = "TextSparepart";
             TextSparepart.ReadOnly = true;
-            TextSparepart.Size = new Size(350, 78);
+            TextSparepart.Size = new Size(350, 63);
             TextSparepart.TabIndex = 110;
             TextSparepart.TabStop = false;
             // 

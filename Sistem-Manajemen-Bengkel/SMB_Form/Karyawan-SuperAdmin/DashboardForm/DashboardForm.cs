@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,15 +17,59 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 {
     public partial class DashboardForm : Form
     {
-        private readonly PelangganDal _pelangganDal;
-        private readonly BookingDal _bookingDal;
-
+        private readonly DashboardDal _dashboardDal;
         public DashboardForm()
         {
             InitializeComponent();
-            _pelangganDal = new PelangganDal();
-            _bookingDal = new BookingDal();
+            _dashboardDal = new DashboardDal();
+
             RegisterControlEvent();
+            GetData();
+            CustomComponentHelper.CustomDataGrid(GridListPeringkatSparepart);
+            CustomComponentHelper.CustomDataGrid(GridListPeringkatServis);
+        }
+
+        private void GetData()
+        {
+            int totalpelanggan = _dashboardDal.TotalDataPelanggan();
+            int totalBookingHariIni = _dashboardDal.TotalBookingHariIni(DateTime.Today);
+            int totalServisHariIni = _dashboardDal.TotalSelesaiServisHariIni(DateTime.Today);
+            decimal pendapatanHariIni = _dashboardDal.TotalPendapatanHariIni(DateTime.Today);
+
+            LabelTotalPelanggan.Text = totalpelanggan.ToString();
+            LabelTotalBooking.Text = totalBookingHariIni.ToString();
+            LabelTotalService.Text = totalServisHariIni.ToString();
+            LabelPendapatan.Text = pendapatanHariIni.ToString("C", new CultureInfo("id-ID"));
+
+            var peringkatServisPelanggan = _dashboardDal.PeringkatServisPelanggan().Select((x, index) => new
+            {
+                No = index + 1,
+                Nama = x.nama_pelanggan,
+                TotalServis = x.total_Servis
+            }).ToList();
+
+            GridListPeringkatServis.DataSource = peringkatServisPelanggan;
+           
+            
+            CustomGrid(GridListPeringkatServis);
+
+            void CustomGrid(DataGridView grid)
+            {
+                if (grid.Name == "GridListPeringkatServis")
+                {
+                    grid.Columns["TotalServis"].HeaderText = "Total Servis";
+
+                    grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    grid.Columns["No"].FillWeight = 20;
+                    grid.Columns["Nama"].FillWeight = 50;
+                    grid.Columns["TotalServis"].FillWeight = 30;
+                }
+
+                else
+                {
+
+                }
+            }
         }
 
         private void RegisterControlEvent()
@@ -51,7 +96,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             JadwalLiburForm jadwalLiburForm = new JadwalLiburForm();
             if (jadwalLiburForm.ShowDialog() == DialogResult.OK)
             {
-                NontifikasiFormHelper nontifikasiFormHelper = new NontifikasiFormHelper("Perubahan disimpan");
+                NontifikasiFormHelper nontifikasiFormHelper = new NontifikasiFormHelper("Jadwal Libur Berhasil Diubah");
                 nontifikasiFormHelper.Show();
             }
         }
@@ -107,16 +152,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             {
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             }
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

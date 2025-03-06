@@ -127,7 +127,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
                 col.DefaultCellStyle.Padding = new Padding(20, 0, 20, 0);
             }
-
+             
             grid.ResumeLayout();
         }
 
@@ -294,6 +294,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             _lastJumlah = sparepart.Jumlah;
         }
 
+
         private void GridListSparepartUse_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -310,6 +311,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             bsRequired.ResetBindings(false);
         }
 
+
         private void GridListSparepartUse_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -318,6 +320,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             _sparepartRequired.Remove(sparepart);
             bsRequired.ResetBindings(false);
         }
+
 
         public class SparepartDto
         {

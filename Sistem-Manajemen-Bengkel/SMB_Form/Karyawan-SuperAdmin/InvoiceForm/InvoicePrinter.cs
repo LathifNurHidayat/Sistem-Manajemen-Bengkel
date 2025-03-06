@@ -30,15 +30,15 @@ public class InvoicePrinter
 
     private void GetData()
     {
-        _informasiBengkel = _informasiBengkelDal.GetData() ?? new InformasiBengkelModel();
+      //  _informasiBengkel = _informasiBengkelDal.GetData() ?? new InformasiBengkelModel();
 
-        _penggunaanSparepart = _penggunaanSparepartDal.GetSparepart(_dataBooking.id_booking) ?? new PenggunaanSparepartModel();
+        //_penggunaanSparepart = _penggunaanSparepartDal.GetSparepart(_dataBooking.id_booking) ?? new PenggunaanSparepartModel();
     }
 
     public void PrintInvoice()
     {
         PrintDocument printDoc = new PrintDocument();
-        printDoc.PrintPage += new PrintPageEventHandler(PrintPage);
+        printDoc.PrintPage += PrintPage;
 
         PrintPreviewDialog preview = new PrintPreviewDialog
         {
@@ -47,6 +47,11 @@ public class InvoicePrinter
             Height = 600
         };
         preview.ShowDialog();
+    }
+
+    private void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 
     private void PrintPage(object sender, PrintPageEventArgs e)
