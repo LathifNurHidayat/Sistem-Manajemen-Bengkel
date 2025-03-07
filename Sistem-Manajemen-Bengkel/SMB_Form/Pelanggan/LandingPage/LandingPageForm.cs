@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage
 {
-    public partial class LaporanForm : Form
+    public partial class LandingPageForm : Form
     {
-        public LaporanForm()
+        public LandingPageForm()
         {
             InitializeComponent();
         }
+
+
+
+
     }
 }

@@ -32,7 +32,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             _idKendaraan = id_kendaraan;
 
             if (id_kendaraan != 0)
-            {
+            { 
                 GetDataAll(id_kendaraan);
             }
 
@@ -96,7 +96,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             ButtonShowPelanggan.Click += ButtonShowPelanggan_Click;
             ButtonSimpan.Click += ButtonSimpan_Click;
             ButtonBatal.Click += ButtonBatal_Click;
-            TextNomorKTP.KeyPress += TextBox_KeyPress;
             TextKapasitasMesin.KeyPress += TextBox_KeyPress;
             TextTahun.KeyPress += TextBox_KeyPress;
         }
@@ -130,7 +129,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
         {
             DataPelangganFormHelper pelangganForm = new DataPelangganFormHelper();
             if (pelangganForm.ShowDialog() == DialogResult.OK)
-                TextNomorKTP.Text = pelangganForm._no_ktp_pelanggan;
+                GetDataPelanggan(pelangganForm._no_ktp_pelanggan);
         }
     }
 }

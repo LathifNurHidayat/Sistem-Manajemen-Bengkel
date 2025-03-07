@@ -166,8 +166,6 @@ END;
 GO
 
 
-
-
 --function total servis tiap pelanggan
 CREATE FUNCTION fnc_TotalServisPelanggan()
 RETURNS @result TABLE 
@@ -178,26 +176,71 @@ RETURNS @result TABLE
 AS 
 BEGIN     
     INSERT INTO @result (nama_pelanggan, total_servis)
-    SELECT TOP 10 nama_pelanggan, total_servis 
+    SELECT TOP 5 nama_pelanggan, total_servis 
     FROM tb_pelanggan 
     ORDER BY total_servis DESC;
 
     RETURN;
 END;
+GO
 
-
-
-
+--Function list peringkat sparepart yang terjual
 CREATE FUNCTION fnc_ListPeringkatSparepartTerjual()
 RETURNS @result TABLE 
 (
     nama_sparepart VARCHAR(50),
     jumlah_terjual INT
 )
-
 AS 
 BEGIN
     INSERT INTO @result (nama_sparepart, jumlah_terjual)
-    (SELECT DISTINCT nama_sparepart, SUM(jumlah) FROM tb_penggunaan_sparepart) 
-    RETURN @result;
-END 
+    SELECT TOP 5 bb.nama_sparepart, SUM(aa.jumlah) AS jumlah_terjual
+    FROM tb_penggunaan_sparepart aa 
+    LEFT JOIN tb_sparepart bb ON aa.id_sparepart = bb.id_sparepart 
+    GROUP BY bb.nama_sparepart;
+    
+    RETURN;
+END;
+GO
+
+
+
+SELECT 
+    b.id_booking, 
+    p.nama_pelanggan, 
+    k.merek AS nama_kendaraan, 
+    k.no_polisi, 
+    b.antrean, 
+    js.jenis_servis AS jasa_servis,
+    js.biaya AS biaya_jasa,
+
+    STRING_AGG(sp.nama_sparepart, ',') AS sparepart, 
+    STRING_AGG(CAST(ps.jumlah AS VARCHAR), ',') AS quantity,
+STRING_AGG(CAST(CAST(ps.harga AS INT) AS VARCHAR), ',') AS harga_sparepart,
+
+    (js.biaya + ISNULL(SUM(ps.harga), 0)) AS total_biaya_servis,
+
+    b.catatan,
+    ib.nama_bengkel,
+    ib.alamat AS alamat_bengkel,
+    ib.email AS email_bengkel,
+    ib.no_telp AS no_telp_bengkel,
+    b.tanggal
+FROM tb_booking b
+JOIN tb_pelanggan p ON b.no_ktp_pelanggan = p.no_ktp_pelanggan
+JOIN tb_kendaraan k ON b.id_kendaraan = k.id_kendaraan
+JOIN tb_jasa_servis js ON b.id_jasa_servis = js.id_jasa_servis
+LEFT JOIN tb_penggunaan_sparepart ps ON b.id_booking = ps.id_penggunaan_sparepart
+LEFT JOIN tb_sparepart sp ON ps.id_sparepart = sp.id_sparepart
+CROSS JOIN tb_informasi_bengkel ib
+WHERE b.id_booking = 37 AND b.status = 3  
+
+GROUP BY 
+    b.id_booking, p.nama_pelanggan, k.merek, k.no_polisi, b.antrean, 
+    js.jenis_servis, js.biaya, 
+    b.catatan, ib.nama_bengkel, 
+    ib.alamat, ib.email, ib.no_telp, b.tanggal
+
+
+
+    select * from tb_booking

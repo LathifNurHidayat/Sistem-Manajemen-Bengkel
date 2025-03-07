@@ -21,6 +21,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         private readonly JasaServisDal _jasaServisDal;
         private readonly MekanikDal _mekanikDal;
         private readonly PenggunaanSparepartDal _penggunaanSparepartDal;
+        private readonly InvoiceDal _invoiceDal;
 
         private int _statusBooking;
         private int _idBooking;
@@ -32,6 +33,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             _jasaServisDal = new JasaServisDal();
             _mekanikDal = new MekanikDal();
             _penggunaanSparepartDal = new PenggunaanSparepartDal();
+            _invoiceDal = new InvoiceDal();
 
             _idBooking = id_booking;
 
@@ -193,11 +195,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             }
             else if (_statusBooking == 3)
             {
-                var data = _bookingDal.GetData(_idBooking);
+                var data = _invoiceDal.GetInvoice(_idBooking);
                 if (data != null)
                 {
-                    InvoicePrinter invoice = new InvoicePrinter(data);
-                    invoice.PrintInvoice();
+                    Invoice_Laporan.GenerateInvoicePDF(data);    
                 }
 
             }

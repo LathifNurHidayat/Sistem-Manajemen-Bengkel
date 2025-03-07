@@ -22,11 +22,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
         {
             InitializeComponent();
             _dashboardDal = new DashboardDal();
+            CustomComponentHelper.CustomDataGrid(GridListPeringkatSparepart);
+            CustomComponentHelper.CustomDataGrid(GridListPeringkatServis);
 
             RegisterControlEvent();
             GetData();
-            CustomComponentHelper.CustomDataGrid(GridListPeringkatSparepart);
-            CustomComponentHelper.CustomDataGrid(GridListPeringkatServis);
+         
         }
 
         private void GetData()
@@ -48,13 +49,33 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
                 TotalServis = x.total_Servis
             }).ToList();
 
+            var peringkatSparepartTerjual = _dashboardDal.PeringkatSparepartTerjual()
+                .OrderByDescending(x => x.jumlah_terjual)
+                .Select((x, Index) => new
+                {
+                    No = Index + 1,
+                    Sparepart = x.nama_sparepart,
+                    Terjual = x.jumlah_terjual
+                }).ToList();
+
+
+
             GridListPeringkatServis.DataSource = peringkatServisPelanggan;
-           
+            GridListPeringkatSparepart.DataSource = peringkatSparepartTerjual;
             
+
             CustomGrid(GridListPeringkatServis);
+            CustomGrid(GridListPeringkatSparepart);
+
 
             void CustomGrid(DataGridView grid)
             {
+                grid.BorderStyle = BorderStyle.None;
+                foreach(DataGridViewColumn column in grid.Columns)
+                {
+                    column.DefaultCellStyle.Padding = new Padding(20,0,0,0);
+                }
+
                 if (grid.Name == "GridListPeringkatServis")
                 {
                     grid.Columns["TotalServis"].HeaderText = "Total Servis";
@@ -67,7 +88,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 
                 else
                 {
+                    grid.Columns["Terjual"].HeaderText = "Total Terjual";
 
+                    grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    grid.Columns["No"].FillWeight = 20;
+                    grid.Columns["Sparepart"].FillWeight = 50;
+                    grid.Columns["Terjual"].FillWeight = 30;
                 }
             }
         }

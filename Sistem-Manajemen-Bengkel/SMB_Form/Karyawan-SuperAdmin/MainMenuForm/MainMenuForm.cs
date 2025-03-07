@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
@@ -48,7 +47,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
              {
                 ButtonDashboard, ButtonBooking, ButtonServis,
                 ButtonRiwayat, ButtonPelanggan, ButtonKendaraan,
-                ButtonKaryawan, ButtonSparepart, ButtonLaporan, ButtonLogout
+                ButtonKaryawan, ButtonSparepart, ButtonLogout
              });
 
             foreach  (var btn in _listButton)
@@ -77,8 +76,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
 
         private void RegisterControlEvent()
         {
-            this.FormClosed += Dashboard_FormClosed;
-            this.Load += Dashboard_Load;
+            this.FormClosed += MainMenuForm_FormClosed;
+            this.Load += MainMenuForm_Load;
             ButtonDashboard.Click += ButtonDashboard_Click;
             ButtonBooking.Click += ButtonBooking_Click;
             ButtonServis.Click += ButtonServis_Click;
@@ -87,39 +86,35 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
             ButtonKendaraan.Click += ButtonKendaraan_Click;
             ButtonKaryawan.Click += ButtonKaryawan_Click;
             ButtonSparepart.Click += ButtonSparepart_Click;
-            ButtonLaporan.Click += ButtonLaporan_Click;
             ButtonLogout.Click += ButtonLogout_Click;
 
         }
 
-        private void Dashboard_Load(object? sender, EventArgs e)
+        private void MainMenuForm_Load(object? sender, EventArgs e)
         {
             ButtonDashboard.PerformClick();
         }
 
-        private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
+        private void MainMenuForm_FormClosed(object? sender, FormClosedEventArgs e)
         {
+            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar aplikasi?"))
+            {
+                Application.Exit();
+            }
         }
 
         private void ButtonLogout_Click(object? sender, EventArgs e)
         {
-            StyleButton(sender as Button);
-            if (sender is Button button) button.Tag = "Click";
-
-            ShowFormHelper.ShowFormInPanel(new InvoiceForm());
-        }
-
-        private void ButtonLaporan_Click(object? sender, EventArgs e)
-        {
-            StyleButton(sender as Button);
-            if (sender is Button button) button.Tag = "Click";
-
-            ShowFormHelper.ShowFormInPanel(new LaporanForm());
+          if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin logout?"))
+            {
+                LoginForm._formLogin.Show();
+                this.Close();
+            }
         }
 
         private void ButtonSparepart_Click(object? sender, EventArgs e)
         {
-            StyleButton(sender as Button);
+            StyleButton(sender as Button);            
             if (sender is Button button) button.Tag = "Click";
 
             ShowFormHelper.ShowFormInPanel(new SMB_Form.Karyawan_SuperAdmin.SparepartForm.SparepartForm());

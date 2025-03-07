@@ -39,7 +39,6 @@
             ButtonKaryawan = new Button();
             ButtonServis = new Button();
             ButtonRiwayat = new Button();
-            ButtonLaporan = new Button();
             ButtonLogout = new Button();
             PictureProfiles = new SMB_CustomTolbox.RJCircularPictureBox();
             LabelUsername = new Label();
@@ -75,7 +74,6 @@
             flowLayoutPanel1.Controls.Add(ButtonKaryawan);
             flowLayoutPanel1.Controls.Add(ButtonServis);
             flowLayoutPanel1.Controls.Add(ButtonRiwayat);
-            flowLayoutPanel1.Controls.Add(ButtonLaporan);
             flowLayoutPanel1.Controls.Add(ButtonLogout);
             flowLayoutPanel1.Location = new Point(0, 256);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -210,22 +208,6 @@
             ButtonRiwayat.TextAlign = ContentAlignment.MiddleLeft;
             ButtonRiwayat.UseVisualStyleBackColor = false;
             // 
-            // ButtonLaporan
-            // 
-            ButtonLaporan.BackColor = SystemColors.Window;
-            ButtonLaporan.BackgroundImageLayout = ImageLayout.Zoom;
-            ButtonLaporan.FlatAppearance.BorderSize = 0;
-            ButtonLaporan.FlatStyle = FlatStyle.Flat;
-            ButtonLaporan.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            ButtonLaporan.ForeColor = Color.Gray;
-            ButtonLaporan.Location = new Point(3, 475);
-            ButtonLaporan.Name = "ButtonLaporan";
-            ButtonLaporan.Size = new Size(319, 53);
-            ButtonLaporan.TabIndex = 36;
-            ButtonLaporan.Text = "          📊     Laporan";
-            ButtonLaporan.TextAlign = ContentAlignment.MiddleLeft;
-            ButtonLaporan.UseVisualStyleBackColor = false;
-            // 
             // ButtonLogout
             // 
             ButtonLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -235,7 +217,7 @@
             ButtonLogout.FlatStyle = FlatStyle.Flat;
             ButtonLogout.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonLogout.ForeColor = Color.Gray;
-            ButtonLogout.Location = new Point(3, 534);
+            ButtonLogout.Location = new Point(3, 475);
             ButtonLogout.Name = "ButtonLogout";
             ButtonLogout.Size = new Size(319, 53);
             ButtonLogout.TabIndex = 37;
@@ -329,7 +311,6 @@
         private Button ButtonKaryawan;
         private Button ButtonServis;
         private Button ButtonRiwayat;
-        private Button ButtonLaporan;
         private Button ButtonLogout;
     }
 }

@@ -10,6 +10,7 @@ using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm;
 
 namespace Sistem_Manajemen_Bengkel
 {
@@ -25,7 +26,7 @@ namespace Sistem_Manajemen_Bengkel
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm());
+            Application.Run(new MainMenuPelanggan(""));
         }
     }
 } 

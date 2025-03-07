@@ -24,6 +24,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
         private readonly PelangganDal _pelangganDal;
         private readonly PegawaiDal _petugasDal;
         private readonly SessionLoginDal _sessionLoginDal;
+
+        public static Form _formLogin = new Form();
         public LoginForm()
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             _pelangganDal = new PelangganDal();
             _petugasDal = new PegawaiDal();
             _sessionLoginDal = new SessionLoginDal();
+            _formLogin = this;
 
             CustomComponentHelper.CustomPanel(panel1);
             RegisterControlEvent();

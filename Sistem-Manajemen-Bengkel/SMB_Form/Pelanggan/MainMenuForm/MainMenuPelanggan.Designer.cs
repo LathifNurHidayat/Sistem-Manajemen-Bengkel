@@ -30,12 +30,12 @@
         {
             ButtonDashboard = new Button();
             LabelUsername = new Label();
-            PanelMain = new Panel();
             panel1 = new Panel();
             ButtonLogout = new Button();
             ButtonRiwayat = new Button();
             ButtonKendaraan = new Button();
             ButtonBooking = new Button();
+            PanelMain = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,12 +45,13 @@
             ButtonDashboard.BackColor = Color.Transparent;
             ButtonDashboard.BackgroundImageLayout = ImageLayout.Zoom;
             ButtonDashboard.FlatAppearance.BorderSize = 0;
+            ButtonDashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(157, 178, 191);
             ButtonDashboard.FlatStyle = FlatStyle.Flat;
-            ButtonDashboard.Font = new Font("Comic Sans MS", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            ButtonDashboard.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonDashboard.ForeColor = Color.White;
-            ButtonDashboard.Location = new Point(704, -1);
+            ButtonDashboard.Location = new Point(699, -1);
             ButtonDashboard.Name = "ButtonDashboard";
-            ButtonDashboard.Size = new Size(128, 102);
+            ButtonDashboard.Size = new Size(128, 101);
             ButtonDashboard.TabIndex = 28;
             ButtonDashboard.Text = "Dashboard";
             ButtonDashboard.UseVisualStyleBackColor = false;
@@ -67,17 +68,6 @@
             LabelUsername.Text = "Lathif Nur Hidayat";
             LabelUsername.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // PanelMain
-            // 
-            PanelMain.AutoScroll = true;
-            PanelMain.BackColor = Color.White;
-            PanelMain.Dock = DockStyle.Bottom;
-            PanelMain.ForeColor = Color.Black;
-            PanelMain.Location = new Point(0, 71);
-            PanelMain.Name = "PanelMain";
-            PanelMain.Size = new Size(1239, 984);
-            PanelMain.TabIndex = 4;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(83, 92, 145);
@@ -90,7 +80,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1239, 102);
+            panel1.Size = new Size(1239, 101);
             panel1.TabIndex = 5;
             // 
             // ButtonLogout
@@ -100,11 +90,11 @@
             ButtonLogout.BackgroundImageLayout = ImageLayout.Zoom;
             ButtonLogout.FlatAppearance.BorderSize = 0;
             ButtonLogout.FlatStyle = FlatStyle.Flat;
-            ButtonLogout.Font = new Font("Comic Sans MS", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            ButtonLogout.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonLogout.ForeColor = Color.White;
-            ButtonLogout.Location = new Point(1155, 0);
+            ButtonLogout.Location = new Point(1150, 0);
             ButtonLogout.Name = "ButtonLogout";
-            ButtonLogout.Size = new Size(84, 102);
+            ButtonLogout.Size = new Size(84, 101);
             ButtonLogout.TabIndex = 32;
             ButtonLogout.Text = "Logout";
             ButtonLogout.UseVisualStyleBackColor = false;
@@ -116,11 +106,11 @@
             ButtonRiwayat.BackgroundImageLayout = ImageLayout.Zoom;
             ButtonRiwayat.FlatAppearance.BorderSize = 0;
             ButtonRiwayat.FlatStyle = FlatStyle.Flat;
-            ButtonRiwayat.Font = new Font("Comic Sans MS", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            ButtonRiwayat.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonRiwayat.ForeColor = Color.White;
-            ButtonRiwayat.Location = new Point(1058, 0);
+            ButtonRiwayat.Location = new Point(1053, 0);
             ButtonRiwayat.Name = "ButtonRiwayat";
-            ButtonRiwayat.Size = new Size(91, 102);
+            ButtonRiwayat.Size = new Size(91, 101);
             ButtonRiwayat.TabIndex = 31;
             ButtonRiwayat.Text = "Riwayat";
             ButtonRiwayat.UseVisualStyleBackColor = false;
@@ -132,11 +122,11 @@
             ButtonKendaraan.BackgroundImageLayout = ImageLayout.Zoom;
             ButtonKendaraan.FlatAppearance.BorderSize = 0;
             ButtonKendaraan.FlatStyle = FlatStyle.Flat;
-            ButtonKendaraan.Font = new Font("Comic Sans MS", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            ButtonKendaraan.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonKendaraan.ForeColor = Color.White;
-            ButtonKendaraan.Location = new Point(937, -1);
+            ButtonKendaraan.Location = new Point(932, -1);
             ButtonKendaraan.Name = "ButtonKendaraan";
-            ButtonKendaraan.Size = new Size(115, 102);
+            ButtonKendaraan.Size = new Size(115, 101);
             ButtonKendaraan.TabIndex = 30;
             ButtonKendaraan.Text = "Kendaraan";
             ButtonKendaraan.UseVisualStyleBackColor = false;
@@ -148,25 +138,33 @@
             ButtonBooking.BackgroundImageLayout = ImageLayout.Zoom;
             ButtonBooking.FlatAppearance.BorderSize = 0;
             ButtonBooking.FlatStyle = FlatStyle.Flat;
-            ButtonBooking.Font = new Font("Comic Sans MS", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            ButtonBooking.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBooking.ForeColor = Color.White;
-            ButtonBooking.Location = new Point(838, 0);
+            ButtonBooking.Location = new Point(833, 0);
             ButtonBooking.Name = "ButtonBooking";
-            ButtonBooking.Size = new Size(93, 102);
+            ButtonBooking.Size = new Size(93, 101);
             ButtonBooking.TabIndex = 29;
             ButtonBooking.Text = "Booking";
             ButtonBooking.UseVisualStyleBackColor = false;
             // 
-            // MainMenuForm
+            // PanelMain
+            // 
+            PanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelMain.Location = new Point(0, 99);
+            PanelMain.Name = "PanelMain";
+            PanelMain.Size = new Size(1239, 406);
+            PanelMain.TabIndex = 6;
+            // 
+            // MainMenuPelanggan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1239, 1055);
-            Controls.Add(panel1);
+            BackColor = Color.White;
+            ClientSize = new Size(1239, 504);
             Controls.Add(PanelMain);
+            Controls.Add(panel1);
             DoubleBuffered = true;
-            Name = "MainMenuForm";
+            Name = "MainMenuPelanggan";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
             panel1.ResumeLayout(false);
@@ -176,12 +174,12 @@
 
         #endregion
         private Label LabelUsername;
-        private Panel PanelMain;
         private Button ButtonDashboard;
         private Panel panel1;
         private Button ButtonLogout;
         private Button ButtonRiwayat;
         private Button ButtonKendaraan;
         private Button ButtonBooking;
+        private Panel PanelMain;
     }
 }

@@ -8,10 +8,10 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.BookingForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Dashboard;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.KendaraanForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
@@ -22,6 +22,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
         public MainMenuPelanggan(string username)
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+
             LabelUsername.Text = username;
             ShowFormHelper.SetPanel(PanelMain);
 
@@ -42,7 +44,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
 
         private void ButtonDashboard_Click(object sender, EventArgs e)
         {
-            ShowFormHelper.ShowFormInPanel(new DashboardPelanggan());
+            ShowFormHelper.ShowFormInPanel(new LandingPageForm());
         }
 
         private void ButtonBooking_Click(object sender, EventArgs e)

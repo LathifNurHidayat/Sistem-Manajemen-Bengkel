@@ -188,12 +188,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             // GridListPeringkatSparepart
             // 
             GridListPeringkatSparepart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GridListPeringkatSparepart.BorderStyle = BorderStyle.None;
             GridListPeringkatSparepart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridListPeringkatSparepart.Location = new Point(22, 60);
+            GridListPeringkatSparepart.Location = new Point(5, 60);
             GridListPeringkatSparepart.Name = "GridListPeringkatSparepart";
             GridListPeringkatSparepart.RowHeadersWidth = 51;
             GridListPeringkatSparepart.RowTemplate.Height = 29;
-            GridListPeringkatSparepart.Size = new Size(475, 88);
+            GridListPeringkatSparepart.Size = new Size(509, 99);
             GridListPeringkatSparepart.TabIndex = 14;
             // 
             // LabelPendapatan
@@ -240,11 +241,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             GridListPeringkatServis.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListPeringkatServis.BorderStyle = BorderStyle.None;
             GridListPeringkatServis.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridListPeringkatServis.Location = new Point(22, 58);
+            GridListPeringkatServis.Location = new Point(5, 58);
             GridListPeringkatServis.Name = "GridListPeringkatServis";
             GridListPeringkatServis.RowHeadersWidth = 51;
             GridListPeringkatServis.RowTemplate.Height = 29;
-            GridListPeringkatServis.Size = new Size(435, 88);
+            GridListPeringkatServis.Size = new Size(468, 101);
             GridListPeringkatServis.TabIndex = 13;
             // 
             // ButtonProfilBengkel
