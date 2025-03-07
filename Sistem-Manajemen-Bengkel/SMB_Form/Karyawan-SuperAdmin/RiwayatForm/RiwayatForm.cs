@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.RiwayatForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
@@ -180,8 +181,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                     Pelanggan = x.nama_pelanggan,
                     Petugas = x.nama_pegawai,
                     Mekanik = x.nama_mekanik,
-                    NoPolisi = x.no_polisi ?? "-",
-                    Kendaraan = x.nama_kendaraan ?? "-",
+                    NoPolisi = x.no_polisi,
+                    Kendaraan = x.nama_kendaraan,
                     Keluhan = x.keluhan ?? "-",
                     Catatan = x.catatan ?? "-",
                     TotalBiaya = string.Format(new System.Globalization.CultureInfo("id-ID"), "Rp{0:N0}", x.total_biaya) ?? "-",
@@ -202,9 +203,19 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             ButtonSearch.Click += ButtonSearch_Click;
             TextSearch.TextChanged += TextSearch_TextChanged;
             TextSearch.KeyDown += TextSearch_KeyDown;
-            GridListData.CellMouseClick += GridListData_CellMouseClick;
             PickerFilter1.ValueChanged += PickerFilter_ValueChanged;
             PickerFilter2.ValueChanged += PickerFilter_ValueChanged;
+            ButtonEksport.Click += ButtonEksport_Click;
+        }
+
+        private void ButtonEksport_Click(object? sender, EventArgs e)
+        {
+            SetPrintLaporanForm setPrintLaporanForm = new SetPrintLaporanForm();
+            if (setPrintLaporanForm.ShowDialog() == DialogResult.OK)
+            {
+                NontifikasiFormHelper nontifikasi = new NontifikasiFormHelper("Laporan berhasil disimpan");
+                nontifikasi.Show();
+            }
         }
 
         private void PickerFilter_ValueChanged(object sender, Syncfusion.WinForms.Input.Events.DateTimeValueChangedEventArgs e)
@@ -215,15 +226,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             LoadData();
         }
 
-        private void GridListData_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                GridListData.ClearSelection();
-                GridListData.CurrentCell = GridListData[e.ColumnIndex, e.RowIndex];
-                contextMenuStrip.Show(Cursor.Position);
-            }
-        }
+      
 
         private void ButtonTambah_Click(object? sender, EventArgs e)
         {

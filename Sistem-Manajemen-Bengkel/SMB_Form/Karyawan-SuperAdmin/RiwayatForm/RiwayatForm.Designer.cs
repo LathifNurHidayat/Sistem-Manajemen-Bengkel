@@ -49,7 +49,6 @@
             GridListData = new DataGridView();
             label7 = new Label();
             ButtonEksport = new SMB_CustomTolbox.LathifButton();
-            contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             editToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
             PanelBooking.SuspendLayout();
@@ -57,7 +56,6 @@
             ((System.ComponentModel.ISupportInitialize)TextPage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TextSearch).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
-            contextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // PanelBooking
@@ -353,18 +351,9 @@
             ButtonEksport.Name = "ButtonEksport";
             ButtonEksport.Size = new Size(127, 39);
             ButtonEksport.TabIndex = 42;
-            ButtonEksport.Text = "📤 Eksport";
+            ButtonEksport.Text = "📤 Laporan";
             ButtonEksport.TextColor = Color.White;
             ButtonEksport.UseVisualStyleBackColor = false;
-            // 
-            // contextMenuStrip
-            // 
-            contextMenuStrip.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            contextMenuStrip.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, deleteToolStripMenuItem });
-            contextMenuStrip.MetroColor = Color.FromArgb(204, 236, 249);
-            contextMenuStrip.Name = "contextMenuStrip";
-            contextMenuStrip.Size = new Size(146, 68);
             // 
             // editToolStripMenuItem
             // 
@@ -398,7 +387,6 @@
             ((System.ComponentModel.ISupportInitialize)TextPage).EndInit();
             ((System.ComponentModel.ISupportInitialize)TextSearch).EndInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
-            contextMenuStrip.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -418,7 +406,6 @@
         private DataGridView GridListData;
         private Label label7;
         private SMB_CustomTolbox.LathifButton ButtonEksport;
-        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ComboBox ComboFilter;
