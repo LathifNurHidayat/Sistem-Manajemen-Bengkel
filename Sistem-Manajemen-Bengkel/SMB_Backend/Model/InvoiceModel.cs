@@ -21,9 +21,25 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public int antrean { get; set; }
 
 
-        public string barang_jasa { get; set; } // Untuk menyimpan data apa saja jasa / sparepart yang dipilih
-        public string quantity { get; set; }
-        public decimal harga { get; set; }
+        public string jasa_servis { get; set; } 
+        public decimal biaya_jasa { get; set; }
+
+
+        public string? sparepart { get; set; }  
+        public string? quantity { get; set; }   
+        public string? harga_sparepart { get; set; }
+
+        public List<string> List_sparepart => !string.IsNullOrEmpty(sparepart)
+                                            ? sparepart.Contains(",") ? sparepart.Split(",").ToList() : new List<string> { sparepart }
+                                            : new List<string>();
+
+        public List<string> List_quantity => !string.IsNullOrEmpty(quantity)
+                                            ? quantity.Contains(",") ? quantity.Split(",").ToList() : new List<string> { quantity }
+                                            : new List<string>();
+        public List<decimal> List_harga_sparepart => !string.IsNullOrEmpty(harga_sparepart)
+                                                    ? harga_sparepart.Contains(",") ? harga_sparepart.Split(",").Select(s => decimal.Parse(s)).ToList() 
+                                                    : new List<decimal> {decimal.Parse(harga_sparepart)}
+                                                    : new List<decimal>();
 
 
         public decimal total_biaya_servis { get; set; }
