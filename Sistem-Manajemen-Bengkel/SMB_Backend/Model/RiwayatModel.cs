@@ -33,7 +33,5 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public string catatan { get; set; }
         public decimal total_biaya { get; set; }
         public int status { get; set; } //1 = Selesai, 2 = Dibatalkan
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
     }
 }
