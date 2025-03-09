@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             panel1 = new Panel();
             LabelEmail = new Label();
             label6 = new Label();
             label5 = new Label();
             label2 = new Label();
             panel4 = new Panel();
+            ButtonShowHidePassword = new Button();
             TextPassword = new TextBox();
             panel3 = new Panel();
             TextEmail = new TextBox();
@@ -43,6 +45,7 @@
             pictureBox3 = new PictureBox();
             ButtonMasuk = new Button();
             panel2 = new Panel();
+            ButtonBack = new SMB_CustomTolbox.LathifButton();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -66,7 +69,7 @@
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(ButtonMasuk);
-            panel1.Location = new Point(210, 127);
+            panel1.Location = new Point(354, 196);
             panel1.Name = "panel1";
             panel1.Size = new Size(438, 462);
             panel1.TabIndex = 0;
@@ -75,11 +78,11 @@
             // 
             LabelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LabelEmail.ForeColor = Color.Red;
-            LabelEmail.Location = new Point(214, 129);
+            LabelEmail.Location = new Point(146, 129);
             LabelEmail.Name = "LabelEmail";
-            LabelEmail.Size = new Size(205, 23);
+            LabelEmail.Size = new Size(273, 23);
             LabelEmail.TabIndex = 27;
-            LabelEmail.Text = "⚠ Masukan email yang valid";
+            LabelEmail.Text = "⚠ Masukan format email yang valid";
             LabelEmail.TextAlign = ContentAlignment.MiddleRight;
             LabelEmail.Visible = false;
             // 
@@ -117,11 +120,28 @@
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(ButtonShowHidePassword);
             panel4.Controls.Add(TextPassword);
             panel4.Location = new Point(20, 256);
             panel4.Name = "panel4";
             panel4.Size = new Size(399, 41);
             panel4.TabIndex = 1;
+            // 
+            // ButtonShowHidePassword
+            // 
+            ButtonShowHidePassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonShowHidePassword.BackColor = Color.Transparent;
+            ButtonShowHidePassword.BackgroundImage = Properties.Resources.HidePassword;
+            ButtonShowHidePassword.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonShowHidePassword.FlatAppearance.BorderSize = 0;
+            ButtonShowHidePassword.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            ButtonShowHidePassword.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            ButtonShowHidePassword.FlatStyle = FlatStyle.Flat;
+            ButtonShowHidePassword.Location = new Point(361, 6);
+            ButtonShowHidePassword.Name = "ButtonShowHidePassword";
+            ButtonShowHidePassword.Size = new Size(30, 29);
+            ButtonShowHidePassword.TabIndex = 1;
+            ButtonShowHidePassword.UseVisualStyleBackColor = false;
             // 
             // TextPassword
             // 
@@ -129,8 +149,8 @@
             TextPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextPassword.Location = new Point(8, 7);
             TextPassword.Name = "TextPassword";
-            TextPassword.PasswordChar = '*';
-            TextPassword.Size = new Size(386, 24);
+            TextPassword.PasswordChar = '•';
+            TextPassword.Size = new Size(350, 24);
             TextPassword.TabIndex = 1;
             // 
             // panel3
@@ -207,18 +227,42 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(221, 230, 237);
+            panel2.Controls.Add(ButtonBack);
             panel2.Controls.Add(panel1);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(867, 699);
+            panel2.Size = new Size(1155, 836);
             panel2.TabIndex = 2;
+            // 
+            // ButtonBack
+            // 
+            ButtonBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ButtonBack.BackColor = Color.FromArgb(82, 109, 130);
+            ButtonBack.BackgroundColor = Color.FromArgb(82, 109, 130);
+            ButtonBack.BorderColor = Color.DarkGray;
+            ButtonBack.BorderRadius = 5;
+            ButtonBack.BorderSize = 0;
+            ButtonBack.FlatAppearance.BorderSize = 0;
+            ButtonBack.FlatStyle = FlatStyle.Flat;
+            ButtonBack.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonBack.ForeColor = Color.White;
+            ButtonBack.Image = (Image)resources.GetObject("ButtonBack.Image");
+            ButtonBack.Location = new Point(32, 761);
+            ButtonBack.Name = "ButtonBack";
+            ButtonBack.Size = new Size(109, 45);
+            ButtonBack.TabIndex = 8;
+            ButtonBack.Text = "Back";
+            ButtonBack.TextAlign = ContentAlignment.MiddleRight;
+            ButtonBack.TextColor = Color.White;
+            ButtonBack.TextImageRelation = TextImageRelation.ImageBeforeText;
+            ButtonBack.UseVisualStyleBackColor = false;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(867, 699);
+            ClientSize = new Size(1155, 836);
             Controls.Add(panel2);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -253,5 +297,7 @@
         private Label label6;
         private Label label5;
         private Label LabelEmail;
+        private Button ButtonShowHidePassword;
+        private SMB_CustomTolbox.LathifButton ButtonBack;
     }
 }

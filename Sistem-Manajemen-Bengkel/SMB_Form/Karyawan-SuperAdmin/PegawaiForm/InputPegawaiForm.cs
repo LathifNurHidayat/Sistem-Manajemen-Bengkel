@@ -37,16 +37,37 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             if (!string.IsNullOrEmpty(no_ktp_pegawai))
             {
                 GetData(no_ktp_pegawai);
-                LabelJudul.Text = "Update Data Pegawai";
+                LabelJudul.Text = "Edit Data Pegawai";
                 LabelResetPass.Visible = true;
                 LinkReset.Visible = true;
-                TextPassword.ReadOnly = true;
-                TextConfirmPassword.ReadOnly = true;
-                TextPassword.BackColor = SystemColors.Window;
-                TextConfirmPassword.BackColor = SystemColors.Window;
+                BoolReadonlyTextbox(true);
             }
 
             RegisterControlEvent();
+        }
+
+
+        private void BoolReadonlyTextbox(bool kondisi)
+        {
+            TextPassword.ReadOnly = kondisi;
+            TextConfirmPassword.ReadOnly = kondisi;
+
+            if (kondisi)
+            {
+                panel8.BackColor = TextPassword.BackColor;
+                panel9.BackColor = TextPassword.BackColor;
+
+                ButtonShowHideConfrmPassword.Visible = false;
+                ButtonShowHidePassword.Visible = false;
+            }
+            if (!kondisi)
+            {
+                panel8.BackColor = TextConfirmPassword.BackColor;
+                panel9.BackColor = TextConfirmPassword.BackColor;
+
+                ButtonShowHideConfrmPassword.Visible = true;
+                ButtonShowHidePassword.Visible = true;
+            }
         }
 
         private void GetData(string no_ktp_pegawai)
@@ -221,6 +242,25 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
             TextNoKTP.KeyPress += TextBox_KeyPress;
             TextNoHP.KeyPress += TextBox_KeyPress;
+
+            ButtonShowHideConfrmPassword.Click += ButtonShowHidePassword_Click;
+            ButtonShowHidePassword.Click += ButtonShowHidePassword_Click;
+        }
+
+        private void ButtonShowHidePassword_Click(object? sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                int b = button.Name == "ButtonShowHidePassword" ? 1 : 0;
+
+                bool isVisible = (button.Tag as bool?) ?? false;
+
+                if (b == 1) TextPassword.PasswordChar = isVisible ? '•' : '\0';
+                if (b == 0) TextConfirmPassword.PasswordChar = isVisible ? '•' : '\0';
+
+                button.BackgroundImage = isVisible ? Properties.Resources.HidePassword : Properties.Resources.ShowPassword;
+                button.Tag = !isVisible;
+            }
         }
 
         private void TextBox_KeyPress(object? sender, KeyPressEventArgs e)
@@ -237,8 +277,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 TextConfirmPassword.Clear();
                 _isPasswordReset = true;
                 TextPassword.Focus();
-                TextPassword.ReadOnly = false;
-                TextConfirmPassword.ReadOnly = false;
+                BoolReadonlyTextbox(false);
             }
         }
 

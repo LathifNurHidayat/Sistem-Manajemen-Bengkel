@@ -69,7 +69,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     
                                     STRING_AGG(gg.nama_sparepart, ', ') AS nama_sparepart,
 
-                                    aa.catatan, aa.tanggal, aa.antrean, aa.keluhan, aa.status
+                                    aa.id_kendaraan, aa.catatan, aa.tanggal, aa.antrean, aa.keluhan, aa.status
                                 FROM 
                                     tb_booking aa
 
@@ -99,6 +99,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     END,
                                     COALESCE(dd.transmisi, aa.transmisi),
                                     ISNULL(ee.jenis_servis, ''),
+                                    aa.id_kendaraan,
                                     aa.catatan,
                                     aa.tanggal,
                                     aa.antrean,
@@ -168,11 +169,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, Dp);
         }
 
-        public void DeletePermanent(int id_booking)
+        public void DeleteAfterDateChange()
         {
-            const string sql = "DELETE FROM tb_booking WHERE id_booking = @id_booking";
+            const string sql = "DELETE FROM tb_booking WHERE CAST(tanggal AS DATE) < CAST(GETDATE() AS DATE)";
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, new { id_booking });
+            conn.Execute(sql);
         }
 
         public int CountData(string filter,object dp)

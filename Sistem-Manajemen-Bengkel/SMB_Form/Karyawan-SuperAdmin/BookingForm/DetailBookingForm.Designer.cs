@@ -122,13 +122,13 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            label16.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             label16.ForeColor = Color.Black;
             label16.Location = new Point(577, 150);
             label16.Name = "label16";
-            label16.Size = new Size(188, 31);
+            label16.Size = new Size(129, 38);
             label16.TabIndex = 84;
-            label16.Text = "Progres Booking";
+            label16.Text = "Progress";
             // 
             // gradientPanelExt4
             // 
@@ -704,7 +704,7 @@
             ClientSize = new Size(1458, 939);
             Controls.Add(panel1);
             Name = "DetailBookingForm";
-            Text = "PelangganBookingForm";
+            Text = " ";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt4).EndInit();

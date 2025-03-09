@@ -223,6 +223,16 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HidePassword {
+            get {
+                object obj = ResourceManager.GetObject("HidePassword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mechanic {
             get {
                 object obj = ResourceManager.GetObject("mechanic", resourceCulture);
@@ -323,6 +333,16 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap saving {
+            get {
+                object obj = ResourceManager.GetObject("saving", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Selesai {
             get {
                 object obj = ResourceManager.GetObject("Selesai", resourceCulture);
@@ -336,6 +356,26 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         internal static System.Drawing.Bitmap Service {
             get {
                 object obj = ResourceManager.GetObject("Service", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShowPassword {
+            get {
+                object obj = ResourceManager.GetObject("ShowPassword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spare_parts {
+            get {
+                object obj = ResourceManager.GetObject("spare-parts", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

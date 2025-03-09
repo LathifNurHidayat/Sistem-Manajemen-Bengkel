@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Syncfusion.Windows.Forms.Tools;
@@ -18,11 +19,13 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
     public partial class DetailBookingForm : Form
     {
         private readonly BookingDal _bookingDal;
+        private readonly RiwayatDal _riwayatDal;
         private readonly JasaServisDal _jasaServisDal;
         private readonly MekanikDal _mekanikDal;
         private readonly PenggunaanSparepartDal _penggunaanSparepartDal;
         private readonly InvoiceDal _invoiceDal;
 
+        private BookingModel _bookingData;
         private int _statusBooking;
         private int _idBooking;
 
@@ -30,6 +33,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
         {
             InitializeComponent();
             _bookingDal = new BookingDal();
+            _riwayatDal = new RiwayatDal();
             _jasaServisDal = new JasaServisDal();
             _mekanikDal = new MekanikDal();
             _penggunaanSparepartDal = new PenggunaanSparepartDal();
@@ -64,27 +68,26 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
         private void GetData(int id_booking)
         {
-            var data = _bookingDal.GetData(id_booking);
-            if (data == null) return;
+             _bookingData = _bookingDal.GetData(id_booking);
+            if (_bookingData == null) return;
 
-            _statusBooking = data.status;
+            _statusBooking = _bookingData.status;
 
-            LabelAntreanAnda.Text = data.antrean.ToString();
-            LabelIdBooking.Text = data.id_booking.ToString();
-            LabelNama.Text = $": {data.nama_pelanggan}";
-            LabelNoKTP.Text = $": {(string.IsNullOrEmpty(data.no_ktp_pelanggan) ? "[ Tamu ]" : data.no_ktp_pelanggan)}";
-            LabelNoPol.Text = $": {data.no_polisi}";
-            LabelKendaraan.Text = $": {data.nama_kendaraan}";
-            LabelTanggal.Text = $": {data.tanggal:dd MMMM yyyy}";
-            LabelKeluhan.Text = $": {data.keluhan}";
+            LabelAntreanAnda.Text = _bookingData.antrean.ToString();
+            LabelIdBooking.Text = _bookingData.id_booking.ToString();
+            LabelNama.Text = $": {_bookingData.nama_pelanggan}";
+            LabelNoKTP.Text = $": {(string.IsNullOrEmpty(_bookingData.no_ktp_pelanggan) ? "[ Tamu ]" : _bookingData.no_ktp_pelanggan)}";
+            LabelNoPol.Text = $": {_bookingData.no_polisi}";
+            LabelKendaraan.Text = $": {_bookingData.nama_kendaraan}";
+            LabelTanggal.Text = $": {_bookingData.tanggal:dd MMMM yyyy}";
+            LabelKeluhan.Text = $": {_bookingData.keluhan}";
 
+            ComboMekanik.SelectedValue = string.IsNullOrEmpty(_bookingData.no_ktp_mekanik) ? "" : _bookingData.no_ktp_mekanik;
+            ComboJenisServis.SelectedValue = _bookingData.id_jasa_servis ?? 0;
+            TextSparepart.Text = _bookingData.nama_sparepart;
+            TextCatatan.Text = _bookingData.catatan;
 
-            ComboMekanik.SelectedValue = string.IsNullOrEmpty(data.no_ktp_mekanik) ? "" : data.no_ktp_mekanik;
-            ComboJenisServis.SelectedValue = data.id_jasa_servis ?? 0;
-            TextSparepart.Text = data.nama_sparepart;
-            TextCatatan.Text = data.catatan ;
-
-            if (data.status == 2)
+            if (_bookingData.status == 2)
             {
                 progres1.BackColor = System.Drawing.Color.LimeGreen;
                 progresDikerjakan.BackColor = System.Drawing.Color.LimeGreen;
@@ -92,7 +95,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 ButtonAksi.BackColor = System.Drawing.Color.Green;
                 ButtonAksi.Text = "Selesai";
             }
-            else if (data.status == 3)
+            else if (_bookingData.status == 3)
             {
                 progres1.BackColor = System.Drawing.Color.LimeGreen;
                 progresDikerjakan.BackColor = System.Drawing.Color.LimeGreen;
@@ -109,7 +112,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 ButtonSparepart.Enabled = false;
                 TextCatatan.ReadOnly = true;
             }
-            else if (data.status == 4)
+            else if (_bookingData.status == 4)
             {
                 PictureSelesai.Image = Properties.Resources.cancelled;
                 LabelSelesai.Text = "Dibatalkan";
@@ -157,6 +160,30 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             _bookingDal.UpdateData(booking);
         }
 
+        private void InsertRiwayat()
+        {
+            if (_bookingData == null) return; 
+
+            var riwayat = new RiwayatModel
+            {
+                id_jasa_servis = _bookingData.id_jasa_servis ?? 0,
+                no_ktp_pelanggan = _bookingData.no_ktp_pelanggan,
+                no_ktp_pegawai = SessionLogin._sessionLoginPegawai.no_ktp_pegawai, 
+                no_ktp_mekanik = _bookingData.no_ktp_mekanik ?? "",
+                id_kendaraan = _bookingData.id_kendaraan ?? 0,
+                id_penggunaan_sparepart = _bookingData.id_booking ,
+                nama_pelanggan = _bookingData.nama_pelanggan,
+                no_polisi = _bookingData.no_polisi,
+                merek = _bookingData.merek,
+                transmisi = _bookingData.transmisi,
+                kapasitas_mesin = _bookingData.kapasitas_mesin,
+                keluhan = _bookingData.keluhan,
+                catatan = _bookingData.catatan,
+                status = 1
+            };
+            _riwayatDal.InsertData(riwayat);
+        }
+
         private void RegisterControlEvent()
         {
             ButtonBack.Click += ButtonBatal_Click;
@@ -191,6 +218,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                     NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Selesai");
                     notifikasi.Show();
                     GetData(_idBooking);
+                    InsertRiwayat();
                 }
             }
             else if (_statusBooking == 3)

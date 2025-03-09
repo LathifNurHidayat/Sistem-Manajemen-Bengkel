@@ -13,6 +13,7 @@ using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
+using Syncfusion.Windows.Forms;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 {
@@ -54,7 +55,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 
         private void RegisterControlEvent()
         {
-            this.FormClosed += RegisterForm_FormClosed;
+            this.FormClosing += RegisterForm_FormClosing;
             LinkMasuk.Click += LinkLogin_Click;
             TextNIK.TextChanged += TextInput_TextChanged;
             TextNomorHP.TextChanged += TextInput_TextChanged;
@@ -66,12 +67,43 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
 
             TextNIK.KeyPress += TextBox_KeyPress;
             TextNomorHP.KeyPress += TextBox_KeyPress;
+
+            ButtonShowHideConfmPassword.Click += ButtonShowHidePassword_Click;
+            ButtonShowHidePassword.Click += ButtonShowHidePassword_Click;
+
+            ButtonBack.Click += ButtonBack_Click;
         }
 
-        private void RegisterForm_FormClosed(object? sender, FormClosedEventArgs e)
+        private void RegisterForm_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.UserClosing) return;
+
+            if (!MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar aplikasi ?"))
+                e.Cancel = true;
+        }
+
+        private void ButtonBack_Click(object? sender, EventArgs e)
         {
             _form.Show();
+            this.Close();
         }
+
+        private void ButtonShowHidePassword_Click(object? sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                int b = button.Name == "ButtonShowHidePassword" ? 1 : 0;
+             
+                bool isVisible = (button.Tag as bool?) ?? false;
+
+                if (b == 1) TextPassword.PasswordChar = isVisible ? '•' : '\0';
+                if (b == 0) TextConfirmPassword.PasswordChar = isVisible ? '•' : '\0';
+
+                button.BackgroundImage = isVisible ? Properties.Resources.HidePassword : Properties.Resources.ShowPassword;
+                button.Tag = !isVisible;
+            }
+        }
+
 
         private void TextBox_KeyPress(object? sender, KeyPressEventArgs e)
         {

@@ -37,6 +37,7 @@
             ButtonKendaraan = new Button();
             ButtonSparepart = new Button();
             ButtonKaryawan = new Button();
+            ButtonMekanik = new Button();
             ButtonServis = new Button();
             ButtonRiwayat = new Button();
             ButtonLogout = new Button();
@@ -72,6 +73,7 @@
             flowLayoutPanel1.Controls.Add(ButtonKendaraan);
             flowLayoutPanel1.Controls.Add(ButtonSparepart);
             flowLayoutPanel1.Controls.Add(ButtonKaryawan);
+            flowLayoutPanel1.Controls.Add(ButtonMekanik);
             flowLayoutPanel1.Controls.Add(ButtonServis);
             flowLayoutPanel1.Controls.Add(ButtonRiwayat);
             flowLayoutPanel1.Controls.Add(ButtonLogout);
@@ -176,6 +178,22 @@
             ButtonKaryawan.TextAlign = ContentAlignment.MiddleLeft;
             ButtonKaryawan.UseVisualStyleBackColor = false;
             // 
+            // ButtonMekanik
+            // 
+            ButtonMekanik.BackColor = SystemColors.Window;
+            ButtonMekanik.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonMekanik.FlatAppearance.BorderSize = 0;
+            ButtonMekanik.FlatStyle = FlatStyle.Flat;
+            ButtonMekanik.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ButtonMekanik.ForeColor = Color.Gray;
+            ButtonMekanik.Location = new Point(3, 357);
+            ButtonMekanik.Name = "ButtonMekanik";
+            ButtonMekanik.Size = new Size(319, 53);
+            ButtonMekanik.TabIndex = 38;
+            ButtonMekanik.Text = "          👩‍🔧     Mekanik";
+            ButtonMekanik.TextAlign = ContentAlignment.MiddleLeft;
+            ButtonMekanik.UseVisualStyleBackColor = false;
+            // 
             // ButtonServis
             // 
             ButtonServis.BackColor = SystemColors.Window;
@@ -184,7 +202,7 @@
             ButtonServis.FlatStyle = FlatStyle.Flat;
             ButtonServis.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonServis.ForeColor = Color.Gray;
-            ButtonServis.Location = new Point(3, 357);
+            ButtonServis.Location = new Point(3, 416);
             ButtonServis.Name = "ButtonServis";
             ButtonServis.Size = new Size(319, 53);
             ButtonServis.TabIndex = 30;
@@ -200,7 +218,7 @@
             ButtonRiwayat.FlatStyle = FlatStyle.Flat;
             ButtonRiwayat.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonRiwayat.ForeColor = Color.Gray;
-            ButtonRiwayat.Location = new Point(3, 416);
+            ButtonRiwayat.Location = new Point(3, 475);
             ButtonRiwayat.Name = "ButtonRiwayat";
             ButtonRiwayat.Size = new Size(319, 53);
             ButtonRiwayat.TabIndex = 31;
@@ -217,7 +235,7 @@
             ButtonLogout.FlatStyle = FlatStyle.Flat;
             ButtonLogout.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonLogout.ForeColor = Color.Gray;
-            ButtonLogout.Location = new Point(3, 475);
+            ButtonLogout.Location = new Point(3, 534);
             ButtonLogout.Name = "ButtonLogout";
             ButtonLogout.Size = new Size(319, 53);
             ButtonLogout.TabIndex = 37;
@@ -312,5 +330,6 @@
         private Button ButtonServis;
         private Button ButtonRiwayat;
         private Button ButtonLogout;
+        private Button ButtonMekanik;
     }
 }

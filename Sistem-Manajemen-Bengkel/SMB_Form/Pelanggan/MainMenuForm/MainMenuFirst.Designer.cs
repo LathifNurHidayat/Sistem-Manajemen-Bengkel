@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
 {
-    partial class MainMenuPelanggan
+    partial class MainMenuFirst
     {
         /// <summary>
         /// Required designer variable.
@@ -28,40 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ButtonDashboard = new Button();
+            ButtonHome = new Button();
             LabelUsername = new Label();
             panel1 = new Panel();
             ButtonLogout = new Button();
             ButtonRiwayat = new Button();
-            ButtonKendaraan = new Button();
             ButtonBooking = new Button();
             PanelMain = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // ButtonDashboard
+            // ButtonHome
             // 
-            ButtonDashboard.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonDashboard.BackColor = Color.Transparent;
-            ButtonDashboard.BackgroundImageLayout = ImageLayout.Zoom;
-            ButtonDashboard.FlatAppearance.BorderSize = 0;
-            ButtonDashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(157, 178, 191);
-            ButtonDashboard.FlatStyle = FlatStyle.Flat;
-            ButtonDashboard.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonDashboard.ForeColor = Color.White;
-            ButtonDashboard.Location = new Point(699, -1);
-            ButtonDashboard.Name = "ButtonDashboard";
-            ButtonDashboard.Size = new Size(128, 101);
-            ButtonDashboard.TabIndex = 28;
-            ButtonDashboard.Text = "Dashboard";
-            ButtonDashboard.UseVisualStyleBackColor = false;
+            ButtonHome.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonHome.BackColor = Color.Transparent;
+            ButtonHome.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonHome.FlatAppearance.BorderSize = 0;
+            ButtonHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(157, 178, 191);
+            ButtonHome.FlatStyle = FlatStyle.Flat;
+            ButtonHome.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonHome.ForeColor = Color.White;
+            ButtonHome.Location = new Point(874, -2);
+            ButtonHome.Name = "ButtonHome";
+            ButtonHome.Size = new Size(74, 102);
+            ButtonHome.TabIndex = 28;
+            ButtonHome.Text = "Home";
+            ButtonHome.UseVisualStyleBackColor = false;
             // 
             // LabelUsername
             // 
             LabelUsername.AutoSize = true;
             LabelUsername.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point);
             LabelUsername.ForeColor = Color.White;
-            LabelUsername.Location = new Point(19, 31);
+            LabelUsername.Location = new Point(24, 32);
             LabelUsername.Name = "LabelUsername";
             LabelUsername.Size = new Size(244, 37);
             LabelUsername.TabIndex = 5;
@@ -70,13 +69,12 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(83, 92, 145);
+            panel1.BackColor = Color.FromArgb(251, 165, 24);
+            panel1.Controls.Add(LabelUsername);
+            panel1.Controls.Add(ButtonHome);
             panel1.Controls.Add(ButtonLogout);
             panel1.Controls.Add(ButtonRiwayat);
-            panel1.Controls.Add(ButtonKendaraan);
             panel1.Controls.Add(ButtonBooking);
-            panel1.Controls.Add(LabelUsername);
-            panel1.Controls.Add(ButtonDashboard);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -115,22 +113,6 @@
             ButtonRiwayat.Text = "Riwayat";
             ButtonRiwayat.UseVisualStyleBackColor = false;
             // 
-            // ButtonKendaraan
-            // 
-            ButtonKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonKendaraan.BackColor = Color.Transparent;
-            ButtonKendaraan.BackgroundImageLayout = ImageLayout.Zoom;
-            ButtonKendaraan.FlatAppearance.BorderSize = 0;
-            ButtonKendaraan.FlatStyle = FlatStyle.Flat;
-            ButtonKendaraan.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonKendaraan.ForeColor = Color.White;
-            ButtonKendaraan.Location = new Point(932, -1);
-            ButtonKendaraan.Name = "ButtonKendaraan";
-            ButtonKendaraan.Size = new Size(115, 101);
-            ButtonKendaraan.TabIndex = 30;
-            ButtonKendaraan.Text = "Kendaraan";
-            ButtonKendaraan.UseVisualStyleBackColor = false;
-            // 
             // ButtonBooking
             // 
             ButtonBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
@@ -140,7 +122,7 @@
             ButtonBooking.FlatStyle = FlatStyle.Flat;
             ButtonBooking.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBooking.ForeColor = Color.White;
-            ButtonBooking.Location = new Point(833, 0);
+            ButtonBooking.Location = new Point(954, 0);
             ButtonBooking.Name = "ButtonBooking";
             ButtonBooking.Size = new Size(93, 101);
             ButtonBooking.TabIndex = 29;
@@ -174,11 +156,10 @@
 
         #endregion
         private Label LabelUsername;
-        private Button ButtonDashboard;
+        private Button ButtonHome;
         private Panel panel1;
         private Button ButtonLogout;
         private Button ButtonRiwayat;
-        private Button ButtonKendaraan;
         private Button ButtonBooking;
         private Panel PanelMain;
     }

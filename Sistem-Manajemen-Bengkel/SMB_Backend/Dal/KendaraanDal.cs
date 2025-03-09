@@ -117,14 +117,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             conn.Execute(sql, new { id_kendaraan });
         }
 
-/*        public void RestoreData(string no_ktp_pegawai)
-        {
-            const string sql = @"UPDATE tb_pegawai SET
-                                    deleted_at = NULL
-                                WHERE no_ktp_pegawai = @no_ktp_pegawai";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
-            conn.Execute(sql, new { no_ktp_pegawai = no_ktp_pegawai });
-        }*/
 
         public void DeletePermanent(int id_kendaraan)
         {
@@ -142,6 +134,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.ExecuteScalar<int>(sql, dp);
+        }
+        
+        
+        public IEnumerable<KendaraanModel> ListDataByNoKtp( string no_ktp_pelanggan)
+        {
+            string sql = @$"SELECT 
+                                id_kendaraan, merek, tranmisi, kapasitas_mesin, tahun , no_polisi 
+                                FROM tb_kendaraan 
+                            WHERE no_ktp_pelanggan = @no_ktp_pelanggan AND no_deleted_at IS NULL";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.Query<KendaraanModel>(sql, new {no_ktp_pelanggan});
         }
 
     }

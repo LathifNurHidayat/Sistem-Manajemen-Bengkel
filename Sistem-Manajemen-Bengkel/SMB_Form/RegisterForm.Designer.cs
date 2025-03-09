@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             MainPanel = new Panel();
             LabelPassword = new Label();
             LabelConfirmPass = new Label();
             label9 = new Label();
             panel6 = new Panel();
+            ButtonShowHideConfmPassword = new Button();
             TextConfirmPassword = new TextBox();
             LabelEmail = new Label();
             LabelNoHP = new Label();
@@ -48,6 +50,7 @@
             panel9 = new Panel();
             TextNomorHP = new TextBox();
             panel7 = new Panel();
+            ButtonShowHidePassword = new Button();
             TextPassword = new TextBox();
             panel2 = new Panel();
             TextEmail = new TextBox();
@@ -59,6 +62,7 @@
             LinkMasuk = new LinkLabel();
             label1 = new Label();
             ButtonDaftar = new Button();
+            ButtonBack = new SMB_CustomTolbox.LathifButton();
             MainPanel.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
@@ -96,7 +100,7 @@
             MainPanel.Controls.Add(LinkMasuk);
             MainPanel.Controls.Add(label1);
             MainPanel.Controls.Add(ButtonDaftar);
-            MainPanel.Location = new Point(12, 12);
+            MainPanel.Location = new Point(277, 81);
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(601, 675);
             MainPanel.TabIndex = 0;
@@ -142,11 +146,28 @@
             // panel6
             // 
             panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(ButtonShowHideConfmPassword);
             panel6.Controls.Add(TextConfirmPassword);
             panel6.Location = new Point(18, 503);
             panel6.Name = "panel6";
             panel6.Size = new Size(565, 41);
             panel6.TabIndex = 7;
+            // 
+            // ButtonShowHideConfmPassword
+            // 
+            ButtonShowHideConfmPassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonShowHideConfmPassword.BackColor = Color.Transparent;
+            ButtonShowHideConfmPassword.BackgroundImage = Properties.Resources.HidePassword;
+            ButtonShowHideConfmPassword.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonShowHideConfmPassword.FlatAppearance.BorderSize = 0;
+            ButtonShowHideConfmPassword.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            ButtonShowHideConfmPassword.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            ButtonShowHideConfmPassword.FlatStyle = FlatStyle.Flat;
+            ButtonShowHideConfmPassword.Location = new Point(528, 6);
+            ButtonShowHideConfmPassword.Name = "ButtonShowHideConfmPassword";
+            ButtonShowHideConfmPassword.Size = new Size(30, 29);
+            ButtonShowHideConfmPassword.TabIndex = 7;
+            ButtonShowHideConfmPassword.UseVisualStyleBackColor = false;
             // 
             // TextConfirmPassword
             // 
@@ -155,8 +176,8 @@
             TextConfirmPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextConfirmPassword.Location = new Point(6, 7);
             TextConfirmPassword.Name = "TextConfirmPassword";
-            TextConfirmPassword.PasswordChar = '*';
-            TextConfirmPassword.Size = new Size(551, 24);
+            TextConfirmPassword.PasswordChar = '•';
+            TextConfirmPassword.Size = new Size(509, 24);
             TextConfirmPassword.TabIndex = 6;
             TextConfirmPassword.Tag = "ConfirmPassword";
             // 
@@ -305,11 +326,28 @@
             // panel7
             // 
             panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(ButtonShowHidePassword);
             panel7.Controls.Add(TextPassword);
             panel7.Location = new Point(18, 426);
             panel7.Name = "panel7";
             panel7.Size = new Size(565, 41);
             panel7.TabIndex = 6;
+            // 
+            // ButtonShowHidePassword
+            // 
+            ButtonShowHidePassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonShowHidePassword.BackColor = Color.Transparent;
+            ButtonShowHidePassword.BackgroundImage = Properties.Resources.HidePassword;
+            ButtonShowHidePassword.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonShowHidePassword.FlatAppearance.BorderSize = 0;
+            ButtonShowHidePassword.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            ButtonShowHidePassword.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            ButtonShowHidePassword.FlatStyle = FlatStyle.Flat;
+            ButtonShowHidePassword.Location = new Point(528, 5);
+            ButtonShowHidePassword.Name = "ButtonShowHidePassword";
+            ButtonShowHidePassword.Size = new Size(30, 29);
+            ButtonShowHidePassword.TabIndex = 6;
+            ButtonShowHidePassword.UseVisualStyleBackColor = false;
             // 
             // TextPassword
             // 
@@ -318,8 +356,8 @@
             TextPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             TextPassword.Location = new Point(6, 7);
             TextPassword.Name = "TextPassword";
-            TextPassword.PasswordChar = '*';
-            TextPassword.Size = new Size(551, 24);
+            TextPassword.PasswordChar = '•';
+            TextPassword.Size = new Size(509, 24);
             TextPassword.TabIndex = 5;
             TextPassword.Tag = "Password";
             // 
@@ -425,12 +463,36 @@
             ButtonDaftar.Text = "Daftar";
             ButtonDaftar.UseVisualStyleBackColor = false;
             // 
+            // ButtonBack
+            // 
+            ButtonBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ButtonBack.BackColor = Color.FromArgb(82, 109, 130);
+            ButtonBack.BackgroundColor = Color.FromArgb(82, 109, 130);
+            ButtonBack.BorderColor = Color.DarkGray;
+            ButtonBack.BorderRadius = 5;
+            ButtonBack.BorderSize = 0;
+            ButtonBack.FlatAppearance.BorderSize = 0;
+            ButtonBack.FlatStyle = FlatStyle.Flat;
+            ButtonBack.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonBack.ForeColor = Color.White;
+            ButtonBack.Image = (Image)resources.GetObject("ButtonBack.Image");
+            ButtonBack.Location = new Point(32, 761);
+            ButtonBack.Name = "ButtonBack";
+            ButtonBack.Size = new Size(109, 45);
+            ButtonBack.TabIndex = 9;
+            ButtonBack.Text = "Back";
+            ButtonBack.TextAlign = ContentAlignment.MiddleRight;
+            ButtonBack.TextColor = Color.White;
+            ButtonBack.TextImageRelation = TextImageRelation.ImageBeforeText;
+            ButtonBack.UseVisualStyleBackColor = false;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(625, 699);
+            ClientSize = new Size(1155, 836);
+            Controls.Add(ButtonBack);
             Controls.Add(MainPanel);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -488,5 +550,8 @@
         private Panel panel6;
         private TextBox TextConfirmPassword;
         private Label LabelPassword;
+        private Button ButtonShowHideConfmPassword;
+        private Button ButtonShowHidePassword;
+        private SMB_CustomTolbox.LathifButton ButtonBack;
     }
 }

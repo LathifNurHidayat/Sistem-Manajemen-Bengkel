@@ -70,7 +70,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 spesialis = @spesialis,
                                 image_data = @image_data,
                                 updated_at = GETDATE()
-                            WHERE no_ktp_pegawai = @no_ktp";
+                            WHERE no_ktp_mekanik = @no_ktp";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
 

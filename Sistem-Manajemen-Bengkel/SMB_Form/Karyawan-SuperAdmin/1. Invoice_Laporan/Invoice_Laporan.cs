@@ -12,6 +12,9 @@ using PageSize = iTextSharp.text.PageSize;
 using System.Diagnostics;
 using Element = iTextSharp.text.Element;
 using System.Windows.Media;
+using ClosedXML.Excel;
+using System.Runtime.CompilerServices;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 
 public class Invoice_Laporan
 {
@@ -88,5 +91,81 @@ public class Invoice_Laporan
 
         doc.Close();
         Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
+    }
+
+
+    public static void GenerateLaporan( DateTime tanggal_1, DateTime tanggal_2)
+    {
+        LaporanDal _laporanDal = new LaporanDal();
+
+        var laporan =  _laporanDal.ListLaporan(tanggal_1, tanggal_2).ToList();
+        if (laporan.Count  == 0 || laporan == null)
+        {
+            MesboxHelper.ShowError($"Mohon maaf \nTidak ada data pada rentang tanggal \"{tanggal_1.ToString("dd-MM-yyyy")}\" - \"{tanggal_2.ToString("dd-MM-yyyy")}\". \nSilakan pilih tanggal yang lain.");
+            return;
+        }
+
+
+        using (var workbook = new XLWorkbook())
+        {
+            var worksheet = workbook.Worksheets.Add("Laporan Riwayat Servis");
+
+            worksheet.Cell(1, 1).Value = $"Rentang Tanggal : {tanggal_1.ToString("dd-MMMM-yyyy")} - {tanggal_2.ToString("dd-MMMM-yyyy")}";
+
+            // Header
+            worksheet.Cell(2, 1).Value = "Tanggal";
+            worksheet.Cell(2, 2).Value = "No KTP Pelanggan";
+            worksheet.Cell(2, 3).Value = "Nama Pelanggan";
+            worksheet.Cell(2, 4).Value = "Nama Kendaraan";
+            worksheet.Cell(2, 5).Value = "Nama Petugas";
+            worksheet.Cell(2, 6).Value = "Nama Mekanik";
+            worksheet.Cell(2, 7).Value = "Jasa Servis";
+            worksheet.Cell(2, 8).Value = "Nama Sparepart";
+            worksheet.Cell(2, 9).Value = "Keluhan";
+            worksheet.Cell(2, 10).Value = "Catatan";
+            worksheet.Cell(2, 11).Value = "Total Biaya";
+            worksheet.Cell(2, 12).Value = "Status";
+
+            int row = 3;
+
+            foreach (var item in laporan)
+            {
+                worksheet.Cell(row, 1).Value = item.tanggal;
+                worksheet.Cell(row, 2).Value = item.no_ktp_pelanggan ?? "[Tamu]";
+                worksheet.Cell(row, 3).Value = item.nama_pelanggan;
+                worksheet.Cell(row, 4).Value = item.nama_kendaraan;
+                worksheet.Cell(row, 5).Value = item.nama_petugas;
+                worksheet.Cell(row, 6).Value = item.nama_mekanik;
+                worksheet.Cell(row, 7).Value = item.jasa_servis;
+                worksheet.Cell(row, 8).Value = item.nama_sparepart;
+                worksheet.Cell(row, 9).Value = item.keluhan;
+                worksheet.Cell(row, 10).Value = item.catatan;
+                worksheet.Cell(row, 11).Value = $"Rp{item.total_biaya:N0}";
+                worksheet.Cell(row, 12).Value = item.status == 1 ? "Selesai" : "Dibatalkan";
+
+                row++;
+            }
+
+            // Membuat tabel dari data
+            var range = worksheet.Range(2, 1, row - 1, 12); 
+            var table = range.CreateTable();
+            table.Theme = XLTableTheme.TableStyleLight10; 
+
+            // Menyesuaikan ukuran kolom
+            worksheet.Columns().AdjustToContents();
+
+            // Simpan file menggunakan SaveFileDialog
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Excel Files|*.xlsx",
+                Title = "Simpan Laporan",
+                FileName = "Laporan_Riwayat_Servis.xlsx"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                workbook.SaveAs(saveFileDialog.FileName);
+            }
+        }
     }
 }

@@ -54,16 +54,20 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             List<int> entries = new() { 10, 25, 50, 100 };
             ComboEntries.DataSource = entries;
 
-            List<string> filter = new() { "Hari ini", "Semua (All)"};
-            var dataTanggal = _bookingDal.GetDataTanggal();
-            filter.AddRange(dataTanggal.Select(x => x.ToString("dd/MM/yyyy")).ToList());
-            ComboFilter.DataSource = filter;
-
+            GetDataTanggal();
             CustomComponentHelper.CustomDataGrid(GridListData);
             CustomComponentHelper.CustomPanel(PanelBooking);
 
             var tanggal = DateTime.Today.Date;
             TextBatasBooking.Text = _batasBookingDal.ShowBatasBooking(tanggal).ToString();
+        }
+
+        private void GetDataTanggal()
+        {
+            List<string> filter = new() { "Hari ini", "Semua (All)" };
+            var dataTanggal = _bookingDal.GetDataTanggal();
+            filter.AddRange(dataTanggal.Select(x => x.ToString("dd/MM/yyyy")).ToList());
+            ComboFilter.DataSource = filter;
         }
 
         public static void CustomDataGrid(DataGridView grid)
@@ -167,6 +171,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 }).ToList();
 
             GridListData.DataSource = data;
+            GetDataTanggal(); 
         }
 
         private void RegisterControlEvent()

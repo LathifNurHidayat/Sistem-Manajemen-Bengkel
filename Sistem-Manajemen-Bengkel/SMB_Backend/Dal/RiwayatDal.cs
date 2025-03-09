@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Dapper;
+using System.Runtime.Intrinsics.Arm;
+using System.Data;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
@@ -89,6 +91,64 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 {filter}";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.ExecuteScalar<int>(sql, Dp);
+        }
+
+
+        public void InsertData(RiwayatModel riwayat)
+        {
+            const string sql = @"EXEC sp_InsertRiwayat 
+                                @id_jasa_servis, @no_ktp_pelanggan, @no_ktp_pegawai, @no_ktp_mekanik, 
+                                @id_kendaraan, @id_penggunaan_sparepart, @nama_pelanggan, @no_polisi, 
+                                @merek, @transmisi, @kapasitas_mesin, @tanggal, @keluhan, @catatan, @status";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            var Dp = new DynamicParameters();
+
+            Dp.Add("@id_jasa_servis", riwayat.id_jasa_servis);
+            Dp.Add("@no_ktp_pelanggan", riwayat.no_ktp_pelanggan);
+            Dp.Add("@no_ktp_pegawai", riwayat.no_ktp_pegawai);
+            Dp.Add("@no_ktp_mekanik", riwayat.no_ktp_mekanik);
+            Dp.Add("@id_kendaraan", riwayat.id_kendaraan);
+            Dp.Add("@id_penggunaan_sparepart", riwayat.id_penggunaan_sparepart);
+            Dp.Add("@nama_pelanggan", riwayat.nama_pelanggan); 
+            Dp.Add("@no_polisi", riwayat.no_polisi);
+            Dp.Add("@merek", riwayat.merek);
+            Dp.Add("@transmisi", riwayat.transmisi);
+            Dp.Add("@kapasitas_mesin", riwayat.kapasitas_mesin);
+            Dp.Add("@tanggal", DateTime.Today);
+            Dp.Add("@keluhan", riwayat.keluhan);
+            Dp.Add("@catatan", riwayat.catatan);
+            Dp.Add("@status", riwayat.status);
+
+            Conn.Execute(sql, Dp);
+
+        }
+
+        public IEnumerable<RiwayatModel> ListDataWhereNoKtp (string no_ktp_pelanggan)
+        {
+            const string sql = @"SELECT 
+                                    rw.tanggal,
+                                    CONCAT(kd.no_polisi, ' - ', kd.merek) AS kendaraan,
+                                    rw.keluhan,
+                                    pg.nama_pegawai,
+                                    mk.nama_mekanik,
+                                    COALESCE(STRING_AGG(sp.nama_sparepart, ', '), '-') AS sparepart_terpakai,
+                                    rw.catatan,
+                                    rw.total_biaya,
+                                    rw.status
+                                FROM tb_riwayat rw
+                                LEFT JOIN tb_kendaraan kd ON rw.id_kendaraan = kd.id_kendaraan
+                                LEFT JOIN tb_pegawai pg ON pg.no_ktp_pegawai = rw.no_ktp_pegawai
+                                LEFT JOIN tb_mekanik mk ON mk.no_ktp_mekanik = rw.no_ktp_mekanik
+                                LEFT JOIN tb_penggunaan_sparepart ps ON ps.id_penggunaan_sparepart = rw.id_penggunaan_sparepart
+                                LEFT JOIN tb_sparepart sp ON sp.id_sparepart = ps.id_sparepart
+                                WHERE no_ktp_pelanggan = @no_ktp_pelanggan
+                                GROUP BY 
+                                    rw.tanggal, kd.no_polisi, kd.merek, rw.keluhan, pg.nama_pegawai, 
+                                    mk.nama_mekanik, rw.catatan, rw.total_biaya, rw.status";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.Query<RiwayatModel>(sql, new { no_ktp_pelanggan });
         }
     }
 }

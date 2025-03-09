@@ -16,5 +16,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm
         {
             InitializeComponent();
         }
+
+        private void PanelBooking_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

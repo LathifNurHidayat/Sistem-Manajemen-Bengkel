@@ -45,11 +45,13 @@
             LabelConfirmPass = new Label();
             label9 = new Label();
             panel8 = new Panel();
+            ButtonShowHideConfrmPassword = new Button();
             TextConfirmPassword = new TextBox();
             LabelEmail = new Label();
             label6 = new Label();
             label5 = new Label();
             panel9 = new Panel();
+            ButtonShowHidePassword = new Button();
             TextPassword = new TextBox();
             panel10 = new Panel();
             TextEmail = new TextBox();
@@ -296,12 +298,29 @@
             // 
             panel8.BackColor = Color.White;
             panel8.BorderStyle = BorderStyle.FixedSingle;
+            panel8.Controls.Add(ButtonShowHideConfrmPassword);
             panel8.Controls.Add(TextConfirmPassword);
             panel8.Location = new Point(23, 376);
             panel8.Name = "panel8";
             panel8.Size = new Size(392, 41);
             panel8.TabIndex = 4;
             panel8.Paint += panel8_Paint;
+            // 
+            // ButtonShowHideConfrmPassword
+            // 
+            ButtonShowHideConfrmPassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonShowHideConfrmPassword.BackColor = Color.Transparent;
+            ButtonShowHideConfrmPassword.BackgroundImage = Properties.Resources.HidePassword;
+            ButtonShowHideConfrmPassword.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonShowHideConfrmPassword.FlatAppearance.BorderSize = 0;
+            ButtonShowHideConfrmPassword.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            ButtonShowHideConfrmPassword.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            ButtonShowHideConfrmPassword.FlatStyle = FlatStyle.Flat;
+            ButtonShowHideConfrmPassword.Location = new Point(353, 5);
+            ButtonShowHideConfrmPassword.Name = "ButtonShowHideConfrmPassword";
+            ButtonShowHideConfrmPassword.Size = new Size(30, 29);
+            ButtonShowHideConfrmPassword.TabIndex = 7;
+            ButtonShowHideConfrmPassword.UseVisualStyleBackColor = false;
             // 
             // TextConfirmPassword
             // 
@@ -310,7 +329,7 @@
             TextConfirmPassword.Location = new Point(6, 7);
             TextConfirmPassword.Name = "TextConfirmPassword";
             TextConfirmPassword.PasswordChar = '•';
-            TextConfirmPassword.Size = new Size(381, 24);
+            TextConfirmPassword.Size = new Size(335, 24);
             TextConfirmPassword.TabIndex = 6;
             TextConfirmPassword.Tag = "ConfirmPassword";
             // 
@@ -351,11 +370,28 @@
             // 
             panel9.BackColor = Color.White;
             panel9.BorderStyle = BorderStyle.FixedSingle;
+            panel9.Controls.Add(ButtonShowHidePassword);
             panel9.Controls.Add(TextPassword);
             panel9.Location = new Point(23, 268);
             panel9.Name = "panel9";
             panel9.Size = new Size(392, 41);
             panel9.TabIndex = 3;
+            // 
+            // ButtonShowHidePassword
+            // 
+            ButtonShowHidePassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonShowHidePassword.BackColor = Color.Transparent;
+            ButtonShowHidePassword.BackgroundImage = Properties.Resources.HidePassword;
+            ButtonShowHidePassword.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonShowHidePassword.FlatAppearance.BorderSize = 0;
+            ButtonShowHidePassword.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            ButtonShowHidePassword.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            ButtonShowHidePassword.FlatStyle = FlatStyle.Flat;
+            ButtonShowHidePassword.Location = new Point(353, 5);
+            ButtonShowHidePassword.Name = "ButtonShowHidePassword";
+            ButtonShowHidePassword.Size = new Size(30, 29);
+            ButtonShowHidePassword.TabIndex = 6;
+            ButtonShowHidePassword.UseVisualStyleBackColor = false;
             // 
             // TextPassword
             // 
@@ -364,7 +400,7 @@
             TextPassword.Location = new Point(6, 7);
             TextPassword.Name = "TextPassword";
             TextPassword.PasswordChar = '•';
-            TextPassword.Size = new Size(381, 24);
+            TextPassword.Size = new Size(335, 24);
             TextPassword.TabIndex = 5;
             TextPassword.Tag = "Password";
             // 
@@ -669,5 +705,7 @@
         private TextBox TextAlamat;
         private LinkLabel LinkReset;
         private Label LabelResetPass;
+        private Button ButtonShowHideConfrmPassword;
+        private Button ButtonShowHidePassword;
     }
 }
