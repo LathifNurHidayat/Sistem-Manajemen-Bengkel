@@ -110,10 +110,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             var dataPelanggan = _pelangganDal.ValidasiLoginPelanggan(email, HashPasswordHelper.HashPassword(password));
             var dataPetugas = _petugasDal.ValidasiLoginPetugas(email, HashPasswordHelper.HashPassword(password));
 
+
             if (dataPelanggan == null && dataPetugas == null)
             {
                 MesboxHelper.ShowWarning("Username atau password yang Anda masukkan salah. Silakan coba lagi!");    
-                ClearForm();
                 TextEmail.Focus();
                 return;
             }
