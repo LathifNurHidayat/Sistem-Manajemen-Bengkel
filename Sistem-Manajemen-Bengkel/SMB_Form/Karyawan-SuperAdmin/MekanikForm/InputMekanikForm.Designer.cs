@@ -327,7 +327,6 @@
             // 
             // PictureProfiles
             // 
-            PictureProfiles.BackgroundImage = Properties.Resources.User_Hitam;
             PictureProfiles.BackgroundImageLayout = ImageLayout.Stretch;
             PictureProfiles.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
             PictureProfiles.BorderColor = Color.FromArgb(83, 92, 145);
@@ -335,7 +334,7 @@
             PictureProfiles.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             PictureProfiles.BorderSize = 2;
             PictureProfiles.GradientAngle = 50F;
-            PictureProfiles.Image = Properties.Resources.user1;
+            PictureProfiles.Image = Properties.Resources.mechanic;
             PictureProfiles.Location = new Point(201, 10);
             PictureProfiles.Name = "PictureProfiles";
             PictureProfiles.Size = new Size(134, 134);
@@ -370,7 +369,7 @@
             BackColor = Color.FromArgb(221, 230, 237);
             ClientSize = new Size(610, 838);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);
             Name = "InputMekanikForm";
             StartPosition = FormStartPosition.CenterScreen;

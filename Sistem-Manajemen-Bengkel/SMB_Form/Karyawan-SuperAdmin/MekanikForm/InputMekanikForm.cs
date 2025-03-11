@@ -44,7 +44,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             var mekanik = _mekanikDal.GetData(no_ktp);
             if (mekanik == null) return;
 
-            PictureProfiles.Image = ImageHelper.ByteToImage(mekanik.image_data) == null ? ImageDirectoryHelper._defaultProfiles : ImageHelper.ByteToImage(mekanik.image_data);
+            PictureProfiles.Image = ImageHelper.ByteToImage(mekanik.image_data) == null ? ImageDirectoryHelper._defaultProfilesMekanik : ImageHelper.ByteToImage(mekanik.image_data);
             TextNoKTP.Text = mekanik.no_ktp_mekanik;
             TextNoHP.Text = mekanik.no_hp;
             TextNamaLengkap.Text = mekanik.nama_mekanik;
@@ -57,7 +57,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
         private void SaveData()
         {
-            Image image = ImageHelper.GetCircularImage(PictureProfiles.Image == ImageDirectoryHelper._defaultProfiles ? null : PictureProfiles.Image);
+            Image image = ImageHelper.GetCircularImage(PictureProfiles.Image == ImageDirectoryHelper._defaultProfilesMekanik ? null : PictureProfiles.Image);
 
             var mekanik = new MekanikModel
             {

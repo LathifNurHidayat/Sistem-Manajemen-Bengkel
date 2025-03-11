@@ -101,7 +101,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
                     No = inRowPage + index + 1,
                     Image = x.image_data != null ?
                             ImageHelper.GetHighQualityThumbnail(Image.FromStream(new MemoryStream(x.image_data)), 40, 40) :
-                            ImageDirectoryHelper._defaultProfilesOnGrid,
+                            ImageDirectoryHelper._defaultProfilesMekanikOnGrid,
                     NoKTP = x.no_ktp_mekanik,
                     Nama = x.nama_mekanik,
                     NoHP = x.no_hp,

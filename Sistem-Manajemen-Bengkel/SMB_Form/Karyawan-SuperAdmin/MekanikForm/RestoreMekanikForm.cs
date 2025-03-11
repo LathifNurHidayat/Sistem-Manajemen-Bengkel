@@ -35,7 +35,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm
             var mekanik = _mekanikDal.GetData(no_ktp);
             if (mekanik == null) return;
 
-            PictureProfiles.Image = ImageHelper.ByteToImage(mekanik.image_data);
+            PictureProfiles.Image = ImageHelper.ByteToImage(mekanik.image_data) ?? ImageDirectoryHelper._defaultProfilesMekanik;
             LabelNoKTP.Text = mekanik.no_ktp_mekanik;
             LabelNoHP.Text = $": {mekanik.no_hp}";
             LabelNama.Text = $": {mekanik.nama_mekanik}";
