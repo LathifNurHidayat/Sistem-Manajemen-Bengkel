@@ -87,6 +87,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             TextSparepart.Text = _bookingData.nama_sparepart;
             TextCatatan.Text = _bookingData.catatan;
 
+            
             if (_bookingData.status == 2)
             {
                 progres1.BackColor = System.Drawing.Color.LimeGreen;
@@ -189,8 +190,35 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             ButtonBack.Click += ButtonBatal_Click;
             ButtonSparepart.Click += ButtonSparepart_Click;
             ButtonAksi.Click += ButtonAksi_Click;
+            ButtonInformationBatalBooking.Click += ButtonInformationBatalBooking_Click;
+            ButtonBatalkanBooking.Click += ButtonBatalkanBooking_Click;
         }
 
+        private void ButtonBatalkanBooking_Click(object? sender, EventArgs e)
+        {
+            if (_bookingData.status != 1)
+            {
+                MesboxHelper.ShowError("Mohon Maaf \nPembatalan hanya bisa dilakukan jika status masih menunggu !");
+                return;
+            }
+
+            var booking = new BookingModel
+            {
+                id_booking = _idBooking,
+                status = 4
+            };
+            _bookingDal.UpdateData(booking);
+
+            NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Booking dibatalkan");
+            notifikasi.Show();
+            GetData(_idBooking);
+        }
+
+        private void ButtonInformationBatalBooking_Click(object? sender, EventArgs e)
+        {
+            InformationPembatalanBookingForm information = new InformationPembatalanBookingForm();
+            information.ShowDialog();   
+        }
 
         private void ButtonAksi_Click(object? sender, EventArgs e)
         {

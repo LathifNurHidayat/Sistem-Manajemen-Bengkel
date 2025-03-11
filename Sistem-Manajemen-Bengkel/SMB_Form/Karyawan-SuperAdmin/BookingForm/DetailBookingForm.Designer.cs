@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailBookingForm));
             panel1 = new Panel();
+            ButtonInformationBatalBooking = new Button();
+            ButtonBatalkanBooking = new SMB_CustomTolbox.LathifButton();
             label16 = new Label();
             gradientPanelExt4 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
             ButtonSparepart = new SMB_CustomTolbox.LathifButton();
@@ -97,6 +99,8 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(ButtonInformationBatalBooking);
+            panel1.Controls.Add(ButtonBatalkanBooking);
             panel1.Controls.Add(label16);
             panel1.Controls.Add(gradientPanelExt4);
             panel1.Controls.Add(gradientPanelExt1);
@@ -118,6 +122,40 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1434, 915);
             panel1.TabIndex = 0;
+            // 
+            // ButtonInformationBatalBooking
+            // 
+            ButtonInformationBatalBooking.BackColor = Color.Transparent;
+            ButtonInformationBatalBooking.BackgroundImage = (Image)resources.GetObject("ButtonInformationBatalBooking.BackgroundImage");
+            ButtonInformationBatalBooking.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonInformationBatalBooking.FlatAppearance.BorderSize = 0;
+            ButtonInformationBatalBooking.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            ButtonInformationBatalBooking.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            ButtonInformationBatalBooking.FlatStyle = FlatStyle.Flat;
+            ButtonInformationBatalBooking.Location = new Point(712, 148);
+            ButtonInformationBatalBooking.Name = "ButtonInformationBatalBooking";
+            ButtonInformationBatalBooking.Size = new Size(37, 45);
+            ButtonInformationBatalBooking.TabIndex = 86;
+            ButtonInformationBatalBooking.UseVisualStyleBackColor = false;
+            // 
+            // ButtonBatalkanBooking
+            // 
+            ButtonBatalkanBooking.BackColor = Color.Red;
+            ButtonBatalkanBooking.BackgroundColor = Color.Red;
+            ButtonBatalkanBooking.BorderColor = Color.DarkGray;
+            ButtonBatalkanBooking.BorderRadius = 5;
+            ButtonBatalkanBooking.BorderSize = 0;
+            ButtonBatalkanBooking.FlatAppearance.BorderSize = 0;
+            ButtonBatalkanBooking.FlatStyle = FlatStyle.Flat;
+            ButtonBatalkanBooking.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonBatalkanBooking.ForeColor = Color.White;
+            ButtonBatalkanBooking.Location = new Point(577, 201);
+            ButtonBatalkanBooking.Name = "ButtonBatalkanBooking";
+            ButtonBatalkanBooking.Size = new Size(216, 45);
+            ButtonBatalkanBooking.TabIndex = 85;
+            ButtonBatalkanBooking.Text = "Batalkan Booking";
+            ButtonBatalkanBooking.TextColor = Color.White;
+            ButtonBatalkanBooking.UseVisualStyleBackColor = false;
             // 
             // label16
             // 
@@ -776,5 +814,7 @@
         private TextBox TextCatatan;
         private SMB_CustomTolbox.LathifButton ButtonSparepart;
         private Label label16;
+        private SMB_CustomTolbox.LathifButton ButtonBatalkanBooking;
+        private Button ButtonInformationBatalBooking;
     }
 }

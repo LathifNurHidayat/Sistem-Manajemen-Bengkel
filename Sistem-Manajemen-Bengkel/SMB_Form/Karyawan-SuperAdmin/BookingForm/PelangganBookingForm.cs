@@ -33,7 +33,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            new System.Globalization.CultureInfo("id-ID");
+            PickerBookingTanggal.Culture = new System.Globalization.CultureInfo("id-ID");
             PickerBookingTanggal.MinDateTime = DateTime.Today;
 
             CustomComponentHelper.CustomPanel(panel1);
