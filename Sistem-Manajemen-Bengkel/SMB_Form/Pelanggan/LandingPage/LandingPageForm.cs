@@ -33,7 +33,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage
         {
             if (_isLogin == false)
             {
-                if(MesboxHelper.ShowConfirm("Mohon Maaf \nAnda harus login terlebih dahulu"))
+                if (MesboxHelper.ShowConfirm("Mohon Maaf \nAnda harus login terlebih dahulu"))
                 {
                     LoginForm loginForm = new LoginForm();
                     loginForm.Show();
@@ -47,6 +47,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

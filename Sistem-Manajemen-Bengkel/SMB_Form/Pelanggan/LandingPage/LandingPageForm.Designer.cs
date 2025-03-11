@@ -111,8 +111,8 @@
             // ButtonBookingSekarang
             // 
             ButtonBookingSekarang.Anchor = AnchorStyles.Top;
-            ButtonBookingSekarang.BackColor = Color.FromArgb(251, 165, 24);
-            ButtonBookingSekarang.BackgroundColor = Color.FromArgb(251, 165, 24);
+            ButtonBookingSekarang.BackColor = Color.FromArgb(82, 109, 130);
+            ButtonBookingSekarang.BackgroundColor = Color.FromArgb(82, 109, 130);
             ButtonBookingSekarang.BorderColor = Color.DarkGray;
             ButtonBookingSekarang.BorderRadius = 8;
             ButtonBookingSekarang.BorderSize = 0;
@@ -144,11 +144,11 @@
             // pictureBox5
             // 
             pictureBox5.BackColor = Color.Transparent;
-            pictureBox5.BackgroundImage = Properties.Resources.Booking;
+            pictureBox5.BackgroundImage = (Image)resources.GetObject("pictureBox5.BackgroundImage");
             pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox5.Location = new Point(167, 87);
+            pictureBox5.Location = new Point(124, 67);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(299, 320);
+            pictureBox5.Size = new Size(342, 385);
             pictureBox5.TabIndex = 12;
             pictureBox5.TabStop = false;
             // 
@@ -358,7 +358,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.FromArgb(251, 165, 24);
+            label2.ForeColor = Color.FromArgb(82, 109, 130);
             label2.Location = new Point(148, 390);
             label2.Name = "label2";
             label2.Size = new Size(498, 81);
@@ -370,11 +370,12 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(906, 162);
+            pictureBox1.Location = new Point(881, 138);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(477, 503);
+            pictureBox1.Size = new Size(559, 559);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // LandingPageForm
             // 

@@ -69,7 +69,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(251, 165, 24);
+            panel1.BackColor = Color.FromArgb(82, 109, 130);
             panel1.Controls.Add(LabelUsername);
             panel1.Controls.Add(ButtonHome);
             panel1.Controls.Add(ButtonLogout);
@@ -137,7 +137,7 @@
             PanelMain.Size = new Size(1239, 406);
             PanelMain.TabIndex = 6;
             // 
-            // MainMenuPelanggan
+            // MainMenuFirst
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -146,7 +146,7 @@
             Controls.Add(PanelMain);
             Controls.Add(panel1);
             DoubleBuffered = true;
-            Name = "MainMenuPelanggan";
+            Name = "MainMenuFirst";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
             panel1.ResumeLayout(false);
