@@ -117,7 +117,6 @@ GO
 
 
 
-
 --function total booking hari ini
 CREATE FUNCTION fnc_TotalBookingHariIni(@tanggal DATE)
 RETURNS INT
@@ -202,7 +201,6 @@ BEGIN
     RETURN;
 END;
 GO
-
 
 
 

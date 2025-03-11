@@ -5,17 +5,13 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    DECLARE @no_ktp_pegawai VARCHAR(20);
-    SELECT @no_ktp_pegawai = CAST(SESSION_CONTEXT(N'no_ktp_pegawai') AS VARCHAR(20));
-
     UPDATE tb_sparepart
     SET stok = stok - i.jumlah
     FROM tb_sparepart s
     INNER JOIN inserted i ON s.id_sparepart = i.id_sparepart;
 
-    INSERT INTO tb_log_sparepart (no_ktp_pegawai, id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
+    INSERT INTO tb_log_sparepart (id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
     SELECT 
-        @no_ktp_pegawai, 
         i.id_sparepart,
         s.nama_sparepart,
         'Penggunaan',
@@ -36,11 +32,7 @@ ON tb_penggunaan_sparepart
 AFTER DELETE
 AS
 BEGIN
-    SET NOCOUNT ON;
-
-    -- Ambil no_ktp_pegawai dari SESSION_CONTEXT
-    DECLARE @no_ktp_pegawai VARCHAR(20);
-    SELECT @no_ktp_pegawai = CAST(SESSION_CONTEXT(N'no_ktp_pegawai') AS VARCHAR(20));
+    SET NOCOUNT ON
 
     -- Tambahkan stok kembali
     UPDATE tb_sparepart
@@ -49,9 +41,8 @@ BEGIN
     INNER JOIN deleted d ON s.id_sparepart = d.id_sparepart;
 
     -- Log pengembalian stok
-    INSERT INTO tb_log_sparepart (no_ktp_pegawai, id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
+    INSERT INTO tb_log_sparepart (id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
     SELECT 
-        @no_ktp_pegawai, 
         d.id_sparepart,
         s.nama_sparepart,
         'Dibatalkan',
@@ -72,15 +63,8 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-     -- Ambil no_ktp_pegawai dari SESSION_CONTEXT
-    DECLARE @no_ktp_pegawai VARCHAR(20);
-    SELECT @no_ktp_pegawai = CAST(SESSION_CONTEXT(N'no_ktp_pegawai') AS VARCHAR(20));
-
-
-    -- Log saat INSERT
-    INSERT INTO tb_log_sparepart (no_ktp_pegawai, id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
+    INSERT INTO tb_log_sparepart (id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
     SELECT 
-        @no_ktp_pegawai,
         i.id_sparepart, 
         i.nama_sparepart, 
         'Insert', 
@@ -89,12 +73,10 @@ BEGIN
         GETDATE()
     FROM inserted i
     LEFT JOIN deleted d ON i.id_sparepart = d.id_sparepart
-    WHERE d.id_sparepart IS NULL; -- Data baru (insert)
+    WHERE d.id_sparepart IS NULL; 
 
-    -- Log saat UPDATE
-    INSERT INTO tb_log_sparepart (no_ktp_pegawai, id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
+    INSERT INTO tb_log_sparepart (id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
     SELECT 
-        @no_ktp_pegawai,
         i.id_sparepart, 
         i.nama_sparepart, 
         'Update', 
@@ -124,19 +106,13 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-      -- Ambil no_ktp_pegawai dari SESSION_CONTEXT
-    DECLARE @no_ktp_pegawai VARCHAR(20);
-    SELECT @no_ktp_pegawai = CAST(SESSION_CONTEXT(N'no_ktp_pegawai') AS VARCHAR(20));
-
-    -- Log Soft Delete jika deleted_at berubah dari NULL menjadi tanggal
-    INSERT INTO tb_log_sparepart (no_ktp_pegawai, id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
+    INSERT INTO tb_log_sparepart (id_sparepart, nama_sparepart, aksi, stok_awal, stok_akhir, tanggal)
     SELECT 
-        @no_ktp_pegawai,
         i.id_sparepart, 
         i.nama_sparepart, 
         'Soft Delete', 
         d.stok, 
-        0,  -- Setelah dihapus dianggap 0
+        0,  
         GETDATE()
     FROM inserted i
     INNER JOIN deleted d ON i.id_sparepart = d.id_sparepart

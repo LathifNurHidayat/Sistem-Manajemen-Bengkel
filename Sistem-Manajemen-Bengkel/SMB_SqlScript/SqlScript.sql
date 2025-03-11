@@ -127,7 +127,6 @@ CREATE  TABLE tb_penggunaan_sparepart (
     id_sparepart INT,
     jumlah INT,
     harga Decimal(18,2),
-    CONSTRAINT fk_booking_sparepart_booking FOREIGN KEY (id_penggunaan_sparepart) REFERENCES tb_booking (id_booking),
     CONSTRAINT fk_booking_sparepart_sparepart FOREIGN KEY (id_sparepart) REFERENCES tb_sparepart(id_sparepart)
 ) 
 
@@ -171,7 +170,6 @@ CREATE TABLE tb_riwayat(
 
 CREATE TABLE tb_log_sparepart (
     id_log_sparepart INT IDENTITY(1,1) PRIMARY KEY,
-    no_ktp_pegawai VARCHAR(20),
     id_sparepart INT,
     nama_sparepart VARCHAR(50),
     aksi VARCHAR(50),
@@ -179,10 +177,9 @@ CREATE TABLE tb_log_sparepart (
     stok_akhir INT,
     tanggal DATETIME,
 
-    CONSTRAINT fk_log_sparepart_pegawai FOREIGN KEY (no_ktp_pegawai) REFERENCES tb_pegawai(no_ktp_pegawai)
 );
 
-
+ 
 CREATE TABLE tb_informasi_bengkel(
     id_informasi_bengkel INT IDENTITY(1,1) PRIMARY KEY,
     nama_bengkel VARCHAR(50),
