@@ -21,7 +21,7 @@ BEGIN
     FROM inserted i
     INNER JOIN tb_sparepart s ON i.id_sparepart = s.id_sparepart;
 END;
-GO;
+GO
 
 
 
@@ -52,7 +52,7 @@ BEGIN
     FROM deleted d
     INNER JOIN tb_sparepart s ON d.id_sparepart = s.id_sparepart;
 END;
-GO;
+GO
 
 
 
@@ -137,3 +137,4 @@ BEGIN
     WHERE no_ktp_pelanggan = (SELECT no_ktp_pelanggan FROM inserted);
 END; 
 GO;
+

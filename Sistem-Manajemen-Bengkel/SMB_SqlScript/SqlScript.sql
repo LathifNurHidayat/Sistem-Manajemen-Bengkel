@@ -49,12 +49,6 @@ CREATE TABLE tb_jasa_servis (
     deleted_at DATETIME NULL
 );
 
-CREATE TABLE tb_batas_booking(
-    id_batas_booking INT IDENTITY(1,1) PRIMARY KEY,
-    tanggal DATETIME,
-    batas_booking INT,
-    created_at DATETIME DEFAULT GETDATE()
-);
 
 CREATE TABLE tb_sparepart(
     id_sparepart INT IDENTITY(1,1) PRIMARY KEY,
@@ -153,7 +147,8 @@ CREATE TABLE tb_riwayat(
     status INT,
     created_at DATETIME DEFAULT GETDATE(),
 
-    CONSTRAINT fk_riwayat_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis),
+    CONSTRAINT fk_riwayat_jasa_servis FOREIGN KEY (id_jasa_servis) REFERENCES tb_jasa_servis(id_jasa_servis)
+    ON DELETE SET NULL,
     CONSTRAINT fk_riwayat_pelanggan FOREIGN KEY (no_ktp_pelanggan) REFERENCES tb_pelanggan(no_ktp_pelanggan)
         ON UPDATE CASCADE 
         ON DELETE CASCADE,
@@ -179,15 +174,6 @@ CREATE TABLE tb_log_sparepart (
 
 );
 
- 
-CREATE TABLE tb_informasi_bengkel(
-    id_informasi_bengkel INT IDENTITY(1,1) PRIMARY KEY,
-    nama_bengkel VARCHAR(50),
-    alamat VARCHAR(100),
-    email VARCHAR(50),
-    no_telp VARCHAR(20),
-)
-
 
 CREATE TABLE tb_jam_kerja (
     id_jam_kerja INT IDENTITY(1,1) PRIMARY KEY,
@@ -202,5 +188,22 @@ CREATE TABLE tb_jadwal_libur (
     tanggal_libur DATE,
     hari VARCHAR(20),
     is_libur INT
+);
+
+ 
+CREATE TABLE tb_informasi_bengkel(
+    id_informasi_bengkel INT IDENTITY(1,1) PRIMARY KEY,
+    nama_bengkel VARCHAR(50),
+    alamat VARCHAR(100),
+    email VARCHAR(50),
+    no_telp VARCHAR(20),
+)
+
+
+CREATE TABLE tb_batas_booking(
+    id_batas_booking INT IDENTITY(1,1) PRIMARY KEY,
+    tanggal DATETIME,
+    batas_booking INT,
+    created_at DATETIME DEFAULT GETDATE()
 );
 
