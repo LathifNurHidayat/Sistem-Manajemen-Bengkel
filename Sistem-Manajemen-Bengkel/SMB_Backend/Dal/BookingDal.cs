@@ -14,8 +14,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
     public class BookingDal
     {
-
-
         public IEnumerable<BookingModel> ListData(string filter,object Dp)
         {
             string sql = @$"SELECT 
@@ -119,7 +117,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                          VALUES 
                              (@no_ktp_pelanggan, @no_ktp_mekanik, @id_kendaraan, @id_jasa_servis, 
                             @nama_pelanggan, @no_polisi, @merek, @transmisi, @kapasitas_mesin, 
-                            @tanggal, @antrean, @keluhan, @status)";
+                            CAST(@tanggal AS DATE), @antrean, @keluhan, @status)";
 
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
 
@@ -168,6 +166,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Dp.Add("@id_booking", booking.id_booking);
             conn.Execute(sql, Dp);
         }
+
 
         public void DeleteAfterDateChange()
         {

@@ -140,9 +140,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public IEnumerable<KendaraanModel> ListDataByNoKtp( string no_ktp_pelanggan)
         {
             string sql = @$"SELECT 
-                                id_kendaraan, merek, tranmisi, kapasitas_mesin, tahun , no_polisi 
+                                id_kendaraan, merek, transmisi, kapasitas_mesin, tahun , no_polisi 
                                 FROM tb_kendaraan 
-                            WHERE no_ktp_pelanggan = @no_ktp_pelanggan AND no_deleted_at IS NULL";
+                            WHERE no_ktp_pelanggan = @no_ktp_pelanggan AND deleted_at IS NULL";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<KendaraanModel>(sql, new {no_ktp_pelanggan});

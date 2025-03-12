@@ -121,10 +121,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             Dp.Add("@status", riwayat.status);
 
             Conn.Execute(sql, Dp);
-
         }
 
-        public IEnumerable<RiwayatModel> ListDataWhereNoKtp (string no_ktp_pelanggan)
+
+        public IEnumerable<RiwayatModel> ListDataWhereNoKtp (DynamicParameters Dp)
         {
             const string sql = @"SELECT 
                                     rw.tanggal,
@@ -132,7 +132,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     rw.keluhan,
                                     pg.nama_pegawai,
                                     mk.nama_mekanik,
-                                    COALESCE(STRING_AGG(sp.nama_sparepart, ', '), '-') AS sparepart_terpakai,
+                                    COALESCE(STRING_AGG(sp.nama_sparepart, ', '), '-') AS nama_sparepart,
                                     rw.catatan,
                                     rw.total_biaya,
                                     rw.status
@@ -142,13 +142,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 LEFT JOIN tb_mekanik mk ON mk.no_ktp_mekanik = rw.no_ktp_mekanik
                                 LEFT JOIN tb_penggunaan_sparepart ps ON ps.id_penggunaan_sparepart = rw.id_penggunaan_sparepart
                                 LEFT JOIN tb_sparepart sp ON sp.id_sparepart = ps.id_sparepart
-                                WHERE no_ktp_pelanggan = @no_ktp_pelanggan
+                                WHERE rw.no_ktp_pelanggan = @no_ktp_pelanggan
                                 GROUP BY 
                                     rw.tanggal, kd.no_polisi, kd.merek, rw.keluhan, pg.nama_pegawai, 
-                                    mk.nama_mekanik, rw.catatan, rw.total_biaya, rw.status";
+                                    mk.nama_mekanik, rw.catatan, rw.total_biaya, rw.status
+                                ORDER BY 
+                                    rw.tanggal DESC
+                                OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.Query<RiwayatModel>(sql, new { no_ktp_pelanggan });
+            return Conn.Query<RiwayatModel>(sql, Dp);
         }
     }
 }
