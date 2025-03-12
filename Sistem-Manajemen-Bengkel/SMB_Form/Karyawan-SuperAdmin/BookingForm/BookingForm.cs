@@ -140,7 +140,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                                THEN CONCAT(COALESCE(dd.merek, ''), ' ', COALESCE(dd.kapasitas_mesin, ''), 'cc')
                                ELSE CONCAT(COALESCE(aa.merek, ''), ' ', COALESCE(aa.kapasitas_mesin, ''), 'cc')
                              END 
-                       ) LIKE LOWER(@Search))";
+                       ) LIKE LOWER(@Search) OR aa.keluhan LIKE @Search)";
 
                 dp.Add("@Search", $"%{search}%");
             }
@@ -171,8 +171,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 }).ToList();
 
             GridListData.DataSource = data;
-            GetDataTanggal(); 
         }
+
 
         private void RegisterControlEvent()
         {
@@ -234,6 +234,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             if (pilihForm.ShowDialog() == DialogResult.OK)
             {
                 LoadData();
+                GetDataTanggal();
             }
         }
 

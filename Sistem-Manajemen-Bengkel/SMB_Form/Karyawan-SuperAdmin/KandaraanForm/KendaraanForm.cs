@@ -99,7 +99,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                                   aa.merek LIKE @Search OR 
                                   aa.transmisi LIKE @Search OR 
                                   aa.kapasitas_mesin LIKE @Search OR
-                                  aa.tahun LIKE @Search) ";
+                                  aa.tahun LIKE @Search OR 
+                                  (aa.transmisi = 1 AND 'Otomatis' LIKE @Search) 
+                                    OR 
+                                  (aa.transmisi = 2 AND 'Manual' LIKE @Search)) ";
             }
             dp.Add("@offset", inRowPage);
             dp.Add("@fetch", rowPerPage);

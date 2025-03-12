@@ -14,18 +14,23 @@ using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.SparepartForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
 {
     public partial class MainMenuForm : Form
     {
+        private readonly BookingDal _bookingDal;
+
         private string _role;
         private readonly List<Button> _listButton = new List<Button>();
 
         public MainMenuForm(string username, string role, byte[]? profile)
         {
             InitializeComponent();
+            _bookingDal = new BookingDal();
+
             this.WindowState = FormWindowState.Maximized;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
@@ -37,8 +42,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
             InitialButton();
             RegisterControlEvent();
             ShowFormHelper.SetPanel(PanelMain);
+            DeleteBooking();
         }
 
+
+        private void DeleteBooking()
+        {
+            _bookingDal.DeleteAfterDateChange();
+        }
 
 
 

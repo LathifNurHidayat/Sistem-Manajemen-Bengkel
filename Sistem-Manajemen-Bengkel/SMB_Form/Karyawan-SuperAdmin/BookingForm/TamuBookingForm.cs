@@ -102,7 +102,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
             DateTime date = (DateTime)PickerBookingTanggal.Value;
             CekKetersediaan(date);
+
+            this.DialogResult = DialogResult.OK;
         }
+
 
         private void ButtonBatal_Click(object? sender, EventArgs e)
         {

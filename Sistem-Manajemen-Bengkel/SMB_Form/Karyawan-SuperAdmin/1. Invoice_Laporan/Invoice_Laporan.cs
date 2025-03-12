@@ -146,15 +146,14 @@ public class Invoice_Laporan
                 row++;
             }
 
-            // Membuat tabel dari data
+            // Membuat  style tabel nya
             var range = worksheet.Range(2, 1, row - 1, 12); 
             var table = range.CreateTable();
             table.Theme = XLTableTheme.TableStyleLight10; 
 
-            // Menyesuaikan ukuran kolom
+            // untuk menyesuaikan ukuran kolom secara otomatis
             worksheet.Columns().AdjustToContents();
 
-            // Simpan file menggunakan SaveFileDialog
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 Filter = "Excel Files|*.xlsx",
