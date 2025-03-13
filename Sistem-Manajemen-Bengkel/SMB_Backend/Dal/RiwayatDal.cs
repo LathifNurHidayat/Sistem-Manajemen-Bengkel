@@ -96,25 +96,68 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
         public void InsertData(RiwayatModel riwayat)
         {
-            const string sql = @"EXEC sp_InsertRiwayat 
-                                @id_jasa_servis, @no_ktp_pelanggan, @no_ktp_pegawai, @no_ktp_mekanik, 
-                                @id_kendaraan, @id_penggunaan_sparepart, @nama_pelanggan, @no_polisi, 
-                                @merek, @transmisi, @kapasitas_mesin, @tanggal, @keluhan, @catatan, @status";
+            const string sql = @"DECLARE @biaya_servis DECIMAL(18,2) = 0;
+                                DECLARE @biaya_sparepart DECIMAL(18,2) = 0;
+                                DECLARE @total_biaya DECIMAL(18,2) = 0;
+
+                                IF @status <> 4
+                                BEGIN 
+                                    SELECT @biaya_servis = COALESCE(biaya, 0) FROM tb_jasa_servis WHERE id_jasa_servis = @id_jasa_servis;
+                                    SELECT @biaya_sparepart = COALESCE(SUM(harga), 0) FROM tb_penggunaan_sparepart WHERE id_penggunaan_sparepart = @id_penggunaan_sparepart;
+        
+                                    SET @total_biaya = @biaya_servis + @biaya_sparepart;
+                                END
+
+                                INSERT INTO tb_riwayat (
+                                    id_jasa_servis,
+                                    no_ktp_pelanggan,
+                                    no_ktp_pegawai,
+                                    no_ktp_mekanik,
+                                    id_kendaraan,
+                                    id_penggunaan_sparepart,
+                                    nama_pelanggan,
+                                    no_polisi,
+                                    merek,
+                                    transmisi,
+                                    kapasitas_mesin,
+                                    tanggal,
+                                    keluhan,
+                                    catatan,
+                                    total_biaya,
+                                    status
+                                ) 
+                                VALUES (
+                                    @id_jasa_servis,
+                                    @no_ktp_pelanggan,
+                                    @no_ktp_pegawai,
+                                    @no_ktp_mekanik,
+                                    @id_kendaraan,
+                                    @id_penggunaan_sparepart,
+                                    @nama_pelanggan,
+                                    @no_polisi,
+                                    @merek,
+                                    @transmisi,
+                                    @kapasitas_mesin,
+                                    @tanggal,
+                                    @keluhan,
+                                    @catatan,
+                                    @total_biaya,
+                                    @status)";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             var Dp = new DynamicParameters();
 
-            Dp.Add("@id_jasa_servis", riwayat.id_jasa_servis);
             Dp.Add("@no_ktp_pelanggan", riwayat.no_ktp_pelanggan);
             Dp.Add("@no_ktp_pegawai", riwayat.no_ktp_pegawai);
             Dp.Add("@no_ktp_mekanik", riwayat.no_ktp_mekanik);
             Dp.Add("@id_kendaraan", riwayat.id_kendaraan);
-            Dp.Add("@id_penggunaan_sparepart", riwayat.id_penggunaan_sparepart);
+            Dp.Add("@id_jasa_servis", riwayat.status == 4 ? (object)DBNull.Value : riwayat.id_jasa_servis);
+            Dp.Add("@id_penggunaan_sparepart", riwayat.status == 4 ? (object)DBNull.Value : riwayat.id_penggunaan_sparepart);
             Dp.Add("@nama_pelanggan", riwayat.nama_pelanggan); 
             Dp.Add("@no_polisi", riwayat.no_polisi);
             Dp.Add("@merek", riwayat.merek);
             Dp.Add("@transmisi", riwayat.transmisi);
-            Dp.Add("@kapasitas_mesin", riwayat.kapasitas_mesin);
+            Dp.Add("@kapasitas_mesin", riwayat.kapasitas_mesin); 
             Dp.Add("@tanggal", DateTime.Today);
             Dp.Add("@keluhan", riwayat.keluhan);
             Dp.Add("@catatan", riwayat.catatan);
@@ -124,7 +167,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         }
 
 
-        public IEnumerable<RiwayatModel> ListDataWhereNoKtp (DynamicParameters Dp)
+        public IEnumerable<RiwayatModel> ListDataWhereNoKtp (string no_ktp_pelanggan)
         {
             const string sql = @"SELECT 
                                     rw.tanggal,
@@ -147,11 +190,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     rw.tanggal, kd.no_polisi, kd.merek, rw.keluhan, pg.nama_pegawai, 
                                     mk.nama_mekanik, rw.catatan, rw.total_biaya, rw.status
                                 ORDER BY 
-                                    rw.tanggal DESC
-                                OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
+                                    rw.tanggal DESC";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.Query<RiwayatModel>(sql, Dp);
+            return Conn.Query<RiwayatModel>(sql, new { no_ktp_pelanggan });
         }
     }
 }

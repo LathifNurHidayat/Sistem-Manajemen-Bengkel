@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -12,45 +13,35 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
     public class DashboardDal
     {
-
-        public IEnumerable<(string nama_sparepart, int jumlah_terjual)> PeringkatSparepartTerjual()
+        public DashboardMetrics GetDashboardMetrics(DateTime tanggal)
         {
-            const string sql = "SELECT * FROM dbo.fnc_ListPeringkatSparepartTerjual()";
+            const string sql = "sp_GetDashboardMetrics";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.Query<(string nama_sparepart, int jumlah_terjual)>(sql);
+            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var multi = conn.QueryMultiple(sql, new { tanggal }, commandType: CommandType.StoredProcedure);
+
+            var metrics = new DashboardMetrics
+            {
+                TotalPendapatanHariIni = multi.ReadFirstOrDefault<decimal>(),
+                TotalBookingHariIni = multi.ReadFirstOrDefault<int>(),
+                TotalSelesaiServisHariIni = multi.ReadFirstOrDefault<int>(),
+                TotalDataPelanggan = multi.ReadFirstOrDefault<int>(),
+                TopPelanggan = multi.Read<(string NamaPelanggan, int TotalServis)>(),
+                TopSpareparts = multi.Read<(string NamaSparepart, int JumlahTerjual)>()
+            };
+
+            return metrics;
         }
+    }
 
-        public IEnumerable<(string nama_pelanggan, int total_Servis)> PeringkatServisPelanggan()
-        {
-            const string sql = "SELECT * FROM dbo.fnc_TotalServisPelanggan()";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.Query<(string nama_pelanggan, int total_Servis)>(sql);
-        }
-
-        public decimal TotalPendapatanHariIni(DateTime tanggal)
-        {
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.QueryFirstOrDefault<decimal>("SELECT dbo.fnc_TotalPendapatanHariIni(@tanggal)", new { tanggal = tanggal });
-        }
-
-        public int TotalBookingHariIni(DateTime tanggal)
-        {
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.QueryFirstOrDefault<int>("SELECT dbo.fnc_TotalBookingHariIni(@tanggal)", new { tanggal = tanggal });
-        }
-
-        public int TotalSelesaiServisHariIni(DateTime tanggal)
-        {
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.QueryFirstOrDefault<int>("SELECT dbo.fnc_TotalSelesaiServisHariIni(@tanggal)", new { tanggal = tanggal });
-        }
-
-        public int TotalDataPelanggan()
-        {
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
-            return Conn.QueryFirstOrDefault<int>("SELECT dbo.fnc_TotalDataPelanggan()");
-        }
+    public class DashboardMetrics
+    {
+        public decimal TotalPendapatanHariIni { get; set; }
+        public int TotalBookingHariIni { get; set; }
+        public int TotalSelesaiServisHariIni { get; set; }
+        public int TotalDataPelanggan { get; set; }
+        public IEnumerable<(string NamaPelanggan, int TotalServis)> TopPelanggan { get; set; }
+        public IEnumerable<(string NamaSparepart, int JumlahTerjual)> TopSpareparts { get; set; }
     }
 }

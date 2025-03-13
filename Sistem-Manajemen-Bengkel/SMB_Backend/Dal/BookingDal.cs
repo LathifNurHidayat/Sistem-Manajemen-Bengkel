@@ -76,7 +76,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 LEFT JOIN tb_sparepart gg
                                     ON ff.id_sparepart = gg.id_sparepart
 
-                                LEFT JOIN tb_pelanggan bb 
+                                LEFT JOIN tb_pelanggan bb  
                                     ON aa.no_ktp_pelanggan = bb.no_ktp_pelanggan
                                 LEFT JOIN tb_kendaraan dd 
                                     ON aa.id_kendaraan = dd.id_kendaraan
@@ -204,7 +204,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
             using var conn = new SqlConnection(ConnStringHelper.GetConn());
             var result = conn.QueryFirstOrDefault<string>(sql, new { tanggal , jamBooking = DateTime.Now.TimeOfDay});
-            MessageBox.Show(DateTime.Now.TimeOfDay.ToString());
             return result?? "";
         }
 
