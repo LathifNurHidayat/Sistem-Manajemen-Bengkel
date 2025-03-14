@@ -20,6 +20,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
     public partial class InputPegawaiForm : Form
     {
         private readonly PegawaiDal _pegawaiDal;
+        private bool _isUpdate = false;
         private string _noKTP;
         private string _noHP;
         private string _email;
@@ -41,6 +42,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 LabelResetPass.Visible = true;
                 LinkReset.Visible = true;
                 BoolReadonlyTextbox(true);
+                _isUpdate = true;
             }
 
             RegisterControlEvent();
@@ -202,7 +204,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             if (cekData == 0)
                 return;
 
-            if (cekData == 1)
+            if (cekData == 1 && !_isUpdate)
             {
                 RestorePegawaiForm restore = new RestorePegawaiForm(no_ktp);
                 if (restore.ShowDialog() == DialogResult.OK)
@@ -210,6 +212,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                     this.DialogResult = DialogResult.OK;
                     return;
                 }
+                TextNoKTP.Clear();
             }
             if (cekData == 2)
                 LabelNIK.Visible = true;

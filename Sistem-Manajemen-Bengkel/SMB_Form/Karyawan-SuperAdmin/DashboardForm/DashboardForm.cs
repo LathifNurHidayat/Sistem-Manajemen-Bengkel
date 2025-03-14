@@ -32,30 +32,30 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 
         private void GetData()
         {
-            int totalpelanggan = _dashboardDal.TotalDataPelanggan();
-            int totalBookingHariIni = _dashboardDal.TotalBookingHariIni(DateTime.Today);
-            int totalServisHariIni = _dashboardDal.TotalSelesaiServisHariIni(DateTime.Today);
-            decimal pendapatanHariIni = _dashboardDal.TotalPendapatanHariIni(DateTime.Today);
+            int totalpelanggan = _dashboardDal.GetDashboardMetrics(DateTime.Today).TotalDataPelanggan;
+            int totalBookingHariIni = _dashboardDal.GetDashboardMetrics(DateTime.Today).TotalBookingHariIni;
+            int totalServisHariIni = _dashboardDal.GetDashboardMetrics(DateTime.Today).TotalSelesaiServisHariIni;
+            decimal pendapatanHariIni = _dashboardDal.GetDashboardMetrics(DateTime.Today).TotalPendapatanHariIni;
 
             LabelTotalPelanggan.Text = totalpelanggan.ToString();
             LabelTotalBooking.Text = totalBookingHariIni.ToString();
             LabelTotalService.Text = totalServisHariIni.ToString();
             LabelPendapatan.Text = pendapatanHariIni.ToString("C", new CultureInfo("id-ID"));
 
-            var peringkatServisPelanggan = _dashboardDal.PeringkatServisPelanggan().Select((x, index) => new
+            var peringkatServisPelanggan = _dashboardDal.GetDashboardMetrics(DateTime.Today).TopPelanggan.Select((x, index) => new
             {
                 No = index + 1,
-                Nama = x.nama_pelanggan,
-                TotalServis = x.total_Servis
+                Nama = x.NamaPelanggan,
+                TotalServis = x.TotalServis
             }).ToList();
 
-            var peringkatSparepartTerjual = _dashboardDal.PeringkatSparepartTerjual()
-                .OrderByDescending(x => x.jumlah_terjual)
+            var peringkatSparepartTerjual = _dashboardDal.GetDashboardMetrics(DateTime.Today).TopSpareparts
+                .OrderByDescending(x => x.JumlahTerjual)
                 .Select((x, Index) => new
                 {
                     No = Index + 1,
-                    Sparepart = x.nama_sparepart,
-                    Terjual = x.jumlah_terjual
+                    Sparepart = x.NamaSparepart,
+                    Terjual = x.JumlahTerjual
                 }).ToList();
 
 

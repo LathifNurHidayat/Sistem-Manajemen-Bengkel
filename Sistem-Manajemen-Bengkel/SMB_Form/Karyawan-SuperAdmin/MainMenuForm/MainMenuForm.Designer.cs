@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             panel2 = new Panel();
+            ButtonEditProfiles = new SMB_CustomTolbox.LathifButton();
             flowLayoutPanel1 = new FlowLayoutPanel();
             ButtonDashboard = new Button();
             ButtonBooking = new Button();
@@ -54,6 +55,7 @@
             // 
             panel2.AutoScroll = true;
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(ButtonEditProfiles);
             panel2.Controls.Add(flowLayoutPanel1);
             panel2.Controls.Add(PictureProfiles);
             panel2.Controls.Add(LabelUsername);
@@ -63,6 +65,26 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(319, 1055);
             panel2.TabIndex = 1;
+            // 
+            // ButtonEditProfiles
+            // 
+            ButtonEditProfiles.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonEditProfiles.BackColor = Color.FromArgb(83, 92, 145);
+            ButtonEditProfiles.BackgroundColor = Color.FromArgb(83, 92, 145);
+            ButtonEditProfiles.BorderColor = Color.DarkGray;
+            ButtonEditProfiles.BorderRadius = 5;
+            ButtonEditProfiles.BorderSize = 0;
+            ButtonEditProfiles.FlatAppearance.BorderSize = 0;
+            ButtonEditProfiles.FlatStyle = FlatStyle.Flat;
+            ButtonEditProfiles.Font = new Font("Segoe UI Variable Small", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            ButtonEditProfiles.ForeColor = Color.White;
+            ButtonEditProfiles.Location = new Point(212, 12);
+            ButtonEditProfiles.Name = "ButtonEditProfiles";
+            ButtonEditProfiles.Size = new Size(95, 37);
+            ButtonEditProfiles.TabIndex = 39;
+            ButtonEditProfiles.Text = "🖍 Edit";
+            ButtonEditProfiles.TextColor = Color.White;
+            ButtonEditProfiles.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel1
             // 
@@ -331,5 +353,6 @@
         private Button ButtonRiwayat;
         private Button ButtonLogout;
         private Button ButtonMekanik;
+        private SMB_CustomTolbox.LathifButton ButtonEditProfiles;
     }
 }

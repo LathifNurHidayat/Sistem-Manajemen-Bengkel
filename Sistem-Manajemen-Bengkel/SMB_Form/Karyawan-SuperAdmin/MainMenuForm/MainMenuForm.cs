@@ -15,6 +15,7 @@ using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.SparepartForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
@@ -59,7 +60,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
              {
                 ButtonDashboard, ButtonBooking, ButtonServis,
                 ButtonRiwayat, ButtonPelanggan, ButtonKendaraan,
-                ButtonKaryawan, ButtonSparepart, ButtonLogout
+                ButtonKaryawan,ButtonMekanik, ButtonSparepart, ButtonLogout
              });
 
             foreach  (var btn in _listButton)
@@ -100,7 +101,20 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
             ButtonSparepart.Click += ButtonSparepart_Click;
             ButtonLogout.Click += ButtonLogout_Click;
             ButtonMekanik.Click += ButtonMekanik_Click;
+            ButtonEditProfiles.Click += ButtonEditProfiles_Click;
 
+        }
+
+        private void ButtonEditProfiles_Click(object? sender, EventArgs e)
+        {
+            string no_ktp = SessionLogin._sessionLoginPegawai.no_ktp_pegawai;
+
+            EditProfilForm editProfilForm = new EditProfilForm(no_ktp);
+            if (editProfilForm.ShowDialog() == DialogResult.OK)
+            {
+                PictureProfiles.Image = editProfilForm.ProfilPhoto ?? ImageDirectoryHelper._defaultProfiles;
+                LabelUsername.Text = editProfilForm.ProfilName;
+            }
         }
 
         private void MainMenuForm_FormClosing(object? sender, FormClosingEventArgs e)

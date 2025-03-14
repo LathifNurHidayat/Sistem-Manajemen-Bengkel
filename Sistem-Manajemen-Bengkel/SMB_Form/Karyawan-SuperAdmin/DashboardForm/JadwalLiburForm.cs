@@ -96,10 +96,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 
         private void LoadData()
         {
-            var data = _jadwalLiburDal.ListData();
+            var data = _jadwalLiburDal.ListData().Where(x => x.hari == null).ToList();
             if (data == null) return;
 
-            GridListData.DataSource = data.Where(x => x.hari == null).ToList();
+            GridListData.DataSource = data;
         }
 
         private void InsertDataBaru()

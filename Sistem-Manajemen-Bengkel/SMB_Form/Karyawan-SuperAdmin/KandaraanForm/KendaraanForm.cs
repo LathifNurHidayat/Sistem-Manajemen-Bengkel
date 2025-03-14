@@ -23,7 +23,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             _kendaraanDal = new KendaraanDal();
             CustomComponent();
             LoadData();
-            CustomDataGrid(GridListData);
+            CustomDataInGrid(GridListData);
 
             RegisterControlEvent();
         }
@@ -42,7 +42,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
         }
 
 
-        private void CustomDataGrid(DataGridView grid)
+        private void CustomDataInGrid(DataGridView grid)
         {
             grid.Columns["Id"].Visible = false;
 
@@ -104,6 +104,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
                                     OR 
                                   (aa.transmisi = 2 AND 'Manual' LIKE @Search)) ";
             }
+
             dp.Add("@offset", inRowPage);
             dp.Add("@fetch", rowPerPage);
 

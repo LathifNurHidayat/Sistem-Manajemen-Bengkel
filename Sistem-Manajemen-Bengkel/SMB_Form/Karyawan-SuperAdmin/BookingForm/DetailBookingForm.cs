@@ -117,8 +117,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             {
                 PictureSelesai.Image = Properties.Resources.cancelled;
                 LabelSelesai.Text = "Dibatalkan";
+
                 progres1.BackColor = System.Drawing.Color.Red;
                 progresDikerjakan.BackColor = System.Drawing.Color.Red;
+
+                progresMenunggu.BackColor = System.Drawing.Color.Red;
 
                 progres2.BackColor = System.Drawing.Color.Red;
                 progresSelesai.BackColor = System.Drawing.Color.Red;
@@ -161,28 +164,29 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             _bookingDal.UpdateData(booking);
         }
 
-        private void InsertRiwayat()
+        private void InsertRiwayat( bool isClear)
         {
-            if (_bookingData == null) return; 
+            if (_bookingData == null) return;
 
             var riwayat = new RiwayatModel
             {
                 id_jasa_servis = _bookingData.id_jasa_servis ?? 0,
                 no_ktp_pelanggan = _bookingData.no_ktp_pelanggan,
-                no_ktp_pegawai = SessionLogin._sessionLoginPegawai.no_ktp_pegawai, 
+                no_ktp_pegawai = SessionLogin._sessionLoginPegawai.no_ktp_pegawai,
                 no_ktp_mekanik = _bookingData.no_ktp_mekanik ?? "",
                 id_kendaraan = _bookingData.id_kendaraan ?? 0,
-                id_penggunaan_sparepart = _bookingData.id_booking ,
-                nama_pelanggan = _bookingData.nama_pelanggan,
-                no_polisi = _bookingData.no_polisi,
-                merek = _bookingData.merek,
-                transmisi = _bookingData.transmisi,
-                kapasitas_mesin = _bookingData.kapasitas_mesin,
+                id_penggunaan_sparepart = _bookingData.id_booking,
+                nama_pelanggan = string.IsNullOrEmpty(_bookingData.no_ktp_pelanggan) ?  _bookingData.nama_pelanggan : null,
+                no_polisi = _bookingData.id_kendaraan == 0 ? _bookingData.no_polisi : null,
+                merek = _bookingData.id_kendaraan == 0 ? _bookingData.merek : null,
+                transmisi = _bookingData.id_kendaraan == 0 ? _bookingData.transmisi : null,
+                kapasitas_mesin = _bookingData.id_kendaraan == 0 ? _bookingData.kapasitas_mesin : null,
                 keluhan = _bookingData.keluhan,
                 catatan = _bookingData.catatan,
-                status = 1
+                status = isClear ? 1 : 2
             };
             _riwayatDal.InsertData(riwayat);
+
         }
 
         private void RegisterControlEvent()
@@ -196,11 +200,19 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
         private void ButtonBatalkanBooking_Click(object? sender, EventArgs e)
         {
+            if (_bookingData.status == 4 )
+            {
+                MesboxHelper.ShowError("Booking sudah dibatalkan !");
+                return;
+            }
+
             if (_bookingData.status != 1)
             {
                 MesboxHelper.ShowError("Mohon Maaf \nPembatalan hanya bisa dilakukan jika status masih menunggu !");
                 return;
             }
+
+            if (!MesboxHelper.ShowConfirm("Apakah Anda yakin ingin membatalkan booking ini ?")) return;
 
             var booking = new BookingModel
             {
@@ -212,6 +224,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Booking dibatalkan");
             notifikasi.Show();
             GetData(_idBooking);
+            InsertRiwayat(false);
         }
 
         private void ButtonInformationBatalBooking_Click(object? sender, EventArgs e)
@@ -246,7 +259,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                     NontifikasiFormHelper notifikasi = new NontifikasiFormHelper("Selesai");
                     notifikasi.Show();
                     GetData(_idBooking);
-                    InsertRiwayat();
+                    InsertRiwayat(true);
                 }
             }
             else if (_statusBooking == 3)

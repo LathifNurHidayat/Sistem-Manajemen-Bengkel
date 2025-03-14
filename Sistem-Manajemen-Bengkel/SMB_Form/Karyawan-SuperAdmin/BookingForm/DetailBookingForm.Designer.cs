@@ -66,7 +66,7 @@
             progres2 = new Panel();
             progresSelesai = new SMB_CustomTolbox.RJCircularPictureBox();
             progresDikerjakan = new SMB_CustomTolbox.RJCircularPictureBox();
-            rjCircularPictureBox1 = new SMB_CustomTolbox.RJCircularPictureBox();
+            progresMenunggu = new SMB_CustomTolbox.RJCircularPictureBox();
             LabelSelesai = new Label();
             label5 = new Label();
             label3 = new Label();
@@ -89,7 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)progresSelesai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)progresDikerjakan).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)progresMenunggu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureSelesai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -107,7 +107,7 @@
             panel1.Controls.Add(progres2);
             panel1.Controls.Add(progresSelesai);
             panel1.Controls.Add(progresDikerjakan);
-            panel1.Controls.Add(rjCircularPictureBox1);
+            panel1.Controls.Add(progresMenunggu);
             panel1.Controls.Add(LabelSelesai);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label3);
@@ -585,22 +585,22 @@
             progresDikerjakan.TabIndex = 81;
             progresDikerjakan.TabStop = false;
             // 
-            // rjCircularPictureBox1
+            // progresMenunggu
             // 
-            rjCircularPictureBox1.Anchor = AnchorStyles.None;
-            rjCircularPictureBox1.BackColor = Color.LimeGreen;
-            rjCircularPictureBox1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox1.BorderColor = Color.Silver;
-            rjCircularPictureBox1.BorderColor2 = Color.Gray;
-            rjCircularPictureBox1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox1.BorderSize = 2;
-            rjCircularPictureBox1.GradientAngle = 50F;
-            rjCircularPictureBox1.Location = new Point(593, 394);
-            rjCircularPictureBox1.Name = "rjCircularPictureBox1";
-            rjCircularPictureBox1.Size = new Size(29, 29);
-            rjCircularPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox1.TabIndex = 80;
-            rjCircularPictureBox1.TabStop = false;
+            progresMenunggu.Anchor = AnchorStyles.None;
+            progresMenunggu.BackColor = Color.LimeGreen;
+            progresMenunggu.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            progresMenunggu.BorderColor = Color.Silver;
+            progresMenunggu.BorderColor2 = Color.Gray;
+            progresMenunggu.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            progresMenunggu.BorderSize = 2;
+            progresMenunggu.GradientAngle = 50F;
+            progresMenunggu.Location = new Point(593, 394);
+            progresMenunggu.Name = "progresMenunggu";
+            progresMenunggu.Size = new Size(29, 29);
+            progresMenunggu.SizeMode = PictureBoxSizeMode.StretchImage;
+            progresMenunggu.TabIndex = 80;
+            progresMenunggu.TabStop = false;
             // 
             // LabelSelesai
             // 
@@ -759,7 +759,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)progresSelesai).EndInit();
             ((System.ComponentModel.ISupportInitialize)progresDikerjakan).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)progresMenunggu).EndInit();
             ((System.ComponentModel.ISupportInitialize)PictureSelesai).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -784,7 +784,7 @@
         private PictureBox pictureBox1;
         private Label LabelSelesai;
         private Label label5;
-        private SMB_CustomTolbox.RJCircularPictureBox rjCircularPictureBox1;
+        private SMB_CustomTolbox.RJCircularPictureBox progresMenunggu;
         private SMB_CustomTolbox.RJCircularPictureBox progresDikerjakan;
         private SMB_CustomTolbox.RJCircularPictureBox progresSelesai;
         private Panel progres2;
