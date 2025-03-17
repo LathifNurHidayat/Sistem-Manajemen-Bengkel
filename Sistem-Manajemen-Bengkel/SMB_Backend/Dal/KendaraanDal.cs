@@ -34,14 +34,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
         public IEnumerable<KendaraanModel> LoadNamaKendaraan(string no_ktp_pelanggan)
         {
-            string sql = "SELECT id_kendaraan, merek, kapasitas_mesin FROM tb_kendaraan WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
+            string sql = "SELECT id_kendaraan, merek, kapasitas_mesin FROM tb_kendaraan WHERE no_ktp_pelanggan = @no_ktp_pelanggan AND deleted_at IS NULL";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<KendaraanModel>(sql, new { no_ktp_pelanggan });
         }
 
         public List<int> ListTahun()
         {
-            const string sql = @"SELECT DISTINCT tahun FROM tb_kendaraan ORDER BY tahun DESC";
+            const string sql = @"SELECT DISTINCT tahun FROM tb_kendaraan  WHERE deleted_at IS NULL ORDER BY tahun DESC";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<int>(sql).AsList();
@@ -56,7 +56,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     tb_kendaraan aa
                                 LEFT JOIN tb_pelanggan bb ON aa.no_ktp_pelanggan = bb.no_ktp_pelanggan
                                 WHERE 
-                                    aa.id_kendaraan = @id_kendaraan";
+                                    aa.id_kendaraan = @id_kendaraan AND aa.deleted_at IS NULL";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<KendaraanModel>(sql, new { id_kendaraan});

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
-using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.BookingForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
@@ -65,6 +65,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
 
                 ButtonBooking.Visible = false;
                 ButtonRiwayat.Visible = false;
+                ButtonKendaraan.Visible = false;
 
                 _isLogin = false;
             }
@@ -78,8 +79,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
             ButtonBooking.Click += ButtonBooking_Click;
             ButtonRiwayat.Click += ButtonRiwayat_Click;
             ButtonLogout.Click += ButtonLogout_Click;
+            ButtonKendaraan.Click += ButtonKendaraan_Click;
 
             this.FormClosing += MainMenuFirst_FormClosing;
+        }
+
+        private void ButtonKendaraan_Click(object? sender, EventArgs e)
+        {
+            ShowUserControlInPanel(new Kendaraan.KendaraanControl());
         }
 
         private void MainMenuFirst_FormClosing(object? sender, FormClosingEventArgs e)
@@ -97,7 +104,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
 
         private void ButtonBooking_Click(object sender, EventArgs e)
         {
-            ShowFormHelper.ShowFormInPanel(new BookingPelanggan());
+            ShowUserControlInPanel(new PilihBookingControl());
         }
 
         private void ButtonRiwayat_Click(object sender, EventArgs e)

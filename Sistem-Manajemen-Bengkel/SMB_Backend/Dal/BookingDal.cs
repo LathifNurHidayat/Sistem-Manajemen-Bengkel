@@ -45,6 +45,35 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<BookingModel>(sql, Dp);
         }
+        
+        
+        public IEnumerable<BookingModel> ListDataByNoKtp(string no_ktp_pelanggan)
+        {
+            string sql = @$"SELECT 
+                                aa.id_booking,
+                                COALESCE (bb.nama_pelanggan, aa.nama_pelanggan) AS nama_pelanggan,
+
+                            CASE 
+                                WHEN (aa.merek IS NULL  OR aa.merek = '') AND (aa.kapasitas_mesin IS NULL OR aa.kapasitas_mesin = '')
+                                THEN CONCAT(COALESCE(dd.merek, ''), ' ', COALESCE(dd.kapasitas_mesin, ''), 'cc')
+                                ELSE CONCAT(COALESCE(aa.merek, ''), ' ', COALESCE(aa.kapasitas_mesin, ''), 'cc')
+                            END AS nama_kendaraan,
+
+                                bb.no_hp,
+                                CONVERT(DATETIME, aa.tanggal, 105) AS tanggal, aa.antrean, aa.keluhan, aa.status
+                            FROM 
+                                tb_booking aa
+
+                            LEFT JOIN tb_pelanggan bb 
+                                ON aa.no_ktp_pelanggan = bb.no_ktp_pelanggan
+                            LEFT JOIN tb_kendaraan dd 
+                                ON aa.id_kendaraan = dd.id_kendaraan
+
+                            WHERE aa.no_ktp_pelanggan = @no_ktp_pelanggan";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            return Conn.Query<BookingModel>(sql, new { no_ktp_pelanggan });
+        }
 
         public BookingModel? GetData(int id_booking)
         {
@@ -61,6 +90,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     THEN CONCAT (dd.merek , ' ' , dd.kapasitas_mesin, 'cc')
                                     ELSE CONCAT (aa.merek , ' ' , aa.kapasitas_mesin, 'cc')
                                 END AS nama_kendaraan,
+                                    COALESCE (dd.merek, aa.merek) AS merek,
+
 
                                     COALESCE (dd.transmisi, aa.transmisi) AS transmisi,
                                     ISNULL (ee.jenis_servis, '') AS jenis_servis,
@@ -90,11 +121,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     ISNULL (aa.no_ktp_pelanggan, '') ,
                                     COALESCE(bb.nama_pelanggan, aa.nama_pelanggan),
                                     COALESCE(dd.no_polisi, aa.no_polisi),
-                                    CASE
-                                        WHEN (aa.merek IS NULL OR aa.merek = '') AND (aa.kapasitas_mesin IS NULL OR aa.kapasitas_mesin = '')
-                                            THEN CONCAT(dd.merek, ' ', dd.kapasitas_mesin, 'cc')
-                                        ELSE CONCAT(aa.merek, ' ', aa.kapasitas_mesin, 'cc')
-                                    END,
+                                    aa.merek, aa.kapasitas_mesin, dd.merek, dd.kapasitas_mesin, -- Tambahkan kolom ini
                                     COALESCE(dd.transmisi, aa.transmisi),
                                     ISNULL(ee.jenis_servis, ''),
                                     aa.id_kendaraan,
@@ -102,8 +129,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     aa.tanggal,
                                     aa.antrean,
                                     aa.keluhan,
-                                    aa.status;
-                            ";
+                                    aa.status";
             using var Conn = new SqlConnection(ConnStringHelper.GetConn()); 
             return Conn.QueryFirstOrDefault<BookingModel>(sql, new { id_booking });
         }

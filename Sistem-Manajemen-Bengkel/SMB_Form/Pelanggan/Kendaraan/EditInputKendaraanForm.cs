@@ -8,29 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm
+namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
 {
-    public partial class TambahKendaraanForm : Form
+    public partial class EditInputKendaraanForm : Form
     {
         private readonly KendaraanDal _kendaraanDal;
-        private string _no_ktp_pelanggan;
         private int _id_kendaraan;
 
-        public TambahKendaraanForm(int id,string no_ktp_pelanggan)
+        public EditInputKendaraanForm(int id_kendaraan)
         {
             InitializeComponent();
             _kendaraanDal = new KendaraanDal();
-            this.MinimizeBox = false;
-            this.MaximizeBox = false;
-            _id_kendaraan = id;
-            _no_ktp_pelanggan = no_ktp_pelanggan;
-
-            if (id != 0)
-                GetData(id);
-
             InitialComponent();
+            _id_kendaraan = id_kendaraan;
+            GetDataAll(id_kendaraan);
             RegisterControlEvent();
         }
 
@@ -41,63 +35,55 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm
         }
 
 
-        private void GetData(int kendaraanId)
+        private void GetDataAll(int idKendaraan)
         {
-            var kendaraan = _kendaraanDal.GetData(kendaraanId);
+            var kendaraan = _kendaraanDal.GetData(idKendaraan);
+            if (kendaraan == null) return;
 
-            if (kendaraan != null)
-            {
-                TextNoPolisi.Text = kendaraan.no_polisi;
-                TextMerek.Text = kendaraan.merek;
-                ComboTransmisi.SelectedValue = kendaraan.transmisi == 1 ? "Transmisi Otomatis" : "Transmisi Manual";
-                TextKapasitasMesin.Text = kendaraan.kapasitas_mesin.ToString();
-                TextTahun.Text = kendaraan.tahun.ToString();
-            }
+            TextNoPolisi.Text = kendaraan.no_polisi;
+            TextMerek.Text = kendaraan.merek;
+            if (kendaraan.transmisi == 1)
+                ComboTransmisi.SelectedValue = "Transmisi Otomatis";
+            else
+                ComboTransmisi.SelectedValue = "Transmisi Manual";
+            TextKapasitasMesin.Text = kendaraan.kapasitas_mesin.ToString();
+            TextTahun.Text = kendaraan.tahun.ToString();
         }
-
 
         private void SaveData()
         {
             var kendaraan = new KendaraanModel
             {
-                no_ktp_pelanggan = _no_ktp_pelanggan,
+                id_kendaraan = _id_kendaraan,
+                no_ktp_pelanggan = SessionLogin._sessionLoginPelanggan.no_ktp_pelanggan,
                 no_polisi = TextNoPolisi.Text,
                 merek = TextMerek.Text,
                 transmisi = ComboTransmisi.SelectedValue == "Transmisi Otomatis" ? 1 : 2,
                 kapasitas_mesin = Convert.ToInt32(TextKapasitasMesin.Text),
                 tahun = Convert.ToInt32(TextTahun.Text)
             };
-            
+
             if (_id_kendaraan == 0)
                 _kendaraanDal.InsertData(kendaraan);
             else
                 _kendaraanDal.UpdateData(kendaraan);
-
-        }
+        }        
 
         private void RegisterControlEvent()
         {
-            ButtonBatal.Click += ButtonBatal_Click;
-            ButtonSimpan.Click += ButtonSimpan_Click;
             TextKapasitasMesin.KeyPress += TextBox_KeyPress;
             TextTahun.KeyPress += TextBox_KeyPress;
-        }
-
-        private void TextBox_KeyPress(object? sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
+            ButtonBatal.Click += ButtonBatal_Click;
+            ButtonSimpan.Click += ButtonSimpan_Click;
         }
 
         private void ButtonSimpan_Click(object? sender, EventArgs e)
         {
-            if ( string.IsNullOrWhiteSpace(TextNoPolisi.Text) || string.IsNullOrWhiteSpace(TextMerek.Text) ||
-                          string.IsNullOrWhiteSpace(TextKapasitasMesin.Text) || string.IsNullOrWhiteSpace(TextTahun.Text))
+            if (string.IsNullOrEmpty(TextNoPolisi.Text) || string.IsNullOrEmpty(TextMerek.Text) || string.IsNullOrEmpty(TextKapasitasMesin.Text) || string.IsNullOrEmpty(TextTahun.Text))
             {
-                MesboxHelper.ShowWarning("Semua data wajib diisi");
+                MesboxHelper.ShowError("Semua data wajib diisi");
                 return;
             }
-
             SaveData();
             this.DialogResult = DialogResult.OK;
         }
@@ -105,6 +91,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm
         private void ButtonBatal_Click(object? sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TextBox_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

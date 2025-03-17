@@ -35,6 +35,7 @@
             ButtonRiwayat = new Button();
             ButtonBooking = new Button();
             PanelMain = new Panel();
+            ButtonKendaraan = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,9 +49,9 @@
             ButtonHome.FlatStyle = FlatStyle.Flat;
             ButtonHome.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonHome.ForeColor = Color.White;
-            ButtonHome.Location = new Point(874, -2);
+            ButtonHome.Location = new Point(772, 1);
             ButtonHome.Name = "ButtonHome";
-            ButtonHome.Size = new Size(74, 102);
+            ButtonHome.Size = new Size(74, 99);
             ButtonHome.TabIndex = 28;
             ButtonHome.Text = "Home";
             ButtonHome.UseVisualStyleBackColor = false;
@@ -70,6 +71,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(83, 92, 145);
+            panel1.Controls.Add(ButtonKendaraan);
             panel1.Controls.Add(LabelUsername);
             panel1.Controls.Add(ButtonHome);
             panel1.Controls.Add(ButtonLogout);
@@ -90,7 +92,7 @@
             ButtonLogout.FlatStyle = FlatStyle.Flat;
             ButtonLogout.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonLogout.ForeColor = Color.White;
-            ButtonLogout.Location = new Point(1150, 0);
+            ButtonLogout.Location = new Point(1149, -1);
             ButtonLogout.Name = "ButtonLogout";
             ButtonLogout.Size = new Size(84, 101);
             ButtonLogout.TabIndex = 32;
@@ -106,7 +108,7 @@
             ButtonRiwayat.FlatStyle = FlatStyle.Flat;
             ButtonRiwayat.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonRiwayat.ForeColor = Color.White;
-            ButtonRiwayat.Location = new Point(1053, 0);
+            ButtonRiwayat.Location = new Point(1057, -2);
             ButtonRiwayat.Name = "ButtonRiwayat";
             ButtonRiwayat.Size = new Size(91, 101);
             ButtonRiwayat.TabIndex = 31;
@@ -122,7 +124,7 @@
             ButtonBooking.FlatStyle = FlatStyle.Flat;
             ButtonBooking.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBooking.ForeColor = Color.White;
-            ButtonBooking.Location = new Point(954, 0);
+            ButtonBooking.Location = new Point(847, -2);
             ButtonBooking.Name = "ButtonBooking";
             ButtonBooking.Size = new Size(93, 101);
             ButtonBooking.TabIndex = 29;
@@ -136,6 +138,22 @@
             PanelMain.Name = "PanelMain";
             PanelMain.Size = new Size(1239, 406);
             PanelMain.TabIndex = 6;
+            // 
+            // ButtonKendaraan
+            // 
+            ButtonKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonKendaraan.BackColor = Color.Transparent;
+            ButtonKendaraan.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonKendaraan.FlatAppearance.BorderSize = 0;
+            ButtonKendaraan.FlatStyle = FlatStyle.Flat;
+            ButtonKendaraan.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonKendaraan.ForeColor = Color.White;
+            ButtonKendaraan.Location = new Point(941, -1);
+            ButtonKendaraan.Name = "ButtonKendaraan";
+            ButtonKendaraan.Size = new Size(115, 101);
+            ButtonKendaraan.TabIndex = 33;
+            ButtonKendaraan.Text = "Kendaraan";
+            ButtonKendaraan.UseVisualStyleBackColor = false;
             // 
             // MainMenuFirst
             // 
@@ -162,5 +180,6 @@
         private Button ButtonRiwayat;
         private Button ButtonBooking;
         private Panel PanelMain;
+        private Button ButtonKendaraan;
     }
 }

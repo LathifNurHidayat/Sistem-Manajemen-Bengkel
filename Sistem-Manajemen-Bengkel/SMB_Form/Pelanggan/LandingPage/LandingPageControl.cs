@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
-using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.BookingForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage
@@ -43,7 +44,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage
             }
             else
             {
-                ShowFormHelper.ShowFormInPanel(new BookingPelanggan());
+               MainMenuFirst.ShowUserControlInPanel(new PilihBookingControl());
             }
         }
 

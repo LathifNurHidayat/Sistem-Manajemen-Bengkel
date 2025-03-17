@@ -93,6 +93,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 progres1.BackColor = System.Drawing.Color.LimeGreen;
                 progresDikerjakan.BackColor = System.Drawing.Color.LimeGreen;
 
+                ButtonBatalkanBooking.Visible = false;
                 ButtonAksi.BackColor = System.Drawing.Color.Green;
                 ButtonAksi.Text = "Selesai";
             }
@@ -108,6 +109,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 ButtonAksi.Text = "📤 Invoice";
 
                 ComboMekanik.Enabled = false;
+                ButtonBatalkanBooking.Visible = false;
                 ComboJenisServis.Enabled = false;
 
                 ButtonSparepart.Enabled = false;

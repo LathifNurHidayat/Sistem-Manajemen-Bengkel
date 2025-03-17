@@ -1,6 +1,6 @@
-﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking
 {
-    partial class KendaraanControl
+    partial class BookingControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,21 +33,19 @@
             // 
             // FlowPanelMain
             // 
-            FlowPanelMain.BackColor = Color.White;
             FlowPanelMain.Dock = DockStyle.Fill;
             FlowPanelMain.Location = new Point(0, 0);
             FlowPanelMain.Name = "FlowPanelMain";
-            FlowPanelMain.Size = new Size(1206, 613);
+            FlowPanelMain.Size = new Size(1418, 492);
             FlowPanelMain.TabIndex = 0;
             // 
-            // KendaraanControl
+            // BookingControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gainsboro;
             Controls.Add(FlowPanelMain);
-            Name = "KendaraanControl";
-            Size = new Size(1206, 613);
+            Name = "BookingControl";
+            Size = new Size(1418, 492);
             ResumeLayout(false);
         }
 

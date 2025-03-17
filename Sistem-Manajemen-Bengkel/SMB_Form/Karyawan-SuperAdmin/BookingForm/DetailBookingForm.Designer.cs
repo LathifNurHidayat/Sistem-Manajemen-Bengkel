@@ -44,7 +44,12 @@
             label12 = new Label();
             ComboMekanik = new ComboBox();
             gradientPanelExt1 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
+            Panell = new SMB_CustomTolbox.LathifPanel();
             LabelIdBooking = new Label();
+            AntreanPanel = new SMB_CustomTolbox.LathifPanel();
+            label1 = new Label();
+            LabelAntreanAnda = new Label();
+            pictureBox3 = new PictureBox();
             LabelKeluhan = new Label();
             LabelTanggal = new Label();
             LabelNoPol = new Label();
@@ -72,25 +77,20 @@
             label9 = new Label();
             ButtonAksi = new SMB_CustomTolbox.LathifButton();
             ButtonBack = new SMB_CustomTolbox.LathifButton();
-            AntreanPanel = new SMB_CustomTolbox.LathifPanel();
-            label1 = new Label();
-            LabelAntreanAnda = new Label();
-            pictureBox3 = new PictureBox();
-            Panell = new SMB_CustomTolbox.LathifPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt4).BeginInit();
             gradientPanelExt4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).BeginInit();
             gradientPanelExt1.SuspendLayout();
+            Panell.SuspendLayout();
+            AntreanPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)progresSelesai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)progresDikerjakan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)progresMenunggu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureSelesai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            AntreanPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            Panell.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -326,6 +326,19 @@
             gradientPanelExt1.TabIndex = 83;
             gradientPanelExt1.TabStop = true;
             // 
+            // Panell
+            // 
+            Panell.BackColor = Color.White;
+            Panell.BorderColor = Color.LightGray;
+            Panell.BorderRadius = 10;
+            Panell.BorderSize = 2;
+            Panell.Controls.Add(LabelIdBooking);
+            Panell.ForeColor = Color.White;
+            Panell.Location = new Point(223, 95);
+            Panell.Name = "Panell";
+            Panell.Size = new Size(218, 54);
+            Panell.TabIndex = 112;
+            // 
             // LabelIdBooking
             // 
             LabelIdBooking.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -336,6 +349,58 @@
             LabelIdBooking.TabIndex = 106;
             LabelIdBooking.Text = "12321";
             LabelIdBooking.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // AntreanPanel
+            // 
+            AntreanPanel.BackColor = Color.White;
+            AntreanPanel.BorderColor = Color.LightGray;
+            AntreanPanel.BorderRadius = 10;
+            AntreanPanel.BorderSize = 2;
+            AntreanPanel.Controls.Add(label1);
+            AntreanPanel.Controls.Add(LabelAntreanAnda);
+            AntreanPanel.Controls.Add(pictureBox3);
+            AntreanPanel.ForeColor = Color.White;
+            AntreanPanel.Location = new Point(26, 20);
+            AntreanPanel.Name = "AntreanPanel";
+            AntreanPanel.Size = new Size(156, 178);
+            AntreanPanel.TabIndex = 87;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.DimGray;
+            label1.Location = new Point(13, 141);
+            label1.Name = "label1";
+            label1.Size = new Size(130, 23);
+            label1.TabIndex = 30;
+            label1.Text = "Nomor Antrean";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // LabelAntreanAnda
+            // 
+            LabelAntreanAnda.Anchor = AnchorStyles.None;
+            LabelAntreanAnda.Font = new Font("Segoe UI Semibold", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelAntreanAnda.ForeColor = Color.Black;
+            LabelAntreanAnda.Location = new Point(19, 57);
+            LabelAntreanAnda.Name = "LabelAntreanAnda";
+            LabelAntreanAnda.Size = new Size(122, 48);
+            LabelAntreanAnda.TabIndex = 28;
+            LabelAntreanAnda.Text = "00";
+            LabelAntreanAnda.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.BackgroundImage = Properties.Resources.Pelanggan;
+            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox3.Location = new Point(16, 9);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(41, 45);
+            pictureBox3.TabIndex = 29;
+            pictureBox3.TabStop = false;
             // 
             // LabelKeluhan
             // 
@@ -669,71 +734,6 @@
             ButtonBack.TextImageRelation = TextImageRelation.ImageBeforeText;
             ButtonBack.UseVisualStyleBackColor = false;
             // 
-            // AntreanPanel
-            // 
-            AntreanPanel.BackColor = Color.White;
-            AntreanPanel.BorderColor = Color.Transparent;
-            AntreanPanel.BorderRadius = 10;
-            AntreanPanel.BorderSize = 2;
-            AntreanPanel.Controls.Add(label1);
-            AntreanPanel.Controls.Add(LabelAntreanAnda);
-            AntreanPanel.Controls.Add(pictureBox3);
-            AntreanPanel.ForeColor = Color.White;
-            AntreanPanel.Location = new Point(26, 20);
-            AntreanPanel.Name = "AntreanPanel";
-            AntreanPanel.Size = new Size(156, 178);
-            AntreanPanel.TabIndex = 87;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(13, 141);
-            label1.Name = "label1";
-            label1.Size = new Size(130, 23);
-            label1.TabIndex = 30;
-            label1.Text = "Nomor Antrean";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // LabelAntreanAnda
-            // 
-            LabelAntreanAnda.Anchor = AnchorStyles.None;
-            LabelAntreanAnda.Font = new Font("Segoe UI Semibold", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelAntreanAnda.ForeColor = Color.Black;
-            LabelAntreanAnda.Location = new Point(19, 57);
-            LabelAntreanAnda.Name = "LabelAntreanAnda";
-            LabelAntreanAnda.Size = new Size(122, 48);
-            LabelAntreanAnda.TabIndex = 28;
-            LabelAntreanAnda.Text = "00";
-            LabelAntreanAnda.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.BackgroundImage = Properties.Resources.Pelanggan;
-            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(16, 9);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(41, 45);
-            pictureBox3.TabIndex = 29;
-            pictureBox3.TabStop = false;
-            // 
-            // Panell
-            // 
-            Panell.BackColor = Color.White;
-            Panell.BorderColor = Color.LightSteelBlue;
-            Panell.BorderRadius = 10;
-            Panell.BorderSize = 0;
-            Panell.Controls.Add(LabelIdBooking);
-            Panell.ForeColor = Color.White;
-            Panell.Location = new Point(223, 95);
-            Panell.Name = "Panell";
-            Panell.Size = new Size(218, 54);
-            Panell.TabIndex = 112;
-            // 
             // DetailBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -751,16 +751,16 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).EndInit();
             gradientPanelExt1.ResumeLayout(false);
             gradientPanelExt1.PerformLayout();
+            Panell.ResumeLayout(false);
+            AntreanPanel.ResumeLayout(false);
+            AntreanPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)progresSelesai).EndInit();
             ((System.ComponentModel.ISupportInitialize)progresDikerjakan).EndInit();
             ((System.ComponentModel.ISupportInitialize)progresMenunggu).EndInit();
             ((System.ComponentModel.ISupportInitialize)PictureSelesai).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            AntreanPanel.ResumeLayout(false);
-            AntreanPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            Panell.ResumeLayout(false);
             ResumeLayout(false);
         }
 
