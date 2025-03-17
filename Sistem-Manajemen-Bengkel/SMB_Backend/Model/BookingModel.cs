@@ -20,12 +20,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public int? id_penggunaan_sparepart { get; set; } //ff
         public string  nama_sparepart { get; set; } //gg
 
-        public string nama_pelanggan { get; set; }
-        public string no_hp { get; set; }
-        public string no_polisi { get; set; }
-        public string merek {  get; set; }
-        public int transmisi { get; set; }
-        public int kapasitas_mesin { get;set; }
+        public string? nama_pelanggan { get; set; }
+        public string? no_hp { get; set; }
+        public string? no_polisi { get; set; }
+        public string? merek {  get; set; }
+        public int? transmisi { get; set; }
+        public int? kapasitas_mesin { get;set; }
 
         public string nama_kendaraan { get; set; }
 

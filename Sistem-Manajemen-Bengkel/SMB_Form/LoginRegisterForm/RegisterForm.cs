@@ -15,7 +15,7 @@ using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Syncfusion.Windows.Forms;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
+namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
 {
 
     public partial class RegisterForm : Form

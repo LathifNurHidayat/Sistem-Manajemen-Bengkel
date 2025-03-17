@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
+using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.BookingForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm;

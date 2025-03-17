@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.BookingForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 

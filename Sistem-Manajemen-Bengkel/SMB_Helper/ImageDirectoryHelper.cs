@@ -11,6 +11,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         public static Image _defaultProfilesOnGrid = ImageHelper.GetHighQualityThumbnail(Properties.Resources.user, 40, 40);
         public static Image _defaultProfiles = ImageHelper.GetHighQualityThumbnail(Properties.Resources.user, 100, 100);
 
+        public static Image _defaultProfilesMekanikOnGrid = ImageHelper.GetHighQualityThumbnail(Properties.Resources.mechanic, 40, 40);
+        public static Image _defaultProfilesMekanik = ImageHelper.GetHighQualityThumbnail(Properties.Resources.mechanic, 100, 100);
+
 
 
         public static Image _statusMenunggu = ImageHelper.GetHighQualityThumbnail(Properties.Resources.Menunggu, 130, 28);

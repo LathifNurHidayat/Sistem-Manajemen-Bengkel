@@ -7,7 +7,7 @@ using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MekanikForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.PopUpForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm;
-using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister;
+using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.SuperAdminForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm;

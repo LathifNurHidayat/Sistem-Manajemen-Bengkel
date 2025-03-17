@@ -21,11 +21,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public string nama_mekanik { get; set; }
         public string nama_sparepart { get; set; }
 
-        public string nama_pelanggan { get; set; }
-        public string no_polisi { get; set; }
-        public string merek { get; set; }
-        public int transmisi { get; set; }
-        public int kapasitas_mesin { get; set; }
+        public string? nama_pelanggan { get; set; }
+        public string? no_polisi { get; set; }
+        public string? merek { get; set; }
+        public int? transmisi { get; set; }
+        public int? kapasitas_mesin { get; set; }
         public string nama_kendaraan { get; set; }
 
         public DateTime tanggal { get; set; }

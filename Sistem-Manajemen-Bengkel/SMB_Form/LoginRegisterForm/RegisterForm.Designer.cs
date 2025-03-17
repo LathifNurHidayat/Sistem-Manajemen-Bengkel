@@ -1,4 +1,4 @@
-﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
 {
     partial class RegisterForm
     {

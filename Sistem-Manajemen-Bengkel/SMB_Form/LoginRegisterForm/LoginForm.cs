@@ -15,11 +15,11 @@ using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm;
-using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegister;
+using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
-namespace Sistem_Manajemen_Bengkel.SMB_Form
+namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
 {
     public partial class LoginForm : Form
     {
@@ -63,7 +63,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
 
         private void ButtonBack_Click(object? sender, EventArgs e)
         {
-            MainMenuFirst._mainForm.Show();
+            
             this.Close();
         }
 
@@ -106,17 +106,20 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form
             {
                 MesboxHelper.ShowWarning("Data tidak boleh kosong !");
                 return;
-            } 
+            }
             var dataPelanggan = _pelangganDal.ValidasiLoginPelanggan(email, HashPasswordHelper.HashPassword(password));
             var dataPetugas = _petugasDal.ValidasiLoginPetugas(email, HashPasswordHelper.HashPassword(password));
 
 
-            if (dataPelanggan == null && dataPetugas == null)
+            if (dataPelanggan == null &&dataPetugas == null )
             {
-                MesboxHelper.ShowWarning("Username atau password yang Anda masukkan salah. Silakan coba lagi!");    
+                string pesanError = "Login gagal, masukan username dan password yang valid";
+
+                MesboxHelper.ShowWarning(pesanError);
                 TextEmail.Focus();
                 return;
             }
+
 
             string role = dataPelanggan != null ? "Pelanggan" : dataPetugas?.role == 1 ? "Super Admin" : "Petugas";
             string username = dataPelanggan?.nama_pelanggan != null ? dataPelanggan.nama_pelanggan : dataPetugas?.nama_pegawai ?? "";

@@ -38,15 +38,11 @@
             label1 = new Label();
             panel1 = new Panel();
             TextPage = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            ButtonNext = new SMB_CustomTolbox.LathifButton();
-            ButtonPreviuos = new SMB_CustomTolbox.LathifButton();
             LabelShowEntries = new Label();
             ComboEntries = new ComboBox();
-            ButtonSearch = new SMB_CustomTolbox.LathifButton();
             TextSearch = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             GridListData = new DataGridView();
             label7 = new Label();
-            ButtonTambah = new SMB_CustomTolbox.LathifButton();
             contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             editToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
@@ -68,15 +64,11 @@
             PanelBooking.Controls.Add(label2);
             PanelBooking.Controls.Add(label1);
             PanelBooking.Controls.Add(panel1);
-            PanelBooking.Controls.Add(ButtonNext);
-            PanelBooking.Controls.Add(ButtonPreviuos);
             PanelBooking.Controls.Add(LabelShowEntries);
             PanelBooking.Controls.Add(ComboEntries);
-            PanelBooking.Controls.Add(ButtonSearch);
             PanelBooking.Controls.Add(TextSearch);
             PanelBooking.Controls.Add(GridListData);
             PanelBooking.Controls.Add(label7);
-            PanelBooking.Controls.Add(ButtonTambah);
             PanelBooking.Location = new Point(12, 12);
             PanelBooking.Name = "PanelBooking";
             PanelBooking.Size = new Size(1058, 679);
@@ -158,46 +150,6 @@
             TextPage.Text = "1";
             TextPage.TextAlign = HorizontalAlignment.Center;
             // 
-            // ButtonNext
-            // 
-            ButtonNext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonNext.BackColor = Color.Transparent;
-            ButtonNext.BackgroundColor = Color.Transparent;
-            ButtonNext.BorderColor = Color.DarkGray;
-            ButtonNext.BorderRadius = 1;
-            ButtonNext.BorderSize = 1;
-            ButtonNext.FlatAppearance.BorderSize = 0;
-            ButtonNext.FlatStyle = FlatStyle.Flat;
-            ButtonNext.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonNext.ForeColor = Color.DimGray;
-            ButtonNext.Location = new Point(927, 624);
-            ButtonNext.Name = "ButtonNext";
-            ButtonNext.Size = new Size(108, 35);
-            ButtonNext.TabIndex = 51;
-            ButtonNext.Text = "Next";
-            ButtonNext.TextColor = Color.DimGray;
-            ButtonNext.UseVisualStyleBackColor = false;
-            // 
-            // ButtonPreviuos
-            // 
-            ButtonPreviuos.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonPreviuos.BackColor = Color.Transparent;
-            ButtonPreviuos.BackgroundColor = Color.Transparent;
-            ButtonPreviuos.BorderColor = Color.DarkGray;
-            ButtonPreviuos.BorderRadius = 1;
-            ButtonPreviuos.BorderSize = 1;
-            ButtonPreviuos.FlatAppearance.BorderSize = 0;
-            ButtonPreviuos.FlatStyle = FlatStyle.Flat;
-            ButtonPreviuos.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonPreviuos.ForeColor = Color.DimGray;
-            ButtonPreviuos.Location = new Point(753, 624);
-            ButtonPreviuos.Name = "ButtonPreviuos";
-            ButtonPreviuos.Size = new Size(108, 35);
-            ButtonPreviuos.TabIndex = 50;
-            ButtonPreviuos.Text = "Previous";
-            ButtonPreviuos.TextColor = Color.DimGray;
-            ButtonPreviuos.UseVisualStyleBackColor = false;
-            // 
             // LabelShowEntries
             // 
             LabelShowEntries.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -220,26 +172,6 @@
             ComboEntries.Name = "ComboEntries";
             ComboEntries.Size = new Size(69, 31);
             ComboEntries.TabIndex = 48;
-            // 
-            // ButtonSearch
-            // 
-            ButtonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ButtonSearch.BackColor = Color.FromArgb(83, 92, 145);
-            ButtonSearch.BackgroundColor = Color.FromArgb(83, 92, 145);
-            ButtonSearch.BorderColor = Color.Black;
-            ButtonSearch.BorderRadius = 3;
-            ButtonSearch.BorderSize = 0;
-            ButtonSearch.FlatAppearance.BorderSize = 0;
-            ButtonSearch.FlatStyle = FlatStyle.Flat;
-            ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonSearch.ForeColor = Color.White;
-            ButtonSearch.Location = new Point(728, 168);
-            ButtonSearch.Name = "ButtonSearch";
-            ButtonSearch.Size = new Size(53, 31);
-            ButtonSearch.TabIndex = 47;
-            ButtonSearch.Text = "🔍";
-            ButtonSearch.TextColor = Color.White;
-            ButtonSearch.UseVisualStyleBackColor = false;
             // 
             // TextSearch
             // 
@@ -304,25 +236,6 @@
             label7.Size = new Size(204, 39);
             label7.TabIndex = 43;
             label7.Text = "🔩  Sparepart";
-            // 
-            // ButtonTambah
-            // 
-            ButtonTambah.BackColor = Color.FromArgb(83, 92, 145);
-            ButtonTambah.BackgroundColor = Color.FromArgb(83, 92, 145);
-            ButtonTambah.BorderColor = Color.DarkGray;
-            ButtonTambah.BorderRadius = 3;
-            ButtonTambah.BorderSize = 0;
-            ButtonTambah.FlatAppearance.BorderSize = 0;
-            ButtonTambah.FlatStyle = FlatStyle.Flat;
-            ButtonTambah.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonTambah.ForeColor = Color.White;
-            ButtonTambah.Location = new Point(27, 115);
-            ButtonTambah.Name = "ButtonTambah";
-            ButtonTambah.Size = new Size(124, 39);
-            ButtonTambah.TabIndex = 42;
-            ButtonTambah.Text = "➕ Tambah ";
-            ButtonTambah.TextColor = Color.White;
-            ButtonTambah.UseVisualStyleBackColor = false;
             // 
             // contextMenuStrip
             // 
