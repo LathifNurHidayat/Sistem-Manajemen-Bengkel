@@ -40,7 +40,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.BookingForm
             InitialDataKendaraan();
 
             RegisterControlEvent();
-        }   
+        }
 
         #region KENDARAAN
 
@@ -50,12 +50,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.BookingForm
 
             grid.Columns["Id_Kendaraan"].Visible = false;
 
-            grid.Columns["No"].FillWeight = 8;            
-            grid.Columns["NoPolisi"].FillWeight = 17;      
-            grid.Columns["Merek"].FillWeight = 25;         
-            grid.Columns["Transmisi"].FillWeight = 10;     
-            grid.Columns["KapasitasMesin"].FillWeight = 20; 
-            grid.Columns["Tahun"].FillWeight = 10;      
+            grid.Columns["No"].FillWeight = 8;
+            grid.Columns["NoPolisi"].FillWeight = 17;
+            grid.Columns["Merek"].FillWeight = 25;
+            grid.Columns["Transmisi"].FillWeight = 10;
+            grid.Columns["KapasitasMesin"].FillWeight = 20;
+            grid.Columns["Tahun"].FillWeight = 10;
 
 
             foreach (DataGridViewColumn col in grid.Columns)
@@ -295,6 +295,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.BookingForm
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

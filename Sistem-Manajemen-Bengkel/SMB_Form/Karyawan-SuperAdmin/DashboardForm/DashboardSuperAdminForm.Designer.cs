@@ -1,8 +1,6 @@
-﻿using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm;
-
-namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 {
-    partial class DashboardForm
+    partial class DashboardSuperAdminForm
     {
         /// <summary>
         /// Required designer variable.

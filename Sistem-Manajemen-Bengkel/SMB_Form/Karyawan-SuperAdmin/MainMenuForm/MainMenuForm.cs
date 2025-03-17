@@ -214,7 +214,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
             StyleButton(sender as Button);
             if (sender is Button button) button.Tag = "Click";
 
-            ShowFormHelper.ShowFormInPanel(new SMB_Form.Karyawan_SuperAdmin.DashboardForm.DashboardForm());
+            ShowFormHelper.ShowFormInPanel(new SMB_Form.Karyawan_SuperAdmin.DashboardForm.DashboardPetugasForm());
         }
     }
 }

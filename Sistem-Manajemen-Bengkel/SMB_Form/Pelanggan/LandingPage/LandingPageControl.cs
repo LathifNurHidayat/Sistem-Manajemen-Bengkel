@@ -13,10 +13,10 @@ using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage
 {
-    public partial class LandingPageForm : Form
+    public partial class LandingPageControl : UserControl
     {
         private bool _isLogin = false;
-        public LandingPageForm(bool isLogin)
+        public LandingPageControl(bool isLogin)
         {
             InitializeComponent();
             _isLogin = isLogin;
@@ -47,14 +47,5 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

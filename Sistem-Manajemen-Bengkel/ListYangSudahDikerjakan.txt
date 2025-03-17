@@ -11,14 +11,31 @@
 10. Riwayat
 11.  Validasi Login 
 12. Validasi Register 
-13. Validasi 
+13. Invoice
+14. Laporan
+15. 
 
 SEDANG PROSES
-1. INVOICE Nota servis
+1. Fitur untuk Pelanggan 
 
 PR 
-Validasi
+1. Hapus validasi in login
+2. Booking from pelanggan 
+3. Riwayat pelanggan 
+4. Dashboard Super admin
+5. Role pegawai 
+6. 
 
-2. Invoice
-3. Laporan
-4. Pelanggan UI
+
+
+
+
+Alur form = 
+1. setup form 
+2. landing page form 
+3. login form / register form 
+4. pelanggan form / pegawai form
+
+
+
+

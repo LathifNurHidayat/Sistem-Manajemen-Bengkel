@@ -15,10 +15,10 @@ using Syncfusion.Windows.Forms;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 {
-    public partial class DashboardForm : Form
+    public partial class DashboardPetugasForm : Form
     {
         private readonly DashboardDal _dashboardDal;
-        public DashboardForm()
+        public DashboardPetugasForm()
         {
             InitializeComponent();
             _dashboardDal = new DashboardDal();
@@ -102,39 +102,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
         {
             PanelBackground.Resize += PanelBackground_Resize;
             PanelData.Resize += (s, e) => PanelData.Invalidate();
-            ButtonProfilBengkel.Click += ButtonProfilBengkel_Click;
-            ButtonJadwalLibur.Click += ButtonJadwalLibur_Click;
-            ButtonJamKerja.Click += ButtonJamKerja_Click;
-        }
-
-        private void ButtonJamKerja_Click(object? sender, EventArgs e)
-        {
-            JamKerjaForm jam = new JamKerjaForm();
-            if (jam.ShowDialog() == DialogResult.OK)
-            {
-                NontifikasiFormHelper nontifikasiFormHelper = new NontifikasiFormHelper("Jam Kerja Berhasil Diubah");
-                nontifikasiFormHelper.Show();
-            }
-        }
-
-        private void ButtonJadwalLibur_Click(object? sender, EventArgs e)
-        {
-            JadwalLiburForm jadwalLiburForm = new JadwalLiburForm();
-            if (jadwalLiburForm.ShowDialog() == DialogResult.OK)
-            {
-                NontifikasiFormHelper nontifikasiFormHelper = new NontifikasiFormHelper("Jadwal Libur Berhasil Diubah");
-                nontifikasiFormHelper.Show();
-            }
-        }
-
-        private void ButtonProfilBengkel_Click(object? sender, EventArgs e)
-        {
-            ProfilBengkelForm profilBengkelForm = new ProfilBengkelForm();
-            if (profilBengkelForm.ShowDialog() == DialogResult.OK)
-            {
-                NontifikasiFormHelper nontifikasiFormHelper = new NontifikasiFormHelper("Profil Bengkel Berhasil Diubah");
-                nontifikasiFormHelper.Show();
-            }
+           
         }
 
         private void PanelBackground_Resize(object? sender, EventArgs e)

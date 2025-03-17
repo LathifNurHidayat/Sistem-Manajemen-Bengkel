@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgYAAAIACAYAAAD5ZqS9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EgAACxIB0t1+/AAAI9pJREFUeF7t3VGMpeddHnBujM7slSv1glRqZVqkpurNplRUjUhlpCZSkULOjKEV
@@ -276,5 +276,9 @@
         PD6O3CQn7RkBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAABAPf8f1jC8+wGQy5kAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>
+Tak perlu lagi menunggu lama di bengkel! Dengan fitur Booking, Anda bisa mengambil nomor antrean lebih awal dan datang sesuai jadwal tanpa harus berdesakan. Proses lebih cepat, pelayanan lebih nyaman, dan kendaraan Anda segera ditangani oleh mekanik profesional.</value>
   </data>
 </root>

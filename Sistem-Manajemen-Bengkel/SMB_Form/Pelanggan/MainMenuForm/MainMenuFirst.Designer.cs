@@ -60,7 +60,7 @@
             LabelUsername.AutoSize = true;
             LabelUsername.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point);
             LabelUsername.ForeColor = Color.White;
-            LabelUsername.Location = new Point(24, 32);
+            LabelUsername.Location = new Point(18, 32);
             LabelUsername.Name = "LabelUsername";
             LabelUsername.Size = new Size(244, 37);
             LabelUsername.TabIndex = 5;
@@ -69,7 +69,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(82, 109, 130);
+            panel1.BackColor = Color.FromArgb(83, 92, 145);
             panel1.Controls.Add(LabelUsername);
             panel1.Controls.Add(ButtonHome);
             panel1.Controls.Add(ButtonLogout);

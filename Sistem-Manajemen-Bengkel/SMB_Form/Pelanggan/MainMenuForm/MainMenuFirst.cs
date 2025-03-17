@@ -26,6 +26,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
 
         private bool _isClosingByCode = false;
 
+        private static Panel _panelMain;
+
         public MainMenuFirst()
         {
             InitializeComponent();
@@ -35,15 +37,27 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
 
             LabelUsername.Text = _username;
 
+            _panelMain = PanelMain;
             ShowFormHelper.SetPanel(PanelMain);
             IsLogin();
 
             RegisterControlEvent();
         }
 
+        public static void ShowUserControlInPanel(UserControl userControl)
+        {
+            if (_panelMain.Controls.Count > 0)
+                _panelMain.Controls.RemoveAt(0);
+
+            if (userControl == null) return;
+
+            userControl.Dock = DockStyle.Fill;
+            _panelMain.Controls.Add(userControl);
+            _panelMain.Tag = userControl;
+        }
+
         private void IsLogin()
         {
-
             if (string.IsNullOrEmpty(_username))
             {
                 ButtonHome.Location = ButtonRiwayat.Location;
@@ -78,7 +92,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
 
         private void ButtonDashboard_Click(object sender, EventArgs e)
         {
-            ShowFormHelper.ShowFormInPanel(new LandingPageForm(_isLogin));
+            ShowUserControlInPanel(new LandingPageControl(_isLogin));
         }
 
         private void ButtonBooking_Click(object sender, EventArgs e)
@@ -102,7 +116,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
             }
             else if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar?"))
             {
-                
+
             }
         }
     }

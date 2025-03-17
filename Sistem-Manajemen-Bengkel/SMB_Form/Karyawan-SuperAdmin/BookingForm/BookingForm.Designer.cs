@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingForm));
             PanelBooking = new Panel();
             panel1 = new Panel();
@@ -54,6 +54,8 @@
             contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             editToolStripMenuItem = new ToolStripMenuItem();
             ButtonUbahBatasBooking = new SMB_CustomTolbox.LathifButton();
+            lathifPanel1 = new SMB_CustomTolbox.LathifPanel();
+            ButtonSearch = new SMB_CustomTolbox.LathifButton();
             PanelBooking.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textBoxExt1).BeginInit();
@@ -61,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)TextSearch).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
             contextMenuStrip.SuspendLayout();
+            lathifPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // PanelBooking
@@ -68,13 +71,12 @@
             PanelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelBooking.AutoScroll = true;
             PanelBooking.BackColor = Color.White;
-            PanelBooking.Controls.Add(ButtonUbahBatasBooking);
+            PanelBooking.Controls.Add(ButtonSearch);
+            PanelBooking.Controls.Add(lathifPanel1);
             PanelBooking.Controls.Add(panel1);
             PanelBooking.Controls.Add(ButtonNext);
             PanelBooking.Controls.Add(ButtonPreviuos);
             PanelBooking.Controls.Add(ButtonTambah);
-            PanelBooking.Controls.Add(TextBatasBooking);
-            PanelBooking.Controls.Add(label3);
             PanelBooking.Controls.Add(LabelJam);
             PanelBooking.Controls.Add(LabelHariTanggal);
             PanelBooking.Controls.Add(label2);
@@ -192,9 +194,9 @@
             ButtonTambah.FlatStyle = FlatStyle.Flat;
             ButtonTambah.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonTambah.ForeColor = Color.White;
-            ButtonTambah.Location = new Point(28, 110);
+            ButtonTambah.Location = new Point(28, 115);
             ButtonTambah.Name = "ButtonTambah";
-            ButtonTambah.Size = new Size(124, 39);
+            ButtonTambah.Size = new Size(124, 34);
             ButtonTambah.TabIndex = 62;
             ButtonTambah.Text = "➕ Tambah ";
             ButtonTambah.TextColor = Color.White;
@@ -202,28 +204,30 @@
             // 
             // TextBatasBooking
             // 
-            TextBatasBooking.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            TextBatasBooking.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            TextBatasBooking.BackColor = Color.White;
             TextBatasBooking.BorderStyle = BorderStyle.FixedSingle;
-            TextBatasBooking.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TextBatasBooking.Location = new Point(871, 125);
+            TextBatasBooking.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TextBatasBooking.Location = new Point(218, 17);
             TextBatasBooking.Name = "TextBatasBooking";
             TextBatasBooking.ReadOnly = true;
-            TextBatasBooking.Size = new Size(40, 31);
+            TextBatasBooking.Size = new Size(40, 34);
             TextBatasBooking.TabIndex = 61;
             TextBatasBooking.Text = "1";
             TextBatasBooking.TextAlign = HorizontalAlignment.Center;
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(634, 133);
+            label3.Location = new Point(14, 22);
             label3.Name = "label3";
-            label3.Size = new Size(184, 23);
+            label3.Size = new Size(191, 23);
             label3.TabIndex = 60;
-            label3.Text = "Batas booking hari ini :";
+            label3.Text = "Kuota Booking Hari Ini :";
+            label3.TextAlign = ContentAlignment.TopCenter;
             // 
             // LabelJam
             // 
@@ -326,36 +330,36 @@
             // GridListData
             // 
             GridListData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            GridListData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            GridListData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            GridListData.DefaultCellStyle = dataGridViewCellStyle5;
-            GridListData.Location = new Point(27, 233);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            GridListData.DefaultCellStyle = dataGridViewCellStyle2;
+            GridListData.Location = new Point(27, 214);
             GridListData.Name = "GridListData";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            GridListData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            GridListData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(1008, 358);
+            GridListData.Size = new Size(1008, 376);
             GridListData.TabIndex = 44;
             // 
             // label7
@@ -388,6 +392,7 @@
             // 
             // ButtonUbahBatasBooking
             // 
+            ButtonUbahBatasBooking.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonUbahBatasBooking.BackColor = Color.Salmon;
             ButtonUbahBatasBooking.BackgroundColor = Color.Salmon;
             ButtonUbahBatasBooking.BorderColor = Color.DarkGray;
@@ -397,13 +402,49 @@
             ButtonUbahBatasBooking.FlatStyle = FlatStyle.Flat;
             ButtonUbahBatasBooking.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonUbahBatasBooking.ForeColor = Color.White;
-            ButtonUbahBatasBooking.Location = new Point(917, 121);
+            ButtonUbahBatasBooking.Location = new Point(272, 14);
             ButtonUbahBatasBooking.Name = "ButtonUbahBatasBooking";
-            ButtonUbahBatasBooking.Size = new Size(118, 39);
+            ButtonUbahBatasBooking.Size = new Size(101, 39);
             ButtonUbahBatasBooking.TabIndex = 66;
             ButtonUbahBatasBooking.Text = "Ubah";
             ButtonUbahBatasBooking.TextColor = Color.White;
             ButtonUbahBatasBooking.UseVisualStyleBackColor = false;
+            // 
+            // lathifPanel1
+            // 
+            lathifPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lathifPanel1.BackColor = Color.WhiteSmoke;
+            lathifPanel1.BorderColor = Color.Gainsboro;
+            lathifPanel1.BorderRadius = 10;
+            lathifPanel1.BorderSize = 2;
+            lathifPanel1.Controls.Add(ButtonUbahBatasBooking);
+            lathifPanel1.Controls.Add(label3);
+            lathifPanel1.Controls.Add(TextBatasBooking);
+            lathifPanel1.ForeColor = Color.White;
+            lathifPanel1.Location = new Point(641, 88);
+            lathifPanel1.Name = "lathifPanel1";
+            lathifPanel1.Size = new Size(394, 69);
+            lathifPanel1.TabIndex = 67;
+            // 
+            // ButtonSearch
+            // 
+            ButtonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonSearch.BackColor = Color.FromArgb(83, 92, 145);
+            ButtonSearch.BackgroundColor = Color.FromArgb(83, 92, 145);
+            ButtonSearch.BorderColor = Color.Black;
+            ButtonSearch.BorderRadius = 3;
+            ButtonSearch.BorderSize = 0;
+            ButtonSearch.FlatAppearance.BorderSize = 0;
+            ButtonSearch.FlatStyle = FlatStyle.Flat;
+            ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonSearch.ForeColor = Color.White;
+            ButtonSearch.Location = new Point(790, 177);
+            ButtonSearch.Name = "ButtonSearch";
+            ButtonSearch.Size = new Size(53, 26);
+            ButtonSearch.TabIndex = 68;
+            ButtonSearch.Text = "🔍";
+            ButtonSearch.TextColor = Color.White;
+            ButtonSearch.UseVisualStyleBackColor = false;
             // 
             // BookingForm
             // 
@@ -423,6 +464,8 @@
             ((System.ComponentModel.ISupportInitialize)TextSearch).EndInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
             contextMenuStrip.ResumeLayout(false);
+            lathifPanel1.ResumeLayout(false);
+            lathifPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -447,7 +490,7 @@
         private Label LabelHariTanggal;
         private Syncfusion.Windows.Forms.Tools.IntegerTextBox integerTextBox1;
         private Label label3;
-        private SMB_CustomTolbox.LathifButton ButtonUbahBatasBooking;
+        private SMB_CustomTolbox.LathifPanel lathifPanel1;
         private TextBox TextBatasBooking;
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
         private ToolStripMenuItem editToolStripMenuItem;

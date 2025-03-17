@@ -7,10 +7,15 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Logo APK.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\login.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Logo APK.ico" />
   </ItemGroup>
 
   <ItemGroup>
