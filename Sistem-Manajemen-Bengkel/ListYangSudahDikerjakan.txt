@@ -13,18 +13,17 @@
 12. Validasi Register 
 13. Invoice
 14. Laporan
-15. 
+15. Hapus validasi
+16. 
 
 SEDANG PROSES
 1. Fitur untuk Pelanggan 
 
 PR 
-1. Hapus validasi in login
 2. Booking from pelanggan 
 3. Riwayat pelanggan 
 4. Dashboard Super admin
 5. Role pegawai 
-6. 
 
 
 

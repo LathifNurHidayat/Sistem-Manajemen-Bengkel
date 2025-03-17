@@ -15,6 +15,8 @@ using System.Windows.Media;
 using ClosedXML.Excel;
 using System.Runtime.CompilerServices;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
+using Rectangle = iTextSharp.text.Rectangle;
+using Image = iTextSharp.text.Image;
 
 public class Invoice_Laporan
 {
@@ -23,76 +25,125 @@ public class Invoice_Laporan
         string fileName = $"Invoice_{invoice.nama_pelanggan}_{invoice.tanggal:dd-MM-yyyy}.pdf";
         string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName);
 
-        Document doc = new Document(PageSize.A4);
+        Document doc = new Document(PageSize.A4, 40, 40, 60, 60);
         PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
         doc.Open();
 
-        Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 22);
-        Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+        // Load Logo (Pastikan file logo tersedia)
+        string logoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logo.png"); // Sesuaikan path logo
+        if (File.Exists(logoPath))
+        {
+            Image logo = Image.GetInstance(logoPath);
+            logo.ScaleAbsolute(100f, 50f);
+            logo.Alignment = Element.ALIGN_LEFT;
+            doc.Add(logo);
+        }
+
+        // Informasi Bengkel
+        Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK);
+        Font subTitleFont = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.DARK_GRAY);
+        Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 11);
         Font bodyFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
 
-        doc.Add(new Paragraph(invoice.nama_bengkel, titleFont));
-        doc.Add(new Paragraph(invoice.alamat_bengkel, bodyFont));
-        doc.Add(new Paragraph($"Email: {invoice.email_bengkel} | Telp: {invoice.no_telp_bengkel}", bodyFont));
-        doc.Add(new Paragraph("------------------------------------------------------------------"));
+        Paragraph title = new Paragraph(invoice.nama_bengkel, titleFont);
+        title.Alignment = Element.ALIGN_LEFT;
+        doc.Add(title);
 
-        doc.Add(new Paragraph($"Antrean Nomor: {invoice.antrean}", headerFont));
-        doc.Add(new Paragraph($"Tanggal: {invoice.tanggal:dd MMM yyyy}", bodyFont));
-        doc.Add(new Paragraph($"Pelanggan: {invoice.nama_pelanggan}", bodyFont));
-        doc.Add(new Paragraph($"Kendaraan: {invoice.nama_kendaraan} ({invoice.no_polisi})", bodyFont));
-        doc.Add(new Paragraph("------------------------------------------------------------------"));
-        doc.Add(new Paragraph(" "));
+        Paragraph infoBengkel = new Paragraph($"{invoice.alamat_bengkel}\nEmail: {invoice.email_bengkel} | Telp: {invoice.no_telp_bengkel}\n\n", subTitleFont);
+        infoBengkel.Alignment = Element.ALIGN_LEFT;
+        doc.Add(infoBengkel);
 
+        doc.Add(new Paragraph("------------------------------------------------------------------\n"));
+
+        // Informasi Invoice
+        PdfPTable infoTable = new PdfPTable(2);
+        infoTable.WidthPercentage = 100;
+        infoTable.SetWidths(new float[] { 30f, 70f });
+
+        infoTable.AddCell(GetCell("Antrean Nomor:", headerFont, true));
+        infoTable.AddCell(GetCell(invoice.antrean.ToString(), bodyFont, false));
+
+        infoTable.AddCell(GetCell("Tanggal:", headerFont, true));
+        infoTable.AddCell(GetCell(invoice.tanggal.ToString("dd MMM yyyy"), bodyFont, false));
+
+        infoTable.AddCell(GetCell("Pelanggan:", headerFont, true));
+        infoTable.AddCell(GetCell(invoice.nama_pelanggan, bodyFont, false));
+
+        infoTable.AddCell(GetCell("Kendaraan:", headerFont, true));
+        infoTable.AddCell(GetCell($"{invoice.nama_kendaraan} ({invoice.no_polisi})", bodyFont, false));
+
+        doc.Add(infoTable);
+        doc.Add(new Paragraph("\n"));
+
+        // Tabel Layanan & Sparepart
         PdfPTable table = new PdfPTable(3);
         table.WidthPercentage = 100;
         table.SetWidths(new float[] { 50f, 20f, 30f });
 
-        table.AddCell(new PdfPCell(new Phrase("Barang / Jasa", headerFont))
-        {
-            HorizontalAlignment = Element.ALIGN_CENTER
-        });
+        // Header Tabel
+        table.AddCell(GetStyledCell("Barang / Jasa", headerFont, BaseColor.LIGHT_GRAY));
+        table.AddCell(GetStyledCell("Quantity", headerFont, BaseColor.LIGHT_GRAY));
+        table.AddCell(GetStyledCell("Harga", headerFont, BaseColor.LIGHT_GRAY));
 
-        table.AddCell(new PdfPCell(new Phrase("Quantity", headerFont))
-        {
-            HorizontalAlignment = Element.ALIGN_CENTER
-        });
+        // Jasa Servis
+        table.AddCell(GetStyledCell(invoice.jasa_servis, bodyFont, BaseColor.WHITE));
+        table.AddCell(GetStyledCell("1", bodyFont, BaseColor.WHITE, Element.ALIGN_CENTER));
+        table.AddCell(GetStyledCell($"Rp {invoice.biaya_jasa:N0}", bodyFont, BaseColor.WHITE));
 
-        table.AddCell(new PdfPCell(new Phrase("Harga", headerFont))
-        {
-            HorizontalAlignment = Element.ALIGN_CENTER
-        });
-
-        table.AddCell(new PdfPCell(new Phrase(invoice.jasa_servis, bodyFont)));
-        table.AddCell(new PdfPCell(new Phrase("1", bodyFont))
-        {
-            HorizontalAlignment = Element.ALIGN_CENTER
-        }); 
-
-        table.AddCell(new PdfPCell(new Phrase($"Rp {invoice.biaya_jasa:N0}", bodyFont)));
-
+        // Spareparts
         if (invoice.List_sparepart.Count >= 1)
         {
-            for (int i = 0; i < invoice.List_sparepart.Count; i ++ )
-            { 
-                table.AddCell(new PdfPCell(new Phrase(invoice.List_sparepart[i], bodyFont)));
-
-                table.AddCell(new PdfPCell(new Phrase(invoice.List_quantity[i], bodyFont))
-                {
-                    HorizontalAlignment = Element.ALIGN_CENTER
-                });
-
-                table.AddCell(new PdfPCell(new Phrase($"Rp {invoice.List_harga_sparepart[i]:N0}", bodyFont)));
+            for (int i = 0; i < invoice.List_sparepart.Count; i++)
+            {
+                table.AddCell(GetStyledCell(invoice.List_sparepart[i], bodyFont, BaseColor.WHITE));
+                table.AddCell(GetStyledCell(invoice.List_quantity[i], bodyFont, BaseColor.WHITE, Element.ALIGN_CENTER));
+                table.AddCell(GetStyledCell($"Rp {invoice.List_harga_sparepart[i]:N0}", bodyFont, BaseColor.WHITE));
             }
         }
 
         doc.Add(table);
-        doc.Add(new Paragraph($"Total: Rp {invoice.total_biaya_servis:N0}", headerFont));
-        doc.Add(new Paragraph($"Catatan: {invoice.catatan}", bodyFont));
+        doc.Add(new Paragraph("\n"));
+
+        // Total Harga
+        Paragraph total = new Paragraph($"Total: Rp {invoice.total_biaya_servis:N0}", titleFont);
+        total.Alignment = Element.ALIGN_RIGHT;
+        doc.Add(total);
+
+        // Catatan
+        if (!string.IsNullOrWhiteSpace(invoice.catatan))
+        {
+            doc.Add(new Paragraph("\nCatatan:", headerFont));
+            doc.Add(new Paragraph(invoice.catatan, bodyFont));
+        }
 
         doc.Close();
         Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
     }
 
+    // Membuat Cell untuk Informasi Bengkel
+    private static PdfPCell GetCell(string text, Font font, bool bold)
+    {
+        PdfPCell cell = new PdfPCell(new Phrase(text, font))
+        {
+            Border = Rectangle.NO_BORDER,
+            Padding = 5
+        };
+        if (bold)
+            cell.BackgroundColor = new BaseColor(230, 230, 230); // Background abu-abu muda
+        return cell;
+    }
+
+    // Membuat Cell dengan Gaya
+    private static PdfPCell GetStyledCell(string text, Font font, BaseColor bgColor, int align = Element.ALIGN_LEFT)
+    {
+        PdfPCell cell = new PdfPCell(new Phrase(text, font))
+        {
+            BackgroundColor = bgColor,
+            HorizontalAlignment = align,
+            Padding = 5
+        };
+        return cell;
+    }
 
     public static void GenerateLaporan( DateTime tanggal_1, DateTime tanggal_2)
     {

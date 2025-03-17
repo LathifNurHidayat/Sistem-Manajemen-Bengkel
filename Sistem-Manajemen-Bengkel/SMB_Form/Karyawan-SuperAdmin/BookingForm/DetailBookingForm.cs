@@ -114,7 +114,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 TextCatatan.ReadOnly = true;
             }
             else if (_bookingData.status == 4)
-            {
+            { 
                 PictureSelesai.Image = Properties.Resources.cancelled;
                 LabelSelesai.Text = "Dibatalkan";
 
@@ -127,6 +127,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 progresSelesai.BackColor = System.Drawing.Color.Red;
 
                 ButtonAksi.Visible = false;
+                ButtonBatalkanBooking.Visible = false;
                 ButtonBack.Location = ButtonAksi.Location;
 
                 ComboMekanik.Enabled = false;

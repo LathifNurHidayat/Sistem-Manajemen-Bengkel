@@ -37,7 +37,7 @@
             ButtonPelanggan = new Button();
             ButtonKendaraan = new Button();
             ButtonSparepart = new Button();
-            ButtonKaryawan = new Button();
+            ButtonPegawai = new Button();
             ButtonMekanik = new Button();
             ButtonServis = new Button();
             ButtonRiwayat = new Button();
@@ -68,7 +68,7 @@
             // 
             // ButtonEditProfiles
             // 
-            ButtonEditProfiles.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonEditProfiles.Anchor = AnchorStyles.Top;
             ButtonEditProfiles.BackColor = Color.FromArgb(83, 92, 145);
             ButtonEditProfiles.BackgroundColor = Color.FromArgb(83, 92, 145);
             ButtonEditProfiles.BorderColor = Color.DarkGray;
@@ -78,7 +78,7 @@
             ButtonEditProfiles.FlatStyle = FlatStyle.Flat;
             ButtonEditProfiles.Font = new Font("Segoe UI Variable Small", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ButtonEditProfiles.ForeColor = Color.White;
-            ButtonEditProfiles.Location = new Point(212, 12);
+            ButtonEditProfiles.Location = new Point(113, 213);
             ButtonEditProfiles.Name = "ButtonEditProfiles";
             ButtonEditProfiles.Size = new Size(95, 37);
             ButtonEditProfiles.TabIndex = 39;
@@ -94,14 +94,14 @@
             flowLayoutPanel1.Controls.Add(ButtonPelanggan);
             flowLayoutPanel1.Controls.Add(ButtonKendaraan);
             flowLayoutPanel1.Controls.Add(ButtonSparepart);
-            flowLayoutPanel1.Controls.Add(ButtonKaryawan);
+            flowLayoutPanel1.Controls.Add(ButtonPegawai);
             flowLayoutPanel1.Controls.Add(ButtonMekanik);
             flowLayoutPanel1.Controls.Add(ButtonServis);
             flowLayoutPanel1.Controls.Add(ButtonRiwayat);
             flowLayoutPanel1.Controls.Add(ButtonLogout);
-            flowLayoutPanel1.Location = new Point(0, 256);
+            flowLayoutPanel1.Location = new Point(0, 277);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(319, 796);
+            flowLayoutPanel1.Size = new Size(319, 775);
             flowLayoutPanel1.TabIndex = 37;
             // 
             // ButtonDashboard
@@ -184,21 +184,21 @@
             ButtonSparepart.TextAlign = ContentAlignment.MiddleLeft;
             ButtonSparepart.UseVisualStyleBackColor = false;
             // 
-            // ButtonKaryawan
+            // ButtonPegawai
             // 
-            ButtonKaryawan.BackColor = SystemColors.Window;
-            ButtonKaryawan.BackgroundImageLayout = ImageLayout.Zoom;
-            ButtonKaryawan.FlatAppearance.BorderSize = 0;
-            ButtonKaryawan.FlatStyle = FlatStyle.Flat;
-            ButtonKaryawan.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            ButtonKaryawan.ForeColor = Color.Gray;
-            ButtonKaryawan.Location = new Point(3, 298);
-            ButtonKaryawan.Name = "ButtonKaryawan";
-            ButtonKaryawan.Size = new Size(319, 53);
-            ButtonKaryawan.TabIndex = 34;
-            ButtonKaryawan.Text = "          \U0001f9d1‍🔧     Karyawan";
-            ButtonKaryawan.TextAlign = ContentAlignment.MiddleLeft;
-            ButtonKaryawan.UseVisualStyleBackColor = false;
+            ButtonPegawai.BackColor = SystemColors.Window;
+            ButtonPegawai.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonPegawai.FlatAppearance.BorderSize = 0;
+            ButtonPegawai.FlatStyle = FlatStyle.Flat;
+            ButtonPegawai.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ButtonPegawai.ForeColor = Color.Gray;
+            ButtonPegawai.Location = new Point(3, 298);
+            ButtonPegawai.Name = "ButtonPegawai";
+            ButtonPegawai.Size = new Size(319, 53);
+            ButtonPegawai.TabIndex = 34;
+            ButtonPegawai.Text = "          \U0001f9d1‍🔧     Pegawai";
+            ButtonPegawai.TextAlign = ContentAlignment.MiddleLeft;
+            ButtonPegawai.UseVisualStyleBackColor = false;
             // 
             // ButtonMekanik
             // 
@@ -348,7 +348,7 @@
         private Button ButtonPelanggan;
         private Button ButtonKendaraan;
         private Button ButtonSparepart;
-        private Button ButtonKaryawan;
+        private Button ButtonPegawai;
         private Button ButtonServis;
         private Button ButtonRiwayat;
         private Button ButtonLogout;

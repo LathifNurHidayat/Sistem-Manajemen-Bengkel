@@ -45,7 +45,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
         {
             LinkDaftar.Click += LinkRegistrasi_Click;
             ButtonMasuk.Click += ButtonMasuk_Click;
-            TextEmail.TextChanged += TextEmail_TextChanged;
             TextPassword.KeyDown += TextPassword_KeyDown;
             ButtonShowHidePassword.Click += ButtonShowHidePassword_Click;
 
@@ -83,18 +82,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
         {
             if (e.KeyCode == Keys.Enter)
                 ButtonMasuk.PerformClick();
-        }
-
-        private async void TextEmail_TextChanged(object? sender, EventArgs e)
-        {
-            await Task.Delay(500);
-            if (!Regex.IsMatch(TextEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
-            {
-                LabelEmail.Visible = true;
-                return;
-            }
-            else
-                LabelEmail.Visible = false;
         }
 
         private void ButtonMasuk_Click(object? sender, EventArgs e)

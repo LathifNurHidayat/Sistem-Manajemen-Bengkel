@@ -233,9 +233,9 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo_APK {
+        internal static System.Drawing.Bitmap mechanic {
             get {
-                object obj = ResourceManager.GetObject("Logo APK", resourceCulture);
+                object obj = ResourceManager.GetObject("mechanic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace Sistem_Manajemen_Bengkel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mechanic {
+        internal static System.Drawing.Bitmap MekanikLogo {
             get {
-                object obj = ResourceManager.GetObject("mechanic", resourceCulture);
+                object obj = ResourceManager.GetObject("MekanikLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -44,7 +44,6 @@
             label12 = new Label();
             ComboMekanik = new ComboBox();
             gradientPanelExt1 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
-            gradientPanelExt3 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
             LabelIdBooking = new Label();
             LabelKeluhan = new Label();
             LabelTanggal = new Label();
@@ -59,10 +58,6 @@
             label7 = new Label();
             lbl = new Label();
             label8 = new Label();
-            gradientPanelExt2 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
-            label1 = new Label();
-            LabelAntreanAnda = new Label();
-            pictureBox3 = new PictureBox();
             progres2 = new Panel();
             progresSelesai = new SMB_CustomTolbox.RJCircularPictureBox();
             progresDikerjakan = new SMB_CustomTolbox.RJCircularPictureBox();
@@ -77,22 +72,25 @@
             label9 = new Label();
             ButtonAksi = new SMB_CustomTolbox.LathifButton();
             ButtonBack = new SMB_CustomTolbox.LathifButton();
+            AntreanPanel = new SMB_CustomTolbox.LathifPanel();
+            label1 = new Label();
+            LabelAntreanAnda = new Label();
+            pictureBox3 = new PictureBox();
+            Panell = new SMB_CustomTolbox.LathifPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt4).BeginInit();
             gradientPanelExt4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).BeginInit();
             gradientPanelExt1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt3).BeginInit();
-            gradientPanelExt3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt2).BeginInit();
-            gradientPanelExt2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)progresSelesai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)progresDikerjakan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)progresMenunggu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureSelesai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            AntreanPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            Panell.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -140,6 +138,7 @@
             // 
             // ButtonBatalkanBooking
             // 
+            ButtonBatalkanBooking.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonBatalkanBooking.BackColor = Color.Red;
             ButtonBatalkanBooking.BackgroundColor = Color.Red;
             ButtonBatalkanBooking.BorderColor = Color.DarkGray;
@@ -149,7 +148,7 @@
             ButtonBatalkanBooking.FlatStyle = FlatStyle.Flat;
             ButtonBatalkanBooking.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBatalkanBooking.ForeColor = Color.White;
-            ButtonBatalkanBooking.Location = new Point(577, 201);
+            ButtonBatalkanBooking.Location = new Point(858, 839);
             ButtonBatalkanBooking.Name = "ButtonBatalkanBooking";
             ButtonBatalkanBooking.Size = new Size(216, 45);
             ButtonBatalkanBooking.TabIndex = 85;
@@ -302,11 +301,12 @@
             // 
             gradientPanelExt1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             gradientPanelExt1.AutoScroll = true;
-            gradientPanelExt1.BackColor = Color.Transparent;
+            gradientPanelExt1.BackColor = Color.WhiteSmoke;
             gradientPanelExt1.Border = new Padding(2);
             gradientPanelExt1.BorderGap = 2;
             gradientPanelExt1.BorderStyle = BorderStyle.None;
-            gradientPanelExt1.Controls.Add(gradientPanelExt3);
+            gradientPanelExt1.Controls.Add(Panell);
+            gradientPanelExt1.Controls.Add(AntreanPanel);
             gradientPanelExt1.Controls.Add(LabelKeluhan);
             gradientPanelExt1.Controls.Add(LabelTanggal);
             gradientPanelExt1.Controls.Add(LabelNoPol);
@@ -320,33 +320,19 @@
             gradientPanelExt1.Controls.Add(label7);
             gradientPanelExt1.Controls.Add(lbl);
             gradientPanelExt1.Controls.Add(label8);
-            gradientPanelExt1.Controls.Add(gradientPanelExt2);
             gradientPanelExt1.Location = new Point(26, 135);
             gradientPanelExt1.Name = "gradientPanelExt1";
             gradientPanelExt1.Size = new Size(482, 684);
             gradientPanelExt1.TabIndex = 83;
             gradientPanelExt1.TabStop = true;
             // 
-            // gradientPanelExt3
-            // 
-            gradientPanelExt3.BackColor = Color.Transparent;
-            gradientPanelExt3.Border = new Padding(2);
-            gradientPanelExt3.BorderGap = 2;
-            gradientPanelExt3.BorderStyle = BorderStyle.None;
-            gradientPanelExt3.Controls.Add(LabelIdBooking);
-            gradientPanelExt3.CornerRadius = 15;
-            gradientPanelExt3.Location = new Point(188, 83);
-            gradientPanelExt3.Name = "gradientPanelExt3";
-            gradientPanelExt3.Size = new Size(268, 56);
-            gradientPanelExt3.TabIndex = 112;
-            // 
             // LabelIdBooking
             // 
             LabelIdBooking.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             LabelIdBooking.ForeColor = Color.DimGray;
-            LabelIdBooking.Location = new Point(14, 12);
+            LabelIdBooking.Location = new Point(15, 12);
             LabelIdBooking.Name = "LabelIdBooking";
-            LabelIdBooking.Size = new Size(239, 25);
+            LabelIdBooking.Size = new Size(186, 25);
             LabelIdBooking.TabIndex = 106;
             LabelIdBooking.Text = "12321";
             LabelIdBooking.TextAlign = ContentAlignment.MiddleCenter;
@@ -443,7 +429,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(188, 55);
+            label10.Location = new Point(223, 60);
             label10.Name = "label10";
             label10.Size = new Size(104, 25);
             label10.TabIndex = 99;
@@ -492,57 +478,6 @@
             label8.Size = new Size(78, 25);
             label8.TabIndex = 98;
             label8.Text = "No. KTP";
-            // 
-            // gradientPanelExt2
-            // 
-            gradientPanelExt2.BackColor = Color.White;
-            gradientPanelExt2.Border = new Padding(2);
-            gradientPanelExt2.BorderGap = 2;
-            gradientPanelExt2.BorderStyle = BorderStyle.None;
-            gradientPanelExt2.Controls.Add(label1);
-            gradientPanelExt2.Controls.Add(LabelAntreanAnda);
-            gradientPanelExt2.Controls.Add(pictureBox3);
-            gradientPanelExt2.Location = new Point(14, 15);
-            gradientPanelExt2.Name = "gradientPanelExt2";
-            gradientPanelExt2.Size = new Size(155, 184);
-            gradientPanelExt2.TabIndex = 71;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(9, 140);
-            label1.Name = "label1";
-            label1.Size = new Size(130, 23);
-            label1.TabIndex = 27;
-            label1.Text = "Nomor Antrean";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // LabelAntreanAnda
-            // 
-            LabelAntreanAnda.Anchor = AnchorStyles.None;
-            LabelAntreanAnda.Font = new Font("Segoe UI Semibold", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelAntreanAnda.ForeColor = Color.Black;
-            LabelAntreanAnda.Location = new Point(15, 65);
-            LabelAntreanAnda.Name = "LabelAntreanAnda";
-            LabelAntreanAnda.Size = new Size(122, 48);
-            LabelAntreanAnda.TabIndex = 17;
-            LabelAntreanAnda.Text = "00";
-            LabelAntreanAnda.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.BackgroundImage = Properties.Resources.Pelanggan;
-            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(15, 13);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(32, 30);
-            pictureBox3.TabIndex = 19;
-            pictureBox3.TabStop = false;
             // 
             // progres2
             // 
@@ -714,8 +649,8 @@
             // ButtonBack
             // 
             ButtonBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonBack.BackColor = Color.Red;
-            ButtonBack.BackgroundColor = Color.Red;
+            ButtonBack.BackColor = Color.Gray;
+            ButtonBack.BackgroundColor = Color.Gray;
             ButtonBack.BorderColor = Color.DarkGray;
             ButtonBack.BorderRadius = 5;
             ButtonBack.BorderSize = 0;
@@ -734,6 +669,71 @@
             ButtonBack.TextImageRelation = TextImageRelation.ImageBeforeText;
             ButtonBack.UseVisualStyleBackColor = false;
             // 
+            // AntreanPanel
+            // 
+            AntreanPanel.BackColor = Color.White;
+            AntreanPanel.BorderColor = Color.Transparent;
+            AntreanPanel.BorderRadius = 10;
+            AntreanPanel.BorderSize = 2;
+            AntreanPanel.Controls.Add(label1);
+            AntreanPanel.Controls.Add(LabelAntreanAnda);
+            AntreanPanel.Controls.Add(pictureBox3);
+            AntreanPanel.ForeColor = Color.White;
+            AntreanPanel.Location = new Point(26, 20);
+            AntreanPanel.Name = "AntreanPanel";
+            AntreanPanel.Size = new Size(156, 178);
+            AntreanPanel.TabIndex = 87;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.DimGray;
+            label1.Location = new Point(13, 141);
+            label1.Name = "label1";
+            label1.Size = new Size(130, 23);
+            label1.TabIndex = 30;
+            label1.Text = "Nomor Antrean";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // LabelAntreanAnda
+            // 
+            LabelAntreanAnda.Anchor = AnchorStyles.None;
+            LabelAntreanAnda.Font = new Font("Segoe UI Semibold", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelAntreanAnda.ForeColor = Color.Black;
+            LabelAntreanAnda.Location = new Point(19, 57);
+            LabelAntreanAnda.Name = "LabelAntreanAnda";
+            LabelAntreanAnda.Size = new Size(122, 48);
+            LabelAntreanAnda.TabIndex = 28;
+            LabelAntreanAnda.Text = "00";
+            LabelAntreanAnda.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.BackgroundImage = Properties.Resources.Pelanggan;
+            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox3.Location = new Point(16, 9);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(41, 45);
+            pictureBox3.TabIndex = 29;
+            pictureBox3.TabStop = false;
+            // 
+            // Panell
+            // 
+            Panell.BackColor = Color.White;
+            Panell.BorderColor = Color.LightSteelBlue;
+            Panell.BorderRadius = 10;
+            Panell.BorderSize = 0;
+            Panell.Controls.Add(LabelIdBooking);
+            Panell.ForeColor = Color.White;
+            Panell.Location = new Point(223, 95);
+            Panell.Name = "Panell";
+            Panell.Size = new Size(218, 54);
+            Panell.TabIndex = 112;
+            // 
             // DetailBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -751,18 +751,16 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).EndInit();
             gradientPanelExt1.ResumeLayout(false);
             gradientPanelExt1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt3).EndInit();
-            gradientPanelExt3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt2).EndInit();
-            gradientPanelExt2.ResumeLayout(false);
-            gradientPanelExt2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)progresSelesai).EndInit();
             ((System.ComponentModel.ISupportInitialize)progresDikerjakan).EndInit();
             ((System.ComponentModel.ISupportInitialize)progresMenunggu).EndInit();
             ((System.ComponentModel.ISupportInitialize)PictureSelesai).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            AntreanPanel.ResumeLayout(false);
+            AntreanPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            Panell.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -774,10 +772,6 @@
         private Label label3;
         private SMB_CustomTolbox.LathifButton ButtonAksi;
         private SMB_CustomTolbox.LathifButton ButtonBack;
-        private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt2;
-        private Label label1;
-        private Label LabelAntreanAnda;
-        private PictureBox pictureBox3;
         private Panel progres1;
         private PictureBox PictureSelesai;
         private PictureBox pictureBox2;
@@ -803,7 +797,6 @@
         private Label label7;
         private Label lbl;
         private Label label8;
-        private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt3;
         private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt4;
         private Label label12;
         private Label label15;
@@ -816,5 +809,10 @@
         private Label label16;
         private SMB_CustomTolbox.LathifButton ButtonBatalkanBooking;
         private Button ButtonInformationBatalBooking;
+        private SMB_CustomTolbox.LathifPanel AntreanPanel;
+        private Label label1;
+        private Label LabelAntreanAnda;
+        private PictureBox pictureBox3;
+        private SMB_CustomTolbox.LathifPanel Panell;
     }
 }

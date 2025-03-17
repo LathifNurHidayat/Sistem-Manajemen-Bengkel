@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LandingPageControl));
             PanelLandingPage = new Panel();
+            pictureBox6 = new PictureBox();
             panel1 = new Panel();
             lathifPanel3 = new SMB_CustomTolbox.LathifPanel();
             label7 = new Label();
@@ -53,8 +54,8 @@
             label1 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            pictureBox6 = new PictureBox();
             PanelLandingPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel1.SuspendLayout();
             lathifPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -65,7 +66,6 @@
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // PanelLandingPage
@@ -83,6 +83,16 @@
             PanelLandingPage.Name = "PanelLandingPage";
             PanelLandingPage.Size = new Size(1563, 1102);
             PanelLandingPage.TabIndex = 0;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.BackgroundImage = (Image)resources.GetObject("pictureBox6.BackgroundImage");
+            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox6.Location = new Point(148, 200);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(155, 117);
+            pictureBox6.TabIndex = 5;
+            pictureBox6.TabStop = false;
             // 
             // panel1
             // 
@@ -387,22 +397,13 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Image = Properties.Resources.settings1;
-            pictureBox1.Location = new Point(881, 138);
+            pictureBox1.Image = Properties.Resources.MekanikLogo;
+            pictureBox1.Location = new Point(792, 26);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(559, 559);
+            pictureBox1.Size = new Size(705, 749);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.BackgroundImage = (Image)resources.GetObject("pictureBox6.BackgroundImage");
-            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox6.Location = new Point(148, 172);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(193, 158);
-            pictureBox6.TabIndex = 5;
-            pictureBox6.TabStop = false;
             // 
             // LandingPageControl
             // 
@@ -415,6 +416,7 @@
             Size = new Size(1563, 1102);
             PanelLandingPage.ResumeLayout(false);
             PanelLandingPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel1.ResumeLayout(false);
             lathifPanel3.ResumeLayout(false);
             lathifPanel3.PerformLayout();
@@ -429,7 +431,6 @@
             panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 

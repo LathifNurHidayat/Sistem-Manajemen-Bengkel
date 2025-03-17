@@ -1,5 +1,4 @@
-﻿
---store prosedure insert riwayat
+﻿--store prosedure insert riwayat
 CREATE PROCEDURE sp_InsertRiwayat
     @id_jasa_servis INT,
     @no_ktp_pelanggan VARCHAR(20),
@@ -25,7 +24,7 @@ BEGIN
     DECLARE @biaya_sparepart DECIMAL(18,2) = 0;
     DECLARE @total_biaya DECIMAL(18,2) = 0;
 
-    IF @status <> 4
+    IF @status <> 2
     BEGIN 
         SELECT @biaya_servis = COALESCE(biaya, 0) FROM tb_jasa_servis WHERE id_jasa_servis = @id_jasa_servis;
         SELECT @biaya_sparepart = COALESCE(SUM(harga), 0) FROM tb_penggunaan_sparepart WHERE id_penggunaan_sparepart = @id_penggunaan_sparepart;

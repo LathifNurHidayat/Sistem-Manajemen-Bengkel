@@ -61,7 +61,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
              {
                 ButtonDashboard, ButtonBooking, ButtonServis,
                 ButtonRiwayat, ButtonPelanggan, ButtonKendaraan,
-                ButtonKaryawan,ButtonMekanik, ButtonSparepart, ButtonLogout
+                ButtonPegawai,ButtonMekanik, ButtonSparepart, ButtonLogout
              });
 
             foreach  (var btn in _listButton)
@@ -98,7 +98,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
             ButtonRiwayat.Click += ButtonRiwayat_Click;
             ButtonPelanggan.Click += ButtonPelanggan_Click;
             ButtonKendaraan.Click += ButtonKendaraan_Click;
-            ButtonKaryawan.Click += ButtonKaryawan_Click;
+            ButtonPegawai.Click += ButtonKaryawan_Click;
             ButtonSparepart.Click += ButtonSparepart_Click;
             ButtonLogout.Click += ButtonLogout_Click;
             ButtonMekanik.Click += ButtonMekanik_Click;

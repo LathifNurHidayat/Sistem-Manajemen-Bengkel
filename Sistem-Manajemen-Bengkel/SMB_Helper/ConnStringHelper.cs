@@ -13,7 +13,7 @@ namespace Sistem_Manajemen_Bengkel.Helper
 
         public static string GetConn()
         {
-            return "Server=(local); Database=DB_Bengkel; User ID=sa; Password=Lathif98; TrustServerCertificate=True; Connect Timeout=120;";
+            return "Server=(local); Database=DB_Bengkel; TrustServerCertificate=True; Connect Timeout=120;";
         }
 
 

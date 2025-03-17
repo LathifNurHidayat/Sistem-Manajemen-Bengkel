@@ -282,7 +282,7 @@
             // PanelService
             // 
             PanelService.Anchor = AnchorStyles.Bottom;
-            PanelService.BackColor = Color.LightSlateGray;
+            PanelService.BackColor = Color.FromArgb(44, 111, 226);
             PanelService.Controls.Add(LabelTotalService);
             PanelService.Controls.Add(label6);
             PanelService.Controls.Add(label3);
@@ -351,7 +351,7 @@
             // PanelAntrean
             // 
             PanelAntrean.Anchor = AnchorStyles.Bottom;
-            PanelAntrean.BackColor = Color.CadetBlue;
+            PanelAntrean.BackColor = Color.FromArgb(241, 147, 16);
             PanelAntrean.Controls.Add(LabelTotalBooking);
             PanelAntrean.Controls.Add(label5);
             PanelAntrean.Controls.Add(label2);
@@ -409,7 +409,7 @@
             // PanelPelanggan
             // 
             PanelPelanggan.Anchor = AnchorStyles.Bottom;
-            PanelPelanggan.BackColor = Color.DarkKhaki;
+            PanelPelanggan.BackColor = Color.FromArgb(242, 98, 98);
             PanelPelanggan.Controls.Add(label4);
             PanelPelanggan.Controls.Add(label1);
             PanelPelanggan.Controls.Add(LabelTotalPelanggan);
@@ -464,7 +464,7 @@
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
-            // DashboardForm
+            // DashboardSuperAdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -473,7 +473,7 @@
             Controls.Add(PanelBackground);
             Controls.Add(PanelData);
             Controls.Add(Label);
-            Name = "DashboardForm";
+            Name = "DashboardSuperAdminForm";
             Text = " ";
             PanelData.ResumeLayout(false);
             PanelData.PerformLayout();

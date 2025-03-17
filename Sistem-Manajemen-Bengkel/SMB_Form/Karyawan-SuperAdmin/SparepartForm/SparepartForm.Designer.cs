@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             PanelBooking = new Panel();
             label3 = new Label();
             ComboFilter = new ComboBox();
@@ -46,6 +46,10 @@
             contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             editToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
+            ButtonNext = new SMB_CustomTolbox.LathifButton();
+            ButtonPreviuos = new SMB_CustomTolbox.LathifButton();
+            ButtonSearch = new SMB_CustomTolbox.LathifButton();
+            ButtonTambah = new SMB_CustomTolbox.LathifButton();
             PanelBooking.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TextPage).BeginInit();
@@ -59,6 +63,10 @@
             PanelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelBooking.AutoScroll = true;
             PanelBooking.BackColor = Color.White;
+            PanelBooking.Controls.Add(ButtonNext);
+            PanelBooking.Controls.Add(ButtonPreviuos);
+            PanelBooking.Controls.Add(ButtonSearch);
+            PanelBooking.Controls.Add(ButtonTambah);
             PanelBooking.Controls.Add(label3);
             PanelBooking.Controls.Add(ComboFilter);
             PanelBooking.Controls.Add(label2);
@@ -194,33 +202,33 @@
             // 
             GridListData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListData.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            GridListData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            GridListData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            GridListData.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            GridListData.DefaultCellStyle = dataGridViewCellStyle5;
             GridListData.Location = new Point(27, 233);
             GridListData.Name = "GridListData";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            GridListData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            GridListData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
             GridListData.Size = new Size(1008, 358);
@@ -261,6 +269,86 @@
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Size = new Size(145, 32);
             deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // ButtonNext
+            // 
+            ButtonNext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonNext.BackColor = Color.Transparent;
+            ButtonNext.BackgroundColor = Color.Transparent;
+            ButtonNext.BorderColor = Color.DarkGray;
+            ButtonNext.BorderRadius = 1;
+            ButtonNext.BorderSize = 1;
+            ButtonNext.FlatAppearance.BorderSize = 0;
+            ButtonNext.FlatStyle = FlatStyle.Flat;
+            ButtonNext.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonNext.ForeColor = Color.DimGray;
+            ButtonNext.Location = new Point(927, 624);
+            ButtonNext.Name = "ButtonNext";
+            ButtonNext.Size = new Size(108, 35);
+            ButtonNext.TabIndex = 60;
+            ButtonNext.Text = "Next";
+            ButtonNext.TextColor = Color.DimGray;
+            ButtonNext.UseVisualStyleBackColor = false;
+            // 
+            // ButtonPreviuos
+            // 
+            ButtonPreviuos.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonPreviuos.BackColor = Color.Transparent;
+            ButtonPreviuos.BackgroundColor = Color.Transparent;
+            ButtonPreviuos.BorderColor = Color.DarkGray;
+            ButtonPreviuos.BorderRadius = 1;
+            ButtonPreviuos.BorderSize = 1;
+            ButtonPreviuos.FlatAppearance.BorderSize = 0;
+            ButtonPreviuos.FlatStyle = FlatStyle.Flat;
+            ButtonPreviuos.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonPreviuos.ForeColor = Color.DimGray;
+            ButtonPreviuos.Location = new Point(753, 624);
+            ButtonPreviuos.Name = "ButtonPreviuos";
+            ButtonPreviuos.Size = new Size(108, 35);
+            ButtonPreviuos.TabIndex = 59;
+            ButtonPreviuos.Text = "Previous";
+            ButtonPreviuos.TextColor = Color.DimGray;
+            ButtonPreviuos.UseVisualStyleBackColor = false;
+            // 
+            // ButtonSearch
+            // 
+            ButtonSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonSearch.BackColor = Color.FromArgb(83, 92, 145);
+            ButtonSearch.BackgroundColor = Color.FromArgb(83, 92, 145);
+            ButtonSearch.BackgroundImage = Properties.Resources.User_Hitam;
+            ButtonSearch.BorderColor = Color.Black;
+            ButtonSearch.BorderRadius = 3;
+            ButtonSearch.BorderSize = 0;
+            ButtonSearch.FlatAppearance.BorderSize = 0;
+            ButtonSearch.FlatStyle = FlatStyle.Flat;
+            ButtonSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonSearch.ForeColor = Color.White;
+            ButtonSearch.Location = new Point(721, 168);
+            ButtonSearch.Name = "ButtonSearch";
+            ButtonSearch.Size = new Size(53, 31);
+            ButtonSearch.TabIndex = 58;
+            ButtonSearch.Text = "🔍";
+            ButtonSearch.TextColor = Color.White;
+            ButtonSearch.UseVisualStyleBackColor = false;
+            // 
+            // ButtonTambah
+            // 
+            ButtonTambah.BackColor = Color.FromArgb(83, 92, 145);
+            ButtonTambah.BackgroundColor = Color.FromArgb(83, 92, 145);
+            ButtonTambah.BorderColor = Color.DarkGray;
+            ButtonTambah.BorderRadius = 3;
+            ButtonTambah.BorderSize = 0;
+            ButtonTambah.FlatAppearance.BorderSize = 0;
+            ButtonTambah.FlatStyle = FlatStyle.Flat;
+            ButtonTambah.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonTambah.ForeColor = Color.White;
+            ButtonTambah.Location = new Point(28, 115);
+            ButtonTambah.Name = "ButtonTambah";
+            ButtonTambah.Size = new Size(124, 39);
+            ButtonTambah.TabIndex = 57;
+            ButtonTambah.Text = "➕ Tambah ";
+            ButtonTambah.TextColor = Color.White;
+            ButtonTambah.UseVisualStyleBackColor = false;
             // 
             // SparepartForm
             // 
