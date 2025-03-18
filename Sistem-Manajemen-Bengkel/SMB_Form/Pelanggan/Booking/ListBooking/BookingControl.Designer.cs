@@ -33,7 +33,7 @@
             // 
             // FlowPanelMain
             // 
-            FlowPanelMain.Dock = DockStyle.Fill;
+            FlowPanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             FlowPanelMain.Location = new Point(0, 0);
             FlowPanelMain.Name = "FlowPanelMain";
             FlowPanelMain.Size = new Size(1418, 492);

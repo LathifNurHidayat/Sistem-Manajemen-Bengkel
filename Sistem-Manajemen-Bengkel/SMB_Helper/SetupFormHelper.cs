@@ -14,5 +14,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         {
             _setupForm = form;
         }
+
     }
 }

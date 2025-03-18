@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.StartupForm
 {
@@ -15,12 +16,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.StartupForm
     {
         private System.Windows.Forms.Timer _opacityTimer;
         private System.Windows.Forms.Timer _delayTimer;
-        public static Form _startupForm = new StartupForm();
 
         public StartupForm()
         {
             InitializeComponent();
-            _startupForm = this;
+            SetupFormHelper.SetupForm(this);
 
             this.Opacity = 0;
             this._opacityTimer = new System.Windows.Forms.Timer();

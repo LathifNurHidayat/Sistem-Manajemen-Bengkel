@@ -51,7 +51,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<InvoiceModel>(sql, new { idBooking });
-
         }
     }
 }

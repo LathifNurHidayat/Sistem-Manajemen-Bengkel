@@ -349,9 +349,9 @@
             ButtonEksport.ForeColor = Color.White;
             ButtonEksport.Location = new Point(27, 113);
             ButtonEksport.Name = "ButtonEksport";
-            ButtonEksport.Size = new Size(127, 39);
+            ButtonEksport.Size = new Size(198, 39);
             ButtonEksport.TabIndex = 42;
-            ButtonEksport.Text = "📤 Laporan";
+            ButtonEksport.Text = "📤 Generate Laporan";
             ButtonEksport.TextColor = Color.White;
             ButtonEksport.UseVisualStyleBackColor = false;
             // 

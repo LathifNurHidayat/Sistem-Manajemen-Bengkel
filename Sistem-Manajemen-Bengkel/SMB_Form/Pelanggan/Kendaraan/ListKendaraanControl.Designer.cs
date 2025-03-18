@@ -69,7 +69,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             LathifPanel1.Controls.Add(panelProfile);
             LathifPanel1.Controls.Add(label3);
             LathifPanel1.ForeColor = Color.White;
-            LathifPanel1.Location = new Point(32, 25);
+            LathifPanel1.Location = new Point(321, 25);
             LathifPanel1.Margin = new Padding(3, 4, 3, 4);
             LathifPanel1.Name = "LathifPanel1";
             LathifPanel1.Size = new Size(1183, 255);
@@ -247,7 +247,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             Controls.Add(LathifPanel1);
             Margin = new Padding(0);
             Name = "ListKendaraanControl";
-            Size = new Size(1247, 308);
+            Size = new Size(1824, 308);
             LathifPanel1.ResumeLayout(false);
             LathifPanel1.PerformLayout();
             ResumeLayout(false);

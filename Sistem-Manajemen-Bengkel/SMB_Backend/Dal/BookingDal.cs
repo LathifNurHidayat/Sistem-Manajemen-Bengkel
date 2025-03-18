@@ -91,6 +91,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     ELSE CONCAT (aa.merek , ' ' , aa.kapasitas_mesin, 'cc')
                                 END AS nama_kendaraan,
                                     COALESCE (dd.merek, aa.merek) AS merek,
+                                    COALESCE (dd.kapasitas_mesin, aa.kapasitas_mesin) AS merek,
 
 
                                     COALESCE (dd.transmisi, aa.transmisi) AS transmisi,

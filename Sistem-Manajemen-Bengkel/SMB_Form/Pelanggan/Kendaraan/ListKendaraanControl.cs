@@ -12,6 +12,7 @@ using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.KandaraanForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm;
 using Syncfusion.Grouping;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
@@ -26,6 +27,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
         {
             InitializeComponent();
             _kendaraanDal = new KendaraanDal();
+            
 
             _id_kendaraan = id_kendaraan;
             SetData(id_kendaraan);
@@ -54,7 +56,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
         private void ButtonEdit_Click(object? sender, EventArgs e)
         {
             TambahKendaraanForm tambahKendaraanForm = new TambahKendaraanForm( _id_kendaraan,_no_ktp_pelanggan);
-            if (tambahKendaraanForm.ShowDialog(this)== DialogResult.OK)
+            if (tambahKendaraanForm.ShowDialog() == DialogResult.OK)
             {
                 SetData(_id_kendaraan);
             }

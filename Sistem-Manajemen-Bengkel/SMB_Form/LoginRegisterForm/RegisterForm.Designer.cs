@@ -63,6 +63,7 @@
             label1 = new Label();
             ButtonDaftar = new Button();
             ButtonBack = new SMB_CustomTolbox.LathifButton();
+            pictureBox1 = new PictureBox();
             MainPanel.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
@@ -71,6 +72,7 @@
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // MainPanel
@@ -475,16 +477,24 @@
             ButtonBack.FlatStyle = FlatStyle.Flat;
             ButtonBack.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBack.ForeColor = Color.White;
-            ButtonBack.Image = (Image)resources.GetObject("ButtonBack.Image");
             ButtonBack.Location = new Point(32, 761);
             ButtonBack.Name = "ButtonBack";
             ButtonBack.Size = new Size(109, 45);
             ButtonBack.TabIndex = 9;
-            ButtonBack.Text = "Back";
-            ButtonBack.TextAlign = ContentAlignment.MiddleRight;
+            ButtonBack.Text = "Kembali";
             ButtonBack.TextColor = Color.White;
             ButtonBack.TextImageRelation = TextImageRelation.ImageBeforeText;
             ButtonBack.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(32, 32);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(140, 121);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
             // RegisterForm
             // 
@@ -492,6 +502,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
             ClientSize = new Size(1155, 836);
+            Controls.Add(pictureBox1);
             Controls.Add(ButtonBack);
             Controls.Add(MainPanel);
             DoubleBuffered = true;
@@ -514,6 +525,7 @@
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -553,5 +565,6 @@
         private Button ButtonShowHideConfmPassword;
         private Button ButtonShowHidePassword;
         private SMB_CustomTolbox.LathifButton ButtonBack;
+        private PictureBox pictureBox1;
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
+﻿namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
 {
-    partial class KendaraanControl
+    partial class RiwayatControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,20 +34,18 @@
             // FlowPanelMain
             // 
             FlowPanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            FlowPanelMain.BackColor = Color.White;
             FlowPanelMain.Location = new Point(0, 0);
             FlowPanelMain.Name = "FlowPanelMain";
-            FlowPanelMain.Size = new Size(1206, 613);
+            FlowPanelMain.Size = new Size(1681, 549);
             FlowPanelMain.TabIndex = 0;
             // 
-            // KendaraanControl
+            // RiwayatControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gainsboro;
             Controls.Add(FlowPanelMain);
-            Name = "KendaraanControl";
-            Size = new Size(1206, 613);
+            Name = "RiwayatControl";
+            Size = new Size(1681, 549);
             ResumeLayout(false);
         }
 

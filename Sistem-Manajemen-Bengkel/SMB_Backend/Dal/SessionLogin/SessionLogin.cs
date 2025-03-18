@@ -34,9 +34,29 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin
                 nama_pelanggan = nama_pelanggan
             };
         }
+        
+        
+        public static void ClearSessionLoginPelanggan()
+        {
+            _sessionLoginPelanggan = new SessionLoginPelangganModel
+            {
+                no_ktp_pelanggan = null,
+                nama_pelanggan = null
+            };
+        }
 
-
+        public static void ClearSessionLoginPegawai()
+        {
+            _sessionLoginPegawai = new SessionLoginPegawaiModel
+            {
+                no_ktp_pegawai = null,
+                nama_pegawai = null,
+                role = null
+            };
+        }
     }
+
+
 
     public class SessionLoginPegawaiModel
     {

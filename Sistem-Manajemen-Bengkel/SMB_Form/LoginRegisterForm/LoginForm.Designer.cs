@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             label6 = new Label();
             label5 = new Label();
             label2 = new Label();
@@ -44,15 +45,14 @@
             pictureBox3 = new PictureBox();
             ButtonMasuk = new Button();
             panel2 = new Panel();
-            pictureBox1 = new PictureBox();
             ButtonBack = new SMB_CustomTolbox.LathifButton();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -74,6 +74,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(438, 526);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(175, 37);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(93, 76);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // label6
             // 
@@ -234,16 +244,6 @@
             panel2.Size = new Size(1155, 981);
             panel2.TabIndex = 2;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(175, 37);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(93, 76);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
             // ButtonBack
             // 
             ButtonBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -256,13 +256,11 @@
             ButtonBack.FlatStyle = FlatStyle.Flat;
             ButtonBack.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBack.ForeColor = Color.White;
-            ButtonBack.Image = (Image)resources.GetObject("ButtonBack.Image");
             ButtonBack.Location = new Point(32, 906);
             ButtonBack.Name = "ButtonBack";
             ButtonBack.Size = new Size(109, 45);
             ButtonBack.TabIndex = 8;
-            ButtonBack.Text = "Back";
-            ButtonBack.TextAlign = ContentAlignment.MiddleRight;
+            ButtonBack.Text = "Kembali";
             ButtonBack.TextColor = Color.White;
             ButtonBack.TextImageRelation = TextImageRelation.ImageBeforeText;
             ButtonBack.UseVisualStyleBackColor = false;
@@ -279,6 +277,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
@@ -286,7 +285,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Org.BouncyCastle.X509;
 using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
@@ -22,6 +23,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
     {
         private readonly PelangganDal _pelangganDal;
         private Form _form;
+        private bool _isExitApplication = true;
         public RegisterForm(Form form)
         {
             InitializeComponent();
@@ -76,14 +78,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
 
         private void RegisterForm_FormClosing(object? sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason != CloseReason.UserClosing) return;
+            if (!_isExitApplication) return;
 
-            if (!MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar aplikasi ?"))
+            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar aplikasi ?"))
+                SetupFormHelper._setupForm.Close();
+            else
                 e.Cancel = true;
         }
 
         private void ButtonBack_Click(object? sender, EventArgs e)
         {
+            _isExitApplication = false;
             _form.Show();
             this.Close();
         }
@@ -236,6 +241,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
 
         private void LinkLogin_Click(object? sender, EventArgs e)
         {
+            _isExitApplication = false;
             _form.Show();
             this.Close();
         }

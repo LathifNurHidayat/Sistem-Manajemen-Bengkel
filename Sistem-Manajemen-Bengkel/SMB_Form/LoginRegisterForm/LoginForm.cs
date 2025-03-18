@@ -25,7 +25,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
     {
         private readonly PelangganDal _pelangganDal;
         private readonly PegawaiDal _petugasDal;
-        
+
+        private bool _isExitApplication = true;
 
         public LoginForm()
         {
@@ -54,15 +55,19 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
 
         private void LoginForm_FormClosing(object? sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason != CloseReason.UserClosing) return;
+            if (!_isExitApplication) return;
 
-            if (!MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar aplikasi ?"))
+            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar aplikasi ?"))
+                SetupFormHelper._setupForm.Close();
+            else
                 e.Cancel = true;
         }
 
         private void ButtonBack_Click(object? sender, EventArgs e)
         {
-            
+            _isExitApplication = false;
+            MainMenuFirst mainMenu = new MainMenuFirst();
+            mainMenu.Show();
             this.Close();
         }
 
@@ -119,6 +124,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
             {
                 SessionLogin.GetSessionLoginPelanggan(dataPelanggan.no_ktp_pelanggan, username);
 
+                _isExitApplication = false;
                 MainMenuFirst mainMenu = new MainMenuFirst();
                 mainMenu.Show();
                 this.Close();
@@ -127,6 +133,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
             {
                 SessionLogin.GetSessionLoginPegawai(dataPetugas.no_ktp_pegawai, username, role);
 
+                _isExitApplication = false;
                 profile = dataPetugas?.image_data ?? null;
                 MainMenuForm main = new MainMenuForm(username, role, profile);
                 main.Show();

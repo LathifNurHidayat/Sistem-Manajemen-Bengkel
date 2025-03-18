@@ -44,7 +44,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking
                 {
                     var listBooking = new ListBookingControl(booking.id_booking)
                     {
-                        Width = FlowPanelMain.ClientSize.Width - 2
+                        Width = FlowPanelMain.Width
                     };
                     FlowPanelMain.Controls.Add(listBooking);
                 }

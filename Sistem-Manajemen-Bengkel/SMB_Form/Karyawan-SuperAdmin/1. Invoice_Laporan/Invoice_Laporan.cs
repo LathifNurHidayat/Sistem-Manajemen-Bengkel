@@ -29,17 +29,15 @@ public class Invoice_Laporan
         PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
         doc.Open();
 
-        // Load Logo (Pastikan file logo tersedia)
-        string logoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logo.png"); // Sesuaikan path logo
+        string logoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\lathi\\OneDrive\\Pictures\\Asset Projek\\Icon\\Sistem Bengkel\\Logo.png"); 
         if (File.Exists(logoPath))
         {
             Image logo = Image.GetInstance(logoPath);
-            logo.ScaleAbsolute(100f, 50f);
+            logo.ScaleAbsolute(50f, 50f);
             logo.Alignment = Element.ALIGN_LEFT;
             doc.Add(logo);
         }
 
-        // Informasi Bengkel
         Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK);
         Font subTitleFont = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.DARK_GRAY);
         Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 11);
@@ -55,7 +53,6 @@ public class Invoice_Laporan
 
         doc.Add(new Paragraph("------------------------------------------------------------------\n"));
 
-        // Informasi Invoice
         PdfPTable infoTable = new PdfPTable(2);
         infoTable.WidthPercentage = 100;
         infoTable.SetWidths(new float[] { 30f, 70f });
@@ -75,22 +72,18 @@ public class Invoice_Laporan
         doc.Add(infoTable);
         doc.Add(new Paragraph("\n"));
 
-        // Tabel Layanan & Sparepart
         PdfPTable table = new PdfPTable(3);
         table.WidthPercentage = 100;
         table.SetWidths(new float[] { 50f, 20f, 30f });
 
-        // Header Tabel
         table.AddCell(GetStyledCell("Barang / Jasa", headerFont, BaseColor.LIGHT_GRAY));
         table.AddCell(GetStyledCell("Quantity", headerFont, BaseColor.LIGHT_GRAY));
         table.AddCell(GetStyledCell("Harga", headerFont, BaseColor.LIGHT_GRAY));
 
-        // Jasa Servis
         table.AddCell(GetStyledCell(invoice.jasa_servis, bodyFont, BaseColor.WHITE));
         table.AddCell(GetStyledCell("1", bodyFont, BaseColor.WHITE, Element.ALIGN_CENTER));
         table.AddCell(GetStyledCell($"Rp {invoice.biaya_jasa:N0}", bodyFont, BaseColor.WHITE));
 
-        // Spareparts
         if (invoice.List_sparepart.Count >= 1)
         {
             for (int i = 0; i < invoice.List_sparepart.Count; i++)
@@ -104,23 +97,20 @@ public class Invoice_Laporan
         doc.Add(table);
         doc.Add(new Paragraph("\n"));
 
-        // Total Harga
-        Paragraph total = new Paragraph($"Total: Rp {invoice.total_biaya_servis:N0}", titleFont);
-        total.Alignment = Element.ALIGN_RIGHT;
-        doc.Add(total);
-
-        // Catatan
         if (!string.IsNullOrWhiteSpace(invoice.catatan))
         {
             doc.Add(new Paragraph("\nCatatan:", headerFont));
             doc.Add(new Paragraph(invoice.catatan, bodyFont));
         }
 
+        Paragraph total = new Paragraph($"Total: Rp {invoice.total_biaya_servis:N0}", titleFont);
+        total.Alignment = Element.ALIGN_RIGHT;
+        doc.Add(total);
+
         doc.Close();
         Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
     }
 
-    // Membuat Cell untuk Informasi Bengkel
     private static PdfPCell GetCell(string text, Font font, bool bold)
     {
         PdfPCell cell = new PdfPCell(new Phrase(text, font))
@@ -128,12 +118,9 @@ public class Invoice_Laporan
             Border = Rectangle.NO_BORDER,
             Padding = 5
         };
-        if (bold)
-            cell.BackgroundColor = new BaseColor(230, 230, 230); // Background abu-abu muda
         return cell;
     }
 
-    // Membuat Cell dengan Gaya
     private static PdfPCell GetStyledCell(string text, Font font, BaseColor bgColor, int align = Element.ALIGN_LEFT)
     {
         PdfPCell cell = new PdfPCell(new Phrase(text, font))
@@ -197,12 +184,10 @@ public class Invoice_Laporan
                 row++;
             }
 
-            // Membuat  style tabel nya
             var range = worksheet.Range(2, 1, row - 1, 12); 
             var table = range.CreateTable();
             table.Theme = XLTableTheme.TableStyleLight10; 
 
-            // untuk menyesuaikan ukuran kolom secara otomatis
             worksheet.Columns().AdjustToContents();
 
             SaveFileDialog saveFileDialog = new SaveFileDialog

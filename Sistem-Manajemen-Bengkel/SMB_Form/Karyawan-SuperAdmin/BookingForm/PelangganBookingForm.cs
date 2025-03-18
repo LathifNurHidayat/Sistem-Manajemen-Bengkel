@@ -176,7 +176,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 return;
             }
 
-            TambahKendaraanForm tambahKendaraanForm = new TambahKendaraanForm(_no_ktp);
+            TambahKendaraanForm tambahKendaraanForm = new TambahKendaraanForm(0,_no_ktp);
             if (tambahKendaraanForm.ShowDialog() == DialogResult.OK)
             {
                 InitialDataKendaraan();

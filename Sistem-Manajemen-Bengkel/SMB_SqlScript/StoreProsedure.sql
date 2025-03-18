@@ -86,7 +86,7 @@ GO
 CREATE PROCEDURE sp_GetDashboardMetrics(@tanggal DATE)
 AS
 BEGIN
-    -- Total Pendapatan Hari Ini
+    -- Total Pendataatan Hari Ini
     SELECT COALESCE(SUM(total_biaya), 0) AS TotalPendapatanHariIni
     FROM tb_riwayat
     WHERE CAST(tanggal AS DATE) = @tanggal AND status = 1;
@@ -105,7 +105,7 @@ BEGIN
     SELECT COUNT(*) AS TotalDataPelanggan
     FROM tb_pelanggan;
 
-    -- Total Servis Tiap Pelanggan
+    -- Total Servis per Pelanggan
     SELECT TOP 5 nama_pelanggan, total_servis
     FROM tb_pelanggan
     ORDER BY total_servis DESC;

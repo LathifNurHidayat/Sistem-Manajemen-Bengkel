@@ -59,7 +59,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
                 {
                     var listKendaraan = new ListKendaraanControl(kendaraan.id_kendaraan)
                     {
-                        Width = _flowPanelMain.ClientSize.Width - 2
+                        Width = _flowPanelMain.Width
                     };
                     _flowPanelMain.Controls.Add(listKendaraan);
                 }

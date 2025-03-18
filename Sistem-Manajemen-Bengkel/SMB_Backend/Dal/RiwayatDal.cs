@@ -73,6 +73,45 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             return Conn.Query<RiwayatModel>(sql, Dp);
         }
 
+        public RiwayatModel? GetData(int id_riwayat)
+        {
+            const string sql = @"SELECT 
+                        bb.jenis_servis,
+                        COALESCE(cc.nama_pelanggan, aa.nama_pelanggan) AS nama_pelanggan,
+                        COALESCE(cc.no_ktp_pelanggan, aa.no_ktp_pelanggan) AS no_ktp_pelanggan,  
+                        COALESCE(ff.no_polisi, aa.no_polisi) AS no_polisi,       
+                        ISNULL(dd.nama_pegawai, '') AS nama_pegawai, 
+                        ISNULL(ee.nama_mekanik, '') AS nama_mekanik, 
+                        CASE 
+                            WHEN (aa.merek IS NULL OR aa.merek = '') AND (aa.kapasitas_mesin IS NULL OR aa.kapasitas_mesin = '')
+                            THEN CONCAT(ff.merek, ' ', ff.kapasitas_mesin, 'cc') 
+                            ELSE CONCAT(aa.merek, ' ', aa.kapasitas_mesin, 'cc') 
+                        END AS nama_kendaraan,
+                        aa.tanggal, 
+                        aa.keluhan, 
+                        aa.catatan, 
+                        aa.total_biaya, 
+                        aa.status
+                    FROM tb_riwayat aa
+                    LEFT JOIN tb_jasa_servis bb 
+                        ON aa.id_jasa_servis = bb.id_jasa_servis
+                    LEFT JOIN tb_pelanggan cc
+                        ON aa.no_ktp_pelanggan = cc.no_ktp_pelanggan
+                    LEFT JOIN tb_pegawai dd
+                        ON aa.no_ktp_pegawai = dd.no_ktp_pegawai
+                    LEFT JOIN tb_mekanik ee 
+                        ON aa.no_ktp_mekanik = ee.no_ktp_mekanik
+                    LEFT JOIN tb_kendaraan ff
+                        ON aa.id_kendaraan = ff.id_kendaraan
+
+                    WHERE aa.id_riwayat = @id_riwayat";
+
+            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+
+            return Conn.QueryFirstOrDefault<RiwayatModel>(sql, new { id_riwayat });
+
+        }
+
 
         public int CountData(string filter, object Dp)
         {

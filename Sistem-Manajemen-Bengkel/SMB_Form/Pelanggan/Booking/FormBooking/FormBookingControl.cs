@@ -21,7 +21,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
     {
         private readonly KendaraanDal _kendaraanDal;
         private readonly BookingDal _bookingDal;
-        private int _IdKendaraan;
         private string _no_ktp;
 
         public FormBookingControl()
@@ -32,6 +31,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
 
             PickerBookingTanggal.Culture = new System.Globalization.CultureInfo("id-ID");
             PickerBookingTanggal.MinDateTime = DateTime.Today;
+
             _no_ktp = SessionLogin._sessionLoginPelanggan.no_ktp_pelanggan;
 
             InitialDataKendaraan();

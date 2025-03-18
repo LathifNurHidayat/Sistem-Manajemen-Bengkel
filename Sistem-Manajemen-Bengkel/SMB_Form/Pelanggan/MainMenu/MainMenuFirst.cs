@@ -12,6 +12,7 @@ using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
@@ -24,7 +25,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
         private string? _username;
         public bool _isLogin = true;
 
-        private bool _isClosingByCode = false;
+        private bool _isExitApplication = true;
 
         private static Panel _panelMain;
 
@@ -91,9 +92,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
 
         private void MainMenuFirst_FormClosing(object? sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason != CloseReason.UserClosing) return;
+            if (!_isExitApplication) return;
 
-            if (!MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar aplikasi ?"))
+            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar aplikasi ?"))
+                    SetupFormHelper._setupForm.Close();
+            else
                 e.Cancel = true;
         }
 
@@ -109,21 +112,27 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
 
         private void ButtonRiwayat_Click(object sender, EventArgs e)
         {
-            ShowFormHelper.ShowFormInPanel(new RiwayatPelanggan());
+            ShowUserControlInPanel(new RiwayatControl());
         }
 
         private void ButtonLogout_Click(object sender, EventArgs e)
         {
             if (ButtonLogout.Text == "Login")
             {
-                this.Hide();
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
+                _isExitApplication = false;
+                LoginForm main = new LoginForm();
+                main.Show();
+                this.Close();
                 return;
             }
-            else if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar?"))
+            else if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin logout?"))
             {
+                _isExitApplication = false;
+                SessionLogin.ClearSessionLoginPelanggan();
 
+                MainMenuFirst main = new MainMenuFirst();
+                main.Show();
+                this.Close();
             }
         }
     }

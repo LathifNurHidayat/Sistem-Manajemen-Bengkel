@@ -17,6 +17,8 @@ using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm;
 
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
@@ -24,8 +26,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
     public partial class MainMenuForm : Form
     {
         private readonly BookingDal _bookingDal;
-
-        private string _role;
+        private bool _isExitApplication = true;
         private readonly List<Button> _listButton = new List<Button>();
 
         public MainMenuForm(string username, string role, byte[]? profile)
@@ -40,7 +41,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
             LabelRole.Text = role;
             PictureProfiles.Image = profile != null ? ImageHelper.ByteToImage(profile) : ImageDirectoryHelper._defaultProfiles;
 
-
+            PegawaiRole();
             InitialButton();
             RegisterControlEvent();
             ShowFormHelper.SetPanel(PanelMain);
@@ -48,11 +49,23 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
         }
 
 
+        private void PegawaiRole()
+        {
+            string role = SessionLogin._sessionLoginPegawai.role;
+
+            if (role == "Petugas")
+            {
+                ButtonPegawai.Visible = false;
+                ButtonMekanik.Visible = false;
+                ButtonSparepart.Visible = false;
+                ButtonServis.Visible = false;
+            }
+        }
+
         private void DeleteBooking()
         {
             _bookingDal.DeleteAfterDateChange();
         }
-
 
 
         private void InitialButton()
@@ -120,12 +133,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
 
         private void MainMenuForm_FormClosing(object? sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason != CloseReason.UserClosing) return;
+            if (!_isExitApplication) return;
 
             if (!MesboxHelper.ShowConfirm("Apakah anda yakin ingin keluar aplikasi ?"))
                 e.Cancel = true;
             else
-                Application.Exit();
+                SetupFormHelper._setupForm.Close();
         }
 
         private void ButtonMekanik_Click(object? sender, EventArgs e)
@@ -146,8 +159,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
         {
           if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin logout?"))
             {
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
+                SessionLogin.ClearSessionLoginPegawai();
+
+                _isExitApplication = false;
+                MainMenuFirst main = new MainMenuFirst();
+                main.Show();
                 this.Close();
             }
         }
@@ -214,7 +230,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
             StyleButton(sender as Button);
             if (sender is Button button) button.Tag = "Click";
 
-            ShowFormHelper.ShowFormInPanel(new SMB_Form.Karyawan_SuperAdmin.DashboardForm.DashboardPetugasForm());
+            if (SessionLogin._sessionLoginPegawai.role == "Petugas")
+                ShowFormHelper.ShowFormInPanel(new DashboardPetugasForm());
+            else
+                ShowFormHelper.ShowFormInPanel(new SMB_Form.Karyawan_SuperAdmin.DashboardForm.DashboardSuperAdminForm());
         }
     }
 }
