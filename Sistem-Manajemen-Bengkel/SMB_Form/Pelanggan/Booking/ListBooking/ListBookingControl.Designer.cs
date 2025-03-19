@@ -81,7 +81,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking
             LathifPanel1.Controls.Add(panelProfile);
             LathifPanel1.Controls.Add(label3);
             LathifPanel1.ForeColor = Color.White;
-            LathifPanel1.Location = new Point(308, 31);
+            LathifPanel1.Location = new Point(308, 13);
             LathifPanel1.Margin = new Padding(3, 4, 3, 4);
             LathifPanel1.Name = "LathifPanel1";
             LathifPanel1.Size = new Size(1183, 416);
@@ -143,7 +143,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking
             // 
             lathifPanel2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             lathifPanel2.BackColor = Color.WhiteSmoke;
-            lathifPanel2.BorderColor = Color.WhiteSmoke;
+            lathifPanel2.BorderColor = Color.Gainsboro;
             lathifPanel2.BorderRadius = 10;
             lathifPanel2.BorderSize = 2;
             lathifPanel2.Controls.Add(PictureStatus);
@@ -164,9 +164,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking
             // PictureStatus
             // 
             PictureStatus.Image = Properties.Resources.Dikerjakan;
-            PictureStatus.Location = new Point(188, 95);
+            PictureStatus.Location = new Point(188, 98);
             PictureStatus.Name = "PictureStatus";
-            PictureStatus.Size = new Size(183, 36);
+            PictureStatus.Size = new Size(183, 30);
             PictureStatus.SizeMode = PictureBoxSizeMode.Zoom;
             PictureStatus.TabIndex = 33;
             PictureStatus.TabStop = false;
@@ -366,7 +366,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking
             DoubleBuffered = true;
             Margin = new Padding(0);
             Name = "ListBookingControl";
-            Size = new Size(1805, 476);
+            Size = new Size(1805, 441);
             LathifPanel1.ResumeLayout(false);
             LathifPanel1.PerformLayout();
             AntreanPanel.ResumeLayout(false);

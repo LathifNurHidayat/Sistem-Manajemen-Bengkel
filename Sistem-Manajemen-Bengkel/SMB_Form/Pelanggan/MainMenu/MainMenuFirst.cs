@@ -8,9 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.LandingPage;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm;
@@ -34,7 +34,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             _mainForm = this;
-            _username = SessionLogin._sessionLoginPelanggan?.nama_pelanggan == null ? "" : SessionLogin._sessionLoginPelanggan?.nama_pelanggan;
+            _username = SessionLoginHelper._sessionLoginPelanggan?.nama_pelanggan == null ? "" : SessionLoginHelper._sessionLoginPelanggan?.nama_pelanggan;
 
             LabelUsername.Text = _username;
 
@@ -88,6 +88,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
         private void ButtonKendaraan_Click(object? sender, EventArgs e)
         {
             ShowUserControlInPanel(new Kendaraan.KendaraanControl());
+            KendaraanControl.LoadData();
         }
 
         private void MainMenuFirst_FormClosing(object? sender, FormClosingEventArgs e)
@@ -113,6 +114,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
         private void ButtonRiwayat_Click(object sender, EventArgs e)
         {
             ShowUserControlInPanel(new RiwayatControl());
+            RiwayatControl.LoadData();
         }
 
         private void ButtonLogout_Click(object sender, EventArgs e)
@@ -128,7 +130,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
             else if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin logout?"))
             {
                 _isExitApplication = false;
-                SessionLogin.ClearSessionLoginPelanggan();
+                SessionLoginHelper.ClearSessionLoginPelanggan();
 
                 MainMenuFirst main = new MainMenuFirst();
                 main.Show();

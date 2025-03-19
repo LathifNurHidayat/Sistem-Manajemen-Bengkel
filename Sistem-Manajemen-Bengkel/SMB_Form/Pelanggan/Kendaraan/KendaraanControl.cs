@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using DocumentFormat.OpenXml.Packaging;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
 {
@@ -28,8 +28,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
 
             InitializeComponent();
             InitializeFlowPanel();
-            LoadData();
-
         }
 
         private void InitializeFlowPanel()
@@ -51,7 +49,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             };
             _flowPanelMain.Controls.Add(tambahKendaraan);
 
-            var kendaraanList = _kendaraanDal.LoadNamaKendaraan(SessionLogin._sessionLoginPelanggan.no_ktp_pelanggan);
+            var kendaraanList = _kendaraanDal.LoadNamaKendaraan(SessionLoginHelper._sessionLoginPelanggan.no_ktp_pelanggan);
 
             if (kendaraanList?.Any() ?? false)
             {

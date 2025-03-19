@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm
@@ -22,7 +21,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.RiwayatForm
         {
             InitializeComponent();
             _riwayatDal = new RiwayatDal();
-            _no_ktp = SessionLogin._sessionLoginPelanggan.no_ktp_pelanggan;
+            _no_ktp = SessionLoginHelper._sessionLoginPelanggan.no_ktp_pelanggan;
 
             InitialCombo_Grid();
             LoadData();

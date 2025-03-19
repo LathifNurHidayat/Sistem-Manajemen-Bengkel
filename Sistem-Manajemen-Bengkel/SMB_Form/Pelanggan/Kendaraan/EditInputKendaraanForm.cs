@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
 {
@@ -21,6 +21,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
         public EditInputKendaraanForm(int id_kendaraan)
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
             _kendaraanDal = new KendaraanDal();
             InitialComponent();
             _id_kendaraan = id_kendaraan;
@@ -28,6 +31,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             RegisterControlEvent();
         }
 
+   
         private void InitialComponent()
         {
             List<string> transmisi = new List<string>() { "Transmisi Otomatis", "Transmisi Manual" };
@@ -43,9 +47,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             TextNoPolisi.Text = kendaraan.no_polisi;
             TextMerek.Text = kendaraan.merek;
             if (kendaraan.transmisi == 1)
-                ComboTransmisi.SelectedValue = "Transmisi Otomatis";
+                ComboTransmisi.SelectedItem = "Transmisi Otomatis";
             else
-                ComboTransmisi.SelectedValue = "Transmisi Manual";
+                ComboTransmisi.SelectedItem = "Transmisi Manual";
+
             TextKapasitasMesin.Text = kendaraan.kapasitas_mesin.ToString();
             TextTahun.Text = kendaraan.tahun.ToString();
         }
@@ -55,7 +60,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             var kendaraan = new KendaraanModel
             {
                 id_kendaraan = _id_kendaraan,
-                no_ktp_pelanggan = SessionLogin._sessionLoginPelanggan.no_ktp_pelanggan,
+                no_ktp_pelanggan = SessionLoginHelper._sessionLoginPelanggan.no_ktp_pelanggan,
                 no_polisi = TextNoPolisi.Text,
                 merek = TextMerek.Text,
                 transmisi = ComboTransmisi.SelectedValue == "Transmisi Otomatis" ? 1 : 2,

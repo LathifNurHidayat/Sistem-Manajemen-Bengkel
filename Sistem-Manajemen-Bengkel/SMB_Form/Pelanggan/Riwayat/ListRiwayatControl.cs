@@ -35,12 +35,18 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             LabelKapasitasMesin.Text = $": {riwayat.kapasitas_mesin} cc";
             LabelPetugas.Text = $": {riwayat.nama_pegawai}";
             LabelKeluhan.Text = $": {riwayat.keluhan}";
-            LabelTanggal.Text = $": {riwayat.tanggal.ToString("dd MMMM yyyy")}";
-            LabelCatatan.Text = $": {riwayat.catatan}";
-            LabelSparepart.Text = $": {riwayat.nama_sparepart}";
-            LabelTotalBIaya.Text = $": Rp{riwayat.total_biaya}";
+            LabelTanggal.Text = $": {riwayat.tanggal.ToString("dddd, dd MMMM yyyy", new System.Globalization.CultureInfo("id-ID"))}";
+            LabelCatatan.Text = $"{(string.IsNullOrEmpty(riwayat.catatan) ? "Tidak ada" : riwayat.catatan)}";
+            LabelSparepart.Text = string.IsNullOrWhiteSpace(riwayat.nama_sparepart) ? "Tidak ada" : riwayat.nama_sparepart;
+            LabelTotalBiaya.Text = $" Rp {riwayat.total_biaya:N0}";
 
             PictureStatus.Image = riwayat.status == 1 ? ImageDirectoryHelper._statusSelesai : ImageDirectoryHelper._statusDibatalkan;
+
+
+            if (LabelCatatan.Text == "Tidak ada")
+                LabelCatatan.ForeColor = Color.Red; 
+            if (LabelSparepart.Text == "Tidak ada")
+                LabelSparepart.ForeColor = Color.Red;
         }
     }
 }

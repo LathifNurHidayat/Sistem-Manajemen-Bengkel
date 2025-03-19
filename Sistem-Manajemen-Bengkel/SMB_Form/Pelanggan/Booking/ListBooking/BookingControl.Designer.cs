@@ -33,10 +33,12 @@
             // 
             // FlowPanelMain
             // 
-            FlowPanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            FlowPanelMain.AutoScroll = true;
+            FlowPanelMain.BackColor = Color.White;
+            FlowPanelMain.Dock = DockStyle.Fill;
             FlowPanelMain.Location = new Point(0, 0);
             FlowPanelMain.Name = "FlowPanelMain";
-            FlowPanelMain.Size = new Size(1418, 492);
+            FlowPanelMain.Size = new Size(1836, 492);
             FlowPanelMain.TabIndex = 0;
             // 
             // BookingControl
@@ -45,7 +47,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(FlowPanelMain);
             Name = "BookingControl";
-            Size = new Size(1418, 492);
+            Size = new Size(1836, 492);
             ResumeLayout(false);
         }
 

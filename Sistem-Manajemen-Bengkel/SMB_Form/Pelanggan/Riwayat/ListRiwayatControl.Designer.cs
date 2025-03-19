@@ -35,7 +35,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             panel2 = new Panel();
             label4 = new Label();
             lathifPanel2 = new LathifPanel();
-            LabelTotalBIaya = new Label();
+            LabelTotalBiaya = new Label();
             label16 = new Label();
             LabelSparepart = new Label();
             label14 = new Label();
@@ -82,7 +82,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             LathifPanel1.Controls.Add(panelProfile);
             LathifPanel1.Controls.Add(label3);
             LathifPanel1.ForeColor = Color.White;
-            LathifPanel1.Location = new Point(313, 24);
+            LathifPanel1.Location = new Point(71, 7);
             LathifPanel1.Margin = new Padding(3, 4, 3, 4);
             LathifPanel1.Name = "LathifPanel1";
             LathifPanel1.Size = new Size(1183, 573);
@@ -112,10 +112,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             // 
             lathifPanel2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             lathifPanel2.BackColor = Color.WhiteSmoke;
-            lathifPanel2.BorderColor = Color.WhiteSmoke;
+            lathifPanel2.BorderColor = Color.Gainsboro;
             lathifPanel2.BorderRadius = 10;
             lathifPanel2.BorderSize = 2;
-            lathifPanel2.Controls.Add(LabelTotalBIaya);
+            lathifPanel2.Controls.Add(LabelTotalBiaya);
             lathifPanel2.Controls.Add(label16);
             lathifPanel2.Controls.Add(LabelSparepart);
             lathifPanel2.Controls.Add(label14);
@@ -137,17 +137,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             lathifPanel2.Size = new Size(1114, 283);
             lathifPanel2.TabIndex = 22;
             // 
-            // LabelTotalBIaya
+            // LabelTotalBiaya
             // 
-            LabelTotalBIaya.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            LabelTotalBIaya.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelTotalBIaya.ForeColor = Color.DimGray;
-            LabelTotalBIaya.Location = new Point(883, 228);
-            LabelTotalBIaya.Name = "LabelTotalBIaya";
-            LabelTotalBIaya.Size = new Size(184, 36);
-            LabelTotalBIaya.TabIndex = 44;
-            LabelTotalBIaya.Text = "Rp 2.000.000,00";
-            LabelTotalBIaya.TextAlign = ContentAlignment.MiddleLeft;
+            LabelTotalBiaya.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            LabelTotalBiaya.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelTotalBiaya.ForeColor = Color.DimGray;
+            LabelTotalBiaya.Location = new Point(883, 228);
+            LabelTotalBiaya.Name = "LabelTotalBiaya";
+            LabelTotalBiaya.Size = new Size(184, 36);
+            LabelTotalBiaya.TabIndex = 44;
+            LabelTotalBiaya.Text = "Rp 2.000.000,00";
+            LabelTotalBiaya.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label16
             // 
@@ -163,12 +163,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             // LabelSparepart
             // 
             LabelSparepart.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelSparepart.ForeColor = Color.DimGray;
-            LabelSparepart.Location = new Point(200, 201);
+            LabelSparepart.ForeColor = Color.Orange;
+            LabelSparepart.Location = new Point(208, 201);
             LabelSparepart.Name = "LabelSparepart";
             LabelSparepart.Size = new Size(476, 65);
             LabelSparepart.TabIndex = 42;
-            LabelSparepart.Text = ": Oli, Busi, HH";
+            LabelSparepart.Text = "Oli, Busi, HH";
             // 
             // label14
             // 
@@ -177,9 +177,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             label14.ForeColor = Color.Black;
             label14.Location = new Point(58, 201);
             label14.Name = "label14";
-            label14.Size = new Size(94, 25);
+            label14.Size = new Size(158, 25);
             label14.TabIndex = 41;
-            label14.Text = "Sparepart";
+            label14.Text = "Sparepart            :";
             // 
             // LabelPetugas
             // 
@@ -207,12 +207,12 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             // 
             LabelCatatan.AutoSize = true;
             LabelCatatan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelCatatan.ForeColor = Color.DimGray;
-            LabelCatatan.Location = new Point(199, 166);
+            LabelCatatan.ForeColor = Color.Orange;
+            LabelCatatan.Location = new Point(208, 166);
             LabelCatatan.Name = "LabelCatatan";
-            LabelCatatan.Size = new Size(292, 25);
+            LabelCatatan.Size = new Size(283, 25);
             LabelCatatan.TabIndex = 37;
-            LabelCatatan.Text = ": Mesin sering bocor olinya ehehe";
+            LabelCatatan.Text = "Mesin sering bocor olinya ehehe";
             // 
             // label12
             // 
@@ -221,9 +221,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             label12.ForeColor = Color.Black;
             label12.Location = new Point(57, 166);
             label12.Name = "label12";
-            label12.Size = new Size(80, 25);
+            label12.Size = new Size(159, 25);
             label12.TabIndex = 35;
-            label12.Text = "Catatan ";
+            label12.Text = "Catatan                :";
             // 
             // label6
             // 
@@ -397,7 +397,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             DoubleBuffered = true;
             Margin = new Padding(0);
             Name = "ListRiwayatControl";
-            Size = new Size(1815, 627);
+            Size = new Size(1330, 592);
             LathifPanel1.ResumeLayout(false);
             LathifPanel1.PerformLayout();
             lathifPanel2.ResumeLayout(false);
@@ -434,7 +434,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
         private Label label14;
         private Label LabelPetugas;
         private Label label11;
-        private Label LabelTotalBIaya;
+        private Label LabelTotalBiaya;
         private Label label16;
     }
 }

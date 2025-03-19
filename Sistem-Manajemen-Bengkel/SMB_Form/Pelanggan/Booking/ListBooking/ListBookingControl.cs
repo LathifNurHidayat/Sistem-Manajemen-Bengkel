@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 
@@ -18,7 +17,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking
     {
         private readonly BookingDal _bookingDal;
         private int _id_booking;
-        private string _no_ktp_pelanggan = SessionLogin._sessionLoginPelanggan.no_ktp_pelanggan;
+        private string _no_ktp_pelanggan = SessionLoginHelper._sessionLoginPelanggan.no_ktp_pelanggan;
 
         public ListBookingControl(int id_booking)
         {
@@ -45,7 +44,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking
                                   booking.status == 3 ? ImageDirectoryHelper._statusSelesai :
                                                         ImageDirectoryHelper._statusDibatalkan;
 
-            LabelTanggal.Text = $": {booking.tanggal.ToString("dd MMMM yyyy")}";
+            LabelTanggal.Text = $": {booking.tanggal.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("id-ID"))}";
             LabelAntrean.Text = booking.antrean.ToString();
 
             if (booking.status != 1)

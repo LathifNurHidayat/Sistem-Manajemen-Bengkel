@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accessibility;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan;
+using Sistem_Manajemen_Bengkel.SMB_Helper;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
 {
@@ -25,7 +25,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
             _riwayatDal = new RiwayatDal();
             _flowPanelMain = FlowPanelMain;
             InitializeFlowPanel();
-            LoadData();
         }
 
         private void InitializeFlowPanel()
@@ -39,17 +38,17 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Riwayat
         {
             if (_flowPanelMain == null) return;
 
-            _flowPanelMain.Controls.Clear(); 
+            _flowPanelMain.Controls.Clear();  
 
-            var riwayatList = _riwayatDal.ListDataWhereNoKtp(SessionLogin._sessionLoginPelanggan.no_ktp_pelanggan);
+            var riwayatList = _riwayatDal.ListDataWhereNoKtp(SessionLoginHelper._sessionLoginPelanggan.no_ktp_pelanggan);
+
 
             if (riwayatList?.Any() ?? false)
             {
                 foreach (var riwayat in riwayatList)
                 {
-                    var listriwayat = new ListRiwayatControl(riwayat.id_kendaraan)
+                    var listriwayat = new ListRiwayatControl(riwayat.id_riwayat)
                     {
-                        Dock = DockStyle.Top,
                         Width = _flowPanelMain.Width,
                     };
                     _flowPanelMain.Controls.Add(listriwayat);

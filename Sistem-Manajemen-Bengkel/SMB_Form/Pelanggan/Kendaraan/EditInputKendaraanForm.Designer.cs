@@ -69,7 +69,7 @@
             panel1.Controls.Add(ButtonBatal);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(491, 709);
+            panel1.Size = new Size(623, 816);
             panel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -95,6 +95,7 @@
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.WhiteSmoke;
             panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(ComboTransmisi);
@@ -109,28 +110,30 @@
             panel4.Controls.Add(label6);
             panel4.Location = new Point(25, 113);
             panel4.Name = "panel4";
-            panel4.Size = new Size(444, 514);
+            panel4.Size = new Size(576, 621);
             panel4.TabIndex = 2;
             // 
             // ComboTransmisi
             // 
+            ComboTransmisi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             ComboTransmisi.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboTransmisi.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             ComboTransmisi.FormattingEnabled = true;
             ComboTransmisi.IntegralHeight = false;
-            ComboTransmisi.Location = new Point(29, 241);
+            ComboTransmisi.Location = new Point(29, 302);
             ComboTransmisi.Name = "ComboTransmisi";
-            ComboTransmisi.Size = new Size(383, 33);
+            ComboTransmisi.Size = new Size(515, 33);
             ComboTransmisi.TabIndex = 66;
             // 
             // panel10
             // 
+            panel10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel10.BackColor = Color.White;
             panel10.BorderStyle = BorderStyle.FixedSingle;
             panel10.Controls.Add(TextTahun);
-            panel10.Location = new Point(29, 432);
+            panel10.Location = new Point(29, 535);
             panel10.Name = "panel10";
-            panel10.Size = new Size(383, 44);
+            panel10.Size = new Size(515, 44);
             panel10.TabIndex = 5;
             // 
             // TextTahun
@@ -146,12 +149,13 @@
             // 
             // panel11
             // 
+            panel11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel11.BackColor = Color.White;
             panel11.BorderStyle = BorderStyle.FixedSingle;
             panel11.Controls.Add(TextKapasitasMesin);
-            panel11.Location = new Point(29, 339);
+            panel11.Location = new Point(29, 413);
             panel11.Name = "panel11";
-            panel11.Size = new Size(383, 44);
+            panel11.Size = new Size(515, 44);
             panel11.TabIndex = 4;
             // 
             // TextKapasitasMesin
@@ -170,7 +174,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(29, 404);
+            label3.Location = new Point(29, 506);
             label3.Name = "label3";
             label3.Size = new Size(61, 25);
             label3.TabIndex = 65;
@@ -178,12 +182,13 @@
             // 
             // panel8
             // 
+            panel8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel8.BackColor = Color.White;
             panel8.BorderStyle = BorderStyle.FixedSingle;
             panel8.Controls.Add(TextMerek);
-            panel8.Location = new Point(29, 148);
+            panel8.Location = new Point(29, 180);
             panel8.Name = "panel8";
-            panel8.Size = new Size(383, 44);
+            panel8.Size = new Size(515, 44);
             panel8.TabIndex = 2;
             // 
             // TextMerek
@@ -202,7 +207,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(29, 311);
+            label8.Location = new Point(29, 387);
             label8.Name = "label8";
             label8.Size = new Size(178, 25);
             label8.TabIndex = 64;
@@ -213,7 +218,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(29, 213);
+            label4.Location = new Point(29, 268);
             label4.Name = "label4";
             label4.Size = new Size(90, 25);
             label4.TabIndex = 61;
@@ -224,7 +229,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(29, 120);
+            label5.Location = new Point(29, 149);
             label5.Name = "label5";
             label5.Size = new Size(65, 25);
             label5.TabIndex = 60;
@@ -232,12 +237,13 @@
             // 
             // panel9
             // 
+            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel9.BackColor = Color.White;
             panel9.BorderStyle = BorderStyle.FixedSingle;
             panel9.Controls.Add(TextNoPolisi);
             panel9.Location = new Point(29, 58);
             panel9.Name = "panel9";
-            panel9.Size = new Size(383, 44);
+            panel9.Size = new Size(515, 44);
             panel9.TabIndex = 1;
             // 
             // TextNoPolisi
@@ -264,6 +270,7 @@
             // 
             // ButtonSimpan
             // 
+            ButtonSimpan.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonSimpan.BackColor = Color.ForestGreen;
             ButtonSimpan.BackgroundColor = Color.ForestGreen;
             ButtonSimpan.BorderColor = Color.DarkGray;
@@ -273,7 +280,7 @@
             ButtonSimpan.FlatStyle = FlatStyle.Flat;
             ButtonSimpan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonSimpan.ForeColor = Color.White;
-            ButtonSimpan.Location = new Point(334, 645);
+            ButtonSimpan.Location = new Point(466, 752);
             ButtonSimpan.Name = "ButtonSimpan";
             ButtonSimpan.Size = new Size(135, 45);
             ButtonSimpan.TabIndex = 3;
@@ -283,6 +290,7 @@
             // 
             // ButtonBatal
             // 
+            ButtonBatal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonBatal.BackColor = Color.Red;
             ButtonBatal.BackgroundColor = Color.Red;
             ButtonBatal.BorderColor = Color.DarkGray;
@@ -292,7 +300,7 @@
             ButtonBatal.FlatStyle = FlatStyle.Flat;
             ButtonBatal.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBatal.ForeColor = Color.White;
-            ButtonBatal.Location = new Point(181, 645);
+            ButtonBatal.Location = new Point(313, 752);
             ButtonBatal.Name = "ButtonBatal";
             ButtonBatal.Size = new Size(135, 45);
             ButtonBatal.TabIndex = 4;
@@ -305,7 +313,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(515, 733);
+            ClientSize = new Size(647, 840);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);

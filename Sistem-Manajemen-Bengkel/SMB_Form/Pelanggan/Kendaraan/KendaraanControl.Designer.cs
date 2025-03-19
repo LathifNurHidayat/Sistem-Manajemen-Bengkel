@@ -37,7 +37,7 @@
             FlowPanelMain.BackColor = Color.White;
             FlowPanelMain.Location = new Point(0, 0);
             FlowPanelMain.Name = "FlowPanelMain";
-            FlowPanelMain.Size = new Size(1206, 613);
+            FlowPanelMain.Size = new Size(1856, 613);
             FlowPanelMain.TabIndex = 0;
             // 
             // KendaraanControl
@@ -47,7 +47,7 @@
             BackColor = Color.Gainsboro;
             Controls.Add(FlowPanelMain);
             Name = "KendaraanControl";
-            Size = new Size(1206, 613);
+            Size = new Size(1856, 613);
             ResumeLayout(false);
         }
 

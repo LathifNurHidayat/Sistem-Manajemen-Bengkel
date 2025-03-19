@@ -25,6 +25,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking
         private void ButtonDataBooking_Click(object? sender, EventArgs e)
         {
             MainMenuFirst.ShowUserControlInPanel(new BookingControl());
+            BookingControl.LoadData();
         }
 
         private void ButtonBookingServis_Click(object? sender, EventArgs e)

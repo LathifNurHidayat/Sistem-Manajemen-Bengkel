@@ -32,6 +32,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListKendaraanControl));
             LathifPanel1 = new LathifPanel();
+            LabelTerakhirServis = new Label();
+            label7 = new Label();
             LabelTransmisi = new Label();
             label6 = new Label();
             ButtonEdit = new LathifButton();
@@ -55,6 +57,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             LathifPanel1.BorderColor = Color.Gainsboro;
             LathifPanel1.BorderRadius = 10;
             LathifPanel1.BorderSize = 2;
+            LathifPanel1.Controls.Add(LabelTerakhirServis);
+            LathifPanel1.Controls.Add(label7);
             LathifPanel1.Controls.Add(LabelTransmisi);
             LathifPanel1.Controls.Add(label6);
             LathifPanel1.Controls.Add(ButtonEdit);
@@ -69,18 +73,40 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             LathifPanel1.Controls.Add(panelProfile);
             LathifPanel1.Controls.Add(label3);
             LathifPanel1.ForeColor = Color.White;
-            LathifPanel1.Location = new Point(321, 25);
+            LathifPanel1.Location = new Point(321, 9);
             LathifPanel1.Margin = new Padding(3, 4, 3, 4);
             LathifPanel1.Name = "LathifPanel1";
-            LathifPanel1.Size = new Size(1183, 255);
+            LathifPanel1.Size = new Size(1183, 278);
             LathifPanel1.TabIndex = 0;
+            // 
+            // LabelTerakhirServis
+            // 
+            LabelTerakhirServis.AutoSize = true;
+            LabelTerakhirServis.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelTerakhirServis.ForeColor = Color.DarkGoldenrod;
+            LabelTerakhirServis.Location = new Point(198, 232);
+            LabelTerakhirServis.Name = "LabelTerakhirServis";
+            LabelTerakhirServis.Size = new Size(216, 25);
+            LabelTerakhirServis.TabIndex = 25;
+            LabelTerakhirServis.Text = "Minggu, 2 Februari 2024";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(28, 231);
+            label7.Name = "label7";
+            label7.Size = new Size(167, 25);
+            label7.TabIndex = 24;
+            label7.Text = "Terakhir Diservice :";
             // 
             // LabelTransmisi
             // 
             LabelTransmisi.AutoSize = true;
             LabelTransmisi.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             LabelTransmisi.ForeColor = Color.DimGray;
-            LabelTransmisi.Location = new Point(430, 204);
+            LabelTransmisi.Location = new Point(419, 178);
             LabelTransmisi.Name = "LabelTransmisi";
             LabelTransmisi.Size = new Size(98, 25);
             LabelTransmisi.TabIndex = 23;
@@ -91,7 +117,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(260, 204);
+            label6.Location = new Point(249, 178);
             label6.Name = "label6";
             label6.Size = new Size(90, 25);
             label6.TabIndex = 22;
@@ -109,7 +135,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             ButtonEdit.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonEdit.ForeColor = Color.White;
             ButtonEdit.Image = (Image)resources.GetObject("ButtonEdit.Image");
-            ButtonEdit.Location = new Point(1037, 172);
+            ButtonEdit.Location = new Point(1037, 198);
             ButtonEdit.Name = "ButtonEdit";
             ButtonEdit.Size = new Size(104, 45);
             ButtonEdit.TabIndex = 20;
@@ -130,7 +156,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             ButtonHapus.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonHapus.ForeColor = Color.White;
             ButtonHapus.Image = (Image)resources.GetObject("ButtonHapus.Image");
-            ButtonHapus.Location = new Point(890, 172);
+            ButtonHapus.Location = new Point(890, 198);
             ButtonHapus.Name = "ButtonHapus";
             ButtonHapus.Size = new Size(122, 45);
             ButtonHapus.TabIndex = 21;
@@ -144,7 +170,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             LabelTahun.AutoSize = true;
             LabelTahun.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             LabelTahun.ForeColor = Color.DimGray;
-            LabelTahun.Location = new Point(430, 164);
+            LabelTahun.Location = new Point(419, 141);
             LabelTahun.Name = "LabelTahun";
             LabelTahun.Size = new Size(61, 25);
             LabelTahun.TabIndex = 19;
@@ -155,7 +181,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             LabelKapasitasMesin.AutoSize = true;
             LabelKapasitasMesin.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             LabelKapasitasMesin.ForeColor = Color.DimGray;
-            LabelKapasitasMesin.Location = new Point(430, 119);
+            LabelKapasitasMesin.Location = new Point(419, 104);
             LabelKapasitasMesin.Name = "LabelKapasitasMesin";
             LabelKapasitasMesin.Size = new Size(69, 25);
             LabelKapasitasMesin.TabIndex = 18;
@@ -166,7 +192,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             LabelMerek.AutoSize = true;
             LabelMerek.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             LabelMerek.ForeColor = Color.DimGray;
-            LabelMerek.Location = new Point(430, 75);
+            LabelMerek.Location = new Point(419, 67);
             LabelMerek.Name = "LabelMerek";
             LabelMerek.Size = new Size(103, 25);
             LabelMerek.TabIndex = 17;
@@ -177,7 +203,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             LabelNoPolisi.AutoSize = true;
             LabelNoPolisi.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             LabelNoPolisi.ForeColor = Color.DimGray;
-            LabelNoPolisi.Location = new Point(430, 30);
+            LabelNoPolisi.Location = new Point(419, 30);
             LabelNoPolisi.Name = "LabelNoPolisi";
             LabelNoPolisi.Size = new Size(110, 25);
             LabelNoPolisi.TabIndex = 16;
@@ -188,7 +214,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(260, 164);
+            label4.Location = new Point(249, 141);
             label4.Name = "label4";
             label4.Size = new Size(61, 25);
             label4.TabIndex = 15;
@@ -199,7 +225,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(260, 119);
+            label5.Location = new Point(249, 104);
             label5.Name = "label5";
             label5.Size = new Size(145, 25);
             label5.TabIndex = 14;
@@ -210,7 +236,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(260, 75);
+            label1.Location = new Point(249, 67);
             label1.Name = "label1";
             label1.Size = new Size(65, 25);
             label1.TabIndex = 13;
@@ -222,7 +248,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             panelProfile.BackgroundImage = Properties.Resources.Motor;
             panelProfile.BackgroundImageLayout = ImageLayout.Zoom;
             panelProfile.BorderStyle = BorderStyle.FixedSingle;
-            panelProfile.Location = new Point(39, 37);
+            panelProfile.Location = new Point(28, 30);
             panelProfile.Margin = new Padding(3, 4, 3, 4);
             panelProfile.Name = "panelProfile";
             panelProfile.Size = new Size(180, 180);
@@ -233,7 +259,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(260, 30);
+            label3.Location = new Point(249, 30);
             label3.Name = "label3";
             label3.Size = new Size(90, 25);
             label3.TabIndex = 3;
@@ -247,7 +273,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             Controls.Add(LathifPanel1);
             Margin = new Padding(0);
             Name = "ListKendaraanControl";
-            Size = new Size(1824, 308);
+            Size = new Size(1824, 297);
             LathifPanel1.ResumeLayout(false);
             LathifPanel1.PerformLayout();
             ResumeLayout(false);
@@ -269,5 +295,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
         private LathifButton ButtonHapus;
         private Label LabelTransmisi;
         private Label label6;
+        private Label LabelTerakhirServis;
+        private Label label7;
     }
 }

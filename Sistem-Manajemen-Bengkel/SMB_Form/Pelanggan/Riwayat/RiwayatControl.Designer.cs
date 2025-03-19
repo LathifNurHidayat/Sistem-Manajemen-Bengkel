@@ -36,7 +36,7 @@
             FlowPanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             FlowPanelMain.Location = new Point(0, 0);
             FlowPanelMain.Name = "FlowPanelMain";
-            FlowPanelMain.Size = new Size(1681, 549);
+            FlowPanelMain.Size = new Size(1856, 549);
             FlowPanelMain.TabIndex = 0;
             // 
             // RiwayatControl
@@ -45,7 +45,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(FlowPanelMain);
             Name = "RiwayatControl";
-            Size = new Size(1681, 549);
+            Size = new Size(1856, 549);
             ResumeLayout(false);
         }
 

@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm;
+using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Syncfusion.WinForms.DataGrid.Events;
@@ -22,6 +22,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
         private readonly KendaraanDal _kendaraanDal;
         private readonly BookingDal _bookingDal;
         private string _no_ktp;
+        private int _id_kendaraan;
 
         public FormBookingControl()
         {
@@ -32,11 +33,25 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
             PickerBookingTanggal.Culture = new System.Globalization.CultureInfo("id-ID");
             PickerBookingTanggal.MinDateTime = DateTime.Today;
 
-            _no_ktp = SessionLogin._sessionLoginPelanggan.no_ktp_pelanggan;
+            _no_ktp = SessionLoginHelper._sessionLoginPelanggan.no_ktp_pelanggan;
 
+           
             InitialDataKendaraan();
 
             RegisterControlEvent();
+        }
+
+        private void GetData(int id_kendaraan)
+        {
+            var data = _kendaraanDal.GetData(id_kendaraan);
+
+            if (data == null) return;
+
+            TextMerekBooking.Text = data.merek;
+            TextTransmisiBooking.Text = data.transmisi == 1 ? "Otomatis" : "Manual";
+            TextKapasitasMesinBooking.Text = $"{data.kapasitas_mesin} cc";
+            TextTahunBooking.Text = data.tahun.ToString();
+
         }
 
         private void InitialDataKendaraan()
@@ -45,7 +60,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
             {
                 Id = x.id_kendaraan,
                 NamaKendaraan = $"{x.merek} {x.kapasitas_mesin} cc"
-            }).ToList();
+            }).ToList(); 
 
             data.Insert(0, new { Id = 0, NamaKendaraan = "Pilih Kendaraan" });
 
@@ -111,6 +126,27 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
         private void RegisterControlEvent()
         {
             ButtonCekKetersediaan.Click += ButtonCekKetersediaan_Click;
+            ComboKendaraan.SelectedValueChanged += ComboKendaraan_SelectedValueChanged;
+            ButtonTambahKendaraan.Click += ButtonTambahKendaraan_Click;
+        }
+
+        private void ButtonTambahKendaraan_Click(object? sender, EventArgs e)
+        {
+            EditInputKendaraanForm editInputKendaraanForm = new EditInputKendaraanForm(0);
+
+            if (editInputKendaraanForm.ShowDialog() == DialogResult.OK)
+            {
+                InitialDataKendaraan();
+            }
+        }
+
+        private void ComboKendaraan_SelectedValueChanged(object? sender, EventArgs e)
+        {
+            int id = (int)ComboKendaraan.SelectedValue;
+
+            if (id == 0) return;
+
+            GetData(id);
         }
 
         private void ButtonCekKetersediaan_Click(object? sender, EventArgs e)

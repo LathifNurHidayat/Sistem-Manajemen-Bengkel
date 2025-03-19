@@ -47,10 +47,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             btnTambah.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             btnTambah.ForeColor = Color.White;
             btnTambah.ImageAlign = ContentAlignment.MiddleRight;
-            btnTambah.Location = new Point(223, 17);
+            btnTambah.Location = new Point(223, 11);
             btnTambah.Margin = new Padding(3, 4, 3, 4);
             btnTambah.Name = "btnTambah";
-            btnTambah.Size = new Size(1183, 100);
+            btnTambah.Size = new Size(1183, 70);
             btnTambah.TabIndex = 1;
             btnTambah.Text = "   Tambah Kendaraan";
             btnTambah.TextColor = Color.White;
@@ -65,7 +65,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Kendaraan
             Controls.Add(btnTambah);
             Margin = new Padding(0);
             Name = "TambahKendaraanControl";
-            Size = new Size(1634, 140);
+            Size = new Size(1634, 95);
             ResumeLayout(false);
         }
 
