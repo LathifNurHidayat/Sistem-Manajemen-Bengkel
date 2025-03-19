@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using Org.BouncyCastle.Tls;
 using Sistem_Manajemen_Bengkel.Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
@@ -48,9 +47,26 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
             ButtonMasuk.Click += ButtonMasuk_Click;
             TextPassword.KeyDown += TextPassword_KeyDown;
             ButtonShowHidePassword.Click += ButtonShowHidePassword_Click;
+            TextEmail.TextChanged += TextEmail_TextChanged;
 
             ButtonBack.Click += ButtonBack_Click;
             this.FormClosing += LoginForm_FormClosing;
+        }
+
+        private async void TextEmail_TextChanged(object? sender, EventArgs e)
+        {
+            await Task.Delay(800);
+
+            if (!Regex.IsMatch(TextEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                LabelEmail.Text = "⚠ Masukan email yang valid";
+                LabelEmail.Visible = true;
+                return;
+            }
+            else
+            {
+                LabelEmail.Visible = false;
+            }
         }
 
         private void LoginForm_FormClosing(object? sender, FormClosingEventArgs e)
@@ -122,7 +138,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
 
             if(role == "Pelanggan")
             {
-                SessionLogin.GetSessionLoginPelanggan(dataPelanggan.no_ktp_pelanggan, username);
+                SessionLoginHelper.GetSessionLoginPelanggan(dataPelanggan.no_ktp_pelanggan, username);
 
                 _isExitApplication = false;
                 MainMenuFirst mainMenu = new MainMenuFirst();
@@ -131,7 +147,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm
             }
             if (role == "Super Admin" || role == "Petugas")
             {
-                SessionLogin.GetSessionLoginPegawai(dataPetugas.no_ktp_pegawai, username, role);
+                SessionLoginHelper.GetSessionLoginPegawai(dataPetugas.no_ktp_pegawai, username, role);
 
                 _isExitApplication = false;
                 profile = dataPetugas?.image_data ?? null;

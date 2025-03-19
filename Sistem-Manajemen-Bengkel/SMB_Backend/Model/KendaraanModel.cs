@@ -18,8 +18,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public int transmisi { get; set; } //1 = Otomatis, 2=Manual
         public int kapasitas_mesin { get; set; }
         public int tahun { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
-        public DateTime deleted_at { get; set; }
+        public DateTime? terakhir_servis { get; set; }   
     }
 }

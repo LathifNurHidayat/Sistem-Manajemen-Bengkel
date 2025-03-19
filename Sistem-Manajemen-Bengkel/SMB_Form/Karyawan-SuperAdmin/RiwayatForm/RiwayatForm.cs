@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dapper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.RiwayatForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
@@ -30,7 +29,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdminForm
             CustomDataGrid(GridListData);
             RegisterControlEvent();
 
-            if (SessionLogin._sessionLoginPegawai.role == "Petugas")
+            if (SessionLoginHelper._sessionLoginPegawai.role == "Petugas")
             {
                 ButtonEksport.Visible = false;
             }

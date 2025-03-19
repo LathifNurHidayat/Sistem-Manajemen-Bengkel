@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Model;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Syncfusion.Windows.Forms.Tools;
@@ -175,7 +174,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             {
                 id_jasa_servis = _bookingData.id_jasa_servis ?? 0,
                 no_ktp_pelanggan = _bookingData.no_ktp_pelanggan,
-                no_ktp_pegawai = SessionLogin._sessionLoginPegawai.no_ktp_pegawai,
+                no_ktp_pegawai = SessionLoginHelper._sessionLoginPegawai.no_ktp_pegawai,
                 no_ktp_mekanik = _bookingData.no_ktp_mekanik ?? "",
                 id_kendaraan = _bookingData.id_kendaraan ?? 0,
                 id_penggunaan_sparepart = _bookingData.id_booking,

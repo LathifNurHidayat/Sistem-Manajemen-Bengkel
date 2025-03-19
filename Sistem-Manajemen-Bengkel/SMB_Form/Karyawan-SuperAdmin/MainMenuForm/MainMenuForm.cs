@@ -15,7 +15,6 @@ using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm;
 using Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.SparepartForm;
 using Sistem_Manajemen_Bengkel.SMB_Helper;
 using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
-using Sistem_Manajemen_Bengkel.SMB_Backend.Dal.SessionLogin;
 using Sistem_Manajemen_Bengkel.SMB_Form.LoginRegisterForm;
 using DocumentFormat.OpenXml.Drawing.Diagrams;
 using Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm;
@@ -51,7 +50,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
 
         private void PegawaiRole()
         {
-            string role = SessionLogin._sessionLoginPegawai.role;
+            string role = SessionLoginHelper._sessionLoginPegawai.role;
 
             if (role == "Petugas")
             {
@@ -121,7 +120,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
 
         private void ButtonEditProfiles_Click(object? sender, EventArgs e)
         {
-            string no_ktp = SessionLogin._sessionLoginPegawai.no_ktp_pegawai;
+            string no_ktp = SessionLoginHelper._sessionLoginPegawai.no_ktp_pegawai;
 
             EditProfilForm editProfilForm = new EditProfilForm(no_ktp);
             if (editProfilForm.ShowDialog() == DialogResult.OK)
@@ -159,7 +158,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
         {
           if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin logout?"))
             {
-                SessionLogin.ClearSessionLoginPegawai();
+                SessionLoginHelper.ClearSessionLoginPegawai();
 
                 _isExitApplication = false;
                 MainMenuFirst main = new MainMenuFirst();
@@ -230,7 +229,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.MainMenuForm
             StyleButton(sender as Button);
             if (sender is Button button) button.Tag = "Click";
 
-            if (SessionLogin._sessionLoginPegawai.role == "Petugas")
+            if (SessionLoginHelper._sessionLoginPegawai.role == "Petugas")
                 ShowFormHelper.ShowFormInPanel(new DashboardPetugasForm());
             else
                 ShowFormHelper.ShowFormInPanel(new SMB_Form.Karyawan_SuperAdmin.DashboardForm.DashboardSuperAdminForm());

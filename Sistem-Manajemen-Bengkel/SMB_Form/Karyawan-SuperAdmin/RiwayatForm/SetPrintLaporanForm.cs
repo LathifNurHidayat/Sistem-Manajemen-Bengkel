@@ -35,7 +35,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.RiwayatForm
             DateTime tanggal_1 = PickerRentan_1.Value ?? DateTime.Today;
             DateTime tanggal_2 = PickerRentan_2.Value ?? DateTime.Today;
 
-            Invoice_Laporan.GenerateLaporan(tanggal_1, tanggal_2);
+            InvoiceLaporanHelper.GenerateLaporan(tanggal_1, tanggal_2);
         }
     }
 }

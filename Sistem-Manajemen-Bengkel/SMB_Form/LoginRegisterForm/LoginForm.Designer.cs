@@ -46,6 +46,7 @@
             ButtonMasuk = new Button();
             panel2 = new Panel();
             ButtonBack = new SMB_CustomTolbox.LathifButton();
+            LabelEmail = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(LabelEmail);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label5);
@@ -265,6 +267,20 @@
             ButtonBack.TextImageRelation = TextImageRelation.ImageBeforeText;
             ButtonBack.UseVisualStyleBackColor = false;
             // 
+            // LabelEmail
+            // 
+            LabelEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            LabelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelEmail.ForeColor = Color.Red;
+            LabelEmail.Location = new Point(214, 192);
+            LabelEmail.Name = "LabelEmail";
+            LabelEmail.Size = new Size(205, 23);
+            LabelEmail.TabIndex = 27;
+            LabelEmail.Tag = "Email";
+            LabelEmail.Text = "⚠ Masukan email yang valid";
+            LabelEmail.TextAlign = ContentAlignment.MiddleRight;
+            LabelEmail.Visible = false;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -307,5 +323,6 @@
         private Button ButtonShowHidePassword;
         private SMB_CustomTolbox.LathifButton ButtonBack;
         private PictureBox pictureBox1;
+        private Label LabelEmail;
     }
 }

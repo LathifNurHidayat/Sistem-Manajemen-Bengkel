@@ -103,6 +103,28 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             PanelBackground.Resize += PanelBackground_Resize;
             PanelData.Resize += (s, e) => PanelData.Invalidate();
 
+            ButtonJamKerja.Click += ButtonJamKerja_Click;
+            ButtonJadwalLibur.Click += ButtonJadwalLibur_Click;
+            ButtonProfilBengkel.Click += ButtonProfilBengkel_Click;
+
+        }
+
+        private void ButtonProfilBengkel_Click(object? sender, EventArgs e)
+        {
+            ProfilBengkelForm profilBengkelForm = new ProfilBengkelForm();
+            profilBengkelForm.ShowDialog();
+        }
+
+        private void ButtonJadwalLibur_Click(object? sender, EventArgs e)
+        {
+            JadwalLiburForm jadwalLiburForm = new JadwalLiburForm();
+            jadwalLiburForm.ShowDialog();
+        }
+
+        private void ButtonJamKerja_Click(object? sender, EventArgs e)
+        {
+            JamKerjaForm jamKerjaForm = new JamKerjaForm();
+            jamKerjaForm.ShowDialog();
         }
 
         private void PanelBackground_Resize(object? sender, EventArgs e)

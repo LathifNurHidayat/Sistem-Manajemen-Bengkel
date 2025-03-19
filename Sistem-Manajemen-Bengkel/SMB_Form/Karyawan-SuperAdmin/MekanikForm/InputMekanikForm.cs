@@ -143,6 +143,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             TextNamaLengkap.TextChanged += TextInput_TextChanged;
             TextSpesialis.TextChanged += TextInput_TextChanged; 
             TextAlamat.TextChanged += TextInput_TextChanged;
+
+            TextNoKTP.KeyPress += TextBox_KeyPress;
+            TextNoHP.KeyPress -= TextBox_KeyPress;
+            
+        }
+
+        private void TextBox_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
 
         private async void TextInput_TextChanged(object? sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿
+
 -- function cek buka tutup bengkel , cek jam booking
 CREATE FUNCTION fnc_CekOperasionalBengkel(@tanggal DATE, @waktu TIME)
 RETURNS VARCHAR(255) 
@@ -46,9 +47,12 @@ BEGIN
                     WHEN 'Saturday' THEN 'Sabtu'
                 END)
     BEGIN
-        DECLARE @jam_tutup TIME = (SELECT jam_tutup FROM tb_jam_kerja WHERE hari = @hari);
 
-        IF @waktu_booking >= @jam_tutup
+        DECLARE @jam_tutup TIME;
+
+        SET @jam_tutup = DATEADD(MINUTE, -30, (SELECT jam_tutup FROM tb_jam_kerja WHERE hari = @hari));
+
+        IF @waktu_booking >=  @jam_tutup 
         BEGIN 
             SET @result = 'Mohon Maaf, bengkel sudah tutup pada jam ' + CONVERT(VARCHAR(8), @jam_tutup, 108) + '. Silahkan booking di hari lain.';
             RETURN @result;
@@ -97,3 +101,7 @@ BEGIN
     RETURN;
 END;
 GO
+
+
+
+

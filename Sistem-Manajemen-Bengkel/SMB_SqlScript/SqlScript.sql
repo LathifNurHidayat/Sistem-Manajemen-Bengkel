@@ -169,7 +169,7 @@ CREATE TABLE tb_log_sparepart (
     nama_sparepart VARCHAR(50),
     aksi VARCHAR(50),
     stok_awal INT,
-    stok_akhir INT,
+    stok_akhir INT,/
     tanggal DATETIME,
 
 );
@@ -177,7 +177,7 @@ CREATE TABLE tb_log_sparepart (
 
 CREATE TABLE tb_jam_kerja (
     id_jam_kerja INT IDENTITY(1,1) PRIMARY KEY,
-    hari VARCHAR(20),
+    hari VARCHAR(20), 
     jam_buka TIME,
     jam_tutup TIME
 );

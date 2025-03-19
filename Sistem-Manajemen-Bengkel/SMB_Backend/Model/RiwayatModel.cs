@@ -19,7 +19,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Model
         public string jenis_servis { get; set; }
         public string nama_pegawai { get; set; }
         public string nama_mekanik { get; set; }
-        public string nama_sparepart { get; set; }
+        public string? nama_sparepart { get; set; }
 
         public string? nama_pelanggan { get; set; }
         public string? no_polisi { get; set; }
