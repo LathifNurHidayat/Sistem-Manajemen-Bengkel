@@ -76,35 +76,39 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public RiwayatModel? GetData(int id_riwayat)
         {
             const string sql = @"SELECT 
-                        bb.jenis_servis,
-                        COALESCE(cc.nama_pelanggan, aa.nama_pelanggan) AS nama_pelanggan,
-                        COALESCE(cc.no_ktp_pelanggan, aa.no_ktp_pelanggan) AS no_ktp_pelanggan,  
-                        COALESCE(ff.no_polisi, aa.no_polisi) AS no_polisi,       
-                        ISNULL(dd.nama_pegawai, '') AS nama_pegawai, 
-                        ISNULL(ee.nama_mekanik, '') AS nama_mekanik, 
-                        CASE 
-                            WHEN (aa.merek IS NULL OR aa.merek = '') AND (aa.kapasitas_mesin IS NULL OR aa.kapasitas_mesin = '')
-                            THEN CONCAT(ff.merek, ' ', ff.kapasitas_mesin, 'cc') 
-                            ELSE CONCAT(aa.merek, ' ', aa.kapasitas_mesin, 'cc') 
-                        END AS nama_kendaraan,
-                        aa.tanggal, 
-                        aa.keluhan, 
-                        aa.catatan, 
-                        aa.total_biaya, 
-                        aa.status
-                    FROM tb_riwayat aa
-                    LEFT JOIN tb_jasa_servis bb 
-                        ON aa.id_jasa_servis = bb.id_jasa_servis
-                    LEFT JOIN tb_pelanggan cc
-                        ON aa.no_ktp_pelanggan = cc.no_ktp_pelanggan
-                    LEFT JOIN tb_pegawai dd
-                        ON aa.no_ktp_pegawai = dd.no_ktp_pegawai
-                    LEFT JOIN tb_mekanik ee 
-                        ON aa.no_ktp_mekanik = ee.no_ktp_mekanik
-                    LEFT JOIN tb_kendaraan ff
-                        ON aa.id_kendaraan = ff.id_kendaraan
-
-                    WHERE aa.id_riwayat = @id_riwayat";
+                                    COALESCE(ff.no_polisi, aa.no_polisi) AS no_polisi,       
+                                    ISNULL(dd.nama_pegawai, '') AS nama_pegawai, 
+                                    CONCAT(
+                                        COALESCE(NULLIF(aa.merek, ''), ff.merek), ' ', 
+                                        COALESCE(NULLIF(aa.kapasitas_mesin, ''), ff.kapasitas_mesin), 'cc'
+                                    ) AS merek,
+                                    aa.kapasitas_mesin,
+                                    aa.tanggal, 
+                                    aa.keluhan, 
+                                    COALESCE(NULLIF(aa.catatan, ''), 'Tidak ada') AS catatan, 
+                                    STRING_AGG(COALESCE(hh.nama_sparepart, ''), ', ') AS nama_sparepart,
+                                    aa.total_biaya, 
+                                    aa.status
+                                FROM tb_riwayat aa
+                                LEFT JOIN tb_pegawai dd ON aa.no_ktp_pegawai = dd.no_ktp_pegawai
+                                LEFT JOIN tb_kendaraan ff ON aa.id_kendaraan = ff.id_kendaraan
+                                LEFT JOIN tb_penggunaan_sparepart gg ON aa.id_penggunaan_sparepart = gg.id_penggunaan_sparepart
+                                LEFT JOIN tb_sparepart hh ON gg.id_sparepart = hh.id_sparepart
+                                WHERE aa.id_riwayat = @id_riwayat
+                                GROUP BY 
+                                    aa.id_riwayat, 
+                                    COALESCE(ff.no_polisi, aa.no_polisi),  
+                                    dd.nama_pegawai, 
+                                    aa.merek, 
+                                    aa.kapasitas_mesin, 
+                                    ff.merek, 
+                                    ff.kapasitas_mesin,
+                                    aa.tanggal, 
+                                    aa.keluhan, 
+                                    aa.catatan, 
+                                    aa.total_biaya, 
+                                    aa.status
+                                ";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
 
@@ -162,6 +166,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public IEnumerable<RiwayatModel> ListDataWhereNoKtp (string no_ktp_pelanggan)
         {
             const string sql = @"SELECT 
+                                    rw.id_riwayat,
                                     rw.tanggal,
                                     CONCAT(kd.no_polisi, ' - ', kd.merek) AS kendaraan,
                                     rw.keluhan,
@@ -179,7 +184,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 LEFT JOIN tb_sparepart sp ON sp.id_sparepart = ps.id_sparepart
                                 WHERE rw.no_ktp_pelanggan = @no_ktp_pelanggan
                                 GROUP BY 
-                                    rw.tanggal, kd.no_polisi, kd.merek, rw.keluhan, pg.nama_pegawai, 
+                                    rw.id_riwayat, rw.tanggal, kd.no_polisi, kd.merek, rw.keluhan, pg.nama_pegawai, 
                                     mk.nama_mekanik, rw.catatan, rw.total_biaya, rw.status
                                 ORDER BY 
                                     rw.tanggal DESC";

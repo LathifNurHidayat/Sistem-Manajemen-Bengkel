@@ -50,13 +50,24 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public KendaraanModel? GetData(int id_kendaraan)
         {
             const string sql = @"SELECT 
-                                    aa.id_kendaraan, aa.no_ktp_pelanggan, bb.nama_pelanggan, aa.no_polisi, 
-                                    aa.merek, aa.transmisi, aa.kapasitas_mesin, aa.tahun                                
-                                FROM 
-                                    tb_kendaraan aa
+                                    aa.id_kendaraan, 
+                                    aa.no_ktp_pelanggan, 
+                                    bb.nama_pelanggan, 
+                                    aa.no_polisi, 
+                                    aa.merek, 
+                                    aa.transmisi, 
+                                    aa.kapasitas_mesin, 
+                                    aa.tahun, 
+                                    MAX(cc.tanggal) AS terakhir_servis
+                                FROM tb_kendaraan aa
                                 LEFT JOIN tb_pelanggan bb ON aa.no_ktp_pelanggan = bb.no_ktp_pelanggan
+                                LEFT JOIN tb_riwayat cc ON aa.id_kendaraan = cc.id_kendaraan     
                                 WHERE 
-                                    aa.id_kendaraan = @id_kendaraan AND aa.deleted_at IS NULL";
+                                    aa.id_kendaraan = @id_kendaraan 
+                                    AND aa.deleted_at IS NULL
+                                GROUP BY 
+                                    aa.id_kendaraan, aa.no_ktp_pelanggan, bb.nama_pelanggan, 
+                                    aa.no_polisi, aa.merek, aa.transmisi, aa.kapasitas_mesin, aa.tahun";
 
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.QueryFirstOrDefault<KendaraanModel>(sql, new { id_kendaraan});
@@ -147,6 +158,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             using var Conn = new SqlConnection(ConnStringHelper.GetConn());
             return Conn.Query<KendaraanModel>(sql, new {no_ktp_pelanggan});
         }
+
+        
 
     }
 }
