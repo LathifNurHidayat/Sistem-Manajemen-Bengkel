@@ -42,6 +42,7 @@
             GridListPeringkatServis = new DataGridView();
             ButtonProfilBengkel = new SMB_CustomTolbox.LathifButton();
             PanelBackground = new Panel();
+            ButtonBackupRestore = new SMB_CustomTolbox.LathifButton();
             PanelService = new Panel();
             LabelTotalService = new Label();
             label6 = new Label();
@@ -58,7 +59,6 @@
             label1 = new Label();
             LabelTotalPelanggan = new Label();
             pictureBox3 = new PictureBox();
-            lathifButton1 = new SMB_CustomTolbox.LathifButton();
             PanelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt2).BeginInit();
             gradientPanelExt2.SuspendLayout();
@@ -271,7 +271,7 @@
             // 
             PanelBackground.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PanelBackground.BackColor = Color.White;
-            PanelBackground.Controls.Add(lathifButton1);
+            PanelBackground.Controls.Add(ButtonBackupRestore);
             PanelBackground.Controls.Add(PanelService);
             PanelBackground.Controls.Add(label7);
             PanelBackground.Controls.Add(PanelAntrean);
@@ -281,10 +281,30 @@
             PanelBackground.Size = new Size(1056, 351);
             PanelBackground.TabIndex = 13;
             // 
+            // ButtonBackupRestore
+            // 
+            ButtonBackupRestore.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonBackupRestore.BackColor = Color.SeaGreen;
+            ButtonBackupRestore.BackgroundColor = Color.SeaGreen;
+            ButtonBackupRestore.BorderColor = Color.DarkGray;
+            ButtonBackupRestore.BorderRadius = 5;
+            ButtonBackupRestore.BorderSize = 0;
+            ButtonBackupRestore.FlatAppearance.BorderSize = 0;
+            ButtonBackupRestore.FlatStyle = FlatStyle.Flat;
+            ButtonBackupRestore.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonBackupRestore.ForeColor = Color.White;
+            ButtonBackupRestore.Location = new Point(782, 19);
+            ButtonBackupRestore.Name = "ButtonBackupRestore";
+            ButtonBackupRestore.Size = new Size(259, 45);
+            ButtonBackupRestore.TabIndex = 21;
+            ButtonBackupRestore.Text = "🔄 Backup Restore Database";
+            ButtonBackupRestore.TextColor = Color.White;
+            ButtonBackupRestore.UseVisualStyleBackColor = false;
+            // 
             // PanelService
             // 
             PanelService.Anchor = AnchorStyles.Bottom;
-            PanelService.BackColor = Color.FromArgb(44, 111, 226);
+            PanelService.BackColor = Color.CadetBlue;
             PanelService.Controls.Add(LabelTotalService);
             PanelService.Controls.Add(label6);
             PanelService.Controls.Add(label3);
@@ -353,7 +373,7 @@
             // PanelAntrean
             // 
             PanelAntrean.Anchor = AnchorStyles.Bottom;
-            PanelAntrean.BackColor = Color.FromArgb(241, 147, 16);
+            PanelAntrean.BackColor = Color.DarkGoldenrod;
             PanelAntrean.Controls.Add(LabelTotalBooking);
             PanelAntrean.Controls.Add(label5);
             PanelAntrean.Controls.Add(label2);
@@ -466,26 +486,6 @@
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
-            // lathifButton1
-            // 
-            lathifButton1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lathifButton1.BackColor = Color.LightSlateGray;
-            lathifButton1.BackgroundColor = Color.LightSlateGray;
-            lathifButton1.BorderColor = Color.DarkGray;
-            lathifButton1.BorderRadius = 5;
-            lathifButton1.BorderSize = 0;
-            lathifButton1.FlatAppearance.BorderSize = 0;
-            lathifButton1.FlatStyle = FlatStyle.Flat;
-            lathifButton1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lathifButton1.ForeColor = Color.White;
-            lathifButton1.Location = new Point(886, 19);
-            lathifButton1.Name = "lathifButton1";
-            lathifButton1.Size = new Size(155, 45);
-            lathifButton1.TabIndex = 21;
-            lathifButton1.Text = "🖍 Jam Kerja";
-            lathifButton1.TextColor = Color.White;
-            lathifButton1.UseVisualStyleBackColor = false;
-            // 
             // DashboardSuperAdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -553,6 +553,6 @@
         private Label label10;
         private SMB_CustomTolbox.LathifButton ButtonJadwalLibur;
         private SMB_CustomTolbox.LathifButton ButtonJamKerja;
-        private SMB_CustomTolbox.LathifButton lathifButton1;
+        private SMB_CustomTolbox.LathifButton ButtonBackupRestore;
     }
 }

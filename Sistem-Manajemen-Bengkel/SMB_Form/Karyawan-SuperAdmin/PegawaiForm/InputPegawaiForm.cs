@@ -97,7 +97,8 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
 
         private void SaveData()
         {
-            Image? image = PictureProfiles.Image == ImageDirectoryHelper._defaultProfiles ? null : ImageHelper.GetCircularImage(PictureProfiles.Image);
+            bool validasiImage = PictureProfiles.Image == ImageDirectoryHelper._defaultProfiles;
+            Image? image = validasiImage ? null : ImageHelper.GetCircularImage(PictureProfiles.Image);
 
             var pegawai = new PegawaiModel
             {

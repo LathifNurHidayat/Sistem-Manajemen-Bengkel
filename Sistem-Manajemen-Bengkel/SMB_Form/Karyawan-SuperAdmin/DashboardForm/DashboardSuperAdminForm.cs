@@ -106,7 +106,16 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
             ButtonJamKerja.Click += ButtonJamKerja_Click;
             ButtonJadwalLibur.Click += ButtonJadwalLibur_Click;
             ButtonProfilBengkel.Click += ButtonProfilBengkel_Click;
+            ButtonBackupRestore.Click += ButtonBackupDatabase_Click;
+        }
 
+        private void ButtonBackupDatabase_Click(object? sender, EventArgs e)
+        {
+            InformasiBackupDatabaseForm informasiBackupDatabaseForm = new InformasiBackupDatabaseForm();
+            if (informasiBackupDatabaseForm.ShowDialog() == DialogResult.OK)
+            {
+                GetData();
+            }
         }
 
         private void ButtonProfilBengkel_Click(object? sender, EventArgs e)

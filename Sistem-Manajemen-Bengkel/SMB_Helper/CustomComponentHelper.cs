@@ -28,7 +28,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
             };
         }
 
-
         public static void CustomDataGrid(DataGridView grid) 
         {
             typeof(DataGridView).InvokeMember("DoubleBuffered",

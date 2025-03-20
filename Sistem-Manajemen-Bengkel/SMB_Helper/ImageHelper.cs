@@ -27,7 +27,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Helper
         }
 
 
-        public static Image ByteToImage(byte[] image_data)
+        public static Image? ByteToImage(byte[]? image_data)
         {
             if (image_data == null || image_data.Length == 0)
                 return null;
