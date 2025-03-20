@@ -38,7 +38,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 aa.tanggal ASC,  aa.antrean ASC
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<BookingModel>(sql, Dp);
         }
         
@@ -67,7 +67,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
                             WHERE aa.no_ktp_pelanggan = @no_ktp_pelanggan";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<BookingModel>(sql, new { no_ktp_pelanggan });
         }
 
@@ -127,7 +127,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     aa.antrean,
                                     aa.keluhan,
                                     aa.status";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn()); 
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID()); 
             return Conn.QueryFirstOrDefault<BookingModel>(sql, new { id_booking });
         }
 
@@ -142,7 +142,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             @nama_pelanggan, @no_polisi, @merek, @transmisi, @kapasitas_mesin, 
                             CAST(@tanggal AS DATE), @antrean, @keluhan, @status)";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@no_ktp_pelanggan", booking.no_ktp_pelanggan);
@@ -172,7 +172,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 status = @status
                             WHERE id_booking = @id_booking";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             var Dp = new DynamicParameters();
             if (string.IsNullOrEmpty(booking.no_ktp_mekanik))
                 Dp.Add("@no_ktp_mekanik", DBNull.Value, DbType.String);
@@ -194,7 +194,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public void DeleteAfterDateChange()
         {
             const string sql = "DELETE FROM tb_booking WHERE CAST(tanggal AS DATE) < CAST(GETDATE() AS DATE)";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql);
         }
 
@@ -206,7 +206,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             LEFT JOIN tb_kendaraan dd ON aa.id_kendaraan = dd.id_kendaraan
                             {filter} ";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
 
@@ -214,7 +214,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = "SELECT * FROM dbo.fnc_ValidasiKuotaBooking(@tanggal)";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             var result = conn.QueryFirstOrDefault(sql, new { tanggal });
 
             return (AntreanBaru: result.AntreanBaru, AntreanDikerjakan: result.AntreanDikerjakan);
@@ -225,7 +225,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = "SELECT dbo.fnc_CekOperasionalBengkel(@tanggal, @jamBooking)";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             var result = conn.QueryFirstOrDefault<string>(sql, new { tanggal , jamBooking = DateTime.Now.TimeOfDay});
             return result?? "";
         }
@@ -237,7 +237,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 FROM tb_booking 
                                 WHERE CAST(tanggal AS DATE) <> CAST(GETDATE() AS DATE) 
                                 ORDER BY tanggal ASC";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             return Conn.Query<DateTime>(sql).AsList();   
         }

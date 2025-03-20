@@ -17,7 +17,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = "sp_GetDashboardMetrics";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             using var multi = conn.QueryMultiple(sql, new { tanggal }, commandType: CommandType.StoredProcedure);
 
             var metrics = new DashboardMetrics

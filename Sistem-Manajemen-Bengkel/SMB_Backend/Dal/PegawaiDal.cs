@@ -25,7 +25,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             ORDER BY
                                 created_at ASC
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<PegawaiModel>(sql, Dp);
         }
 
@@ -34,7 +34,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"SELECT 
                                     no_ktp_pegawai, nama_pegawai, email, password, no_hp, alamat, role, image_data, created_at, updated_at
                                 FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<PegawaiModel>(sql, new { no_ktp_pegawai = no_ktp_pegawai });
         }
 
@@ -45,7 +45,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                          VALUES 
                             (@no_ktp_pegawai, @nama_pegawai, @email, @password, @no_hp, @alamat, @role, @image_data)";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@no_ktp_pegawai", pegawaiModel.no_ktp_pegawai);
@@ -74,7 +74,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 {(isPasswordReset ? ", password = @password" : "")} 
                             WHERE no_ktp_pegawai = @no_ktp";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@no_ktp_pegawai", pegawai.no_ktp_pegawai);
@@ -99,7 +99,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"UPDATE tb_pegawai SET
                              deleted_at = GETDATE()
                          WHERE no_ktp_pegawai = @no_ktp_pegawai";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { no_ktp_pegawai = no_ktp });
         }
 
@@ -109,7 +109,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"UPDATE tb_pegawai SET
                                     deleted_at = NULL
                                 WHERE no_ktp_pegawai = @no_ktp_pegawai";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { no_ktp_pegawai = no_ktp_pegawai});
         }
 
@@ -121,7 +121,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                 WHERE deleted_at IS NULL 
                 {filter}";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
 
@@ -134,7 +134,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 WHERE 
                                     email = @email AND password = @password AND deleted_at IS NULL";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return conn.QueryFirstOrDefault<PegawaiModel>(sql, new { email, password });
         }
 
@@ -149,7 +149,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                        END AS Result";
 
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<int>(sql, new { no_ktp_pegawai, no_hp, email });
         } 
 

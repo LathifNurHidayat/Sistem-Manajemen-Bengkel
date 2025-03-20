@@ -20,7 +20,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 VALUES 
                                     (@hari, @jam_buka, @jam_tutup)";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             var Dp = new DynamicParameters();
 
             Dp.Add("@hari", jamKerja.hari);
@@ -41,7 +41,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 WHERE 
                                     hari = @hari"; 
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             var Dp = new DynamicParameters();
 
             Dp.Add("@hari", jamKerja.hari);
@@ -57,7 +57,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"SELECT 
                                     id_jam_kerja, hari, jam_buka, jam_tutup
                                 FROM tb_jam_kerja";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<JamKerjaModel>(sql);
         }
 

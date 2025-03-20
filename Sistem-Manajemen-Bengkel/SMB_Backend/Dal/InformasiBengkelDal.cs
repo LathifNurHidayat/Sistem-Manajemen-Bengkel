@@ -16,7 +16,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = @"SELECT id_informasi_bengkel, nama_bengkel, alamat, email, no_telp FROM tb_informasi_bengkel";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<InformasiBengkelModel>(sql);
         }
 
@@ -30,7 +30,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     no_telp = @no_telp";
 
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             var Dp = new DynamicParameters();
             Dp.Add("@nama_bengkel", bengkel.nama_bengkel);
             Dp.Add("@alamat", bengkel.alamat);

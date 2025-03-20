@@ -28,14 +28,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 aa.created_at ASC
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<KendaraanModel>(sql, Dp);
         }
 
         public IEnumerable<KendaraanModel> LoadNamaKendaraan(string no_ktp_pelanggan)
         {
             string sql = "SELECT id_kendaraan, merek, kapasitas_mesin FROM tb_kendaraan WHERE no_ktp_pelanggan = @no_ktp_pelanggan AND deleted_at IS NULL";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<KendaraanModel>(sql, new { no_ktp_pelanggan });
         }
 
@@ -43,7 +43,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = @"SELECT DISTINCT tahun FROM tb_kendaraan  WHERE deleted_at IS NULL ORDER BY tahun DESC";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<int>(sql).AsList();
         }
 
@@ -69,7 +69,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     aa.id_kendaraan, aa.no_ktp_pelanggan, bb.nama_pelanggan, 
                                     aa.no_polisi, aa.merek, aa.transmisi, aa.kapasitas_mesin, aa.tahun";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<KendaraanModel>(sql, new { id_kendaraan});
         }
 
@@ -80,7 +80,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                  VALUES 
                                     (@no_ktp_pelanggan, @no_polisi, @merek, @transmisi, @kapasitas_mesin, @tahun)";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@no_ktp_pelanggan", kendaraan.no_ktp_pelanggan);
@@ -105,7 +105,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 updated_at = GETDATE()
                             WHERE id_kendaraan = @id_kendaraan";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@no_ktp_pelanggan", kendaraan.no_ktp_pelanggan);
@@ -124,7 +124,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"UPDATE tb_kendaraan SET
                                     deleted_at = GETDATE()
                                 WHERE id_kendaraan = @id_kendaraan";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { id_kendaraan });
         }
 
@@ -132,7 +132,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public void DeletePermanent(int id_kendaraan)
         {
             const string sql = "DELETE FROM tb_kendaraan WHERE id_kendaraan = @id_kendaraan";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { id_kendaraan });
         }
 
@@ -143,7 +143,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             WHERE deleted_at IS NULL 
                                 {filter}";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
         
@@ -155,7 +155,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 FROM tb_kendaraan 
                             WHERE no_ktp_pelanggan = @no_ktp_pelanggan AND deleted_at IS NULL";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<KendaraanModel>(sql, new {no_ktp_pelanggan});
         }
 

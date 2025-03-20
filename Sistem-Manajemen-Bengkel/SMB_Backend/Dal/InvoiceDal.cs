@@ -49,7 +49,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     b.catatan, ib.nama_bengkel, 
                                     ib.alamat, ib.email, ib.no_telp, b.tanggal ";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<InvoiceModel>(sql, new { idBooking });
         }
     }

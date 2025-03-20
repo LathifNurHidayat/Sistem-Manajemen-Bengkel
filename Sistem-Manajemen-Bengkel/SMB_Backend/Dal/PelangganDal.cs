@@ -10,6 +10,7 @@ using System.Data;
 using Sistem_Manajemen_Bengkel.Helper;
 using System.Windows.Media.Animation;
 using System.Runtime.Intrinsics.Arm;
+using iTextSharp.text.pdf.codec;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 {
@@ -27,7 +28,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             ORDER BY 
                                 {orderBy} 
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<PelangganModel>(sql, Dp);
         }
 
@@ -37,7 +38,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"SELECT 
                                     no_ktp_pelanggan, nama_pelanggan, no_hp, alamat, email, password, total_servis   
                                 FROM tb_pelanggan WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<PelangganModel>(sql, new { no_ktp_pelanggan });
         }
 
@@ -48,7 +49,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                         VALUES
                             (@no_ktp_pelanggan, @nama_pelanggan, @no_hp, @alamat, @email, @password, 0)";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             var Dp = new DynamicParameters();
 
             Dp.Add("@no_ktp_pelanggan", pelanggan.no_ktp_pelanggan);
@@ -76,7 +77,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                { (isPasswordReset ? ", password = @password" : "")}
                             WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@no_ktp_pelanggan", pelanggan.no_ktp_pelanggan);
@@ -96,7 +97,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public void SoftDeleteData(string no_ktp_pelanggan)
         {
             const string sql = @"UPDATE tb_pelanggan SET deleted_at = GETDATE() WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             Conn.Execute(sql, new { no_ktp_pelanggan });
         }
 
@@ -108,14 +109,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                 WHERE deleted_at IS NULL 
                 {filter}";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
 
         public void RestoreData(string no_ktp_pelanggan)
         {
             const string sql = @"UPDATE tb_pelanggan SET deleted_at = NULL WHERE no_ktp_pelanggan = @no_ktp_pelanggan";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             Conn.Execute(sql, new { no_ktp_pelanggan });
         }
 
@@ -131,7 +132,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     ELSE 0
                                 END AS Result";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<int>(sql, new { no_ktp_pelanggan, no_hp, email });
         }
 
@@ -139,7 +140,9 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public PelangganModel? ValidasiLoginPelanggan(string email, string password)
         {
             const string sql = "SELECT no_ktp_pelanggan, nama_pelanggan FROM tb_pelanggan WHERE email = @email AND password = @password AND deleted_at IS NULL";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
+            if (Conn == null) return null;
+
             return Conn.QueryFirstOrDefault<PelangganModel>(sql, new { email, password });
         }
     }

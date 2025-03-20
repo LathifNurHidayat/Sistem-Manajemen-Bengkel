@@ -19,7 +19,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 LEFT JOIN tb_sparepart bb ON aa.id_sparepart = bb.id_sparepart
                                 WHERE aa.id_penggunaan_sparepart = @id_penggunaan_sparepart";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<PenggunaanSparepartModel>(sql, new { id_penggunaan_sparepart });
         }
 
@@ -35,7 +35,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 WHERE aa.id_penggunaan_sparepart = @id_penggunaan_sparepart
                                 GROUP BY aa.id_penggunaan_sparepart;";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<PenggunaanSparepartModel>(sql, new { id_penggunaan_sparepart});
         }
 
@@ -43,7 +43,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = "DELETE FROM tb_penggunaan_sparepart WHERE id_penggunaan_sparepart = @id_penggunaan_sparepart";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             Conn.Execute(sql, new { id_penggunaan_sparepart });
         }
@@ -56,7 +56,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 VALUES 
                                     (@id_penggunaan_sparepart, @id_sparepart, @jumlah, @harga)";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@id_penggunaan_sparepart", sparepartModel.id_penggunaan_sparepart);

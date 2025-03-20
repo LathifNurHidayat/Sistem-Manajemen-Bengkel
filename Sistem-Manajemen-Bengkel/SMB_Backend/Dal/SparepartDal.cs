@@ -20,7 +20,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             ORDER BY
                                 created_at ASC
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<SparepartModel>(sql, Dp);
         }
 
@@ -32,7 +32,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     tb_sparepart
                                 WHERE 
                                     id_sparepart = @id_sparepart";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<SparepartModel>(sql, new { id_sparepart });
         }
 
@@ -48,7 +48,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     ELSE 2
                                 END)";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@nama_sparepart", sparepart.nama_sparepart);
@@ -81,7 +81,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             WHERE 
                                 id_sparepart = @id_sparepart";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@id_sparepart", sparepart.id_sparepart);
@@ -99,7 +99,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"UPDATE tb_sparepart SET
                                      deleted_at = GETDATE()
                                  WHERE id_sparepart = @id_sparepart";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { id_sparepart });
         }
 
@@ -109,14 +109,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"UPDATE tb_sparepart SET
                                      deleted_at = NULL
                                  WHERE id_sparepart = @id_sparepart";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { id_sparepart });
         }
 
         public void DeletePermanent(string id_sparepart)
         {
             const string sql = "DELETE FROM tb_sparepart WHERE id_sparepart = @id_sparepart";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { id_sparepart });
         }
 
@@ -127,7 +127,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             WHERE deleted_at IS NULL 
                             {filter}";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
 
@@ -140,7 +140,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                 sql += "WHERE (nama_sparepart LIKE @Filter OR CAST(stok AS VARCHAR(50)) LIKE @Filter OR CAST(harga AS VARCHAR(50)) LIKE @Filter)";
             }
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            string? connstr = ConnStringHelper.GetConnByUserID(); 
+
+            if (connstr == null)
+            {
+                MesboxHelper.ShowError("Gagal menghubungkan ke server");
+                return null;
+            }
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             
             var Dp = new DynamicParameters();
             

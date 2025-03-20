@@ -16,7 +16,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public IEnumerable<BatasBookingModel> LoadBatasBooking()
         {
             const string sql = "SELECT id_batas_booking, tanggal, batas_booking FROM tb_batas_booking";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<BatasBookingModel>(sql);
         }
 
@@ -34,7 +34,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     ELSE 1
                                     END ";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<int>(sql, new {tanggal});
         }
 
@@ -45,7 +45,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 VALUES 
                                     (@tanggal, @batas_booking)";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             
             var Dp = new DynamicParameters();
             Dp.Add("@tanggal", batas.tanggal);
@@ -62,7 +62,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 WHERE 
                                     id_batas_booking = @id_batas_booking";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
           
             var Dp = new DynamicParameters();
             Dp.Add("@id_batas_booking", batas.id_batas_booking);
@@ -75,21 +75,21 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public void DeleteBatasBooking(int id_batas_booking)
         {
             const string sql = @"DELETE FROM tb_batas_booking WHERE id_batas_booking = @id_batas_booking";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             Conn.Execute(sql, new { id_batas_booking});
         }
         
         public void DeleteUsingTanggal(DateTime tanggal)
         {
             const string sql = @"DELETE FROM tb_batas_booking WHERE tanggal = @tanggal";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             Conn.Execute(sql, new { tanggal});
         }
 
         public BatasBookingModel? GetDataBatasBooking (int id_batas_booking)
         {
             const string sql = @"SELECT id_batas_booking , tanggal, batas_booking FROM tb_batas_booking WHERE id_batas_booking = @id_batas_booking";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<BatasBookingModel>(sql, new { id_batas_booking });
         }
 

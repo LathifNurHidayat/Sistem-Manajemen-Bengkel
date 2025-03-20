@@ -57,7 +57,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     rw.total_biaya,
                                     rw.status";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<LaporanModel>(sql , new { tanggal_1 , tanggal_2  });
         }
     }

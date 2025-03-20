@@ -24,7 +24,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             ORDER BY 
                                 {order}
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<JasaServisModel>(sql, Dp);
         }
 
@@ -36,7 +36,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     tb_jasa_servis 
                                 WHERE 
                                     id_jasa_servis = @id_jasa_servis";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<JasaServisModel>(sql, new { id_jasa_servis });
         }
 
@@ -47,7 +47,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                          VALUES 
                             (@jenis_servis, @keterangan, @biaya)";
             
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@jenis_servis", jasaServis.jenis_servis);
@@ -67,7 +67,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             WHERE 
                                 id_jasa_servis = @id_jasa_servis";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@id_jasa_servis", jasaServis.id_jasa_servis);
@@ -84,7 +84,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     deleted_at = GETDATE()
                                 WHERE 
                                     id_jasa_servis = @id_jasa_servis";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { id_jasa_servis });
         }
 
@@ -94,14 +94,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"UPDATE tb_jasa_servis SET
                                     deleted_at = NULL
                                 WHERE id_jasa_servis = @id_jasa_servis";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { id_jasa_servis });
         }
 
         public void DeletePermanent(int id_jasa_servis)
         {
             const string sql = "DELETE FROM tb_jasa_servis WHERE id_jasa_servis = @id_jasa_servis";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { id_jasa_servis });
         }
 
@@ -113,7 +113,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                 WHERE deleted_at IS NULL 
                 {filter}";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
 
@@ -121,7 +121,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = "SELECT id_jasa_servis, jenis_servis  FROM tb_jasa_servis";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<(int id_jasa_servis, string jenis_servis)>(sql);
         }
     }

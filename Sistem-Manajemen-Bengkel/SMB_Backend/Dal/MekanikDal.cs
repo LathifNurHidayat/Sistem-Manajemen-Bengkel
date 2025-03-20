@@ -24,7 +24,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             ORDER BY
                                 created_at ASC
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<MekanikModel>(sql, Dp);
         }
 
@@ -36,7 +36,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     tb_mekanik 
                                 WHERE 
                                     no_ktp_mekanik = @no_ktp_mekanik";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<MekanikModel>(sql, new { no_ktp_mekanik });
         }
 
@@ -47,7 +47,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                          VALUES 
                             (@no_ktp_mekanik, @nama_mekanik, @no_hp, @alamat, @spesialis, @image_data)";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@no_ktp_mekanik", mekanik.no_ktp_mekanik);
@@ -72,7 +72,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 updated_at = GETDATE()
                             WHERE no_ktp_mekanik = @no_ktp";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             var Dp = new DynamicParameters();
             Dp.Add("@no_ktp_mekanik", pegawai.no_ktp_mekanik);
@@ -91,7 +91,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"UPDATE tb_mekanik SET
                              deleted_at = GETDATE()
                          WHERE no_ktp_mekanik = @no_ktp_mekanik";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { no_ktp_mekanik});
         }
 
@@ -101,7 +101,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
             const string sql = @"UPDATE tb_mekanik SET
                                     deleted_at = NULL
                                 WHERE no_ktp_mekanik = @no_ktp_mekanik";
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { no_ktp_mekanik });
         }
 
@@ -112,7 +112,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             WHERE deleted_at IS NULL 
                             {filter}";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.ExecuteScalar<int>(sql, dp);
         }
 
@@ -124,7 +124,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     WHEN EXISTS (SELECT 1 FROM tb_mekanik WHERE no_hp = @no_hp ) THEN 3
                                 ELSE 0
                                 END AS Result";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.QueryFirstOrDefault<int>(sql, new { no_ktp_mekanik, no_hp });
         }
 
@@ -132,7 +132,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = "SELECT no_ktp_mekanik, nama_mekanik FROM tb_mekanik";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<(string no_ktp_mekanik, string nama_mekanik)>(sql);
         }
     }

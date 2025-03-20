@@ -17,7 +17,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                     SET is_libur = @is_libur
                     WHERE hari = @hari";
 
-                using var conn = new SqlConnection(ConnStringHelper.GetConn());
+                using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
                 conn.Execute(sql, new { hari, is_libur });
         }
 
@@ -25,7 +25,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         {
             const string sql = @"SELECT id_jadwal_libur, tanggal_libur, hari, is_libur FROM tb_jadwal_libur";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return conn.Query<JadwalLiburModel>(sql);
         }
 
@@ -35,7 +35,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                 DELETE FROM tb_jadwal_libur 
                 WHERE id_jadwal_libur = @id_jadwal_libur";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             conn.Execute(sql, new { id_jadwal_libur });
         }
 
@@ -47,7 +47,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                 VALUES 
                     (@tanggal_libur, @is_libur)";
 
-            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             var dp = new DynamicParameters();
             dp.Add("@tanggal_libur", jadwal.tanggal_libur, DbType.Date);
             dp.Add("@is_libur", jadwal.is_libur, DbType.Int32);

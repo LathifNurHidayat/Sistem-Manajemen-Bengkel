@@ -69,7 +69,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                     ORDER BY 
                         aa.tanggal DESC
                     OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<RiwayatModel>(sql, Dp);
         }
 
@@ -110,7 +110,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                     aa.status
                                 ";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
 
             return Conn.QueryFirstOrDefault<RiwayatModel>(sql, new { id_riwayat });
 
@@ -133,14 +133,14 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                             LEFT JOIN tb_kendaraan ff
                                 ON aa.id_kendaraan = ff.id_kendaraan
                                 {filter}";
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.ExecuteScalar<int>(sql, Dp);
         }
 
 
         public void InsertData(RiwayatModel riwayat)
         {
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             var Dp = new DynamicParameters();
 
             Dp.Add("@no_ktp_pelanggan", riwayat.no_ktp_pelanggan);
@@ -189,7 +189,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 ORDER BY 
                                     rw.tanggal DESC";
 
-            using var Conn = new SqlConnection(ConnStringHelper.GetConn());
+            using var Conn = new SqlConnection(ConnStringHelper.GetConnByUserID());
             return Conn.Query<RiwayatModel>(sql, new { no_ktp_pelanggan });
         }
     }
