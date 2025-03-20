@@ -58,6 +58,7 @@
             label1 = new Label();
             LabelTotalPelanggan = new Label();
             pictureBox3 = new PictureBox();
+            lathifButton1 = new SMB_CustomTolbox.LathifButton();
             PanelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt2).BeginInit();
             gradientPanelExt2.SuspendLayout();
@@ -270,6 +271,7 @@
             // 
             PanelBackground.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PanelBackground.BackColor = Color.White;
+            PanelBackground.Controls.Add(lathifButton1);
             PanelBackground.Controls.Add(PanelService);
             PanelBackground.Controls.Add(label7);
             PanelBackground.Controls.Add(PanelAntrean);
@@ -464,6 +466,26 @@
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
+            // lathifButton1
+            // 
+            lathifButton1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lathifButton1.BackColor = Color.LightSlateGray;
+            lathifButton1.BackgroundColor = Color.LightSlateGray;
+            lathifButton1.BorderColor = Color.DarkGray;
+            lathifButton1.BorderRadius = 5;
+            lathifButton1.BorderSize = 0;
+            lathifButton1.FlatAppearance.BorderSize = 0;
+            lathifButton1.FlatStyle = FlatStyle.Flat;
+            lathifButton1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            lathifButton1.ForeColor = Color.White;
+            lathifButton1.Location = new Point(886, 19);
+            lathifButton1.Name = "lathifButton1";
+            lathifButton1.Size = new Size(155, 45);
+            lathifButton1.TabIndex = 21;
+            lathifButton1.Text = "🖍 Jam Kerja";
+            lathifButton1.TextColor = Color.White;
+            lathifButton1.UseVisualStyleBackColor = false;
+            // 
             // DashboardSuperAdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -531,5 +553,6 @@
         private Label label10;
         private SMB_CustomTolbox.LathifButton ButtonJadwalLibur;
         private SMB_CustomTolbox.LathifButton ButtonJamKerja;
+        private SMB_CustomTolbox.LathifButton lathifButton1;
     }
 }

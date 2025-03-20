@@ -145,7 +145,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
             TextAlamat.TextChanged += TextInput_TextChanged;
 
             TextNoKTP.KeyPress += TextBox_KeyPress;
-            TextNoHP.KeyPress -= TextBox_KeyPress;
+            TextNoHP.KeyPress += TextBox_KeyPress;
             
         }
 

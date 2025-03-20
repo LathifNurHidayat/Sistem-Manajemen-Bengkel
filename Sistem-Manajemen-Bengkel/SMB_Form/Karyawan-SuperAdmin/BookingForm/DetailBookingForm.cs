@@ -269,7 +269,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 var data = _invoiceDal.GetInvoice(_idBooking);
                 if (data != null)
                 {
-                    Invoice_Laporan.GenerateInvoicePDF(data);    
+                    InvoiceLaporanHelper.GenerateInvoicePDF(data);    
                 }
 
             }

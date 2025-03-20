@@ -228,7 +228,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.InputEditForm
                 LabelEmail.Visible = false;
         }
 
-
         private void RegisterControlEvent()
         {
             ButtonEditProfiles.Click += ButtonEditProfiles_Click;

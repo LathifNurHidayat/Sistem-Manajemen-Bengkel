@@ -25,19 +25,15 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
                                 THEN CONCAT(COALESCE(dd.merek, ''), ' ', COALESCE(dd.kapasitas_mesin, ''), 'cc')
                                 ELSE CONCAT(COALESCE(aa.merek, ''), ' ', COALESCE(aa.kapasitas_mesin, ''), 'cc')
                             END AS nama_kendaraan,
-
                                 bb.no_hp,
                                 CONVERT(DATETIME, aa.tanggal, 105) AS tanggal, aa.antrean, aa.keluhan, aa.status
                             FROM 
                                 tb_booking aa
-
                             LEFT JOIN tb_pelanggan bb 
                                 ON aa.no_ktp_pelanggan = bb.no_ktp_pelanggan
                             LEFT JOIN tb_kendaraan dd 
                                 ON aa.id_kendaraan = dd.id_kendaraan
-
                             {filter}
-
                             ORDER BY 
                                 aa.tanggal ASC,  aa.antrean ASC
                             OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
@@ -247,4 +243,4 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         }
 
     }
-}
+} 

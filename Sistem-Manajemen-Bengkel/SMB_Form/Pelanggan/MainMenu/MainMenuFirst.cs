@@ -83,6 +83,32 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.MainMenuForm
             ButtonKendaraan.Click += ButtonKendaraan_Click;
 
             this.FormClosing += MainMenuFirst_FormClosing;
+
+            ButtonHome.MouseEnter += Button_MouseEnter;
+            ButtonBooking.MouseEnter += Button_MouseEnter;
+            ButtonRiwayat.MouseEnter += Button_MouseEnter;
+            ButtonLogout.MouseEnter += Button_MouseEnter;
+            ButtonKendaraan.MouseEnter += Button_MouseEnter;
+
+            ButtonHome.MouseLeave += Button_MouseLeave;
+            ButtonBooking.MouseLeave += Button_MouseLeave;
+            ButtonRiwayat.MouseLeave += Button_MouseLeave;
+            ButtonLogout.MouseLeave += Button_MouseLeave;
+            ButtonKendaraan.MouseLeave += Button_MouseLeave;
+        }
+
+        private void Button_MouseLeave(object? sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null) return;
+            button.BackColor = Color.FromArgb(82, 109, 130);
+        }        
+
+        private void Button_MouseEnter(object? sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null) return; 
+                button.BackColor = Color.FromArgb(157, 178, 191);
         }
 
         private void ButtonKendaraan_Click(object? sender, EventArgs e)

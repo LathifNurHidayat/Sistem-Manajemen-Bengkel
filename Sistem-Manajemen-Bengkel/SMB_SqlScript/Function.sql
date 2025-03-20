@@ -101,7 +101,3 @@ BEGIN
     RETURN;
 END;
 GO
-
-
-
-

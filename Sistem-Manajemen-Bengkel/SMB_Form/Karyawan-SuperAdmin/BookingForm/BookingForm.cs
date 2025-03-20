@@ -35,7 +35,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
             RegisterControlEvent();
         }
-
+         
         private void InitialTimer()
         {
             LabelHariTanggal.Text = DateTime.Now.ToString("dddd, dd - MM - yyyy", new CultureInfo("id-ID"));
@@ -77,7 +77,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
 
             grid.ScrollBars = ScrollBars.Both;
             grid.Columns["Id"].Visible = false;
-
             grid.Columns["No"].Width = 100;
             grid.Columns["Tanggal"].Width = 150;
             grid.Columns["Pelanggan"].Width = 300;

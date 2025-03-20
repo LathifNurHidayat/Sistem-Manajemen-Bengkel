@@ -20,6 +20,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
     public partial class FormBookingControl : UserControl
     {
         private readonly KendaraanDal _kendaraanDal;
+        private readonly PelangganDal _pelangganDal;
         private readonly BookingDal _bookingDal;
         private string _no_ktp;
         private int _id_kendaraan;
@@ -28,17 +29,29 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
         {
             InitializeComponent();
             _kendaraanDal = new KendaraanDal();
+            _pelangganDal = new PelangganDal();
             _bookingDal = new BookingDal();
 
             PickerBookingTanggal.Culture = new System.Globalization.CultureInfo("id-ID");
             PickerBookingTanggal.MinDateTime = DateTime.Today;
 
             _no_ktp = SessionLoginHelper._sessionLoginPelanggan.no_ktp_pelanggan;
-
+            GetDataPelanggan();
            
             InitialDataKendaraan();
 
             RegisterControlEvent();
+        }
+
+        private void GetDataPelanggan()
+        {
+            var pelanggan = _pelangganDal.GetData(_no_ktp);
+            
+            if (pelanggan == null) return;
+            TextNomorKTP.Text = pelanggan.no_ktp_pelanggan;
+            TextNama.Text = pelanggan.nama_pelanggan;
+            TextAlamat.Text = pelanggan.alamat;
+            TextTelepon.Text = pelanggan.no_hp;
         }
 
         private void GetData(int id_kendaraan)
@@ -47,11 +60,10 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
 
             if (data == null) return;
 
-            TextMerekBooking.Text = data.merek;
-            TextTransmisiBooking.Text = data.transmisi == 1 ? "Otomatis" : "Manual";
-            TextKapasitasMesinBooking.Text = $"{data.kapasitas_mesin} cc";
-            TextTahunBooking.Text = data.tahun.ToString();
-
+            TextMerek.Text = data.merek;
+            TextTransmisi.Text = data.transmisi == 1 ? "Otomatis" : "Manual";
+            TextKapasitasMesin.Text = $"{data.kapasitas_mesin} cc";
+            TextTahun.Text = data.tahun.ToString();
         }
 
         private void InitialDataKendaraan()
@@ -128,6 +140,29 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Pelanggan.Booking.FormBooking
             ButtonCekKetersediaan.Click += ButtonCekKetersediaan_Click;
             ComboKendaraan.SelectedValueChanged += ComboKendaraan_SelectedValueChanged;
             ButtonTambahKendaraan.Click += ButtonTambahKendaraan_Click;
+            PanelMain.Resize += PanelMain_Resize;
+            ButtonKembali.Click += ButtonKembali_Click;
+        }
+
+        private void ButtonKembali_Click(object? sender, EventArgs e)
+        {
+            MainMenuFirst.ShowUserControlInPanel(new PilihBookingControl());
+        }
+
+        private void PanelMain_Resize(object? sender, EventArgs e)
+        {
+            int widthPanelMain = PanelMain.Width;
+            int jarakAntarPanel = 30;
+            int widthPerPanel = (widthPanelMain - (30 * 4)) / 3;
+            int jarakDenganTop = 140;
+
+            PanelDataPribadi.Width = widthPerPanel;
+            PanelDataKendaraan.Width = widthPerPanel;
+            PanelBookingServis.Width = widthPerPanel;
+
+            PanelDataPribadi.Location = new Point(jarakAntarPanel, jarakDenganTop);
+            PanelDataKendaraan.Location = new Point((jarakAntarPanel * 2) + widthPerPanel, jarakDenganTop);
+            PanelBookingServis.Location = new Point((jarakAntarPanel * 3) + widthPerPanel * 2, jarakDenganTop);
         }
 
         private void ButtonTambahKendaraan_Click(object? sender, EventArgs e)

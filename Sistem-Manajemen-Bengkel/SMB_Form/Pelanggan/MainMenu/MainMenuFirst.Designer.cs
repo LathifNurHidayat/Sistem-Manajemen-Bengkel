@@ -31,11 +31,11 @@
             ButtonHome = new Button();
             LabelUsername = new Label();
             panel1 = new Panel();
+            ButtonKendaraan = new Button();
             ButtonLogout = new Button();
             ButtonRiwayat = new Button();
             ButtonBooking = new Button();
             PanelMain = new Panel();
-            ButtonKendaraan = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,7 +70,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(83, 92, 145);
+            panel1.BackColor = Color.FromArgb(82, 109, 130);
             panel1.Controls.Add(ButtonKendaraan);
             panel1.Controls.Add(LabelUsername);
             panel1.Controls.Add(ButtonHome);
@@ -82,6 +82,22 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1239, 101);
             panel1.TabIndex = 5;
+            // 
+            // ButtonKendaraan
+            // 
+            ButtonKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonKendaraan.BackColor = Color.Transparent;
+            ButtonKendaraan.BackgroundImageLayout = ImageLayout.Zoom;
+            ButtonKendaraan.FlatAppearance.BorderSize = 0;
+            ButtonKendaraan.FlatStyle = FlatStyle.Flat;
+            ButtonKendaraan.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonKendaraan.ForeColor = Color.White;
+            ButtonKendaraan.Location = new Point(941, -1);
+            ButtonKendaraan.Name = "ButtonKendaraan";
+            ButtonKendaraan.Size = new Size(115, 101);
+            ButtonKendaraan.TabIndex = 33;
+            ButtonKendaraan.Text = "Kendaraan";
+            ButtonKendaraan.UseVisualStyleBackColor = false;
             // 
             // ButtonLogout
             // 
@@ -138,22 +154,6 @@
             PanelMain.Name = "PanelMain";
             PanelMain.Size = new Size(1239, 406);
             PanelMain.TabIndex = 6;
-            // 
-            // ButtonKendaraan
-            // 
-            ButtonKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonKendaraan.BackColor = Color.Transparent;
-            ButtonKendaraan.BackgroundImageLayout = ImageLayout.Zoom;
-            ButtonKendaraan.FlatAppearance.BorderSize = 0;
-            ButtonKendaraan.FlatStyle = FlatStyle.Flat;
-            ButtonKendaraan.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonKendaraan.ForeColor = Color.White;
-            ButtonKendaraan.Location = new Point(941, -1);
-            ButtonKendaraan.Name = "ButtonKendaraan";
-            ButtonKendaraan.Size = new Size(115, 101);
-            ButtonKendaraan.TabIndex = 33;
-            ButtonKendaraan.Text = "Kendaraan";
-            ButtonKendaraan.UseVisualStyleBackColor = false;
             // 
             // MainMenuFirst
             // 

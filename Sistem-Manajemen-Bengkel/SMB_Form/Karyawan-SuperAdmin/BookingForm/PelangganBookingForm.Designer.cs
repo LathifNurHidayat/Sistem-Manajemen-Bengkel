@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            PanelMain = new Panel();
             label9 = new Label();
-            panel2 = new Panel();
+            PanelBookingServis = new Panel();
             PickerBookingTanggal = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             label12 = new Label();
             panel18 = new Panel();
             TextKeluhan = new TextBox();
             label16 = new Label();
             label17 = new Label();
-            panel4 = new Panel();
+            PanelDataKendaraan = new Panel();
             panel13 = new Panel();
             TextTransmisi = new TextBox();
             ButtonTambahKendaraan = new SMB_CustomTolbox.LathifButton();
@@ -54,7 +54,7 @@
             label10 = new Label();
             label13 = new Label();
             label11 = new Label();
-            panel3 = new Panel();
+            PanelDataPribadi = new Panel();
             label3 = new Label();
             panel6 = new Panel();
             TextAlamat = new TextBox();
@@ -71,35 +71,35 @@
             label8 = new Label();
             ButtonCekKetersediaan = new SMB_CustomTolbox.LathifButton();
             ButtonBatal = new SMB_CustomTolbox.LathifButton();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            PanelMain.SuspendLayout();
+            PanelBookingServis.SuspendLayout();
             panel18.SuspendLayout();
-            panel4.SuspendLayout();
+            PanelDataKendaraan.SuspendLayout();
             panel13.SuspendLayout();
             panel10.SuspendLayout();
             panel11.SuspendLayout();
             panel12.SuspendLayout();
-            panel3.SuspendLayout();
+            PanelDataPribadi.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
             panel8.SuspendLayout();
             panel9.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // PanelMain
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(panel4);
-            panel1.Controls.Add(panel3);
-            panel1.Controls.Add(ButtonCekKetersediaan);
-            panel1.Controls.Add(ButtonBatal);
-            panel1.Location = new Point(12, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1434, 882);
-            panel1.TabIndex = 0;
+            PanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelMain.BackColor = Color.White;
+            PanelMain.Controls.Add(label9);
+            PanelMain.Controls.Add(PanelBookingServis);
+            PanelMain.Controls.Add(PanelDataKendaraan);
+            PanelMain.Controls.Add(PanelDataPribadi);
+            PanelMain.Controls.Add(ButtonCekKetersediaan);
+            PanelMain.Controls.Add(ButtonBatal);
+            PanelMain.Location = new Point(12, 12);
+            PanelMain.Name = "PanelMain";
+            PanelMain.Size = new Size(1458, 882);
+            PanelMain.TabIndex = 0;
             // 
             // label9
             // 
@@ -112,23 +112,24 @@
             label9.TabIndex = 50;
             label9.Text = "📆  Input Booking";
             // 
-            // panel2
+            // PanelBookingServis
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panel2.BackColor = Color.WhiteSmoke;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(PickerBookingTanggal);
-            panel2.Controls.Add(label12);
-            panel2.Controls.Add(panel18);
-            panel2.Controls.Add(label16);
-            panel2.Controls.Add(label17);
-            panel2.Location = new Point(939, 140);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(470, 640);
-            panel2.TabIndex = 47;
+            PanelBookingServis.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            PanelBookingServis.BackColor = Color.WhiteSmoke;
+            PanelBookingServis.BorderStyle = BorderStyle.FixedSingle;
+            PanelBookingServis.Controls.Add(PickerBookingTanggal);
+            PanelBookingServis.Controls.Add(label12);
+            PanelBookingServis.Controls.Add(panel18);
+            PanelBookingServis.Controls.Add(label16);
+            PanelBookingServis.Controls.Add(label17);
+            PanelBookingServis.Location = new Point(963, 140);
+            PanelBookingServis.Name = "PanelBookingServis";
+            PanelBookingServis.Size = new Size(470, 640);
+            PanelBookingServis.TabIndex = 47;
             // 
             // PickerBookingTanggal
             // 
+            PickerBookingTanggal.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PickerBookingTanggal.DateTimeIcon = null;
             PickerBookingTanggal.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
             PickerBookingTanggal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -154,6 +155,7 @@
             // 
             // panel18
             // 
+            panel18.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel18.BackColor = Color.White;
             panel18.BorderStyle = BorderStyle.FixedSingle;
             panel18.Controls.Add(TextKeluhan);
@@ -164,7 +166,7 @@
             // 
             // TextKeluhan
             // 
-            TextKeluhan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            TextKeluhan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextKeluhan.BackColor = Color.White;
             TextKeluhan.BorderStyle = BorderStyle.None;
             TextKeluhan.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -197,27 +199,27 @@
             label17.TabIndex = 70;
             label17.Text = "Keluhan";
             // 
-            // panel4
+            // PanelDataKendaraan
             // 
-            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel4.BackColor = Color.WhiteSmoke;
-            panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(panel13);
-            panel4.Controls.Add(ButtonTambahKendaraan);
-            panel4.Controls.Add(panel10);
-            panel4.Controls.Add(ComboKendaraan);
-            panel4.Controls.Add(panel11);
-            panel4.Controls.Add(label5);
-            panel4.Controls.Add(label4);
-            panel4.Controls.Add(panel12);
-            panel4.Controls.Add(label6);
-            panel4.Controls.Add(label10);
-            panel4.Controls.Add(label13);
-            panel4.Controls.Add(label11);
-            panel4.Location = new Point(526, 140);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(381, 640);
-            panel4.TabIndex = 46;
+            PanelDataKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelDataKendaraan.BackColor = Color.WhiteSmoke;
+            PanelDataKendaraan.BorderStyle = BorderStyle.FixedSingle;
+            PanelDataKendaraan.Controls.Add(panel13);
+            PanelDataKendaraan.Controls.Add(ButtonTambahKendaraan);
+            PanelDataKendaraan.Controls.Add(panel10);
+            PanelDataKendaraan.Controls.Add(ComboKendaraan);
+            PanelDataKendaraan.Controls.Add(panel11);
+            PanelDataKendaraan.Controls.Add(label5);
+            PanelDataKendaraan.Controls.Add(label4);
+            PanelDataKendaraan.Controls.Add(panel12);
+            PanelDataKendaraan.Controls.Add(label6);
+            PanelDataKendaraan.Controls.Add(label10);
+            PanelDataKendaraan.Controls.Add(label13);
+            PanelDataKendaraan.Controls.Add(label11);
+            PanelDataKendaraan.Location = new Point(526, 140);
+            PanelDataKendaraan.Name = "PanelDataKendaraan";
+            PanelDataKendaraan.Size = new Size(405, 640);
+            PanelDataKendaraan.TabIndex = 46;
             // 
             // panel13
             // 
@@ -227,7 +229,7 @@
             panel13.Controls.Add(TextTransmisi);
             panel13.Location = new Point(28, 326);
             panel13.Name = "panel13";
-            panel13.Size = new Size(322, 44);
+            panel13.Size = new Size(346, 44);
             panel13.TabIndex = 4;
             // 
             // TextTransmisi
@@ -240,7 +242,7 @@
             TextTransmisi.MaxLength = 100;
             TextTransmisi.Name = "TextTransmisi";
             TextTransmisi.ReadOnly = true;
-            TextTransmisi.Size = new Size(313, 23);
+            TextTransmisi.Size = new Size(337, 23);
             TextTransmisi.TabIndex = 49;
             TextTransmisi.TabStop = false;
             // 
@@ -256,7 +258,7 @@
             ButtonTambahKendaraan.FlatStyle = FlatStyle.Flat;
             ButtonTambahKendaraan.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonTambahKendaraan.ForeColor = Color.White;
-            ButtonTambahKendaraan.Location = new Point(234, 114);
+            ButtonTambahKendaraan.Location = new Point(258, 114);
             ButtonTambahKendaraan.Name = "ButtonTambahKendaraan";
             ButtonTambahKendaraan.Size = new Size(116, 39);
             ButtonTambahKendaraan.TabIndex = 2;
@@ -272,7 +274,7 @@
             panel10.Controls.Add(TextTahun);
             panel10.Location = new Point(28, 548);
             panel10.Name = "panel10";
-            panel10.Size = new Size(322, 44);
+            panel10.Size = new Size(346, 44);
             panel10.TabIndex = 6;
             // 
             // TextTahun
@@ -285,7 +287,7 @@
             TextTahun.MaxLength = 100;
             TextTahun.Name = "TextTahun";
             TextTahun.ReadOnly = true;
-            TextTahun.Size = new Size(137, 23);
+            TextTahun.Size = new Size(337, 23);
             TextTahun.TabIndex = 49;
             TextTahun.TabStop = false;
             // 
@@ -298,7 +300,7 @@
             ComboKendaraan.FormattingEnabled = true;
             ComboKendaraan.Location = new Point(28, 117);
             ComboKendaraan.Name = "ComboKendaraan";
-            ComboKendaraan.Size = new Size(200, 33);
+            ComboKendaraan.Size = new Size(224, 33);
             ComboKendaraan.TabIndex = 1;
             // 
             // panel11
@@ -309,7 +311,7 @@
             panel11.Controls.Add(TextKapasitasMesin);
             panel11.Location = new Point(28, 437);
             panel11.Name = "panel11";
-            panel11.Size = new Size(322, 44);
+            panel11.Size = new Size(346, 44);
             panel11.TabIndex = 5;
             // 
             // TextKapasitasMesin
@@ -322,7 +324,7 @@
             TextKapasitasMesin.MaxLength = 100;
             TextKapasitasMesin.Name = "TextKapasitasMesin";
             TextKapasitasMesin.ReadOnly = true;
-            TextKapasitasMesin.Size = new Size(313, 23);
+            TextKapasitasMesin.Size = new Size(337, 23);
             TextKapasitasMesin.TabIndex = 49;
             TextKapasitasMesin.TabStop = false;
             // 
@@ -356,7 +358,7 @@
             panel12.Controls.Add(TextMerek);
             panel12.Location = new Point(28, 215);
             panel12.Name = "panel12";
-            panel12.Size = new Size(322, 44);
+            panel12.Size = new Size(346, 44);
             panel12.TabIndex = 3;
             // 
             // TextMerek
@@ -369,7 +371,7 @@
             TextMerek.MaxLength = 100;
             TextMerek.Name = "TextMerek";
             TextMerek.ReadOnly = true;
-            TextMerek.Size = new Size(313, 23);
+            TextMerek.Size = new Size(337, 23);
             TextMerek.TabIndex = 49;
             TextMerek.TabStop = false;
             // 
@@ -417,25 +419,25 @@
             label11.TabIndex = 70;
             label11.Text = "Merek";
             // 
-            // panel3
+            // PanelDataPribadi
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel3.BackColor = Color.WhiteSmoke;
-            panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(label3);
-            panel3.Controls.Add(panel6);
-            panel3.Controls.Add(ButtonShowPelanggan);
-            panel3.Controls.Add(label1);
-            panel3.Controls.Add(panel7);
-            panel3.Controls.Add(panel8);
-            panel3.Controls.Add(label2);
-            panel3.Controls.Add(label7);
-            panel3.Controls.Add(panel9);
-            panel3.Controls.Add(label8);
-            panel3.Location = new Point(26, 140);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(470, 640);
-            panel3.TabIndex = 45;
+            PanelDataPribadi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            PanelDataPribadi.BackColor = Color.WhiteSmoke;
+            PanelDataPribadi.BorderStyle = BorderStyle.FixedSingle;
+            PanelDataPribadi.Controls.Add(label3);
+            PanelDataPribadi.Controls.Add(panel6);
+            PanelDataPribadi.Controls.Add(ButtonShowPelanggan);
+            PanelDataPribadi.Controls.Add(label1);
+            PanelDataPribadi.Controls.Add(panel7);
+            PanelDataPribadi.Controls.Add(panel8);
+            PanelDataPribadi.Controls.Add(label2);
+            PanelDataPribadi.Controls.Add(label7);
+            PanelDataPribadi.Controls.Add(panel9);
+            PanelDataPribadi.Controls.Add(label8);
+            PanelDataPribadi.Location = new Point(26, 140);
+            PanelDataPribadi.Name = "PanelDataPribadi";
+            PanelDataPribadi.Size = new Size(470, 640);
+            PanelDataPribadi.TabIndex = 45;
             // 
             // label3
             // 
@@ -450,6 +452,7 @@
             // 
             // panel6
             // 
+            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel6.BackColor = Color.White;
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(TextAlamat);
@@ -460,6 +463,7 @@
             // 
             // TextAlamat
             // 
+            TextAlamat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextAlamat.BackColor = Color.White;
             TextAlamat.BorderStyle = BorderStyle.None;
             TextAlamat.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -473,6 +477,7 @@
             // 
             // ButtonShowPelanggan
             // 
+            ButtonShowPelanggan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             ButtonShowPelanggan.BackColor = Color.Gray;
             ButtonShowPelanggan.BackgroundColor = Color.Gray;
             ButtonShowPelanggan.BorderColor = Color.Black;
@@ -503,6 +508,7 @@
             // 
             // panel7
             // 
+            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel7.BackColor = Color.White;
             panel7.BorderStyle = BorderStyle.FixedSingle;
             panel7.Controls.Add(TextTelepon);
@@ -513,6 +519,7 @@
             // 
             // TextTelepon
             // 
+            TextTelepon.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextTelepon.BackColor = Color.White;
             TextTelepon.BorderStyle = BorderStyle.None;
             TextTelepon.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -526,6 +533,7 @@
             // 
             // panel8
             // 
+            panel8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel8.BackColor = Color.White;
             panel8.BorderStyle = BorderStyle.FixedSingle;
             panel8.Controls.Add(TextNama);
@@ -536,6 +544,7 @@
             // 
             // TextNama
             // 
+            TextNama.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextNama.BackColor = Color.White;
             TextNama.BorderStyle = BorderStyle.None;
             TextNama.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -571,6 +580,7 @@
             // 
             // panel9
             // 
+            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel9.BackColor = Color.White;
             panel9.BorderStyle = BorderStyle.FixedSingle;
             panel9.Controls.Add(TextNomorKTP);
@@ -615,7 +625,7 @@
             ButtonCekKetersediaan.FlatStyle = FlatStyle.Flat;
             ButtonCekKetersediaan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonCekKetersediaan.ForeColor = Color.White;
-            ButtonCekKetersediaan.Location = new Point(1191, 817);
+            ButtonCekKetersediaan.Location = new Point(1215, 817);
             ButtonCekKetersediaan.Name = "ButtonCekKetersediaan";
             ButtonCekKetersediaan.Size = new Size(218, 45);
             ButtonCekKetersediaan.TabIndex = 48;
@@ -635,7 +645,7 @@
             ButtonBatal.FlatStyle = FlatStyle.Flat;
             ButtonBatal.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonBatal.ForeColor = Color.White;
-            ButtonBatal.Location = new Point(1029, 817);
+            ButtonBatal.Location = new Point(1053, 817);
             ButtonBatal.Name = "ButtonBatal";
             ButtonBatal.Size = new Size(135, 45);
             ButtonBatal.TabIndex = 49;
@@ -648,18 +658,18 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            ClientSize = new Size(1458, 906);
-            Controls.Add(panel1);
+            ClientSize = new Size(1482, 906);
+            Controls.Add(PanelMain);
             Name = "PelangganBookingForm";
             Text = "PelangganBookingForm";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            PanelMain.ResumeLayout(false);
+            PanelMain.PerformLayout();
+            PanelBookingServis.ResumeLayout(false);
+            PanelBookingServis.PerformLayout();
             panel18.ResumeLayout(false);
             panel18.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            PanelDataKendaraan.ResumeLayout(false);
+            PanelDataKendaraan.PerformLayout();
             panel13.ResumeLayout(false);
             panel13.PerformLayout();
             panel10.ResumeLayout(false);
@@ -668,8 +678,8 @@
             panel11.PerformLayout();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            PanelDataPribadi.ResumeLayout(false);
+            PanelDataPribadi.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel7.ResumeLayout(false);
@@ -683,16 +693,16 @@
 
         #endregion
         private TextBox TextEmail;
-        private Panel panel1;
+        private Panel PanelMain;
         private Label label9;
-        private Panel panel2;
+        private Panel PanelBookingServis;
         private Syncfusion.WinForms.Input.SfDateTimeEdit PickerBookingTanggal;
         private Label label12;
         private Panel panel18;
         private TextBox TextKeluhan;
         private Label label16;
         private Label label17;
-        private Panel panel4;
+        private Panel PanelDataKendaraan;
         private Panel panel13;
         private TextBox TextTransmisi;
         private SMB_CustomTolbox.LathifButton ButtonTambahKendaraan;
@@ -709,7 +719,7 @@
         private Label label10;
         private Label label13;
         private Label label11;
-        private Panel panel3;
+        private Panel PanelDataPribadi;
         private Label label3;
         private Panel panel6;
         private TextBox TextAlamat;

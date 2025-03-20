@@ -19,25 +19,25 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
 
                 using var conn = new SqlConnection(ConnStringHelper.GetConn());
                 conn.Execute(sql, new { hari, is_libur });
-            }
+        }
 
-            public IEnumerable<JadwalLiburModel> ListData()
-            {
-                const string sql = @"SELECT id_jadwal_libur, tanggal_libur, hari, is_libur FROM tb_jadwal_libur";
+        public IEnumerable<JadwalLiburModel> ListData()
+        {
+            const string sql = @"SELECT id_jadwal_libur, tanggal_libur, hari, is_libur FROM tb_jadwal_libur";
 
-                using var conn = new SqlConnection(ConnStringHelper.GetConn());
-                return conn.Query<JadwalLiburModel>(sql);
-            }
+            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            return conn.Query<JadwalLiburModel>(sql);
+        }
 
-            public void DeleteData(int id_jadwal_libur)
-            {
-                const string sql = @"
-                    DELETE FROM tb_jadwal_libur 
-                    WHERE id_jadwal_libur = @id_jadwal_libur";
+        public void DeleteData(int id_jadwal_libur)
+        {
+            const string sql = @"
+                DELETE FROM tb_jadwal_libur 
+                WHERE id_jadwal_libur = @id_jadwal_libur";
 
-                using var conn = new SqlConnection(ConnStringHelper.GetConn());
-                conn.Execute(sql, new { id_jadwal_libur });
-            }
+            using var conn = new SqlConnection(ConnStringHelper.GetConn());
+            conn.Execute(sql, new { id_jadwal_libur });
+        }
 
         public void InsertData(JadwalLiburModel jadwal)
         {

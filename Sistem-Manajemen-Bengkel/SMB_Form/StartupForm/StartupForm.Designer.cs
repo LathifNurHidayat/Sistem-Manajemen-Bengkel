@@ -33,7 +33,9 @@
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
+            pictureBox7 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -41,9 +43,9 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(297, 176);
+            pictureBox1.Location = new Point(843, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(338, 250);
+            pictureBox1.Size = new Size(90, 88);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -83,6 +85,18 @@
             label3.TabIndex = 4;
             label3.Text = "Untuk Perawatan Maksimal";
             // 
+            // pictureBox7
+            // 
+            pictureBox7.Anchor = AnchorStyles.None;
+            pictureBox7.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox7.Image = Properties.Resources.MekanikLogo;
+            pictureBox7.Location = new Point(307, 89);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(324, 401);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 7;
+            pictureBox7.TabStop = false;
+            // 
             // StartupForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -93,12 +107,14 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
+            Controls.Add(pictureBox7);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "StartupForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -108,5 +124,6 @@
         private Label label2;
         private Label label1;
         private Label label3;
+        private PictureBox pictureBox7;
     }
 }

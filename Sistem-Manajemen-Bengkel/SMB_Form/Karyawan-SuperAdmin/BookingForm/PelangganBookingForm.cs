@@ -36,7 +36,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             PickerBookingTanggal.Culture = new System.Globalization.CultureInfo("id-ID");
             PickerBookingTanggal.MinDateTime = DateTime.Today;
 
-            CustomComponentHelper.CustomPanel(panel1);
+            CustomComponentHelper.CustomPanel(PanelMain);
 
             InitialDataKendaraan();
             RegisterControlEvent();
@@ -137,7 +137,25 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
             ButtonBatal.Click += ButtonBatal_Click;
             ButtonCekKetersediaan.Click += ButtonCekKetersediaan_Click;
             ComboKendaraan.SelectedValueChanged += ComboKendaraan_SelectedValueChanged;
+            PanelMain.Resize += PanelMain_Resize;
         }
+
+        private void PanelMain_Resize(object? sender, EventArgs e)
+        {
+            int widthPanelMain = PanelMain.Width;
+            int jarakAntarPanel = 30;
+            int widthPerPanel = (widthPanelMain - (30 * 4)) / 3;
+            int jarakDenganTop = 140;
+
+            PanelDataPribadi.Width = widthPerPanel;
+            PanelDataKendaraan.Width = widthPerPanel;
+            PanelBookingServis.Width = widthPerPanel;
+
+            PanelDataPribadi.Location = new Point(jarakAntarPanel, jarakDenganTop);
+            PanelDataKendaraan.Location = new Point((jarakAntarPanel * 2) + widthPerPanel, jarakDenganTop);
+            PanelBookingServis.Location = new Point((jarakAntarPanel * 3) + widthPerPanel * 2, jarakDenganTop);
+        }
+
 
         private void ComboKendaraan_SelectedValueChanged(object? sender, EventArgs e)
         {
@@ -147,7 +165,6 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.BookingForm
                 ClearKendaraanForm();
                 return;
             }
-
             GetDataKendaraan(value);
         }
 

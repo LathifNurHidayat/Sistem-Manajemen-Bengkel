@@ -18,7 +18,7 @@ using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 using Rectangle = iTextSharp.text.Rectangle;
 using Image = iTextSharp.text.Image;
 
-public class Invoice_Laporan
+public class InvoiceLaporanHelper
 {
     public static void GenerateInvoicePDF(InvoiceModel invoice)
     {
@@ -44,7 +44,7 @@ public class Invoice_Laporan
         Font bodyFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
 
         Paragraph title = new Paragraph(invoice.nama_bengkel, titleFont);
-        title.Alignment = Element.ALIGN_LEFT;
+        title.Alignment = Element.ALIGN_LEFT; 
         doc.Add(title);
 
         Paragraph infoBengkel = new Paragraph($"{invoice.alamat_bengkel}\nEmail: {invoice.email_bengkel} | Telp: {invoice.no_telp_bengkel}\n\n", subTitleFont);
@@ -82,7 +82,7 @@ public class Invoice_Laporan
 
         table.AddCell(GetStyledCell(invoice.jasa_servis, bodyFont, BaseColor.WHITE));
         table.AddCell(GetStyledCell("1", bodyFont, BaseColor.WHITE, Element.ALIGN_CENTER));
-        table.AddCell(GetStyledCell($"Rp {invoice.biaya_jasa:N0}", bodyFont, BaseColor.WHITE));
+        table.AddCell(GetStyledCell($"Rp {invoice.biaya_jasa:N0}", bodyFont, BaseColor.WHITE, Element.ALIGN_RIGHT));
 
         if (invoice.List_sparepart.Count >= 1)
         {
@@ -90,12 +90,11 @@ public class Invoice_Laporan
             {
                 table.AddCell(GetStyledCell(invoice.List_sparepart[i], bodyFont, BaseColor.WHITE));
                 table.AddCell(GetStyledCell(invoice.List_quantity[i], bodyFont, BaseColor.WHITE, Element.ALIGN_CENTER));
-                table.AddCell(GetStyledCell($"Rp {invoice.List_harga_sparepart[i]:N0}", bodyFont, BaseColor.WHITE));
+                table.AddCell(GetStyledCell($"Rp {invoice.List_harga_sparepart[i]:N0}", bodyFont, BaseColor.WHITE, Element.ALIGN_RIGHT));
             }
         }
 
         doc.Add(table);
-        doc.Add(new Paragraph("\n"));
 
         if (!string.IsNullOrWhiteSpace(invoice.catatan))
         {

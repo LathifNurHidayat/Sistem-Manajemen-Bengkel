@@ -28,327 +28,129 @@
         /// </summary>
         private void InitializeComponent()
         {
-            contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
-            deleteToolStripMenuItem = new ToolStripMenuItem();
-            panel3 = new Panel();
-            gradientPanelExt1 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
-            label11 = new Label();
-            label13 = new Label();
-            label10 = new Label();
-            label6 = new Label();
-            panel12 = new Panel();
-            TextMerekBooking = new TextBox();
-            label5 = new Label();
-            panel11 = new Panel();
-            TextKapasitasMesinBooking = new TextBox();
-            ComboKendaraan = new ComboBox();
-            panel10 = new Panel();
-            TextTahunBooking = new TextBox();
-            ButtonTambahKendaraan = new SMB_CustomTolbox.LathifButton();
-            panel13 = new Panel();
-            TextTransmisiBooking = new TextBox();
-            gradientPanelExt2 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
-            label17 = new Label();
-            label16 = new Label();
+            PanelMain = new Panel();
+            label9 = new Label();
+            PanelBookingServis = new Panel();
+            PickerBookingTanggal = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            label12 = new Label();
             panel18 = new Panel();
             TextKeluhanBooking = new TextBox();
-            ButtonCekKetersediaan = new SMB_CustomTolbox.LathifButton();
-            PickerBookingTanggal = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            label16 = new Label();
+            label17 = new Label();
+            PanelDataKendaraan = new Panel();
+            panel13 = new Panel();
+            TextTransmisi = new TextBox();
+            ButtonTambahKendaraan = new SMB_CustomTolbox.LathifButton();
+            panel10 = new Panel();
+            TextTahun = new TextBox();
+            ComboKendaraan = new ComboBox();
+            panel11 = new Panel();
+            TextKapasitasMesin = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            panel12 = new Panel();
+            TextMerek = new TextBox();
+            label6 = new Label();
+            label10 = new Label();
+            label13 = new Label();
+            label11 = new Label();
+            PanelDataPribadi = new Panel();
+            label3 = new Label();
+            panel6 = new Panel();
+            TextAlamat = new TextBox();
+            label1 = new Label();
+            panel7 = new Panel();
+            TextTelepon = new TextBox();
+            panel8 = new Panel();
+            TextNama = new TextBox();
             label2 = new Label();
-            panel1 = new Panel();
-            contextMenuStrip.SuspendLayout();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).BeginInit();
-            gradientPanelExt1.SuspendLayout();
-            panel12.SuspendLayout();
-            panel11.SuspendLayout();
-            panel10.SuspendLayout();
-            panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt2).BeginInit();
-            gradientPanelExt2.SuspendLayout();
+            label7 = new Label();
+            panel9 = new Panel();
+            TextNomorKTP = new TextBox();
+            label8 = new Label();
+            ButtonCekKetersediaan = new SMB_CustomTolbox.LathifButton();
+            ButtonKembali = new SMB_CustomTolbox.LathifButton();
+            PanelMain.SuspendLayout();
+            PanelBookingServis.SuspendLayout();
             panel18.SuspendLayout();
-            panel1.SuspendLayout();
+            PanelDataKendaraan.SuspendLayout();
+            panel13.SuspendLayout();
+            panel10.SuspendLayout();
+            panel11.SuspendLayout();
+            panel12.SuspendLayout();
+            PanelDataPribadi.SuspendLayout();
+            panel6.SuspendLayout();
+            panel7.SuspendLayout();
+            panel8.SuspendLayout();
+            panel9.SuspendLayout();
             SuspendLayout();
             // 
-            // contextMenuStrip
+            // PanelMain
             // 
-            contextMenuStrip.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            contextMenuStrip.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem });
-            contextMenuStrip.MetroColor = Color.FromArgb(204, 236, 249);
-            contextMenuStrip.Name = "contextMenuStrip";
-            contextMenuStrip.Size = new Size(146, 36);
+            PanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelMain.BackColor = Color.White;
+            PanelMain.Controls.Add(label9);
+            PanelMain.Controls.Add(PanelBookingServis);
+            PanelMain.Controls.Add(PanelDataKendaraan);
+            PanelMain.Controls.Add(PanelDataPribadi);
+            PanelMain.Controls.Add(ButtonCekKetersediaan);
+            PanelMain.Controls.Add(ButtonKembali);
+            PanelMain.Location = new Point(12, 12);
+            PanelMain.Name = "PanelMain";
+            PanelMain.Size = new Size(1434, 882);
+            PanelMain.TabIndex = 0;
             // 
-            // deleteToolStripMenuItem
+            // label9
             // 
-            deleteToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            deleteToolStripMenuItem.Image = Properties.Resources.delete__1_;
-            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(145, 32);
-            deleteToolStripMenuItem.Text = "Delete";
+            label9.AutoSize = true;
+            label9.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(26, 20);
+            label9.Name = "label9";
+            label9.Size = new Size(208, 31);
+            label9.TabIndex = 50;
+            label9.Text = "📆  Input Booking";
             // 
-            // panel3
+            // PanelBookingServis
             // 
-            panel3.Controls.Add(label2);
-            panel3.Controls.Add(gradientPanelExt2);
-            panel3.Controls.Add(gradientPanelExt1);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1458, 765);
-            panel3.TabIndex = 49;
+            PanelBookingServis.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            PanelBookingServis.BackColor = Color.WhiteSmoke;
+            PanelBookingServis.BorderStyle = BorderStyle.FixedSingle;
+            PanelBookingServis.Controls.Add(PickerBookingTanggal);
+            PanelBookingServis.Controls.Add(label12);
+            PanelBookingServis.Controls.Add(panel18);
+            PanelBookingServis.Controls.Add(label16);
+            PanelBookingServis.Controls.Add(label17);
+            PanelBookingServis.Location = new Point(939, 140);
+            PanelBookingServis.Name = "PanelBookingServis";
+            PanelBookingServis.Size = new Size(470, 640);
+            PanelBookingServis.TabIndex = 47;
             // 
-            // gradientPanelExt1
+            // PickerBookingTanggal
             // 
-            gradientPanelExt1.Anchor = AnchorStyles.Top;
-            gradientPanelExt1.BackColor = Color.WhiteSmoke;
-            gradientPanelExt1.Border = new Padding(2);
-            gradientPanelExt1.BorderGap = 2;
-            gradientPanelExt1.BorderStyle = BorderStyle.None;
-            gradientPanelExt1.Controls.Add(panel13);
-            gradientPanelExt1.Controls.Add(ButtonTambahKendaraan);
-            gradientPanelExt1.Controls.Add(panel10);
-            gradientPanelExt1.Controls.Add(ComboKendaraan);
-            gradientPanelExt1.Controls.Add(panel11);
-            gradientPanelExt1.Controls.Add(label5);
-            gradientPanelExt1.Controls.Add(panel12);
-            gradientPanelExt1.Controls.Add(label6);
-            gradientPanelExt1.Controls.Add(label10);
-            gradientPanelExt1.Controls.Add(label13);
-            gradientPanelExt1.Controls.Add(label11);
-            gradientPanelExt1.CornerRadius = 10;
-            gradientPanelExt1.Location = new Point(174, 140);
-            gradientPanelExt1.Name = "gradientPanelExt1";
-            gradientPanelExt1.Size = new Size(539, 570);
-            gradientPanelExt1.TabIndex = 50;
+            PickerBookingTanggal.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            PickerBookingTanggal.DateTimeIcon = null;
+            PickerBookingTanggal.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
+            PickerBookingTanggal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            PickerBookingTanggal.Format = "dddd, dd-MM-yyyy";
+            PickerBookingTanggal.Location = new Point(28, 109);
+            PickerBookingTanggal.MinDateTime = new DateTime(2025, 2, 24, 7, 58, 7, 0);
+            PickerBookingTanggal.Name = "PickerBookingTanggal";
+            PickerBookingTanggal.Size = new Size(409, 44);
+            PickerBookingTanggal.TabIndex = 1;
+            PickerBookingTanggal.ToolTipText = "";
+            PickerBookingTanggal.Value = new DateTime(2025, 2, 24, 7, 58, 7, 0);
             // 
-            // label11
+            // label12
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.ForeColor = Color.Black;
-            label11.Location = new Point(43, 157);
-            label11.Name = "label11";
-            label11.Size = new Size(65, 25);
-            label11.TabIndex = 92;
-            label11.Text = "Merek";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.ForeColor = Color.Black;
-            label13.Location = new Point(43, 64);
-            label13.Name = "label13";
-            label13.Size = new Size(232, 25);
-            label13.TabIndex = 91;
-            label13.Text = "Pilih Kendaraan (No Polisi)";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(43, 250);
-            label10.Name = "label10";
-            label10.Size = new Size(90, 25);
-            label10.TabIndex = 93;
-            label10.Text = "Transmisi";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(41, 343);
-            label6.Name = "label6";
-            label6.Size = new Size(178, 25);
-            label6.TabIndex = 94;
-            label6.Text = "Kapasitas Mesin (cc)";
-            // 
-            // panel12
-            // 
-            panel12.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel12.BackColor = Color.WhiteSmoke;
-            panel12.BorderStyle = BorderStyle.FixedSingle;
-            panel12.Controls.Add(TextMerekBooking);
-            panel12.Location = new Point(43, 182);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(455, 44);
-            panel12.TabIndex = 87;
-            // 
-            // TextMerekBooking
-            // 
-            TextMerekBooking.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TextMerekBooking.BackColor = Color.WhiteSmoke;
-            TextMerekBooking.BorderStyle = BorderStyle.None;
-            TextMerekBooking.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            TextMerekBooking.Location = new Point(4, 10);
-            TextMerekBooking.MaxLength = 100;
-            TextMerekBooking.Name = "TextMerekBooking";
-            TextMerekBooking.ReadOnly = true;
-            TextMerekBooking.Size = new Size(437, 23);
-            TextMerekBooking.TabIndex = 49;
-            TextMerekBooking.TabStop = false;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(43, 436);
-            label5.Name = "label5";
-            label5.Size = new Size(61, 25);
-            label5.TabIndex = 95;
-            label5.Text = "Tahun";
-            // 
-            // panel11
-            // 
-            panel11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel11.BackColor = Color.WhiteSmoke;
-            panel11.BorderStyle = BorderStyle.FixedSingle;
-            panel11.Controls.Add(TextKapasitasMesinBooking);
-            panel11.Location = new Point(43, 372);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(455, 44);
-            panel11.TabIndex = 89;
-            // 
-            // TextKapasitasMesinBooking
-            // 
-            TextKapasitasMesinBooking.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TextKapasitasMesinBooking.BackColor = Color.WhiteSmoke;
-            TextKapasitasMesinBooking.BorderStyle = BorderStyle.None;
-            TextKapasitasMesinBooking.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            TextKapasitasMesinBooking.Location = new Point(4, 10);
-            TextKapasitasMesinBooking.MaxLength = 100;
-            TextKapasitasMesinBooking.Name = "TextKapasitasMesinBooking";
-            TextKapasitasMesinBooking.ReadOnly = true;
-            TextKapasitasMesinBooking.Size = new Size(437, 23);
-            TextKapasitasMesinBooking.TabIndex = 49;
-            TextKapasitasMesinBooking.TabStop = false;
-            // 
-            // ComboKendaraan
-            // 
-            ComboKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            ComboKendaraan.BackColor = Color.White;
-            ComboKendaraan.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboKendaraan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            ComboKendaraan.FormattingEnabled = true;
-            ComboKendaraan.Location = new Point(43, 98);
-            ComboKendaraan.Name = "ComboKendaraan";
-            ComboKendaraan.Size = new Size(323, 33);
-            ComboKendaraan.TabIndex = 85;
-            // 
-            // panel10
-            // 
-            panel10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel10.BackColor = Color.WhiteSmoke;
-            panel10.BorderStyle = BorderStyle.FixedSingle;
-            panel10.Controls.Add(TextTahunBooking);
-            panel10.Location = new Point(43, 467);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(455, 44);
-            panel10.TabIndex = 90;
-            // 
-            // TextTahunBooking
-            // 
-            TextTahunBooking.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TextTahunBooking.BackColor = Color.WhiteSmoke;
-            TextTahunBooking.BorderStyle = BorderStyle.None;
-            TextTahunBooking.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            TextTahunBooking.Location = new Point(4, 10);
-            TextTahunBooking.MaxLength = 100;
-            TextTahunBooking.Name = "TextTahunBooking";
-            TextTahunBooking.ReadOnly = true;
-            TextTahunBooking.Size = new Size(437, 23);
-            TextTahunBooking.TabIndex = 49;
-            TextTahunBooking.TabStop = false;
-            // 
-            // ButtonTambahKendaraan
-            // 
-            ButtonTambahKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ButtonTambahKendaraan.BackColor = Color.FromArgb(82, 109, 130);
-            ButtonTambahKendaraan.BackgroundColor = Color.FromArgb(82, 109, 130);
-            ButtonTambahKendaraan.BorderColor = Color.DarkGray;
-            ButtonTambahKendaraan.BorderRadius = 3;
-            ButtonTambahKendaraan.BorderSize = 0;
-            ButtonTambahKendaraan.FlatAppearance.BorderSize = 0;
-            ButtonTambahKendaraan.FlatStyle = FlatStyle.Flat;
-            ButtonTambahKendaraan.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonTambahKendaraan.ForeColor = Color.White;
-            ButtonTambahKendaraan.Location = new Point(382, 98);
-            ButtonTambahKendaraan.Name = "ButtonTambahKendaraan";
-            ButtonTambahKendaraan.Size = new Size(116, 33);
-            ButtonTambahKendaraan.TabIndex = 86;
-            ButtonTambahKendaraan.Text = "➕ Tambah ";
-            ButtonTambahKendaraan.TextColor = Color.White;
-            ButtonTambahKendaraan.UseVisualStyleBackColor = false;
-            // 
-            // panel13
-            // 
-            panel13.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel13.BackColor = Color.WhiteSmoke;
-            panel13.BorderStyle = BorderStyle.FixedSingle;
-            panel13.Controls.Add(TextTransmisiBooking);
-            panel13.Location = new Point(43, 277);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(455, 44);
-            panel13.TabIndex = 88;
-            // 
-            // TextTransmisiBooking
-            // 
-            TextTransmisiBooking.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TextTransmisiBooking.BackColor = Color.WhiteSmoke;
-            TextTransmisiBooking.BorderStyle = BorderStyle.None;
-            TextTransmisiBooking.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            TextTransmisiBooking.Location = new Point(4, 10);
-            TextTransmisiBooking.MaxLength = 100;
-            TextTransmisiBooking.Name = "TextTransmisiBooking";
-            TextTransmisiBooking.ReadOnly = true;
-            TextTransmisiBooking.Size = new Size(437, 23);
-            TextTransmisiBooking.TabIndex = 49;
-            TextTransmisiBooking.TabStop = false;
-            // 
-            // gradientPanelExt2
-            // 
-            gradientPanelExt2.Anchor = AnchorStyles.Top;
-            gradientPanelExt2.BackColor = Color.WhiteSmoke;
-            gradientPanelExt2.Border = new Padding(2);
-            gradientPanelExt2.BorderGap = 2;
-            gradientPanelExt2.BorderStyle = BorderStyle.None;
-            gradientPanelExt2.Controls.Add(PickerBookingTanggal);
-            gradientPanelExt2.Controls.Add(ButtonCekKetersediaan);
-            gradientPanelExt2.Controls.Add(panel18);
-            gradientPanelExt2.Controls.Add(label16);
-            gradientPanelExt2.Controls.Add(label17);
-            gradientPanelExt2.CornerRadius = 10;
-            gradientPanelExt2.Location = new Point(759, 140);
-            gradientPanelExt2.Name = "gradientPanelExt2";
-            gradientPanelExt2.Size = new Size(539, 570);
-            gradientPanelExt2.TabIndex = 51;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label17.ForeColor = Color.Black;
-            label17.Location = new Point(41, 154);
-            label17.Name = "label17";
-            label17.Size = new Size(79, 25);
-            label17.TabIndex = 75;
-            label17.Text = "Keluhan";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label16.ForeColor = Color.Black;
-            label16.Location = new Point(41, 64);
-            label16.Name = "label16";
-            label16.Size = new Size(150, 25);
-            label16.TabIndex = 73;
-            label16.Text = "Booking Tanggal";
-            label16.TextAlign = ContentAlignment.TopCenter;
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.ForeColor = Color.Black;
+            label12.Location = new Point(16, 16);
+            label12.Name = "label12";
+            label12.Size = new Size(176, 28);
+            label12.TabIndex = 58;
+            label12.Text = "C. Booking Servis";
             // 
             // panel18
             // 
@@ -356,10 +158,10 @@
             panel18.BackColor = Color.White;
             panel18.BorderStyle = BorderStyle.FixedSingle;
             panel18.Controls.Add(TextKeluhanBooking);
-            panel18.Location = new Point(41, 182);
+            panel18.Location = new Point(28, 215);
             panel18.Name = "panel18";
-            panel18.Size = new Size(457, 262);
-            panel18.TabIndex = 72;
+            panel18.Size = new Size(409, 262);
+            panel18.TabIndex = 2;
             // 
             // TextKeluhanBooking
             // 
@@ -371,14 +173,429 @@
             TextKeluhanBooking.MaxLength = 100;
             TextKeluhanBooking.Multiline = true;
             TextKeluhanBooking.Name = "TextKeluhanBooking";
-            TextKeluhanBooking.Size = new Size(442, 245);
+            TextKeluhanBooking.Size = new Size(397, 241);
             TextKeluhanBooking.TabIndex = 49;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label16.ForeColor = Color.Black;
+            label16.Location = new Point(28, 83);
+            label16.Name = "label16";
+            label16.Size = new Size(150, 25);
+            label16.TabIndex = 43;
+            label16.Text = "Booking Tanggal";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label17.ForeColor = Color.Black;
+            label17.Location = new Point(28, 187);
+            label17.Name = "label17";
+            label17.Size = new Size(79, 25);
+            label17.TabIndex = 70;
+            label17.Text = "Keluhan";
+            // 
+            // PanelDataKendaraan
+            // 
+            PanelDataKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelDataKendaraan.BackColor = Color.WhiteSmoke;
+            PanelDataKendaraan.BorderStyle = BorderStyle.FixedSingle;
+            PanelDataKendaraan.Controls.Add(panel13);
+            PanelDataKendaraan.Controls.Add(ButtonTambahKendaraan);
+            PanelDataKendaraan.Controls.Add(panel10);
+            PanelDataKendaraan.Controls.Add(ComboKendaraan);
+            PanelDataKendaraan.Controls.Add(panel11);
+            PanelDataKendaraan.Controls.Add(label5);
+            PanelDataKendaraan.Controls.Add(label4);
+            PanelDataKendaraan.Controls.Add(panel12);
+            PanelDataKendaraan.Controls.Add(label6);
+            PanelDataKendaraan.Controls.Add(label10);
+            PanelDataKendaraan.Controls.Add(label13);
+            PanelDataKendaraan.Controls.Add(label11);
+            PanelDataKendaraan.Location = new Point(526, 140);
+            PanelDataKendaraan.Name = "PanelDataKendaraan";
+            PanelDataKendaraan.Size = new Size(381, 640);
+            PanelDataKendaraan.TabIndex = 46;
+            // 
+            // panel13
+            // 
+            panel13.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel13.BackColor = Color.White;
+            panel13.BorderStyle = BorderStyle.FixedSingle;
+            panel13.Controls.Add(TextTransmisi);
+            panel13.Location = new Point(28, 326);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(322, 44);
+            panel13.TabIndex = 4;
+            // 
+            // TextTransmisi
+            // 
+            TextTransmisi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextTransmisi.BackColor = Color.White;
+            TextTransmisi.BorderStyle = BorderStyle.None;
+            TextTransmisi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextTransmisi.Location = new Point(4, 10);
+            TextTransmisi.MaxLength = 100;
+            TextTransmisi.Name = "TextTransmisi";
+            TextTransmisi.ReadOnly = true;
+            TextTransmisi.Size = new Size(313, 23);
+            TextTransmisi.TabIndex = 49;
+            TextTransmisi.TabStop = false;
+            // 
+            // ButtonTambahKendaraan
+            // 
+            ButtonTambahKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonTambahKendaraan.BackColor = Color.FromArgb(83, 92, 145);
+            ButtonTambahKendaraan.BackgroundColor = Color.FromArgb(83, 92, 145);
+            ButtonTambahKendaraan.BorderColor = Color.DarkGray;
+            ButtonTambahKendaraan.BorderRadius = 3;
+            ButtonTambahKendaraan.BorderSize = 0;
+            ButtonTambahKendaraan.FlatAppearance.BorderSize = 0;
+            ButtonTambahKendaraan.FlatStyle = FlatStyle.Flat;
+            ButtonTambahKendaraan.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonTambahKendaraan.ForeColor = Color.White;
+            ButtonTambahKendaraan.Location = new Point(234, 114);
+            ButtonTambahKendaraan.Name = "ButtonTambahKendaraan";
+            ButtonTambahKendaraan.Size = new Size(116, 39);
+            ButtonTambahKendaraan.TabIndex = 2;
+            ButtonTambahKendaraan.Text = "➕ Tambah ";
+            ButtonTambahKendaraan.TextColor = Color.White;
+            ButtonTambahKendaraan.UseVisualStyleBackColor = false;
+            // 
+            // panel10
+            // 
+            panel10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel10.BackColor = Color.White;
+            panel10.BorderStyle = BorderStyle.FixedSingle;
+            panel10.Controls.Add(TextTahun);
+            panel10.Location = new Point(28, 548);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(322, 44);
+            panel10.TabIndex = 6;
+            // 
+            // TextTahun
+            // 
+            TextTahun.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextTahun.BackColor = Color.White;
+            TextTahun.BorderStyle = BorderStyle.None;
+            TextTahun.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextTahun.Location = new Point(4, 10);
+            TextTahun.MaxLength = 100;
+            TextTahun.Name = "TextTahun";
+            TextTahun.ReadOnly = true;
+            TextTahun.Size = new Size(313, 23);
+            TextTahun.TabIndex = 49;
+            TextTahun.TabStop = false;
+            // 
+            // ComboKendaraan
+            // 
+            ComboKendaraan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            ComboKendaraan.BackColor = Color.White;
+            ComboKendaraan.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboKendaraan.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboKendaraan.FormattingEnabled = true;
+            ComboKendaraan.Location = new Point(28, 117);
+            ComboKendaraan.Name = "ComboKendaraan";
+            ComboKendaraan.Size = new Size(200, 33);
+            ComboKendaraan.TabIndex = 1;
+            // 
+            // panel11
+            // 
+            panel11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel11.BackColor = Color.White;
+            panel11.BorderStyle = BorderStyle.FixedSingle;
+            panel11.Controls.Add(TextKapasitasMesin);
+            panel11.Location = new Point(28, 437);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(322, 44);
+            panel11.TabIndex = 5;
+            // 
+            // TextKapasitasMesin
+            // 
+            TextKapasitasMesin.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextKapasitasMesin.BackColor = Color.White;
+            TextKapasitasMesin.BorderStyle = BorderStyle.None;
+            TextKapasitasMesin.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextKapasitasMesin.Location = new Point(4, 10);
+            TextKapasitasMesin.MaxLength = 100;
+            TextKapasitasMesin.Name = "TextKapasitasMesin";
+            TextKapasitasMesin.ReadOnly = true;
+            TextKapasitasMesin.Size = new Size(313, 23);
+            TextKapasitasMesin.TabIndex = 49;
+            TextKapasitasMesin.TabStop = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(28, 519);
+            label5.Name = "label5";
+            label5.Size = new Size(61, 25);
+            label5.TabIndex = 73;
+            label5.Text = "Tahun";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(16, 16);
+            label4.Name = "label4";
+            label4.Size = new Size(188, 28);
+            label4.TabIndex = 58;
+            label4.Text = "B. Data Kendaraan";
+            // 
+            // panel12
+            // 
+            panel12.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel12.BackColor = Color.White;
+            panel12.BorderStyle = BorderStyle.FixedSingle;
+            panel12.Controls.Add(TextMerek);
+            panel12.Location = new Point(28, 215);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(322, 44);
+            panel12.TabIndex = 3;
+            // 
+            // TextMerek
+            // 
+            TextMerek.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextMerek.BackColor = Color.White;
+            TextMerek.BorderStyle = BorderStyle.None;
+            TextMerek.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextMerek.Location = new Point(4, 10);
+            TextMerek.MaxLength = 100;
+            TextMerek.Name = "TextMerek";
+            TextMerek.ReadOnly = true;
+            TextMerek.Size = new Size(313, 23);
+            TextMerek.TabIndex = 49;
+            TextMerek.TabStop = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(26, 409);
+            label6.Name = "label6";
+            label6.Size = new Size(178, 25);
+            label6.TabIndex = 72;
+            label6.Text = "Kapasitas Mesin (cc)";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(28, 299);
+            label10.Name = "label10";
+            label10.Size = new Size(90, 25);
+            label10.TabIndex = 71;
+            label10.Text = "Transmisi";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.ForeColor = Color.Black;
+            label13.Location = new Point(28, 83);
+            label13.Name = "label13";
+            label13.Size = new Size(232, 25);
+            label13.TabIndex = 43;
+            label13.Text = "Pilih Kendaraan (No Polisi)";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = Color.Black;
+            label11.Location = new Point(28, 189);
+            label11.Name = "label11";
+            label11.Size = new Size(65, 25);
+            label11.TabIndex = 70;
+            label11.Text = "Merek";
+            // 
+            // PanelDataPribadi
+            // 
+            PanelDataPribadi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            PanelDataPribadi.BackColor = Color.WhiteSmoke;
+            PanelDataPribadi.BorderStyle = BorderStyle.FixedSingle;
+            PanelDataPribadi.Controls.Add(label3);
+            PanelDataPribadi.Controls.Add(panel6);
+            PanelDataPribadi.Controls.Add(label1);
+            PanelDataPribadi.Controls.Add(panel7);
+            PanelDataPribadi.Controls.Add(panel8);
+            PanelDataPribadi.Controls.Add(label2);
+            PanelDataPribadi.Controls.Add(label7);
+            PanelDataPribadi.Controls.Add(panel9);
+            PanelDataPribadi.Controls.Add(label8);
+            PanelDataPribadi.Location = new Point(26, 140);
+            PanelDataPribadi.Name = "PanelDataPribadi";
+            PanelDataPribadi.Size = new Size(470, 640);
+            PanelDataPribadi.TabIndex = 45;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(16, 16);
+            label3.Name = "label3";
+            label3.Size = new Size(161, 28);
+            label3.TabIndex = 58;
+            label3.Text = "A. Data Pribadi ";
+            // 
+            // panel6
+            // 
+            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel6.BackColor = Color.White;
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(TextAlamat);
+            panel6.Location = new Point(28, 433);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(409, 44);
+            panel6.TabIndex = 5;
+            // 
+            // TextAlamat
+            // 
+            TextAlamat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextAlamat.BackColor = Color.White;
+            TextAlamat.BorderStyle = BorderStyle.None;
+            TextAlamat.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextAlamat.Location = new Point(4, 10);
+            TextAlamat.MaxLength = 100;
+            TextAlamat.Name = "TextAlamat";
+            TextAlamat.ReadOnly = true;
+            TextAlamat.Size = new Size(400, 23);
+            TextAlamat.TabIndex = 49;
+            TextAlamat.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(28, 405);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 25);
+            label1.TabIndex = 56;
+            label1.Text = "Alamat";
+            // 
+            // panel7
+            // 
+            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel7.BackColor = Color.White;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(TextTelepon);
+            panel7.Location = new Point(28, 325);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(409, 44);
+            panel7.TabIndex = 4;
+            // 
+            // TextTelepon
+            // 
+            TextTelepon.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextTelepon.BackColor = Color.White;
+            TextTelepon.BorderStyle = BorderStyle.None;
+            TextTelepon.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextTelepon.Location = new Point(4, 10);
+            TextTelepon.MaxLength = 100;
+            TextTelepon.Name = "TextTelepon";
+            TextTelepon.ReadOnly = true;
+            TextTelepon.Size = new Size(400, 23);
+            TextTelepon.TabIndex = 49;
+            TextTelepon.TabStop = false;
+            // 
+            // panel8
+            // 
+            panel8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel8.BackColor = Color.White;
+            panel8.BorderStyle = BorderStyle.FixedSingle;
+            panel8.Controls.Add(TextNama);
+            panel8.Location = new Point(28, 217);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(409, 44);
+            panel8.TabIndex = 3;
+            // 
+            // TextNama
+            // 
+            TextNama.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextNama.BackColor = Color.White;
+            TextNama.BorderStyle = BorderStyle.None;
+            TextNama.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNama.Location = new Point(4, 10);
+            TextNama.MaxLength = 100;
+            TextNama.Name = "TextNama";
+            TextNama.ReadOnly = true;
+            TextNama.Size = new Size(400, 23);
+            TextNama.TabIndex = 49;
+            TextNama.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(28, 297);
+            label2.Name = "label2";
+            label2.Size = new Size(78, 25);
+            label2.TabIndex = 53;
+            label2.Text = "Telepon";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(28, 189);
+            label7.Name = "label7";
+            label7.Size = new Size(60, 25);
+            label7.TabIndex = 51;
+            label7.Text = "Nama";
+            // 
+            // panel9
+            // 
+            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel9.BackColor = Color.White;
+            panel9.BorderStyle = BorderStyle.FixedSingle;
+            panel9.Controls.Add(TextNomorKTP);
+            panel9.Location = new Point(28, 109);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(409, 44);
+            panel9.TabIndex = 1;
+            // 
+            // TextNomorKTP
+            // 
+            TextNomorKTP.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TextNomorKTP.BackColor = Color.White;
+            TextNomorKTP.BorderStyle = BorderStyle.None;
+            TextNomorKTP.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextNomorKTP.Location = new Point(4, 10);
+            TextNomorKTP.MaxLength = 16;
+            TextNomorKTP.Name = "TextNomorKTP";
+            TextNomorKTP.ReadOnly = true;
+            TextNomorKTP.Size = new Size(400, 23);
+            TextNomorKTP.TabIndex = 1;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(28, 81);
+            label8.Name = "label8";
+            label8.Size = new Size(78, 25);
+            label8.TabIndex = 43;
+            label8.Text = "No. KTP";
             // 
             // ButtonCekKetersediaan
             // 
             ButtonCekKetersediaan.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonCekKetersediaan.BackColor = Color.FromArgb(82, 109, 130);
-            ButtonCekKetersediaan.BackgroundColor = Color.FromArgb(82, 109, 130);
+            ButtonCekKetersediaan.BackColor = Color.FromArgb(83, 92, 145);
+            ButtonCekKetersediaan.BackgroundColor = Color.FromArgb(83, 92, 145);
             ButtonCekKetersediaan.BorderColor = Color.DarkGray;
             ButtonCekKetersediaan.BorderRadius = 5;
             ButtonCekKetersediaan.BorderSize = 0;
@@ -386,113 +603,114 @@
             ButtonCekKetersediaan.FlatStyle = FlatStyle.Flat;
             ButtonCekKetersediaan.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonCekKetersediaan.ForeColor = Color.White;
-            ButtonCekKetersediaan.Location = new Point(291, 478);
+            ButtonCekKetersediaan.Location = new Point(1191, 817);
             ButtonCekKetersediaan.Name = "ButtonCekKetersediaan";
-            ButtonCekKetersediaan.Size = new Size(207, 45);
-            ButtonCekKetersediaan.TabIndex = 74;
+            ButtonCekKetersediaan.Size = new Size(218, 45);
+            ButtonCekKetersediaan.TabIndex = 48;
             ButtonCekKetersediaan.Text = "✅ Cek Ketersediaan";
             ButtonCekKetersediaan.TextColor = Color.White;
             ButtonCekKetersediaan.UseVisualStyleBackColor = false;
             // 
-            // PickerBookingTanggal
+            // ButtonKembali
             // 
-            PickerBookingTanggal.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            PickerBookingTanggal.DateTimeIcon = null;
-            PickerBookingTanggal.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
-            PickerBookingTanggal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            PickerBookingTanggal.Format = "dddd, dd-MM-yyyy";
-            PickerBookingTanggal.Location = new Point(41, 93);
-            PickerBookingTanggal.MinDateTime = new DateTime(2025, 2, 24, 7, 58, 7, 0);
-            PickerBookingTanggal.Name = "PickerBookingTanggal";
-            PickerBookingTanggal.Size = new Size(457, 44);
-            PickerBookingTanggal.TabIndex = 71;
-            PickerBookingTanggal.ToolTipText = "";
-            PickerBookingTanggal.Value = new DateTime(2025, 2, 24, 7, 58, 7, 0);
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top;
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(556, 40);
-            label2.Name = "label2";
-            label2.Size = new Size(352, 46);
-            label2.TabIndex = 56;
-            label2.Text = "Form Booking Servis";
-            // 
-            // panel1
-            // 
-            panel1.AutoScroll = true;
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(panel3);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1458, 765);
-            panel1.TabIndex = 0;
+            ButtonKembali.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonKembali.BackColor = Color.DimGray;
+            ButtonKembali.BackgroundColor = Color.DimGray;
+            ButtonKembali.BorderColor = Color.DarkGray;
+            ButtonKembali.BorderRadius = 5;
+            ButtonKembali.BorderSize = 0;
+            ButtonKembali.FlatAppearance.BorderSize = 0;
+            ButtonKembali.FlatStyle = FlatStyle.Flat;
+            ButtonKembali.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonKembali.ForeColor = Color.White;
+            ButtonKembali.Location = new Point(1029, 817);
+            ButtonKembali.Name = "ButtonKembali";
+            ButtonKembali.Size = new Size(135, 45);
+            ButtonKembali.TabIndex = 49;
+            ButtonKembali.Text = "Kembali";
+            ButtonKembali.TextColor = Color.White;
+            ButtonKembali.UseVisualStyleBackColor = false;
             // 
             // FormBookingControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            Controls.Add(panel1);
+            Controls.Add(PanelMain);
             Name = "FormBookingControl";
-            Size = new Size(1458, 765);
-            contextMenuStrip.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).EndInit();
-            gradientPanelExt1.ResumeLayout(false);
-            gradientPanelExt1.PerformLayout();
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanelExt2).EndInit();
-            gradientPanelExt2.ResumeLayout(false);
-            gradientPanelExt2.PerformLayout();
+            Size = new Size(1458, 906);
+            PanelMain.ResumeLayout(false);
+            PanelMain.PerformLayout();
+            PanelBookingServis.ResumeLayout(false);
+            PanelBookingServis.PerformLayout();
             panel18.ResumeLayout(false);
             panel18.PerformLayout();
-            panel1.ResumeLayout(false);
+            PanelDataKendaraan.ResumeLayout(false);
+            PanelDataKendaraan.PerformLayout();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
+            PanelDataPribadi.ResumeLayout(false);
+            PanelDataPribadi.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
         private TextBox TextEmail;
-        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
-        private ToolStripMenuItem deleteToolStripMenuItem;
-        private Panel panel3;
-        private Label label2;
-        private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt2;
+        private Panel PanelMain;
+        private Label label9;
+        private Panel PanelBookingServis;
         private Syncfusion.WinForms.Input.SfDateTimeEdit PickerBookingTanggal;
-        private SMB_CustomTolbox.LathifButton ButtonCekKetersediaan;
+        private Label label12;
         private Panel panel18;
         private TextBox TextKeluhanBooking;
         private Label label16;
         private Label label17;
-        private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt1;
+        private Panel PanelDataKendaraan;
         private Panel panel13;
-        private TextBox TextTransmisiBooking;
+        private TextBox TextTransmisi;
         private SMB_CustomTolbox.LathifButton ButtonTambahKendaraan;
         private Panel panel10;
-        private TextBox TextTahunBooking;
+        private TextBox TextTahun;
         private ComboBox ComboKendaraan;
         private Panel panel11;
-        private TextBox TextKapasitasMesinBooking;
+        private TextBox TextKapasitasMesin;
         private Label label5;
+        private Label label4;
         private Panel panel12;
-        private TextBox TextMerekBooking;
+        private TextBox TextMerek;
         private Label label6;
         private Label label10;
         private Label label13;
         private Label label11;
-        private Panel panel1;
+        private Panel PanelDataPribadi;
+        private Label label3;
+        private Panel panel6;
+        private TextBox TextAlamat;
+        private Label label1;
+        private Panel panel7;
+        private TextBox TextTelepon;
+        private Panel panel8;
+        private TextBox TextNama;
+        private Label label2;
+        private Label label7;
+        private Panel panel9;
+        private TextBox TextNomorKTP;
+        private Label label8;
+        private SMB_CustomTolbox.LathifButton ButtonCekKetersediaan;
+        private SMB_CustomTolbox.LathifButton ButtonKembali;
     }
 }
