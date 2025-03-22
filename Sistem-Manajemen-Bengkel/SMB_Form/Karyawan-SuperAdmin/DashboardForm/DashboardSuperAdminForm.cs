@@ -18,7 +18,7 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
     public partial class DashboardSuperAdminForm : Form
     {
         private readonly DashboardDal _dashboardDal;
-        public DashboardSuperAdminForm()
+        public DashboardSuperAdminForm() 
         {
             InitializeComponent();
             _dashboardDal = new DashboardDal();

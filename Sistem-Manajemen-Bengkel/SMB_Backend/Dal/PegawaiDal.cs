@@ -141,10 +141,11 @@ namespace Sistem_Manajemen_Bengkel.SMB_Backend.Dal
         public int ValidasiDaftar(string no_ktp_pegawai, string no_hp, string email)
         {
             const string sql = @"SELECT CASE 
-                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai AND deleted_at IS NOT NULL) THEN 1
-                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai AND deleted_at IS NULL) THEN 2
-                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_hp = @no_hp AND deleted_at IS NULL) THEN 3
-                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE email = @email AND deleted_at IS NULL) THEN 4
+                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai ) THEN 1
+                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_ktp_pegawai = @no_ktp_pegawai ) THEN 2
+                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE no_hp = @no_hp ) THEN 3
+                                           WHEN EXISTS (SELECT 1 FROM tb_pegawai WHERE email = @email OR 
+                                                        SELECT 1 FROM tb_pelanggan WHERE email = @email) THEN 4
                                            ELSE 0
                                        END AS Result";
 
