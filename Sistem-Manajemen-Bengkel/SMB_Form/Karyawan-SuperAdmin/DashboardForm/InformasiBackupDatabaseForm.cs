@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistem_Manajemen_Bengkel.SMB_Backend.Dal;
 
 namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 {
@@ -30,12 +31,20 @@ namespace Sistem_Manajemen_Bengkel.SMB_Form.Karyawan_SuperAdmin.DashboardForm
 
         private void ButtonRestoreDatabase_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin merestore database ?"))
+            {
+                BackupDatabaseDal backupDatabaseDal = new BackupDatabaseDal();
+                backupDatabaseDal.RestoreDatabase();
+            }
         }
 
         private void ButtonBackupDatabase_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (MesboxHelper.ShowConfirm("Apakah anda yakin ingin membackup database ?"))
+            {
+                BackupDatabaseDal backupDatabaseDal = new BackupDatabaseDal();
+                backupDatabaseDal.BackupDatabase();
+            }
         }
 
         private void ButtonClose_Click(object? sender, EventArgs e)
