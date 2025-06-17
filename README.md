@@ -49,7 +49,7 @@
 
 Pastikan Anda telah menginstal:
 
-- **Disarankan menggunakan "Visual Studio"**
+- **Disarankan menggunakan "Microsoft Visual Studio"**
 - **Bahasa Pemrograman:** C#
 - **Manajer Paket:** [NuGet](https://www.nuget.org/)
 - **.NET SDK** (agar dapat menggunakan `dotnet` CLI)
