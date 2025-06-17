@@ -16,7 +16,23 @@
 
 **Sistem Manajemen Bengkel** adalah aplikasi manajemen bengkel kendaraan berbasis desktop (Windows Forms) yang dirancang untuk memudahkan pengelolaan data pelanggan, kendaraan, teknisi, suku cadang, booking, hingga laporan transaksi.
 
-### ✨ Fitur Utama
+### 🔧 Fitur Utama
+
+1. Fitur Login  
+2. Fitur Booking Servis  
+3. Fitur Manajemen Servis  
+4. Fitur Invoice  
+5. Fitur Laporan  
+6. Fitur Riwayat Servis  
+7. Fitur Manajemen Data  
+8. Fitur Penjadwalan Libur  
+9. Fitur Penjadwalan Jam Operasional  
+10. Fitur Informasi Profil Bengkel  
+11. Fitur Restore Data
+
+---
+
+### ✨ Fitur Unggulan
 
 - Manajemen pelanggan, kendaraan, teknisi, dan sparepart
 - Pencatatan servis kendaraan dan penjualan sparepart
